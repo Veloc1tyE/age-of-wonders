@@ -1,0 +1,268 @@
+:root{
+  --text:#1a1a1a;
+  --text-light:#2a2a2a;
+  --muted:#666666;
+  --rule:#e5e5e5;
+  --accent:#0066cc;
+  --accent-warm:#d4a017;
+  --accent-light: rgba(0, 102, 204, 0.08);
+  --accent-warm-light: rgba(212, 160, 23, 0.1);
+  --max: 780px;
+}
+
+body{
+  margin:0;
+  background:#fafafa;
+  color:var(--text);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga", "kern";
+}
+
+a{ 
+  color:var(--text); 
+  text-decoration: underline; 
+  text-underline-offset: 3px; 
+  transition: color 0.2s ease;
+}
+a:hover{ color:var(--accent); }
+
+.wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 80px 40px 120px;
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    padding: 60px 24px 100px;
+  }
+}
+
+.nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 24px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav a{
+  text-decoration:none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: all 0.2s ease;
+  color: var(--text-light);
+  letter-spacing: 0.3px;
+}
+.nav a:hover{
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+.title{
+  font-family: "Cormorant Garamond", serif;
+  font-size: 68px;
+  font-weight: 300;
+  line-height: 1;
+  margin: 0 0 14px 0;
+  color: var(--text);
+  letter-spacing: 2px;
+  text-transform: none;
+}
+
+.tagline{
+  margin: 0;
+  color: var(--muted);
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.meta{ 
+  color: var(--muted); 
+  font-size: 18px; 
+  line-height: 1.5;
+}
+
+.prose h1{ 
+  font-family: "Cormorant Garamond", serif;
+  font-size: 48px; 
+  font-weight: 500;
+  margin: 0 0 20px; 
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  color: var(--text);
+}
+.prose h2{ 
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px; 
+  font-weight: 500;
+  margin: 48px 0 20px;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+  color: var(--text);
+}
+.prose h3{ 
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px; 
+  font-weight: 500;
+  margin: 36px 0 16px;
+  line-height: 1.3;
+  letter-spacing: 0.2px;
+  color: var(--text-light);
+}
+.prose p{ 
+  margin: 20px 0; 
+  line-height: 1.75;
+}
+.prose ul, .prose ol{ 
+  margin: 24px 0 24px 24px; 
+  line-height: 1.75;
+}
+.prose li{ 
+  margin: 12px 0; 
+}
+
+.prose blockquote{
+  margin: 32px 0;
+  padding-left: 28px;
+  border-left: 3px solid var(--rule);
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.prose em{
+  font-style: italic;
+  color: var(--muted);
+}
+
+.prose strong{
+  font-weight: 600;
+  color: var(--text);
+}
+
+.prose code{
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 19px;
+  background: #f0f0f0;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: var(--text-light);
+}
+
+.prose pre{
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 24px 0;
+  line-height: 1.5;
+  border: 1px solid var(--rule);
+}
+
+.prose pre code{
+  background: none;
+  padding: 0;
+}
+
+.prose img{
+  max-width: 100%;
+  height: auto;
+  margin: 28px 0;
+  border-radius: 4px;
+}
+
+hr{ 
+  border:0; 
+  border-top:1px solid var(--rule); 
+  margin: 48px 0; 
+  opacity: 0.6;
+}
+
+/* KaTeX */
+.katex-display{ 
+  overflow-x:auto; 
+  overflow-y:hidden; 
+  padding: 16px 0; 
+  margin: 28px 0;
+}
+
+.katex{
+  font-size: 1.1em;
+}
+
+/* Essay card hover effects */
+.essay-card:hover {
+  background: linear-gradient(to right, var(--accent-light), transparent) !important;
+  transform: translateX(6px);
+  box-shadow: 0 2px 12px rgba(0, 102, 204, 0.08);
+}
+
+.essay-card:hover strong {
+  color: var(--accent);
+}
+
+/* Ordered list styling for emphasis */
+ol > li::marker {
+  font-weight: 600;
+  color: var(--accent-warm);
+}
+
+/* Section headers */
+h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 38px;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.5px;
+  color: var(--text);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  body{
+    font-size: 20px;
+  }
+  
+  .title{
+    font-size: 48px;
+    letter-spacing: 1px;
+  }
+  
+  .tagline{
+    font-size: 13px;
+  }
+  
+  .prose h1{
+    font-size: 38px;
+  }
+  
+  .prose h2{
+    font-size: 30px;
+  }
+  
+  .prose h3{
+    font-size: 24px;
+  }
+  
+  h2 {
+    font-size: 32px;
+  }
+  
+  .essay-card:hover {
+    transform: translateX(3px);
+  }
+}

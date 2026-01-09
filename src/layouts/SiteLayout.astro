@@ -1,0 +1,61 @@
+---
+const { title = "Age of Wonders", description = "A body of work exploring abundance, access, and the Age of Wonders ahead." } = Astro.props;
+import "../styles/global.css";
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Age of Wonders" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" crossorigin="anonymous" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header style="margin-bottom: 64px;">
+        <h1 class="title">
+          <a href="/" style="text-decoration:none;border-bottom:none;">Age of Wonders</a>
+        </h1>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="/">Introduction</a>
+          <a href="/essays">Essays</a>
+          <a href="/about">About</a>
+          <a href="/subscribe">Subscribe</a>
+        </nav>
+      </header>
+
+      <main class="prose" style="margin-top: 0;">
+        <slot />
+      </main>
+
+      <footer class="meta" style="margin-top:80px; padding-top:32px; border-top: 1px solid var(--rule);">
+        <p style="margin: 0 0 16px 0;">
+          © {new Date().getFullYear()} Age of Wonders
+        </p>
+
+      </footer>
+    </div>
+  </body>
+</html>

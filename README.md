@@ -1,36 +1,71 @@
-# Astro Starter Kit: Basics
+# Age of Wonders
+
+A body of writing and creative work exploring a simple belief system:
+
+1. **The universe is abundant beyond our wildest dreams.**
+2. **Scarcity is never necessary.**
+3. **Access is the limiter.**
+
+More energy from sunlight hits Earth in one hour than humanity uses in a year. That single fact suggests that many of the limits we accept are not imposed by nature, but are failures of access, infrastructure, and long-term thinking.
+
+---
+
+## 🚀 Getting Started
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The site will be available at `http://localhost:4321/`
 
-## 🚀 Project Structure
+## 📁 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```
 /
 ├── public/
 │   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── src/
+│   ├── content/
+│   │   ├── config.ts          # Content collections schema
+│   │   └── essays/            # Essay content (MDX)
+│   ├── layouts/
+│   │   ├── Layout.astro       # Base layout
+│   │   └── SiteLayout.astro   # Main site layout
+│   ├── pages/
+│   │   ├── index.astro        # Homepage
+│   │   ├── about.astro        # About page
+│   │   ├── subscribe.astro    # Subscribe page
+│   │   ├── rss.xml.js         # RSS feed
+│   │   └── essays/
+│   │       ├── index.astro    # Essays listing
+│   │       └── [...slug].astro # Individual essay pages
+│   └── styles/
+│       └── global.css         # Global styles
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## ✍️ Adding Essays
+
+Create a new `.mdx` file in `src/content/essays/` with the following frontmatter:
+
+```mdx
+---
+title: Your Essay Title
+description: A brief description
+date: 2026-01-07
+draft: false
+---
+
+Your essay content here...
+```
+
+Essays support:
+- **Markdown** formatting
+- **Math** equations with KaTeX (inline: `$E = mc^2$`, block: `$$...$$`)
+- **MDX** components
 
 ## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
@@ -39,8 +74,12 @@ All commands are run from the root of the project, from a terminal:
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 🌐 Deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Before deploying:
+1. Update the `site` URL in `astro.config.mjs` to your actual domain
+2. Set up email subscriptions (see `EMAIL_SETUP.md`)
+3. Test the subscription form
+
+Built with [Astro](https://astro.build) 🚀

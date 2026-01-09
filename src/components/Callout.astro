@@ -1,0 +1,59 @@
+---
+interface Props {
+  type?: 'info' | 'highlight' | 'warning';
+}
+
+const { type = 'info' } = Astro.props;
+---
+
+<div class={`callout callout-${type}`}>
+  <slot />
+</div>
+
+<style>
+  .callout {
+    margin: 48px 0;
+    padding: 0 0 0 32px;
+    border-left: 3px solid var(--accent);
+  }
+  
+  .callout-highlight {
+    border-left-color: var(--accent-warm);
+  }
+  
+  .callout :global(p:first-child) {
+    margin-top: 0;
+  }
+  
+  .callout :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  
+  .callout :global(ol) {
+    margin: 16px 0 0 0;
+    padding-left: 24px;
+    list-style-position: outside;
+  }
+  
+  .callout :global(li) {
+    margin: 16px 0;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  
+  .callout :global(li strong) {
+    font-weight: 500;
+  }
+  
+  @media (max-width: 640px) {
+    .callout {
+      padding: 0 0 0 20px;
+      margin: 36px 0;
+    }
+    
+    .callout :global(li) {
+      font-size: 22px;
+    }
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+interface Props {
+  number: string;
+  label: string;
+}
+
+const { number, label } = Astro.props;
+---
+
+<div class="stat-inline">
+  <span class="number">{number}</span>
+  <span class="label">{label}</span>
+</div>
+
+<style>
+  .stat-inline {
+    display: block;
+    margin: 36px 0 36px 32px;
+    padding-left: 28px;
+    border-left: 2px solid var(--rule);
+  }
+  
+  .number {
+    display: block;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 0.9;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+  }
+  
+  .label {
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 640px) {
+    .stat-inline {
+      margin: 28px 0 28px 20px;
+      padding-left: 20px;
+    }
+    
+    .number {
+      font-size: 56px;
+    }
+    
+    .label {
+      font-size: 13px;
+    }
+  }
+</style>

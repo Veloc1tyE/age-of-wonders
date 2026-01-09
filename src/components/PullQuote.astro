@@ -1,0 +1,33 @@
+---
+// Component for highlighting key quotes or statements
+---
+
+<div class="pull-quote">
+  <slot />
+</div>
+
+<style>
+  .pull-quote {
+    margin: 56px 0;
+    padding: 0 0 0 32px;
+    border-left: 4px solid var(--accent-warm);
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: 0.2px;
+    color: var(--text);
+    font-style: italic;
+  }
+  
+  .pull-quote :global(p) {
+    margin: 0;
+  }
+  
+  @media (max-width: 640px) {
+    .pull-quote {
+      font-size: 28px;
+      padding: 0 0 0 20px;
+      margin: 42px 0;
+    }
+  }
+</style>
