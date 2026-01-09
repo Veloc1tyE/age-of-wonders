@@ -4,7 +4,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 
 export default defineConfig({
-  site: "https://www.ageofwonders.org",
+  site: "https://ageofwonders.example", // Update this to your actual domain before deploying
   integrations: [mdx()],
   markdown: {
     remarkPlugins: [await import("remark-math").then(m => m.default)],
