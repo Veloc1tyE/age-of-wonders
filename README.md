@@ -3,10 +3,12 @@
 A body of writing and creative work exploring a simple belief system:
 
 1. **The universe is abundant beyond our wildest dreams.**
-2. **Scarcity is never necessary.**
-3. **Access is the limiter.**
+2. **We can create a future of wonders.**
+3. **Access is everything.**
 
-More energy from sunlight hits Earth in one hour than humanity uses in a year. That single fact suggests that many of the limits we accept are not imposed by nature, but are failures of access, infrastructure, and long-term thinking.
+More energy from sunlight hits Earth in one hour than humanity uses in a year. The oceans contain fusion fuel for billions of years. Materials exist that are lighter than air yet stronger than steel. The gap between what's possible and what we've built isn't imposed by physics—it's imposed by infrastructure, imagination, and courage.
+
+The Age of Wonders isn't about waiting for miracles. It's about building the infrastructure to access what's already there.
 
 ---
 
