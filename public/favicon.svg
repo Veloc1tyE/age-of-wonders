@@ -4,7 +4,7 @@
       .ring { 
         fill: none; 
         stroke: #d4af37; 
-        stroke-width: 8;
+        stroke-width: 12;
       }
       @media (prefers-color-scheme: dark) {
         .ring { stroke: #f4d03f; }
@@ -12,6 +12,6 @@
     </style>
   </defs>
   
-  <!-- Gold ring - spacious, elegant -->
-  <circle class="ring" cx="64" cy="64" r="48"/>
+  <!-- Gold ring - promise, commitment, perfect form -->
+  <circle class="ring" cx="64" cy="64" r="46"/>
 </svg>
