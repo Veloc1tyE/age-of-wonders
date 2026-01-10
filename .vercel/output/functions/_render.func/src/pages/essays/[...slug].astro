@@ -1,0 +1,305 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { getEntry, getCollection } from "astro:content";
+import fs from "fs";
+import path from "path";
+
+export async function getStaticPaths() {
+  const { getCollection } = await import("astro:content");
+  const essays = await getCollection("essays");
+  return essays.map((entry) => ({
+    params: { slug: entry.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const entry = await getEntry("essays", slug!);
+
+if (!entry) return Astro.redirect("/essays");
+
+const { Content } = await entry.render();
+
+// Get all published essays sorted by date for prev/next navigation
+const allEssays = (await getCollection("essays"))
+  .filter(e => !e.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const currentIndex = allEssays.findIndex(e => e.slug === slug);
+const previousEssay = currentIndex < allEssays.length - 1 ? allEssays[currentIndex + 1] : null;
+const nextEssay = currentIndex > 0 ? allEssays[currentIndex - 1] : null;
+
+// Read raw file content for editing (only in dev)
+const filepath = `src/content/essays/${slug}.mdx`;
+let rawContent = '';
+if (!import.meta.env.PROD) {
+  try {
+    rawContent = fs.readFileSync(path.join(process.cwd(), filepath), 'utf-8');
+  } catch (e) {
+    console.error('Could not read file for edit mode:', e);
+  }
+}
+---
+
+<SiteLayout title={`${entry.data.title} — Age of Wonders`} description={entry.data.description}>
+  <h1 style="margin-top: 0; margin-bottom: 12px;">{entry.data.title}</h1>
+  {entry.data.description && (
+    <p style="font-style: italic; font-size: 21px; color: var(--muted); margin-bottom: 8px; line-height: 1.5;">
+      {entry.data.description}
+    </p>
+  )}
+  <p class="meta" style="margin-top: 12px; margin-bottom: 48px;">
+    {entry.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+  </p>
+  
+  <Content />
+
+  <!-- Subscribe CTA -->
+  <div style="margin-top: 64px; padding: 32px; background: linear-gradient(to right, var(--accent-light), transparent); border-left: 4px solid var(--accent); border-radius: 0 6px 6px 0;">
+    <h3 style="margin: 0 0 12px 0; font-size: 26px; font-weight: 500; color: var(--text);">Explore More</h3>
+    <p style="margin: 0 0 20px 0; font-size: 20px; line-height: 1.6; color: var(--text-light);">
+      Read new essays exploring abundance, access, and the Age of Wonders ahead.
+    </p>
+    <a 
+      href="/subscribe" 
+      style="display: inline-block; padding: 12px 28px; background: var(--accent); color: white; text-decoration: none; border-radius: 6px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 0.3px; transition: all 0.2s ease;"
+      onmouseover="this.style.background='#0052a3'"
+      onmouseout="this.style.background='var(--accent)'"
+    >
+      Subscribe
+    </a>
+    <p style="margin: 16px 0 0 0; font-family: 'Inter', sans-serif; font-size: 15px; color: var(--muted); font-style: italic;">
+      Low frequency. High quality. No distractions.
+    </p>
+  </div>
+
+  <!-- Essay Navigation -->
+  <nav style="margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; gap: 32px;">
+    <div style="flex: 1;">
+      {previousEssay ? (
+        <a href={`/essays/${previousEssay.slug}/`} style="text-decoration: none; display: block;">
+          <span style="font-family: 'Inter', sans-serif; font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">← Previous</span>
+          <span style="font-size: 20px; color: var(--text); font-weight: 500;">{previousEssay.data.title}</span>
+        </a>
+      ) : null}
+    </div>
+    <div style="flex: 1; text-align: right;">
+      {nextEssay ? (
+        <a href={`/essays/${nextEssay.slug}/`} style="text-decoration: none; display: block;">
+          <span style="font-family: 'Inter', sans-serif; font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">Next →</span>
+          <span style="font-size: 20px; color: var(--text); font-weight: 500;">{nextEssay.data.title}</span>
+        </a>
+      ) : null}
+    </div>
+  </nav>
+
+  <!-- Edit Mode (localhost only) -->
+  {!import.meta.env.PROD && rawContent && (
+    <div id="edit-mode" class="edit-overlay" style="display: none;">
+      <div class="edit-container">
+        <div class="edit-header">
+          <h3>Editing: {filepath}</h3>
+          <div>
+            <button id="save-btn" class="btn-primary">Save</button>
+            <button id="close-btn" class="btn-secondary">Close</button>
+          </div>
+        </div>
+        <textarea id="editor" data-filepath={filepath}>{rawContent}</textarea>
+        <div class="edit-footer">
+          <p>Changes saved to disk. Use <code>git add</code> and <code>git commit</code> to stage.</p>
+        </div>
+      </div>
+    </div>
+  )}
+</SiteLayout>
+
+<script>
+  // Check for edit mode
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('edit') === 'true') {
+    showEditMode();
+  }
+  
+  // Also listen for keyboard shortcut: Cmd+E or Ctrl+E
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'e') {
+      e.preventDefault();
+      showEditMode();
+    }
+  });
+  
+  function showEditMode() {
+    const overlay = document.getElementById('edit-mode');
+    if (!overlay) return;
+    
+    overlay.style.display = 'flex';
+    
+    const editor = document.getElementById('editor') as HTMLTextAreaElement;
+    const saveBtn = document.getElementById('save-btn');
+    const closeBtn = document.getElementById('close-btn');
+    
+    // Focus editor
+    editor?.focus();
+    
+    saveBtn?.addEventListener('click', async () => {
+      const content = editor.value;
+      const filepath = editor.dataset.filepath;
+      
+      saveBtn.textContent = 'Saving...';
+      saveBtn.setAttribute('disabled', 'true');
+      
+      try {
+        const res = await fetch('/api/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filepath, content })
+        });
+        
+        if (res.ok) {
+          saveBtn.textContent = 'Saved ✓';
+          setTimeout(() => {
+            saveBtn.textContent = 'Save';
+            saveBtn.removeAttribute('disabled');
+          }, 2000);
+        } else {
+          const error = await res.json();
+          alert(`Save failed: ${error.error}`);
+          saveBtn.textContent = 'Save';
+          saveBtn.removeAttribute('disabled');
+        }
+      } catch (error) {
+        alert(`Save failed: ${error}`);
+        saveBtn.textContent = 'Save';
+        saveBtn.removeAttribute('disabled');
+      }
+    });
+    
+    closeBtn?.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      // Remove ?edit=true from URL
+      const url = new URL(window.location.href);
+      url.searchParams.delete('edit');
+      window.history.replaceState({}, '', url.pathname);
+    });
+    
+    // ESC key to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.style.display !== 'none') {
+        overlay.style.display = 'none';
+        const url = new URL(window.location.href);
+        url.searchParams.delete('edit');
+        window.history.replaceState({}, '', url.pathname);
+      }
+    });
+  }
+</script>
+
+<style>
+  .edit-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .edit-container {
+    background: white;
+    width: 100%;
+    max-width: 1400px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+  
+  .edit-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+  }
+  
+  .edit-header h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    font-family: 'Monaco', 'Menlo', monospace;
+  }
+  
+  #editor {
+    flex: 1;
+    padding: 2rem;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    border: none;
+    resize: none;
+    outline: none;
+    background: #fafafa;
+    color: #1a1a1a;
+  }
+  
+  .edit-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e5e5e5;
+    background: #f9f9f9;
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  .edit-footer p {
+    margin: 0;
+  }
+  
+  .edit-footer code {
+    background: #e5e5e5;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.85em;
+  }
+  
+  .edit-header button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    font-family: inherit;
+  }
+  
+  .btn-primary {
+    background: #d4af37;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background: #c49f2f;
+  }
+  
+  .btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .btn-secondary {
+    background: #e5e5e5;
+    color: #333;
+  }
+  
+  .btn-secondary:hover {
+    background: #d5d5d5;
+  }
+</style>

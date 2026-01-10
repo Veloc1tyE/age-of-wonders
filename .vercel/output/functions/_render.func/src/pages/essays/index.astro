@@ -1,0 +1,31 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { getCollection } from "astro:content";
+
+const essays = (await getCollection("essays"))
+  .filter(e => !e.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<SiteLayout title="Essays — Age of Wonders">
+  <h1 style="margin-top: 0; margin-bottom: 24px;">Essays</h1>
+  <p class="meta" style="margin-bottom:48px;">
+    Explorations of abundance, access, and the Age of Wonders ahead.
+  </p>
+  
+  <ul style="list-style: none; padding: 0;">
+    {essays.map((e) => (
+      <li style="margin: 24px 0; padding: 20px; border-left: 3px solid var(--rule); background: #fafafa;">
+        <strong style="font-size:26px;"><a href={`/essays/${e.slug}/`}>{e.data.title}</a></strong>
+        <div class="meta" style="margin-top:8px;">
+          {e.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </div>
+        {e.data.description && (
+          <div style="margin-top:10px; font-size:19px; line-height:1.5;">
+            {e.data.description}
+          </div>
+        )}
+      </li>
+    ))}
+  </ul>
+</SiteLayout>
