@@ -2,6 +2,9 @@
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { getCollection } from "astro:content";
 
+// Prerender homepage as static
+export const prerender = true;
+
 const essays = (await getCollection("essays"))
   .filter(e => !e.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
