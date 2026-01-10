@@ -2,10 +2,12 @@
 // https://astro.build/config
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
+import vercel from "@astrojs/vercel";
 
 export default defineConfig({
   site: "https://ageofwonders.example", // Update this to your actual domain before deploying
-  output: "hybrid", // Allows API routes to be server-rendered while keeping pages static
+  output: "server", // Server-side rendering for API routes
+  adapter: vercel(),
   integrations: [mdx()],
   markdown: {
     remarkPlugins: [await import("remark-math").then(m => m.default)],
