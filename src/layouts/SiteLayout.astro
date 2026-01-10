@@ -3,6 +3,7 @@ const { title = "Age of Wonders", description = "A body of work exploring abunda
 import "../styles/global.css";
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
+import { ViewTransitions } from 'astro:transitions';
 ---
 <html lang="en">
   <head>
@@ -23,6 +24,9 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="Age of Wonders RSS Feed" href="/rss.xml" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,6 +35,10 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 
     <!-- KaTeX -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" crossorigin="anonymous" />
+    
+    <!-- View Transitions for instant navigation -->
+    <ViewTransitions />
+    
     <Analytics />
   </head>
 
@@ -42,10 +50,10 @@ import SpeedInsights from '@vercel/speed-insights/astro';
         </h1>
 
         <nav class="nav" aria-label="Primary">
-          <a href="/">Introduction</a>
-          <a href="/essays">Essays</a>
-          <a href="/about">About</a>
-          <a href="/subscribe">Subscribe</a>
+          <a href="/" data-astro-prefetch>Introduction</a>
+          <a href="/essays" data-astro-prefetch>Essays</a>
+          <a href="/about" data-astro-prefetch>About</a>
+          <a href="/subscribe" data-astro-prefetch>Subscribe</a>
         </nav>
       </header>
 
@@ -61,5 +69,37 @@ import SpeedInsights from '@vercel/speed-insights/astro';
       </footer>
     </div>
     <SpeedInsights />
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {
+              console.log('Service Worker registered successfully:', registration.scope);
+              
+              // Check for updates on page load
+              registration.update();
+              
+              // Listen for updates
+              registration.addEventListener('updatefound', () => {
+                const newWorker = registration.installing;
+                if (newWorker) {
+                  newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                      console.log('New content available! Reload to update.');
+                      // Optionally show a toast notification here
+                    }
+                  });
+                }
+              });
+            })
+            .catch((error) => {
+              console.log('Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
