@@ -2,6 +2,7 @@
 const { title = "Age of Wonders", description = "A body of work exploring abundance, access, and the Age of Wonders ahead." } = Astro.props;
 import "../styles/global.css";
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 ---
 <html lang="en">
   <head>
@@ -59,5 +60,6 @@ import Analytics from '@vercel/analytics/astro';
 
       </footer>
     </div>
+    <SpeedInsights />
   </body>
 </html>
