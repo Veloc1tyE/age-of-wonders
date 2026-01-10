@@ -1,6 +1,7 @@
 ---
 const { title = "Age of Wonders", description = "A body of work exploring abundance, access, and the Age of Wonders ahead." } = Astro.props;
 import "../styles/global.css";
+import Analytics from '@vercel/analytics/astro';
 ---
 <html lang="en">
   <head>
@@ -29,6 +30,7 @@ import "../styles/global.css";
 
     <!-- KaTeX -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" crossorigin="anonymous" />
+    <Analytics />
   </head>
 
   <body>
