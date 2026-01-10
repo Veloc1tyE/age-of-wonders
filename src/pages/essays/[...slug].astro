@@ -12,6 +12,9 @@ export async function getStaticPaths() {
   }));
 }
 
+// Prerender essays as static pages for instant CDN delivery
+export const prerender = true;
+
 const { slug } = Astro.params;
 const entry = await getEntry("essays", slug!);
 
