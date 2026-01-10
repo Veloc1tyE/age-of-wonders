@@ -1,29 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-  <!-- Simple, elegant star design matching site aesthetic -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <defs>
-    <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#b8941f;stop-opacity:1" />
-    </linearGradient>
+    <style>
+      .ring { 
+        fill: none; 
+        stroke: #d4af37; 
+        stroke-width: 8;
+      }
+      @media (prefers-color-scheme: dark) {
+        .ring { stroke: #f4d03f; }
+      }
+    </style>
   </defs>
   
-  <!-- Main star with 8 points -->
-  <path d="M64 16 L70 52 L90 40 L80 64 L112 64 L86 80 L96 112 L64 90 L32 112 L42 80 L16 64 L48 64 L38 40 L58 52 Z" 
-        fill="url(#starGradient)"
-        stroke="#1a1a1a"
-        stroke-width="2"/>
-  
-  <!-- Center accent -->
-  <circle cx="64" cy="64" r="8" fill="#fff" opacity="0.9"/>
-  
-  <style>
-    @media (prefers-color-scheme: dark) {
-      path {
-        stroke: #fff;
-      }
-      circle {
-        fill: #1a1a1a;
-      }
-    }
-  </style>
+  <!-- Gold ring - spacious, elegant -->
+  <circle class="ring" cx="64" cy="64" r="48"/>
 </svg>
