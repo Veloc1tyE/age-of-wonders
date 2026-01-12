@@ -61,10 +61,10 @@ import { ViewTransitions } from 'astro:transitions';
         </h1>
 
         <nav class="nav" aria-label="Primary">
-          <a href="/" data-astro-prefetch>Introduction</a>
-          <a href="/essays" data-astro-prefetch>Essays</a>
-          <a href="/about" data-astro-prefetch>About</a>
-          <a href="/subscribe" data-astro-prefetch>Subscribe</a>
+          <a href="/" data-astro-prefetch="viewport">Introduction</a>
+          <a href="/essays" data-astro-prefetch="viewport">Essays</a>
+          <a href="/about" data-astro-prefetch="viewport">About</a>
+          <a href="/subscribe" data-astro-prefetch="viewport">Subscribe</a>
         </nav>
       </header>
 
@@ -88,8 +88,6 @@ import { ViewTransitions } from 'astro:transitions';
           navigator.serviceWorker
             .register('/sw.js')
             .then((registration) => {
-              console.log('Service Worker registered successfully:', registration.scope);
-              
               // Check for updates on page load
               registration.update();
               
@@ -99,8 +97,10 @@ import { ViewTransitions } from 'astro:transitions';
                 if (newWorker) {
                   newWorker.addEventListener('statechange', () => {
                     if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                      console.log('New content available! Reload to update.');
-                      // Optionally show a toast notification here
+                      // Silently reload after a delay to get fresh content
+                      setTimeout(() => {
+                        window.location.reload();
+                      }, 2000);
                     }
                   });
                 }
@@ -111,6 +111,23 @@ import { ViewTransitions } from 'astro:transitions';
             });
         });
       }
+
+      // Instant-click prefetch: Start fetching on mousedown/touchstart
+      // This gives us 100-200ms head start before the click completes
+      const prefetchOnPointerDown = (e) => {
+        const link = e.target.closest('a[href^="/"]');
+        if (link && !link.hasAttribute('data-instant-prefetched')) {
+          const href = link.getAttribute('href');
+          if (href && href.startsWith('/') && !href.includes('#')) {
+            // Use fetch to warm up the cache
+            fetch(href, { credentials: 'same-origin' }).catch(() => {});
+            link.setAttribute('data-instant-prefetched', 'true');
+          }
+        }
+      };
+
+      document.addEventListener('mousedown', prefetchOnPointerDown, { passive: true });
+      document.addEventListener('touchstart', prefetchOnPointerDown, { passive: true });
     </script>
   </body>
 </html>
