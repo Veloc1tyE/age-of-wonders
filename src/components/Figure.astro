@@ -1,0 +1,69 @@
+---
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption: string;
+  wide?: boolean;
+}
+
+const { src, alt, caption, wide = false } = Astro.props;
+
+import { Image } from 'astro:assets';
+---
+
+<figure class:list={["essay-figure", { "wide": wide }]}>
+  <div class="image-wrapper">
+    <Image src={src} alt={alt} loading="lazy" />
+  </div>
+  <figcaption>{caption}</figcaption>
+</figure>
+
+<style>
+  .essay-figure {
+    margin: 6rem auto;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .essay-figure.wide {
+    max-width: 1100px;
+  }
+
+  .image-wrapper {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .image-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    font-style: italic;
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .essay-figure {
+      margin: 4rem auto;
+      max-width: 100%;
+    }
+
+    .essay-figure.wide {
+      max-width: 100%;
+    }
+
+    figcaption {
+      font-size: 0.875rem;
+      padding: 0 1rem;
+    }
+  }
+</style>
