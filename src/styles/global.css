@@ -19,8 +19,20 @@ body{
   line-height: 1.7;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: "liga", "kern";
+}
+
+/* Font loading optimization - prevent FOIT */
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-display: swap;
 }
 
 a{ 
