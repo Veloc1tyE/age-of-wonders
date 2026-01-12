@@ -1,5 +1,24 @@
 ---
-const { title = "Age of Wonders", description = "A body of work exploring abundance, access, and the Age of Wonders ahead." } = Astro.props;
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+  publishedTime?: string;
+  author?: string;
+}
+
+const { 
+  title = "Age of Wonders", 
+  description = "A body of work exploring abundance, access, and the Age of Wonders ahead.",
+  ogImage = "https://ageofwonders.org/og-default.png",
+  ogType = "website",
+  publishedTime,
+  author = "Age of Wonders"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://ageofwonders.org");
+
 import "../styles/global.css";
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
@@ -11,16 +30,23 @@ import { ViewTransitions } from 'astro:transitions';
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Age of Wonders" />
+    <meta property="og:image" content={ogImage} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {author && <meta property="article:author" content={author} />}
     
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

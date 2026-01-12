@@ -22,6 +22,37 @@ if (!entry) return Astro.redirect("/essays");
 
 const { Content } = await entry.render();
 
+const ogImage = entry.data.ogImage || `https://ageofwonders.org/og-default.png`;
+const publishedTime = entry.data.date.toISOString();
+const canonicalURL = `https://ageofwonders.org/essays/${slug}/`;
+
+// JSON-LD structured data for SEO
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": entry.data.title,
+  "description": entry.data.description,
+  "image": ogImage,
+  "datePublished": publishedTime,
+  "dateModified": publishedTime,
+  "author": {
+    "@type": "Organization",
+    "name": "Age of Wonders"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Age of Wonders",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ageofwonders.org/icon.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalURL
+  }
+};
+
 // Get all published essays sorted by date for prev/next navigation
 const allEssays = (await getCollection("essays"))
   .filter(e => !e.data.draft)
@@ -43,7 +74,16 @@ if (!import.meta.env.PROD) {
 }
 ---
 
-<SiteLayout title={`${entry.data.title} — Age of Wonders`} description={entry.data.description}>
+<SiteLayout 
+  title={`${entry.data.title} — Age of Wonders`} 
+  description={entry.data.description}
+  ogImage={ogImage}
+  ogType="article"
+  publishedTime={publishedTime}
+>
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+
   <h1 style="margin-top: 0; margin-bottom: 12px;">{entry.data.title}</h1>
   {entry.data.description && (
     <p style="font-style: italic; font-size: 21px; color: var(--muted); margin-bottom: 8px; line-height: 1.5;">
