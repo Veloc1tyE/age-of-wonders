@@ -5,9 +5,40 @@ import { getCollection } from "astro:content";
 // Prerender homepage as static
 export const prerender = true;
 
+// Canonical ordering for Creative Works section
+const CANONICAL_ORDER = [
+  'create-an-age-of-wonders',
+  'perceptual-abundance',
+  'access-is-everything',
+  'energy-is-the-master-resource',
+  'matter-is-programmable',
+  'the-true-limits-of-computation',
+  'infrastructure-replaces-empire',
+  'why-we-dont-build',
+  'the-builders-of-the-age-of-wonders',
+  'political-economy-for-abundance',
+  'the-free-starship',
+  'the-solar-gravitational-lens',
+];
+
 const essays = (await getCollection("essays"))
   .filter(e => !e.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => {
+    const indexA = CANONICAL_ORDER.indexOf(a.slug);
+    const indexB = CANONICAL_ORDER.indexOf(b.slug);
+    
+    // If both are in canonical order, sort by that
+    if (indexA !== -1 && indexB !== -1) {
+      return indexA - indexB;
+    }
+    
+    // If only one is in canonical order, it comes first
+    if (indexA !== -1) return -1;
+    if (indexB !== -1) return 1;
+    
+    // For any new essays not in canonical order, sort by date (most recent first)
+    return b.data.date.getTime() - a.data.date.getTime();
+  });
 ---
 
 <SiteLayout title="Age of Wonders">
