@@ -27,7 +27,7 @@ export default defineConfig({
   // Prefetch configuration for instant navigation
   prefetch: {
     prefetchAll: true,
-    defaultStrategy: 'hover',
+    defaultStrategy: 'viewport', // Prefetch when links enter viewport
   },
   // Aggressive build optimization
   vite: {
