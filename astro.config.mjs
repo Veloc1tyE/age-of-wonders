@@ -3,12 +3,13 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import vercel from "@astrojs/vercel";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://ageofwonders.org", // Updated to actual domain
   output: "server", // Server-side rendering for API routes
   adapter: vercel(),
-  integrations: [mdx()],
+  integrations: [mdx(), sitemap()],
   markdown: {
     remarkPlugins: [await import("remark-math").then(m => m.default)],
     rehypePlugins: [await import("rehype-katex").then(m => m.default)],
