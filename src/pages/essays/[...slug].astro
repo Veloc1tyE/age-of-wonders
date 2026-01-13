@@ -106,20 +106,20 @@ if (!import.meta.env.PROD) {
   </div>
 
   <!-- Essay Navigation -->
-  <nav style="margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; gap: 32px;">
-    <div style="flex: 1;">
+  <nav class="essay-nav">
+    <div class="essay-nav-item essay-nav-prev">
       {previousEssay ? (
-        <a href={`/essays/${previousEssay.slug}/`} style="text-decoration: none; display: block;">
-          <span style="font-family: 'Inter', sans-serif; font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">← Previous</span>
-          <span style="font-size: 20px; color: var(--text); font-weight: 500;">{previousEssay.data.title}</span>
+        <a href={`/essays/${previousEssay.slug}/`} class="essay-nav-link">
+          <span class="essay-nav-label">← Previous</span>
+          <span class="essay-nav-title">{previousEssay.data.title}</span>
         </a>
       ) : null}
     </div>
-    <div style="flex: 1; text-align: right;">
+    <div class="essay-nav-item essay-nav-next">
       {nextEssay ? (
-        <a href={`/essays/${nextEssay.slug}/`} style="text-decoration: none; display: block;">
-          <span style="font-family: 'Inter', sans-serif; font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">Next →</span>
-          <span style="font-size: 20px; color: var(--text); font-weight: 500;">{nextEssay.data.title}</span>
+        <a href={`/essays/${nextEssay.slug}/`} class="essay-nav-link">
+          <span class="essay-nav-label">Next →</span>
+          <span class="essay-nav-title">{nextEssay.data.title}</span>
         </a>
       ) : null}
     </div>
@@ -245,6 +245,57 @@ if (!import.meta.env.PROD) {
     background: #eee;
     border-color: #ccc;
     color: #333;
+  }
+
+  .essay-nav {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .essay-nav-item {
+    flex: 1;
+  }
+
+  .essay-nav-next {
+    text-align: right;
+  }
+
+  .essay-nav-link {
+    text-decoration: none;
+    display: block;
+    transition: all 0.25s ease;
+  }
+
+  .essay-nav-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.25s ease;
+  }
+
+  .essay-nav-title {
+    font-size: 20px;
+    color: var(--text);
+    font-weight: 500;
+    display: block;
+    transition: color 0.25s ease;
+  }
+
+  .essay-nav-link:hover .essay-nav-label {
+    color: var(--accent);
+  }
+
+  .essay-nav-link:hover .essay-nav-title {
+    color: var(--accent);
   }
 
   .edit-overlay {
