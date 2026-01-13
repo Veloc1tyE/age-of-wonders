@@ -6,13 +6,16 @@ export const prerender = true;
 ---
 
 <SiteLayout title="Subscribe — Age of Wonders">
-  <h1 style="margin-top: 0; margin-bottom: 32px;">Subscribe</h1>
-  
-  <p style="font-size: 23px; line-height: 1.6; margin-bottom: 48px;">
+  <h1 style="margin-top: 0; margin-bottom: 16px;">Subscribe</h1>
+
+  <p style="font-size: 22px; line-height: 1.6; margin-bottom: 12px; max-width: 480px;">
     Explore abundance, access, and the Age of Wonders ahead from your inbox.
   </p>
 
-  <!-- Buttondown Email Subscription Form -->
+  <p style="font-size: 15px; color: var(--muted); font-style: italic; margin-bottom: 40px;">
+    Low frequency. High quality. No distractions.
+  </p>
+
   <form
     action="https://buttondown.email/api/emails/embed-subscribe/ageofwonders"
     method="post"
@@ -33,20 +36,16 @@ export const prerender = true;
         Subscribe
       </button>
     </div>
-    <p style="font-size: 14px; color: var(--muted); margin-top: 16px; font-family: 'Inter', sans-serif;">
-      Powered by <a href="https://buttondown.email" target="_blank" style="color: #888; text-decoration: underline;">Buttondown</a>
-    </p>
   </form>
 
   <style>
     .subscribe-form {
-      max-width: 500px;
-      margin: 48px 0 56px 0;
+      max-width: 460px;
     }
 
     .email-input {
       flex: 1;
-      min-width: 250px;
+      min-width: 240px;
       padding: 14px 20px;
       font-size: 17px;
       font-family: 'Cormorant Garamond', serif;
@@ -87,12 +86,4 @@ export const prerender = true;
       color: #444;
     }
   </style>
-
-  <p style="font-family: 'Inter', sans-serif; font-size: 16px; color: var(--muted); margin-top: 24px; font-style: italic;">
-    Low frequency. High quality. No distractions.
-  </p>
-
-  <p class="meta" style="margin-top: 56px; font-size: 19px; line-height: 1.6;">
-    Each piece stands alone, but together they come together into a vision for an abundant future. 
-  </p>
 </SiteLayout>
