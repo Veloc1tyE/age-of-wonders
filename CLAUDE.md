@@ -111,6 +111,27 @@ Fix issue: Brief description
 Explanation of what caused it and why this fix is correct.
 ```
 
+## Performance & UX Priorities
+
+**This site is optimized for lightning-fast, instant-feel navigation.** Do not degrade this UX.
+
+**Performance targets:**
+- First load: <200ms perceived
+- Subsequent navigation: <50ms (instant feel)
+
+**How it works:**
+- **Service Worker** (`public/sw.js`): Stale-while-revalidate caching - serves cached content immediately, updates cache in background
+- **Astro ViewTransitions**: SPA-like instant navigation between pages without full reloads
+- **Aggressive prefetching**: Viewport-based + mousedown/touchstart prefetch for instant clicks
+- **Lazy-loaded images**: Progressive loading for optimal initial paint
+
+**Critical rules when making changes:**
+1. **Never disable or weaken the service worker caching**
+2. **Never remove ViewTransitions** - they enable instant navigation
+3. **Persist user preferences with localStorage** - cached pages re-run scripts on each navigation, so use localStorage to maintain state (e.g., sort preferences)
+4. **Server-side render the default state** - ensure initial HTML matches what JavaScript will show to prevent content flashing
+5. **Test navigation patterns** - visit page → navigate away → return to verify state persists
+
 ## Essay Ordering
 
 **Canonical Order:** Essays have a deliberate narrative order defined in `CANONICAL_ORDER` arrays (see `src/pages/index.astro`). This tells a coherent story from vision → evidence → principles → resources → systems → examples.
@@ -130,3 +151,4 @@ Explanation of what caused it and why this fix is correct.
 4. **Dynamic Routes:** Fixed `[...slug].astro` to use `getEntry()` with proper `getStaticPaths()` export
 5. **RSS Feed:** Updated to pass Date objects directly to `pubDate` (no need for `new Date()` conversion)
 6. **Essays Page Sort:** Added server-side sort to match default client-side "newest first" option, preventing content flash on page load
+7. **Sort Preference Persistence:** Added localStorage to persist essay sort preference across cached navigation (ViewTransitions re-run scripts, so state must be stored externally)
