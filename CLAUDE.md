@@ -74,6 +74,54 @@ Essays support:
 - Math equations with KaTeX (`$inline$` and `$$block$$`)
 - MDX components (can be extended)
 
+## Deployment
+
+The site is deployed via Vercel with automatic deployments from GitHub:
+- **URL:** www.ageofwonders.org
+- **Auto-deploy:** Any push to main automatically deploys to production
+- **Critical:** Always run `npm run build` and verify it succeeds before pushing
+
+## Development Workflow
+
+### Before Committing
+1. Run `npm run build` to verify the build succeeds
+2. Check `npm run preview` if testing visual changes
+3. Never push broken builds - they auto-deploy to production
+
+### Commit Message Style
+Follow these patterns based on commit history:
+
+**For features/improvements:** Detailed messages with rationale
+```
+Add feature name
+
+**Rationale:** Why this change matters
+
+**What changed:**
+- Bullet points for each change
+- Technical details where helpful
+
+**Result:** What the user experiences
+```
+
+**For bug fixes:** Concise but explanatory
+```
+Fix issue: Brief description
+
+Explanation of what caused it and why this fix is correct.
+```
+
+## Essay Ordering
+
+**Canonical Order:** Essays have a deliberate narrative order defined in `CANONICAL_ORDER` arrays (see `src/pages/index.astro`). This tells a coherent story from vision → evidence → principles → resources → systems → examples.
+
+**Date Sorting:** When sorting by date, always use `.getTime()` for proper Date object comparison:
+```javascript
+.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()) // newest first
+```
+
+**Client-side sorting:** When adding client-side sorting, ensure the server-side initial render matches the default sort option to prevent content flashing.
+
 ## Recent Fixes Applied
 
 1. **Date Schema Fix:** Changed date field from `z.string()` to `z.coerce.date()` in content config to properly handle date parsing
@@ -81,3 +129,4 @@ Essays support:
 3. **Date Display:** Added proper date formatting using `toLocaleDateString()` in essay pages
 4. **Dynamic Routes:** Fixed `[...slug].astro` to use `getEntry()` with proper `getStaticPaths()` export
 5. **RSS Feed:** Updated to pass Date objects directly to `pubDate` (no need for `new Date()` conversion)
+6. **Essays Page Sort:** Added server-side sort to match default client-side "newest first" option, preventing content flash on page load

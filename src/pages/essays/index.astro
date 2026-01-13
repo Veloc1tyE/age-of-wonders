@@ -5,20 +5,46 @@ import { getCollection } from "astro:content";
 // Prerender essays index as static
 export const prerender = true;
 
-const essays = (await getCollection("essays"))
+// Canonical ordering (matches homepage)
+const CANONICAL_ORDER = [
+  'create-an-age-of-wonders',
+  'perceptual-abundance',
+  'access-is-everything',
+  'energy-is-the-master-resource',
+  'matter-is-programmable',
+  'the-true-limits-of-computation',
+  'infrastructure-replaces-empire',
+  'why-we-dont-build',
+  'the-builders-of-the-age-of-wonders',
+  'political-economy-for-abundance',
+  'the-free-starship',
+  'the-solar-gravitational-lens',
+];
+
+const allEssays = (await getCollection("essays"))
   .filter(e => !e.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
 <SiteLayout title="Essays — Age of Wonders">
   <h1 style="margin-top: 0; margin-bottom: 24px;">Essays</h1>
-  <p class="meta" style="margin-bottom:48px;">
-    Explorations of abundance, access, and the Age of Wonders ahead.
-  </p>
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px;">
+    <p class="meta" style="margin: 0;">
+      Explorations of abundance, access, and the Age of Wonders ahead.
+    </p>
+    
+    <select id="sort-select" style="font-family: 'Inter', sans-serif; font-size: 14px; padding: 4px 8px; border: 1px solid var(--rule); background: white; color: var(--text); cursor: pointer; border-radius: 3px; transition: all 0.2s ease;">
+      <option value="newest">Most recent</option>
+      <option value="canonical">Canonical</option>
+    </select>
+  </div>
   
-  <ul style="list-style: none; padding: 0;">
-    {essays.map((e) => (
-      <li style="margin: 24px 0; padding: 20px; border-left: 3px solid var(--rule); background: #fafafa;">
+  <ul id="essays-list" style="list-style: none; padding: 0;">
+    {allEssays.map((e) => (
+      <li class="essay-item" 
+          data-slug={e.slug} 
+          data-date={e.data.date.getTime()}
+          style="margin: 24px 0; padding: 20px; border-left: 3px solid var(--rule); background: #fafafa;">
         <strong style="font-size:26px;"><a href={`/essays/${e.slug}/`}>{e.data.title}</a></strong>
         <div class="meta" style="margin-top:8px;">
           {e.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -32,3 +58,55 @@ const essays = (await getCollection("essays"))
     ))}
   </ul>
 </SiteLayout>
+
+<style>
+  #sort-select:hover {
+    border-color: var(--accent);
+  }
+  
+  #sort-select:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+</style>
+
+<script define:vars={{ CANONICAL_ORDER }}>
+  const select = document.getElementById('sort-select');
+  const list = document.getElementById('essays-list');
+  const items = Array.from(document.querySelectorAll('.essay-item'));
+  
+  function sortEssays(sortType) {
+    const sorted = [...items].sort((a, b) => {
+      const slugA = a.dataset.slug;
+      const slugB = b.dataset.slug;
+      const dateA = parseInt(a.dataset.date);
+      const dateB = parseInt(b.dataset.date);
+      
+      if (sortType === 'newest') {
+        return dateB - dateA;
+      } else if (sortType === 'oldest') {
+        return dateA - dateB;
+      } else if (sortType === 'canonical') {
+        const indexA = CANONICAL_ORDER.indexOf(slugA);
+        const indexB = CANONICAL_ORDER.indexOf(slugB);
+        
+        if (indexA !== -1 && indexB !== -1) {
+          return indexA - indexB;
+        }
+        if (indexA !== -1) return -1;
+        if (indexB !== -1) return 1;
+        return dateB - dateA;
+      }
+      return 0;
+    });
+    
+    sorted.forEach(item => list.appendChild(item));
+  }
+  
+  select.addEventListener('change', (e) => {
+    sortEssays(e.target.value);
+  });
+  
+  // Initialize with newest (default)
+  sortEssays('newest');
+</script>
