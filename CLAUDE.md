@@ -218,6 +218,25 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 - Subscribe: minimal — just the essentials with elegant form controls
 - Each page earns its proportions based on content density
 
+**Interactive elements need visible feedback:**
+- Every clickable element must have a noticeable hover state
+- "Noticeable" means: #f8f8f8 → #eee background, #e2e2e2 → #ccc border, #888 → #333 text
+- Too subtle (#f8f8f8 → #f0f0f0) is effectively invisible — users won't register the change
+- Add visual affordances for non-obvious controls (e.g., dropdown arrow on select elements)
+- Test hover states yourself — actually use the site and interact with every element
+
+**CSS specificity matters:**
+- Inline styles override class selectors, including hover pseudo-classes
+- If hover isn't working, check for inline styles on the element
+- Move styles to stylesheet when hover/focus/active states are needed
+- Keep interactive element styles in CSS, not inline, to allow state changes
+
+**Custom form validation:**
+- Browser default validation tooltips are harsh and don't match refined aesthetics
+- Use `novalidate` on forms and implement custom JavaScript validation
+- Error states should be soft: dusty rose borders (#d4a5a5), muted coral text (#b88)
+- Clear errors on input to provide immediate feedback
+
 ## Recent Fixes Applied
 
 1. **Date Schema Fix:** Changed date field from `z.string()` to `z.coerce.date()` in content config to properly handle date parsing
@@ -234,3 +253,8 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 12. **Essays Sort Dropdown:** Restyled from default browser select to elegant pill-shaped control with Cormorant Garamond, centered text, and subtle hover states.
 13. **Subscribe Page Simplification:** Stripped to essentials (headline, one-line intro, form) after multiple iterations showed extra elements created more problems than they solved.
 14. **Homepage Intro Refinement:** Removed bold tags, toned down warm accent to gray border, found middle-ground sizing (25px/23px) that's prominent without being loud. Words carry themselves.
+15. **Custom Form Validation:** Replaced harsh browser validation tooltips with soft, on-brand error states using `novalidate` and custom JavaScript.
+16. **Share Component Restyle:** Converted boxy buttons with brand-colored hovers to pill-shaped buttons with uniform subtle gray hovers.
+17. **Hover State Consistency:** Increased hover contrast across all interactive elements (#f8f8f8 → #eee) so feedback is visible.
+18. **Sort Dropdown Affordance:** Added subtle dropdown arrow indicator to Essays sort control for better discoverability.
+19. **CSS Specificity Fix:** Moved inline styles to stylesheet for essay CTA button so hover pseudo-class could work.
