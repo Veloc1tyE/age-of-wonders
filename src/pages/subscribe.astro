@@ -147,42 +147,61 @@ export const prerender = true;
   </style>
 
   <script>
-    const form = document.getElementById('subscribe-form');
-    const input = document.getElementById('bd-email');
-    const errorMsg = document.getElementById('error-message');
+    function initSubscribeForm() {
+      const form = document.getElementById('subscribe-form');
+      const input = document.getElementById('bd-email');
+      const errorMsg = document.getElementById('error-message');
 
-    function clearError() {
-      input.classList.remove('error');
-      errorMsg.textContent = '';
-    }
+      // Guard: only run on subscribe page
+      if (!form || !input || !errorMsg) return;
 
-    function showError(message) {
-      input.classList.add('error');
-      errorMsg.textContent = message;
-    }
-
-    form.addEventListener('submit', (e) => {
-      const email = input.value.trim();
-
-      if (!email) {
-        e.preventDefault();
-        showError('Please enter your email address.');
-        input.focus();
-        return;
+      function clearError() {
+        input.classList.remove('error');
+        errorMsg.textContent = '';
       }
 
-      if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-        e.preventDefault();
-        showError('Please enter a valid email address.');
-        input.focus();
-        return;
+      function showError(message) {
+        input.classList.add('error');
+        errorMsg.textContent = message;
       }
 
-      // Valid - open popup and submit
-      clearError();
-      window.open('https://buttondown.email/ageofwonders', 'popupwindow');
-    });
+      // Clone form to remove any existing listeners
+      const newForm = form.cloneNode(true);
+      form.parentNode.replaceChild(newForm, form);
 
-    input.addEventListener('input', clearError);
+      // Get fresh references after clone
+      const freshForm = document.getElementById('subscribe-form');
+      const freshInput = document.getElementById('bd-email');
+
+      freshForm.addEventListener('submit', (e) => {
+        const email = freshInput.value.trim();
+
+        if (!email) {
+          e.preventDefault();
+          showError('Please enter your email address.');
+          freshInput.focus();
+          return;
+        }
+
+        if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+          e.preventDefault();
+          showError('Please enter a valid email address.');
+          freshInput.focus();
+          return;
+        }
+
+        // Valid - open popup and submit
+        clearError();
+        window.open('https://buttondown.email/ageofwonders', 'popupwindow');
+      });
+
+      freshInput.addEventListener('input', clearError);
+    }
+
+    // Run on initial load
+    initSubscribeForm();
+
+    // Run after ViewTransitions navigation
+    document.addEventListener('astro:page-load', initSubscribeForm);
   </script>
 </SiteLayout>
