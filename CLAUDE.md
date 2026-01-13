@@ -187,11 +187,24 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 
 **Form controls (dropdowns, selects, buttons):**
 - Avoid default browser styling — it looks dated and harsh
-- Use pill shapes (border-radius: 18px) with subtle fills (#f8f8f8) and soft borders (#e2e2e2)
+- Use pill shapes (border-radius: 18px+) with subtle fills (#f8f8f8) and soft borders (#e2e2e2)
 - Cormorant Garamond works beautifully for elegant dropdowns
 - Muted text (#888) that gently darkens on hover (#666)
 - Center text for balanced feel when options vary in length
 - Controls should feel integrated with the typography, not bolted-on widgets
+
+**Simplicity as the ultimate sophistication:**
+- When struggling to perfect an element's spacing or positioning, consider removing it entirely
+- Every element must earn its place — if it doesn't add clear value, delete it
+- A clean, sparse page with perfect proportions beats a cluttered page with "helpful" additions
+- Subscribe page example: headline + one line intro + form. Nothing else needed.
+- The "Low frequency, high quality" aside seemed helpful but created spacing complexity — removing it improved the whole
+
+**Iterative refinement:**
+- Visual perfection often requires many iterations (5-10+ rounds is normal)
+- "90 to 100" is where most of the work happens — broad strokes are easy, details are hard
+- Cognitive dissonance is a signal: if something feels "off" but you can't articulate why, keep iterating
+- Sometimes the best solution is subtraction, not addition
 
 ## Recent Fixes Applied
 
@@ -205,3 +218,6 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 8. **ViewTransitions Script Fix:** Refactored essays sorting to use `astro:page-load` event instead of `define:vars`, ensuring scripts reinitialize on every navigation
 9. **Service Worker Cache Strategy:** Changed from pure stale-while-revalidate to smart routing: network-first for HTML (fresh content), cache-first for assets (instant feel). Bumped to v3.
 10. **Stale-While-Revalidate Everywhere:** Simplified SW to use stale-while-revalidate for all requests. Cached pages load instantly (~5-10ms), background fetch updates cache for next visit. Perfect for static essay site. Bumped to v5.
+11. **Creative Works Cards Refinement:** Replaced sharp borders/hover effects with smooth multi-stop gradients (`rgba(245,245,245,0.8) → rgba(250,250,250,0.3) 35% → transparent 60%`), soft border-radius on all corners, and gentle blue tint on hover.
+12. **Essays Sort Dropdown:** Restyled from default browser select to elegant pill-shaped control with Cormorant Garamond, centered text, and subtle hover states.
+13. **Subscribe Page Simplification:** Stripped to essentials (headline, one-line intro, form) after multiple iterations showed extra elements created more problems than they solved.
