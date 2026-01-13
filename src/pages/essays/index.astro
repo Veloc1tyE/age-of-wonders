@@ -57,60 +57,82 @@ const allEssays = (await getCollection("essays"))
       </li>
     ))}
   </ul>
+
+  <!-- Pass canonical order to client via data attribute for ViewTransitions compatibility -->
+  <div id="canonical-order-data" data-order={JSON.stringify(CANONICAL_ORDER)} style="display:none;"></div>
 </SiteLayout>
 
 <style>
   #sort-select:hover {
     border-color: var(--accent);
   }
-  
+
   #sort-select:focus {
     outline: none;
     border-color: var(--accent);
   }
 </style>
 
-<script define:vars={{ CANONICAL_ORDER }}>
-  const select = document.getElementById('sort-select');
-  const list = document.getElementById('essays-list');
-  const items = Array.from(document.querySelectorAll('.essay-item'));
-  
-  function sortEssays(sortType) {
-    const sorted = [...items].sort((a, b) => {
-      const slugA = a.dataset.slug;
-      const slugB = b.dataset.slug;
-      const dateA = parseInt(a.dataset.date);
-      const dateB = parseInt(b.dataset.date);
-      
-      if (sortType === 'newest') {
-        return dateB - dateA;
-      } else if (sortType === 'oldest') {
-        return dateA - dateB;
-      } else if (sortType === 'canonical') {
-        const indexA = CANONICAL_ORDER.indexOf(slugA);
-        const indexB = CANONICAL_ORDER.indexOf(slugB);
-        
-        if (indexA !== -1 && indexB !== -1) {
-          return indexA - indexB;
-        }
-        if (indexA !== -1) return -1;
-        if (indexB !== -1) return 1;
-        return dateB - dateA;
-      }
-      return 0;
-    });
-    
-    sorted.forEach(item => list.appendChild(item));
-  }
-  
-  select.addEventListener('change', (e) => {
-    const sortType = e.target.value;
-    localStorage.setItem('essays-sort', sortType);
-    sortEssays(sortType);
-  });
+<script>
+  // Initialize sorting on every page load (including ViewTransitions navigation)
+  function initEssaysSorting() {
+    const select = document.getElementById('sort-select');
+    const list = document.getElementById('essays-list');
+    const dataEl = document.getElementById('canonical-order-data');
 
-  // Initialize with saved preference or default to 'newest'
-  const savedSort = localStorage.getItem('essays-sort') || 'newest';
-  select.value = savedSort;
-  sortEssays(savedSort);
+    // Guard: only run on essays page
+    if (!select || !list || !dataEl) return;
+
+    const CANONICAL_ORDER = JSON.parse(dataEl.dataset.order || '[]');
+    const items = Array.from(document.querySelectorAll('.essay-item'));
+
+    function sortEssays(sortType) {
+      const sorted = [...items].sort((a, b) => {
+        const slugA = a.dataset.slug;
+        const slugB = b.dataset.slug;
+        const dateA = parseInt(a.dataset.date);
+        const dateB = parseInt(b.dataset.date);
+
+        if (sortType === 'newest') {
+          return dateB - dateA;
+        } else if (sortType === 'oldest') {
+          return dateA - dateB;
+        } else if (sortType === 'canonical') {
+          const indexA = CANONICAL_ORDER.indexOf(slugA);
+          const indexB = CANONICAL_ORDER.indexOf(slugB);
+
+          if (indexA !== -1 && indexB !== -1) {
+            return indexA - indexB;
+          }
+          if (indexA !== -1) return -1;
+          if (indexB !== -1) return 1;
+          return dateB - dateA;
+        }
+        return 0;
+      });
+
+      sorted.forEach(item => list.appendChild(item));
+    }
+
+    // Remove any existing listener before adding (prevents duplicates on navigation)
+    const newSelect = select.cloneNode(true);
+    select.parentNode.replaceChild(newSelect, select);
+
+    newSelect.addEventListener('change', (e) => {
+      const sortType = e.target.value;
+      localStorage.setItem('essays-sort', sortType);
+      sortEssays(sortType);
+    });
+
+    // Initialize with saved preference or default to 'newest'
+    const savedSort = localStorage.getItem('essays-sort') || 'newest';
+    newSelect.value = savedSort;
+    sortEssays(savedSort);
+  }
+
+  // Run on initial page load
+  initEssaysSorting();
+
+  // Run after ViewTransitions navigation
+  document.addEventListener('astro:page-load', initEssaysSorting);
 </script>
