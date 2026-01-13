@@ -19,6 +19,8 @@ The content explores themes of:
 
 **Aesthetic:** Elegant, readable, thoughtful. Like a well-crafted essay collection. Clean typography (Cormorant Garamond + Inter), generous whitespace, focused on the content. The feeling is "quiet confidence" — the design assumes the content is worth reading rather than trying to convince you.
 
+**The medium is the message.** If you're going to create something about wonders, the thing itself better be a wonder. The site's craft must embody the same standard as the ideas it contains. Every pixel, every interaction, every spacing decision — it all speaks. Mediocre execution would undermine the entire premise.
+
 ## Commands
 
 ```bash
@@ -224,7 +226,6 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 - Every clickable element must have a noticeable hover state
 - "Noticeable" means: #f8f8f8 → #eee background, #e2e2e2 → #ccc border, #888 → #333 text
 - Too subtle (#f8f8f8 → #f0f0f0) is effectively invisible — users won't register the change
-- Add visual affordances for non-obvious controls (e.g., dropdown arrow on select elements)
 - Test hover states yourself — actually use the site and interact with every element
 
 **CSS specificity matters:**
