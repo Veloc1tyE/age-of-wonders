@@ -17,7 +17,7 @@ The content explores themes of:
 - Optimism about humanity's future without blind techno-utopianism
 - Reaching for the stars, both literally and metaphorically
 
-**Aesthetic:** Elegant, readable, thoughtful. Like a well-crafted essay collection. Clean typography (EB Garamond + Great Vibes), generous whitespace, focused on the content.
+**Aesthetic:** Elegant, readable, thoughtful. Like a well-crafted essay collection. Clean typography (Cormorant Garamond + Inter), generous whitespace, focused on the content. The feeling is "quiet confidence" — the design assumes the content is worth reading rather than trying to convince you.
 
 ## Commands
 
@@ -206,6 +206,18 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 - Cognitive dissonance is a signal: if something feels "off" but you can't articulate why, keep iterating
 - Sometimes the best solution is subtraction, not addition
 
+**Let the words carry themselves:**
+- Strong statements don't need `<strong>` tags — the content provides the weight
+- Avoid "selling" language ("three simple ideas" → "three ideas")
+- Gray borders (#e0e0e0) as default state; accent colors only on hover
+- The homepage intro can be slightly larger than interior pages (it's the main landing) but should still feel restrained
+
+**Page-specific calibration:**
+- Homepage: slightly more prominent sizing (23-25px) since it's sparse and sets the tone
+- Interior pages (About, Essays): standard body sizing to let content breathe
+- Subscribe: minimal — just the essentials with elegant form controls
+- Each page earns its proportions based on content density
+
 ## Recent Fixes Applied
 
 1. **Date Schema Fix:** Changed date field from `z.string()` to `z.coerce.date()` in content config to properly handle date parsing
@@ -221,3 +233,4 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 11. **Creative Works Cards Refinement:** Replaced sharp borders/hover effects with smooth multi-stop gradients (`rgba(245,245,245,0.8) → rgba(250,250,250,0.3) 35% → transparent 60%`), soft border-radius on all corners, and gentle blue tint on hover.
 12. **Essays Sort Dropdown:** Restyled from default browser select to elegant pill-shaped control with Cormorant Garamond, centered text, and subtle hover states.
 13. **Subscribe Page Simplification:** Stripped to essentials (headline, one-line intro, form) after multiple iterations showed extra elements created more problems than they solved.
+14. **Homepage Intro Refinement:** Removed bold tags, toned down warm accent to gray border, found middle-ground sizing (25px/23px) that's prominent without being loud. Words carry themselves.
