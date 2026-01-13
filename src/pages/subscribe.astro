@@ -8,7 +8,6 @@ export const prerender = true;
 <SiteLayout title="Subscribe — Age of Wonders">
   <div class="subscribe-content">
     <h1>Subscribe</h1>
-    <p class="aside">Low frequency, high quality.</p>
 
     <p class="intro">
       Explore abundance, access, and the Age of Wonders.
@@ -31,6 +30,8 @@ export const prerender = true;
       />
       <button type="submit" class="submit-btn">Subscribe</button>
     </form>
+
+    <p class="aside">Low frequency, high quality.</p>
   </div>
 
   <style>
@@ -39,21 +40,13 @@ export const prerender = true;
     }
 
     .subscribe-content h1 {
-      margin: 0 0 12px 0;
-    }
-
-    .aside {
-      font-size: 15px;
-      color: #aaa;
-      font-style: italic;
-      margin: 0 0 40px 0;
-      letter-spacing: 0.2px;
+      margin: 0 0 28px 0;
     }
 
     .intro {
       font-size: 23px;
       line-height: 1.7;
-      margin: 0 0 48px 0;
+      margin: 0 0 44px 0;
     }
 
     .subscribe-form {
@@ -61,7 +54,15 @@ export const prerender = true;
       align-items: stretch;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 120px;
+      margin-bottom: 16px;
+    }
+
+    .aside {
+      font-size: 14px;
+      color: #aaa;
+      font-style: italic;
+      margin: 0 0 100px 0;
+      letter-spacing: 0.2px;
     }
 
     .email-input {
