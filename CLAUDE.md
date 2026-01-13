@@ -266,3 +266,63 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 22. **Text Centering in Pills:** Use `text-align: center` for select elements to center text within the pill, especially important when option text varies in length.
 23. **Page Spacing Balance:** Top and bottom spacing should feel symmetrical. On essays page: header margin-bottom (56px) balances with last item padding-bottom (16px) + footer margin-top (80px).
 24. **Background Property Gotcha:** `background` is a shorthand — setting `background-color` on hover overrides `background-image`. Use separate properties (`background-color`, `background-image`, `background-position`) when you need hover to change only one aspect.
+
+## Social Media & Distribution
+
+### Daily Social Loop
+
+**Command:** "Run the daily social loop"
+
+This command executes the daily engagement workflow:
+
+1. **Select content** from `private/content/one-liners.md` (1-2 unused items)
+2. **Post value tweets** via Typefully (social set 277101)
+   - No links in daily posts — pure insight
+   - Mark posted items as `[x]` in one-liners.md
+3. **Suggest reply targets** — scan for relevant conversations to engage with
+4. **Log everything** to `private/content/posting-log.md`
+
+### Essay Launch Protocol
+
+**Command:** "Launch [essay name]"
+
+1. **Newsletter** (Buttondown): Subject + hook + key points + link
+2. **X thread**: Value-first, link in final post or reply
+3. **LinkedIn**: When connected, longer professional format
+4. **Update tracker** with links
+
+### Content Structure
+
+```
+private/
+├── .env                    # API keys (Typefully, Buttondown)
+├── social-strategy.md      # Full strategy documentation
+└── content/
+    ├── one-liners.md       # Content bank (checkbox = posted)
+    └── posting-log.md      # What was posted, engagement metrics
+```
+
+### API Access
+
+**Typefully** (X, LinkedIn when connected):
+- Social set 277101: @BJeremijenko (X)
+- Creates drafts, schedules, publishes
+- Use `publish_at: "now"` for immediate posting
+
+**Buttondown** (Newsletter):
+- API key in `private/.env`
+- Create as draft, then set `status: "about_to_send"`
+
+### Engagement Philosophy
+
+- **Links get derated** — algorithms penalise off-platform links
+- **Value-first posting** — build authority through insight, not asks
+- **Premium reply boost** — quality replies get algorithmic lift
+- **Consistency > virality** — daily presence compounds
+
+### Open Technical Items
+
+- [ ] Create `public/og-default.png` for social sharing previews
+- [ ] Add per-essay OG images
+- [ ] Reconnect LinkedIn to Typefully social set 277101
+- [ ] Configure Buttondown favicon in dashboard
