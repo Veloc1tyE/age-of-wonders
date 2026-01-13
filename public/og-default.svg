@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#fafafa"/>
+
+  <!-- Gold ring - left side, elegant -->
+  <circle cx="200" cy="315" r="120" fill="none" stroke="#d4af37" stroke-width="16"/>
+
+  <!-- Title -->
+  <text x="700" y="290"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="80"
+        font-weight="normal"
+        fill="#1a1a1a"
+        text-anchor="middle">Age of Wonders</text>
+
+  <!-- Tagline -->
+  <text x="700" y="380"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="32"
+        font-weight="normal"
+        fill="#888888"
+        text-anchor="middle">Abundance · Access · Agency</text>
+</svg>
