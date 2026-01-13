@@ -6,13 +6,13 @@ export const prerender = true;
 ---
 
 <SiteLayout title="Subscribe — Age of Wonders">
-  <h1 style="margin-top: 0; margin-bottom: 24px;">Subscribe</h1>
+  <h1 style="margin-top: 0; margin-bottom: 28px;">Subscribe</h1>
 
-  <p style="font-size: 23px; line-height: 1.7; margin-bottom: 20px; max-width: 520px;">
+  <p style="font-size: 24px; line-height: 1.65; margin-bottom: 16px; max-width: 500px;">
     Explore abundance, access, and the Age of Wonders ahead from your inbox.
   </p>
 
-  <p style="font-size: 16px; color: var(--muted); font-style: italic; margin-bottom: 56px;">
+  <p style="font-size: 16px; color: #999; font-style: italic; margin-bottom: 64px;">
     Low frequency. High quality. No distractions.
   </p>
 
@@ -23,7 +23,7 @@ export const prerender = true;
     onsubmit="window.open('https://buttondown.email/ageofwonders', 'popupwindow')"
     class="subscribe-form"
   >
-    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+    <div class="form-row">
       <input
         type="email"
         name="email"
@@ -40,18 +40,24 @@ export const prerender = true;
 
   <style>
     .subscribe-form {
-      max-width: 480px;
-      margin-bottom: 80px;
+      max-width: 520px;
+      margin-bottom: 100px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .email-input {
       flex: 1;
-      min-width: 240px;
-      padding: 14px 20px;
-      font-size: 17px;
+      min-width: 260px;
+      padding: 16px 24px;
+      font-size: 18px;
       font-family: 'Cormorant Garamond', serif;
-      border: 1px solid #e2e2e2;
-      border-radius: 24px;
+      border: 1px solid #e5e5e5;
+      border-radius: 28px;
       background: #fafafa;
       transition: all 0.25s ease;
       color: var(--text);
@@ -59,32 +65,49 @@ export const prerender = true;
 
     .email-input:focus {
       outline: none;
-      border-color: #ccc;
+      border-color: #d0d0d0;
       background: white;
     }
 
     .email-input::placeholder {
-      color: #aaa;
+      color: #bbb;
     }
 
     .submit-btn {
-      padding: 14px 32px;
-      font-size: 16px;
+      padding: 16px 36px;
+      font-size: 18px;
       font-family: 'Cormorant Garamond', serif;
       font-weight: 500;
       background: #f8f8f8;
       color: #666;
-      border: 1px solid #e2e2e2;
-      border-radius: 24px;
+      border: 1px solid #e5e5e5;
+      border-radius: 28px;
       cursor: pointer;
       transition: all 0.25s ease;
-      letter-spacing: 0.3px;
     }
 
     .submit-btn:hover {
       background: #f0f0f0;
       border-color: #d5d5d5;
       color: #444;
+    }
+
+    @media (max-width: 640px) {
+      .form-row {
+        gap: 14px;
+      }
+
+      .email-input {
+        min-width: 100%;
+        padding: 14px 22px;
+        font-size: 17px;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 14px 32px;
+        font-size: 17px;
+      }
     }
   </style>
 </SiteLayout>
