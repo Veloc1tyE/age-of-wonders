@@ -104,9 +104,13 @@ const allEssays = (await getCollection("essays"))
   }
   
   select.addEventListener('change', (e) => {
-    sortEssays(e.target.value);
+    const sortType = e.target.value;
+    localStorage.setItem('essays-sort', sortType);
+    sortEssays(sortType);
   });
-  
-  // Initialize with newest (default)
-  sortEssays('newest');
+
+  // Initialize with saved preference or default to 'newest'
+  const savedSort = localStorage.getItem('essays-sort') || 'newest';
+  select.value = savedSort;
+  sortEssays(savedSort);
 </script>
