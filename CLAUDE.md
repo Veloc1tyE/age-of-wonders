@@ -205,6 +205,8 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 - "90 to 100" is where most of the work happens — broad strokes are easy, details are hard
 - Cognitive dissonance is a signal: if something feels "off" but you can't articulate why, keep iterating
 - Sometimes the best solution is subtraction, not addition
+- The owner iterates by negation: "not that, not that either, nearly there" — trust the process
+- When feedback says "doesn't work at all," investigate thoroughly before making changes
 
 **Let the words carry themselves:**
 - Strong statements don't need `<strong>` tags — the content provides the weight
@@ -256,5 +258,10 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 15. **Custom Form Validation:** Replaced harsh browser validation tooltips with soft, on-brand error states using `novalidate` and custom JavaScript.
 16. **Share Component Restyle:** Converted boxy buttons with brand-colored hovers to pill-shaped buttons with uniform subtle gray hovers.
 17. **Hover State Consistency:** Increased hover contrast across all interactive elements (#f8f8f8 → #eee) so feedback is visible.
-18. **Sort Dropdown Affordance:** Added subtle dropdown arrow indicator to Essays sort control for better discoverability.
+18. **Sort Dropdown Styling:** Essays sort uses smaller pill (14px font, 7px padding) with `appearance: none` to hide native arrow — the pill shape provides sufficient affordance.
 19. **CSS Specificity Fix:** Moved inline styles to stylesheet for essay CTA button so hover pseudo-class could work.
+20. **Essays Page Double Line Fix:** Removed border-bottom from last essay item to prevent double line with footer's border-top.
+21. **Dropdown Arrow Removal:** Custom SVG arrows on select elements felt jarring — cleaner to use `appearance: none` with no arrow at all. The pill shape itself signals interactivity.
+22. **Text Centering in Pills:** Use `text-align: center` for select elements to center text within the pill, especially important when option text varies in length.
+23. **Page Spacing Balance:** Top and bottom spacing should feel symmetrical. On essays page: header margin-bottom (56px) balances with last item padding-bottom (16px) + footer margin-top (80px).
+24. **Background Property Gotcha:** `background` is a shorthand — setting `background-color` on hover overrides `background-image`. Use separate properties (`background-color`, `background-image`, `background-position`) when you need hover to change only one aspect.
