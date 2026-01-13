@@ -102,13 +102,7 @@ if (!import.meta.env.PROD) {
     <p style="margin: 0 0 20px 0; font-size: 19px; line-height: 1.6; color: var(--muted);">
       Read new essays exploring abundance, access, and the Age of Wonders ahead.
     </p>
-    <a
-      href="/subscribe"
-      class="subscribe-btn"
-      style="display: inline-block; padding: 10px 24px; background: #f8f8f8; color: #666; text-decoration: none; border-radius: 20px; font-family: 'Cormorant Garamond', serif; font-size: 17px; letter-spacing: 0.2px; transition: all 0.25s ease; border: 1px solid #e2e2e2;"
-    >
-      Subscribe
-    </a>
+    <a href="/subscribe" class="subscribe-btn">Subscribe</a>
   </div>
 
   <!-- Essay Navigation -->
@@ -233,6 +227,20 @@ if (!import.meta.env.PROD) {
 </script>
 
 <style>
+  .subscribe-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #f8f8f8;
+    color: #666;
+    text-decoration: none;
+    border-radius: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    transition: all 0.25s ease;
+    border: 1px solid #e2e2e2;
+  }
+
   .subscribe-btn:hover {
     background: #eee;
     border-color: #ccc;
