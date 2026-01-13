@@ -6,24 +6,21 @@ export const prerender = true;
 ---
 
 <SiteLayout title="Subscribe — Age of Wonders">
-  <h1 style="margin-top: 0; margin-bottom: 28px;">Subscribe</h1>
+  <div class="subscribe-content">
+    <h1>Subscribe</h1>
 
-  <p style="font-size: 24px; line-height: 1.65; margin-bottom: 16px; max-width: 500px;">
-    Explore abundance, access, and the Age of Wonders ahead from your inbox.
-  </p>
+    <p class="intro">
+      Explore abundance, access, and the Age of Wonders ahead — delivered to your inbox.
+      <span class="aside">Low frequency, high quality.</span>
+    </p>
 
-  <p style="font-size: 16px; color: #999; font-style: italic; margin-bottom: 64px;">
-    Low frequency. High quality. No distractions.
-  </p>
-
-  <form
-    action="https://buttondown.email/api/emails/embed-subscribe/ageofwonders"
-    method="post"
-    target="popupwindow"
-    onsubmit="window.open('https://buttondown.email/ageofwonders', 'popupwindow')"
-    class="subscribe-form"
-  >
-    <div class="form-row">
+    <form
+      action="https://buttondown.email/api/emails/embed-subscribe/ageofwonders"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.email/ageofwonders', 'popupwindow')"
+      class="subscribe-form"
+    >
       <input
         type="email"
         name="email"
@@ -32,27 +29,40 @@ export const prerender = true;
         required
         class="email-input"
       />
-      <button type="submit" class="submit-btn">
-        Subscribe
-      </button>
-    </div>
-  </form>
+      <button type="submit" class="submit-btn">Subscribe</button>
+    </form>
+  </div>
 
   <style>
-    .subscribe-form {
-      max-width: 520px;
-      margin-bottom: 100px;
+    .subscribe-content {
+      max-width: 480px;
     }
 
-    .form-row {
+    .subscribe-content h1 {
+      margin: 0 0 32px 0;
+    }
+
+    .intro {
+      font-size: 23px;
+      line-height: 1.7;
+      margin: 0 0 48px 0;
+    }
+
+    .aside {
+      color: #999;
+      font-style: italic;
+    }
+
+    .subscribe-form {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
+      margin-bottom: 120px;
     }
 
     .email-input {
       flex: 1;
-      min-width: 260px;
+      min-width: 240px;
       padding: 16px 24px;
       font-size: 18px;
       font-family: 'Cormorant Garamond', serif;
@@ -93,8 +103,13 @@ export const prerender = true;
     }
 
     @media (max-width: 640px) {
-      .form-row {
-        gap: 14px;
+      .intro {
+        font-size: 21px;
+        margin-bottom: 40px;
+      }
+
+      .subscribe-form {
+        gap: 12px;
       }
 
       .email-input {
