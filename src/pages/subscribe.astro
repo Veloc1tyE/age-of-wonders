@@ -17,8 +17,9 @@ export const prerender = true;
       action="https://buttondown.email/api/emails/embed-subscribe/ageofwonders"
       method="post"
       target="popupwindow"
-      onsubmit="window.open('https://buttondown.email/ageofwonders', 'popupwindow')"
       class="subscribe-form"
+      id="subscribe-form"
+      novalidate
     >
       <input
         type="email"
@@ -30,6 +31,7 @@ export const prerender = true;
       />
       <button type="submit" class="submit-btn">Subscribe</button>
     </form>
+    <p class="error-message" id="error-message"></p>
 
   </div>
 
@@ -97,6 +99,29 @@ export const prerender = true;
       color: #444;
     }
 
+    .email-input.error {
+      border-color: #d4a5a5;
+      background: #fdfafa;
+    }
+
+    .email-input.error:focus {
+      border-color: #c99;
+    }
+
+    .error-message {
+      font-size: 15px;
+      color: #b88;
+      margin: 12px 0 0 0;
+      padding-left: 20px;
+      min-height: 20px;
+      font-style: italic;
+      transition: opacity 0.25s ease;
+    }
+
+    .error-message:empty {
+      opacity: 0;
+    }
+
     @media (max-width: 640px) {
       .intro {
         font-size: 21px;
@@ -120,4 +145,44 @@ export const prerender = true;
       }
     }
   </style>
+
+  <script>
+    const form = document.getElementById('subscribe-form');
+    const input = document.getElementById('bd-email');
+    const errorMsg = document.getElementById('error-message');
+
+    function clearError() {
+      input.classList.remove('error');
+      errorMsg.textContent = '';
+    }
+
+    function showError(message) {
+      input.classList.add('error');
+      errorMsg.textContent = message;
+    }
+
+    form.addEventListener('submit', (e) => {
+      const email = input.value.trim();
+
+      if (!email) {
+        e.preventDefault();
+        showError('Please enter your email address.');
+        input.focus();
+        return;
+      }
+
+      if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+        e.preventDefault();
+        showError('Please enter a valid email address.');
+        input.focus();
+        return;
+      }
+
+      // Valid - open popup and submit
+      clearError();
+      window.open('https://buttondown.email/ageofwonders', 'popupwindow');
+    });
+
+    input.addEventListener('input', clearError);
+  </script>
 </SiteLayout>
