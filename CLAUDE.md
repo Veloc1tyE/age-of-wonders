@@ -120,9 +120,10 @@ Explanation of what caused it and why this fix is correct.
 - Subsequent navigation: <50ms (instant feel)
 
 **How it works:**
-- **Service Worker** (`public/sw.js`): Smart caching strategy
-  - HTML pages: Network-first with 2s timeout (ensures fresh content, falls back to cache if offline/slow)
-  - Static assets (JS, CSS, images): Cache-first with background update (instant feel)
+- **Service Worker** (`public/sw.js`): Stale-while-revalidate for everything
+  - All requests: Instant from cache, background fetch updates for next visit
+  - First visit to any page: Network fetch + cache
+  - Subsequent visits: Instant from cache (~5-10ms), fresh content ready for next navigation
   - Cache version bumped on deploy clears old stale content
 - **Astro ViewTransitions**: SPA-like instant navigation between pages without full reloads
 - **Aggressive prefetching**: Viewport-based + mousedown/touchstart prefetch for instant clicks
@@ -148,6 +149,50 @@ Explanation of what caused it and why this fix is correct.
 
 **Client-side sorting:** When adding client-side sorting, ensure the server-side initial render matches the default sort option to prevent content flashing.
 
+## Visual Design Principles
+
+The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of calm virtuosity — smoothness that soothes the brain. When making UI changes, follow these principles:
+
+**Subtlety over boldness:**
+- Decorative elements (numbers, borders, accents) should whisper, not shout
+- Use very light grays (#d0d0d0 or lighter) for subtle numbering or secondary elements
+- Accent colors (blue) are reserved for interactive states (hover) — and even then, use soft variants (#a8c8e8) rather than bold primary accent
+
+**Smoothness eliminates cognitive dissonance:**
+- Avoid sharp edges — use soft border-radius (3-4px) on all corners, not just some
+- Gradients should have multiple stops and fade gradually (e.g., 35%, 60%) — never abrupt cutoffs
+- Transitions should be gentle (0.25-0.3s ease) — fast enough to feel responsive, slow enough to feel smooth
+- Hover states should be subtle shifts, not dramatic changes
+
+**Visual variety across pages:**
+- Different pages should have distinct but cohesive aesthetics
+- Homepage "Creative Works" uses soft gray gradients emanating from left borders, creating a sense of curated collection
+- Essays list page uses a quieter approach: simple divider lines, no backgrounds, more whitespace
+- This variety keeps the site from feeling monotonous while maintaining brand coherence
+
+**Typography hierarchy:**
+- Use Cormorant Garamond for display/decorative text (titles, numbers, elegant controls)
+- Use Inter for functional UI elements (dates, navigation)
+- Font weights should be light (300) for decorative elements, medium (500) for emphasis
+
+**Spacing and breathing room:**
+- Generous padding inside cards/containers (24-32px)
+- Consistent vertical rhythm between list items
+- Mobile should have slightly tighter spacing but never feel cramped
+
+**Responsive considerations:**
+- Scale font sizes down proportionally on mobile (roughly 85-90% of desktop)
+- Reduce spacing slightly but maintain proportions
+- Stack horizontal layouts vertically on mobile when needed
+
+**Form controls (dropdowns, selects, buttons):**
+- Avoid default browser styling — it looks dated and harsh
+- Use pill shapes (border-radius: 18px) with subtle fills (#f8f8f8) and soft borders (#e2e2e2)
+- Cormorant Garamond works beautifully for elegant dropdowns
+- Muted text (#888) that gently darkens on hover (#666)
+- Center text for balanced feel when options vary in length
+- Controls should feel integrated with the typography, not bolted-on widgets
+
 ## Recent Fixes Applied
 
 1. **Date Schema Fix:** Changed date field from `z.string()` to `z.coerce.date()` in content config to properly handle date parsing
@@ -159,3 +204,4 @@ Explanation of what caused it and why this fix is correct.
 7. **Sort Preference Persistence:** Added localStorage to persist essay sort preference across cached navigation (ViewTransitions re-run scripts, so state must be stored externally)
 8. **ViewTransitions Script Fix:** Refactored essays sorting to use `astro:page-load` event instead of `define:vars`, ensuring scripts reinitialize on every navigation
 9. **Service Worker Cache Strategy:** Changed from pure stale-while-revalidate to smart routing: network-first for HTML (fresh content), cache-first for assets (instant feel). Bumped to v3.
+10. **Stale-While-Revalidate Everywhere:** Simplified SW to use stale-while-revalidate for all requests. Cached pages load instantly (~5-10ms), background fetch updates cache for next visit. Perfect for static essay site. Bumped to v5.

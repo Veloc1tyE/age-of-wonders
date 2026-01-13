@@ -217,13 +217,7 @@ hr{
 }
 
 /* Essay card hover effects */
-.essay-card:hover {
-  background: linear-gradient(to right, var(--accent-light), transparent) !important;
-  transform: translateX(6px);
-  box-shadow: 0 2px 12px rgba(0, 102, 204, 0.08);
-}
-
-.essay-card:hover strong {
+.essay-card:hover .essay-title {
   color: var(--accent);
 }
 
@@ -272,9 +266,5 @@ h2 {
   
   h2 {
     font-size: 32px;
-  }
-  
-  .essay-card:hover {
-    transform: translateX(3px);
   }
 }
