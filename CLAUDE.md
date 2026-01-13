@@ -120,17 +120,22 @@ Explanation of what caused it and why this fix is correct.
 - Subsequent navigation: <50ms (instant feel)
 
 **How it works:**
-- **Service Worker** (`public/sw.js`): Stale-while-revalidate caching - serves cached content immediately, updates cache in background
+- **Service Worker** (`public/sw.js`): Smart caching strategy
+  - HTML pages: Network-first with 2s timeout (ensures fresh content, falls back to cache if offline/slow)
+  - Static assets (JS, CSS, images): Cache-first with background update (instant feel)
+  - Cache version bumped on deploy clears old stale content
 - **Astro ViewTransitions**: SPA-like instant navigation between pages without full reloads
 - **Aggressive prefetching**: Viewport-based + mousedown/touchstart prefetch for instant clicks
 - **Lazy-loaded images**: Progressive loading for optimal initial paint
 
 **Critical rules when making changes:**
-1. **Never disable or weaken the service worker caching**
+1. **Bump `CACHE_VERSION` in sw.js when making significant changes** - this clears old caches
 2. **Never remove ViewTransitions** - they enable instant navigation
-3. **Persist user preferences with localStorage** - cached pages re-run scripts on each navigation, so use localStorage to maintain state (e.g., sort preferences)
-4. **Server-side render the default state** - ensure initial HTML matches what JavaScript will show to prevent content flashing
-5. **Test navigation patterns** - visit page → navigate away → return to verify state persists
+3. **Use `astro:page-load` event for client-side initialization** - ViewTransitions don't re-execute module scripts, so use this event to reinitialize on every navigation
+4. **Pass server data via data attributes, not `define:vars`** - `define:vars` scripts don't work well with ViewTransitions; use data attributes on hidden elements instead
+5. **Persist user preferences with localStorage** - state doesn't persist across ViewTransitions navigations
+6. **Server-side render the default state** - ensure initial HTML matches what JavaScript will show to prevent content flashing
+7. **Test navigation patterns** - visit page → navigate away → return to verify state persists
 
 ## Essay Ordering
 
@@ -152,3 +157,5 @@ Explanation of what caused it and why this fix is correct.
 5. **RSS Feed:** Updated to pass Date objects directly to `pubDate` (no need for `new Date()` conversion)
 6. **Essays Page Sort:** Added server-side sort to match default client-side "newest first" option, preventing content flash on page load
 7. **Sort Preference Persistence:** Added localStorage to persist essay sort preference across cached navigation (ViewTransitions re-run scripts, so state must be stored externally)
+8. **ViewTransitions Script Fix:** Refactored essays sorting to use `astro:page-load` event instead of `define:vars`, ensuring scripts reinitialize on every navigation
+9. **Service Worker Cache Strategy:** Changed from pure stale-while-revalidate to smart routing: network-first for HTML (fresh content), cache-first for assets (instant feel). Bumped to v3.
