@@ -67,7 +67,7 @@ const allEssays = (await getCollection("essays"))
   .essays-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: baseline;
     gap: 24px;
     margin-bottom: 48px;
   }
@@ -95,7 +95,6 @@ const allEssays = (await getCollection("essays"))
     cursor: pointer;
     transition: all 0.25s ease;
     flex-shrink: 0;
-    margin-top: 6px;
     border-radius: 18px;
   }
 
@@ -127,6 +126,7 @@ const allEssays = (await getCollection("essays"))
 
   .essay-item:last-child {
     border-bottom: none;
+    padding-bottom: 0;
   }
 
   .essay-link {
