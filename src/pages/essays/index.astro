@@ -27,33 +27,34 @@ const allEssays = (await getCollection("essays"))
 ---
 
 <SiteLayout title="Essays — Age of Wonders">
-  <h1 style="margin-top: 0; margin-bottom: 24px;">Essays</h1>
-  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px;">
-    <p class="meta" style="margin: 0;">
-      Explorations of abundance, access, and the Age of Wonders ahead.
-    </p>
-    
-    <select id="sort-select" style="font-family: 'Inter', sans-serif; font-size: 14px; padding: 4px 8px; border: 1px solid var(--rule); background: white; color: var(--text); cursor: pointer; border-radius: 3px; transition: all 0.2s ease;">
+  <div class="essays-header">
+    <div class="essays-header-text">
+      <h1>Essays</h1>
+      <p class="meta">
+        Explorations of abundance, access, and the Age of Wonders ahead.
+      </p>
+    </div>
+
+    <select id="sort-select">
       <option value="newest">Most recent</option>
       <option value="canonical">Canonical</option>
     </select>
   </div>
-  
-  <ul id="essays-list" style="list-style: none; padding: 0;">
+
+  <ul id="essays-list" class="essays-list">
     {allEssays.map((e) => (
-      <li class="essay-item" 
-          data-slug={e.slug} 
-          data-date={e.data.date.getTime()}
-          style="margin: 24px 0; padding: 20px; border-left: 3px solid var(--rule); background: #fafafa;">
-        <strong style="font-size:26px;"><a href={`/essays/${e.slug}/`}>{e.data.title}</a></strong>
-        <div class="meta" style="margin-top:8px;">
-          {e.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-        </div>
-        {e.data.description && (
-          <div style="margin-top:10px; font-size:19px; line-height:1.5;">
-            {e.data.description}
-          </div>
-        )}
+      <li class="essay-item"
+          data-slug={e.slug}
+          data-date={e.data.date.getTime()}>
+        <a href={`/essays/${e.slug}/`} class="essay-link">
+          <strong class="essay-title">{e.data.title}</strong>
+          <span class="essay-date">
+            {e.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </span>
+          {e.data.description && (
+            <span class="essay-description">{e.data.description}</span>
+          )}
+        </a>
       </li>
     ))}
   </ul>
@@ -63,13 +64,130 @@ const allEssays = (await getCollection("essays"))
 </SiteLayout>
 
 <style>
+  .essays-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .essays-header-text {
+    flex: 1;
+  }
+
+  .essays-header h1 {
+    margin: 0 0 12px 0;
+  }
+
+  .essays-header .meta {
+    margin: 0;
+  }
+
+  #sort-select {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 6px 14px;
+    border: 1px solid #e2e2e2;
+    background: #f8f8f8;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    margin-top: 6px;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 18px;
+    text-align: center;
+  }
+
   #sort-select:hover {
-    border-color: var(--accent);
+    border-color: #d5d5d5;
+    color: #666;
   }
 
   #sort-select:focus {
     outline: none;
-    border-color: var(--accent);
+  }
+
+  .essays-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .essay-item {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .essay-item:first-child {
+    padding-top: 0;
+  }
+
+  .essay-link {
+    text-decoration: none;
+    display: block;
+  }
+
+  .essay-item .essay-title {
+    font-size: 26px;
+    display: block;
+    color: var(--text);
+    transition: color 0.2s ease;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .essay-item:hover .essay-title {
+    color: var(--accent);
+  }
+
+  .essay-date {
+    display: block;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .essay-item .essay-description {
+    display: block;
+    margin-top: 12px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  @media (max-width: 640px) {
+    .essays-header {
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    #sort-select {
+      align-self: flex-start;
+      margin-top: 0;
+    }
+
+    .essay-item {
+      padding: 28px 0;
+    }
+
+    .essay-item .essay-title {
+      font-size: 22px;
+    }
+
+    .essay-date {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .essay-item .essay-description {
+      font-size: 17px;
+      margin-top: 10px;
+    }
   }
 </style>
 
