@@ -1,6 +1,6 @@
 ---
 title: Building Coherence
-description: Personal governance used to require a team. Now it takes a file, a watch, and a few evenings.
+description: Personal governance now only takes a file, a watch, and a few evenings.
 date: 2026-01-18
 draft: false
 ---
@@ -8,7 +8,6 @@ draft: false
 import Callout from '../../components/Callout.astro';
 import PullQuote from '../../components/PullQuote.astro';
 import DataInsight from '../../components/DataInsight.astro';
-import SummaryBox from '../../components/SummaryBox.astro';
 import Share from '../../components/Share.astro';
 
 ## The Shift
@@ -35,7 +34,7 @@ I tried to recover the way I'd solved every other problem: more effort, more pla
 
 **What I needed was less, not more.**
 
-So I built a rules engine for a human life. It reads objective inputs—sleep, HRV, calendar—chooses a mode, and enforces constraints when my judgment is degraded. 
+So I built a rules engine for a human life. It reads objective inputs—sleep, HRV, calendar—chooses a mode, and enforces constraints when my judgment is degraded.
 
 I call it LifeOS.
 
@@ -51,19 +50,19 @@ I call it LifeOS.
 
 The mode is chosen from capacity and obligations. Not ambition.
 
-The system tracks seven pillars: Health, Training, Capital, Learning, Relationships, Output, and Integrity. Each has its own status, thresholds, and rules. Health always wins conflicts with other pillars. If the body breaks, nothing else matters.
+The system tracks seven pillars: Health, Training, Work, Learning, Relationships, Output, and Integrity. Each has its own status, thresholds, and rules. Health always wins conflicts with other pillars. If the body breaks, nothing else matters.
 
-The point isn't productivity. It's alignment. It's about living every day in accordance with my mission and values, even when my nervous system is fighting me. 
+The point isn't productivity. It's alignment. It's about living every day in accordance with my mission and values, even when my nervous system is fighting me.
 
 ## III. The Rituals
 
-**Four commands.** 
+**Four commands.**
 
 Morning calibration. Evening shutdown. Check-ins. Weekly review.
 
 Each session starts by reading a constitution—a file that encodes everything the system needs to know. When I start, the AI knows my constraints, my current state, my open loops, and what I committed to. The session starts where the last one ended.
 
-Every rule has three parts: signal, constraint, and enforcement. 
+Every rule has three parts: signal, constraint, and enforcement.
 
 When the signal appears, the rule fires.
 
@@ -99,7 +98,7 @@ I still relapse into old patterns. The difference is I catch it in hours, not we
 
 ## V. Four Months Later
 
-**Four months of biometric data. The numbers aren't the point. The pattern is.**
+**Four months of biometric data**
 
 <DataInsight
   insight="Resting heart rate: 57 → 49"
@@ -116,11 +115,11 @@ I still relapse into old patterns. The difference is I catch it in hours, not we
   context="Nearly tripled. From barely registering to consistently restorative."
 />
 
-*(Garmin data, October 2025 to January 2026. Directional signals, not medical measurements.)*
+*(Garmin data, October 2025 to January 2026)*
 
 The system didn't heal me. I trained, slept more, reduced stress, and changed my environment. But LifeOS made those behaviours inevitable. It prevented me from sabotaging the recovery.
 
-Four months ago, I couldn't run. I couldn't think clearly. Now I'm training for a 100km ultramarathon. I've executed an international relocation. 
+Four months ago, I couldn't run. I couldn't think clearly. Now I'm training for a 100km ultramarathon. I've executed an international relocation.
 
 My vision feels closer every day.
 
@@ -227,3 +226,15 @@ Non-negotiable constraints written into the system.
 **9pm Curfew:** After 9pm—no decisions, no strategy, no relationship processing. Write it down, close the laptop, sleep.
 
 Everything else is negotiable.
+
+---
+
+## Appendix D: The State File
+
+The system runs on a single JSON file. Every session reads it. Every session updates it.
+
+The file contains pillar status, today's friction signals, the three critical tasks, and a handoff section with open loops and context for the next session.
+
+When I start a new session, the AI reads this file first. It knows my resting heart rate trend, my training load, my open loops, and what I said I'd do yesterday. The session starts where the last one ended.
+
+**That's the entire infrastructure. A text file and a watch.**
