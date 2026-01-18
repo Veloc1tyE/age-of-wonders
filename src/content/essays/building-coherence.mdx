@@ -1,0 +1,364 @@
+---
+title: Building Coherence
+description: Personal governance used to require a team. Now it takes a file, a watch, and a few evenings.
+date: 2026-01-18
+draft: false
+---
+
+import Callout from '../../components/Callout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import DataInsight from '../../components/DataInsight.astro';
+import SummaryBox from '../../components/SummaryBox.astro';
+import Share from '../../components/Share.astro';
+
+## The Breaking Point
+
+I didn't build this to be more productive. 
+
+I built it because I couldn't trust my judgment anymore.
+
+---
+
+I'm the founder of [Aquila](https://www.aquila.earth), a deep tech company building optical power infrastructure. I'd been running it for nearly four years—four years of slips, resets, and holding morale through timelines that kept not arriving. We'd raised serious money. Fifteen people's livelihoods depended on decisions I was making.
+
+That's the tax on deep tech: you pay in years before reality cooperates. The responsibility compounds the whole time.
+
+---
+
+2025 was the breaking point. The tech wasn't working reliably. New cells were coming back 80% unusable. We kept pushing the drone demo. Rescoping. Rewriting timelines and trying to keep the Series A milestone alive.
+
+Eventually, the truth landed: even perfect execution couldn't get to the version of reality we needed before we ran out of money. Not because we were slow but because physics and supply chains don't negotiate.
+
+At the same time, U.S. contracts stalled in political chaos. Nothing was closing, nothing was moving. The company was being squeezed by physics on one side and geopolitics on the other, while capital markets demanded certainty we couldn't manufacture.
+
+The thing that broke me wasn't the workload. It was four years of accumulated variance, finally exceeding my capacity to absorb it.
+
+---
+
+That's when nights became compulsive. I was working late to reduce uncertainty. Refreshing. Checking. Tweaking. Running scenarios. At 1am, I was replaying the same interaction, rewriting the same slide, trying to figure out how I was going to fulfil the promises I'd made.
+
+It didn't feel optional because when you're the person holding the system together, stopping feels like betrayal. The problem is: your body doesn't care about loyalty.
+
+---
+
+August 2025. HRV in the 30s. Resting heart rate spiking into the 80s and 90s. Deep sleep was basically gone. I was still acting like the CEO. Physiologically, I was the incident. I have ADHD, and my nervous system became so dysregulated I couldn't tolerate my meds.
+
+Four months of trying to recover. More effort. More planning. More discipline. Nothing held. Because I was trying to solve a nervous system problem with the tool that had broken: cognition.
+
+**So I built a governor.**
+
+## I. The Governor
+
+A rules engine for a human life.
+
+LifeOS reads objective inputs—sleep, HRV, calendar density—chooses a mode, and enforces constraints when my judgment is degraded.
+
+<Callout type="info">
+
+**Build:** Ship primary artifacts. Accept controlled stress.
+
+**Maintain:** Protect momentum. Reduce scope. Close loops.
+
+**Recover:** Minimum viable output. Maximal sleep. No intensity.
+
+</Callout>
+
+Chosen automatically from capacity + obligations. Not ambition.
+
+The system tracks seven pillars: Health, Training, Capital, Learning, Relationships, Output, and Integrity. Each has its own status, thresholds, and rules. Health always wins conflicts with other pillars. If the body breaks, nothing else matters.
+
+Think of it like JARVIS. A safety system. The part of me that still works when I don't.
+
+The point isn't productivity. It's alignment—living every day in accordance with my mission and my values, even when my nervous system is fighting me.
+
+A year ago, building something like this required a team. I built it with Claude, Python, a few JSON files, and a Garmin watch.
+
+**That's the stack. That's the whole trick.**
+
+<Callout type="info">
+
+**LifeOS is:**
+- A constraint engine for bad states
+- An incident-response system for the self
+- A continuity layer across weeks
+
+**LifeOS is not:**
+- Therapy
+- Motivation
+- A personality replacement
+- A substitute for rest or relationships
+
+</Callout>
+
+## II. The Interface
+
+Four commands. Each syncs fresh data and launches the AI with context.
+
+```bash
+lifeos-morning      # Morning calibration
+lifeos-evening      # Evening shutdown
+lifeos-checkin      # Quick status check
+lifeos-weekly       # Sunday integrity review
+```
+
+A typical morning session returns something like:
+
+<Callout type="highlight">
+
+**Mode:** Maintain
+
+**Top 3:** Finish essay draft, visa follow-up, evening gym
+
+**Hard stop:** Shutdown at 9:30pm
+
+**Open loops:** 2 (Greg gaming, apartment leads)
+
+</Callout>
+
+Some parts are scripted, some are manual review. The key is the ritual: state, assess, intervene, every time.
+
+Each session starts by reading the constitution—a file that encodes everything the system needs to know.
+
+<Callout type="info">
+
+**Prime Directive**
+
+Protect long-term trajectory against drift. Ensure every week moves toward the mission. Surface friction early. Close loops ruthlessly.
+
+</Callout>
+
+When I start a session, the AI knows my constraints, my current state, my open loops, and what I committed to.
+
+**The session starts where the last one ended.**
+
+## III. The Rules
+
+The system intervenes when specific signals appear.
+
+This is the runtime, not the philosophy. When the signal appears, the rule fires.
+
+<Callout type="highlight">
+
+**TRAJECTORY — "Kill the side quest"**
+
+Activates when: excited by a new idea, not on the scoreboard, "researching" instead of shipping, running 3+ parallel threads in one day.
+
+*If it's not on the scoreboard, it doesn't get time.*
+
+**INTEGRITY — "Name it or drop it"**
+
+Activates when: resentment appears, replaying a conversation, withholding to "keep things smooth."
+
+*Name it within 72 hours, or drop it.*
+
+**DURABILITY — "Pay the debt first"**
+
+Activates when: past 9pm and feeling urgency, chasing certainty (checking, tweaking, refreshing), 2-of-5 debt indicators fire.
+
+*After 9pm: no decisions.*
+
+</Callout>
+
+The debt indicators come from my Garmin and my behaviour:
+
+- Sleep quality down for 2+ nights
+- HRV trending down or RHR trending up
+- Racing thoughts after 9pm
+- Compulsive checking or "one more thing"
+- Emotional volatility (irritation, despair, overconfidence)
+
+Any two of these fire DURABILITY. The rule is automatic.
+
+## IV. Continuity
+
+State persists in JSON. Each session starts where the last one ended.
+
+Example state snapshot:
+
+```json
+{
+  "week": 3,
+  "pillarStatus": {
+    "p1_health": {
+      "status": "GREEN",
+      "signals": ["RHR 48", "HRV 79", "Sleep 8.23h"]
+    },
+    "p2_training": {
+      "status": "BUILDING",
+      "minutesLogged": 467
+    }
+  },
+  "handoff": {
+    "openLoops": [
+      "Greg gaming — awaiting time confirmation",
+      "Arabic classes — payment pending"
+    ]
+  }
+}
+```
+
+The AI reads this at session start. Continuity is maintained through handoffs.
+
+## V. Capture
+
+I don't use a task manager. No kanban boards. No spec cards. No categories.
+
+I write a stream of consciousness into a journal. The system extracts what matters.
+
+A recent entry:
+
+<Callout type="highlight">
+
+*Ok, 6:59pm on Thursday. The final item is reviewing socials, feeling satisfied. Productive, making progress. Just take small steps every day. Systems are scaling well, starting to get into a rhythm. Oh, still need to sort my visa out. Hopefully, Reem can help with that. Generated my assessment for Heidi to review. I've got 30 days, so it's pretty urgent.*
+
+</Callout>
+
+The system reads this and extracts:
+- **Open loop:** Visa situation. 30-day deadline
+- **Follow-up:** Reem. Visa assistance
+- **Completed:** Assessment for Heidi
+
+I didn't file anything. I didn't tag anything. I just wrote what was on my mind. The extraction is automatic.
+
+**Capture became cheap. That's why it actually happens.**
+
+Week one: 3 entries. Week three: 16. Friction disappeared, so truth started showing up.
+
+## VI. The System in Practice
+
+Friday evening. I've just finished an 84-minute outdoor run—12.6km, first proper outdoor session in months. I feel good. I want to train hard again tomorrow.
+
+The system checks my state. Body Battery: 11 out of 100. Training Readiness: 42. I'd drained 72 points of capacity in a single day.
+
+The rule fires: recovery day tomorrow.
+
+I wanted to push. But past-me knew this pattern. Feeling good after a hard effort doesn't mean you have recovered. The debt is invisible until you try to spend what isn't there.
+
+I took the rest day. Two days later, Training Readiness was back to 88.
+
+**The system didn't stop me from training. It stopped me from undoing the training.**
+
+Evening session. The system has already pulled my messages and identified loose ends: a friend I said I'd game with this weekend (no time confirmed), apartment leads I'd messaged but not followed up.
+
+It drafts a message with three game options and a proposed time. It creates a calendar event. It queues follow-ups to the apartment contacts. I review, edit, and hit send.
+
+Five loops close in three minutes. Conversations that would have drifted. Commitments that would have become broken promises.
+
+It doesn't work perfectly. Sometimes I override it. Sometimes I bargain with it.
+
+A few weeks ago, I pushed through a low Training Readiness day because I "felt fine." Took four days to recover instead of one. The following week, I added a rule: Training Readiness below 40 means easy effort only. No exceptions.
+
+The system catches me earlier. The recovery loop is shorter. I don't lose weeks anymore. I lose hours.
+
+**And when I fail, I add a rule.**
+
+## VII. Four Months Later
+
+Four months of biometric data. The numbers aren't the point. The pattern is.
+
+<DataInsight
+  insight="Resting heart rate: 57 → 49"
+  context="8 beats per minute in 4 months. Already down from the 80s-90s at the crisis."
+/>
+
+<DataInsight
+  insight="HRV: 68 → 79"
+  context="Heart rate variability. Up from the 30s at the crisis. Still climbing."
+/>
+
+<DataInsight
+  insight="Hypersomnia: 14-16h → normal 7-8h"
+  context="Dysregulation caused excessive sleep. Less is better here."
+/>
+
+<DataInsight
+  insight="Deep sleep: 23 → 66 minutes"
+  context="Nearly tripled. From barely registering to consistently restorative."
+/>
+
+*(Garmin data, October 2025 to January 2026. Directional signals, not medical measurements.)*
+
+The system didn't heal me. I trained, slept more, reduced stress, and changed my environment. But LifeOS made those behaviours inevitable. It prevented me from sabotaging the recovery.
+
+I'm now executing a significant life transition—relocating internationally—while maintaining coherence across health, training, work, learning, and relationships.
+
+**Not through heroic effort. Through systems.**
+
+## VIII. Dependence
+
+<PullQuote>
+
+When you're dysregulated, you're not the CEO. You're the incident.
+
+</PullQuote>
+
+LifeOS is an incident response for the self.
+
+If I need a governor to stop me from making bad decisions at midnight, does that mean I'm weak? No. It means I'm honest about how cognition works under load.
+
+This isn't about outsourcing agency. It's about pre-committing agency. Enforcing choices I already made when I was thinking clearly.
+
+The rules don't disappear if the system goes down. I internalise them through repetition. The AI is training wheels that become muscle memory.
+
+## IX. What Remains
+
+LifeOS doesn't cure depression. It doesn't replace therapy, sleep, or relationships.
+
+It just prevents irreversible decisions while compromised.
+
+## X. The Hard Stops
+
+These are the hard stops. Written into the system.
+
+<Callout type="info">
+
+**Shutdown Enforcement:** No new work after shutdown. If something is undone at shutdown, it becomes a backlog item for tomorrow—never a night rescue. "Just one more thing" is not permitted.
+
+**Friction Budget:** If friction score hits 3 or higher (sleep disruption + admin load + conflict + travel + injury), operate in Maintenance Mode. No expansion in any pillar.
+
+**Debt Repayment:** Any two of five debt indicators fire → 24 hours minimum repayment before intensity returns. A coffee and a walk are not repayment.
+
+**9pm Curfew:** After 9pm—no decisions, no strategy, no relationship processing. Write it down, close the laptop, sleep.
+
+</Callout>
+
+Everything else is negotiable.
+
+## XI. The Access Shift
+
+None of this was blocked by technology.
+
+It was blocked by the willingness to treat your own life like something worth designing.
+
+A year ago, personal governance required a team. Now it's a file, a watch, and a few evenings of setup.
+
+<DataInsight
+  insight="Personal governance is now cheap."
+  context="The bottleneck is deciding you're worth the engineering."
+/>
+
+<SummaryBox title="Build Your Own">
+
+1. Write 3 hard stops you will not violate, even when compromised.
+2. Write 3 values with costs attached.
+3. Define 5 triggers that fire automatically.
+4. Choose 3 rituals: morning, evening, weekly.
+5. Make the AI enforce them.
+6. Add an approval gate before anything leaves.
+
+**Constraints + Triggers + Cadence + Enforcement.**
+
+</SummaryBox>
+
+Without it, I would have kept making midnight decisions from a compromised state—and paid for them the next day.
+
+The tools now exist for anyone to build personal governance: a few rules, a few triggers, a few rituals, enforced by something that doesn't negotiate when you're tired.
+
+The Age of Wonders isn't only energy and materials. It's access to the infrastructure of a well-lived life. That infrastructure used to require money, teams, or exceptional self-control. Now it's cheap enough to build in a weekend.
+
+**Motivation is weather. Systems are law.**
+
+<Share
+  title="Building Coherence"
+  description="Personal governance used to require a team. Now it takes a file, a watch, and a few evenings."
+/>
