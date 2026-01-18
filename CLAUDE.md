@@ -240,6 +240,35 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 - Error states should be soft: dusty rose borders (#d4a5a5), muted coral text (#b88)
 - Clear errors on input to provide immediate feedback
 
+## Editorial & Writing Style
+
+**Word choice:**
+- Avoid generic AI terminology ("copilot" → "safety system") — these words are overloaded and diminish specificity
+- Use precise verbs: "resets" over "descopes", "replaying" over "going over"
+- "couldn't tolerate" is stronger than "could no longer bear" — directness over drama
+
+**Formatting consistency:**
+- Time formatting: `9pm` not `9 pm` — no space, lowercase
+- Compound modifiers: maintain parallel structure in lists
+- Watch for stray asterisks in bold markers (`*text:**` → `**text:**`)
+
+**Endings and tone:**
+- Avoid motivational pitch tone in conclusions — feels like selling
+- Use counterfactuals to make necessity feel airtight: "Without it, I would have..." grounds the abstract in specific consequences
+- Let the final statement land without explanation — trust the reader
+
+**Essay structure patterns:**
+- "Is/isn't" callouts early in essays prevent misreading (what this thing IS vs what it's NOT)
+- Example outputs make abstract systems concrete — show the actual interface
+- Horizontal rules create breathing room in narrative openings, but remove them between numbered sections
+
+**Component usage in essays:**
+- `<Callout type="highlight">` for example outputs, quotes, rule summaries
+- `<Callout type="info">` for definitions, lists, structured information
+- `<DataInsight>` for metrics with context
+- `<PullQuote>` for standout lines that anchor sections
+- `<SummaryBox>` for actionable takeaways at the end
+
 ## Recent Fixes Applied
 
 1. **Date Schema Fix:** Changed date field from `z.string()` to `z.coerce.date()` in content config to properly handle date parsing
@@ -287,9 +316,19 @@ This command executes the daily engagement workflow:
 **Command:** "Launch [essay name]"
 
 1. **Newsletter** (Buttondown): Subject + hook + key points + link
-2. **X thread**: Value-first, link in final post or reply
-3. **LinkedIn**: When connected, longer professional format
-4. **Update tracker** with links
+2. **X launch post**: Single substantive post with arrows/bullets, link at end (not a thread)
+3. **LinkedIn launch post**: Longer narrative version with more context, link at end
+4. **Daily value posts**: 5-7 posts extracted from essay for the week
+   - X: Mix of punchy one-liners and structured posts with arrows
+   - LinkedIn: Longer versions with professional framing and context
+   - Create as separate Typefully drafts, some "Both" with platform-specific content
+5. **Update tracker** with links
+
+**Social content style (from prior posts):**
+- X uses `→` arrows for lists, single substantive posts (not threads for daily content)
+- LinkedIn expands on X versions with more narrative and professional context
+- Avoid "thread" format for daily content — save threads for deep dives
+- Reference prior Typefully posts for tone calibration
 
 ### Content Structure
 
