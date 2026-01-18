@@ -11,41 +11,35 @@ import DataInsight from '../../components/DataInsight.astro';
 import SummaryBox from '../../components/SummaryBox.astro';
 import Share from '../../components/Share.astro';
 
-I built an AI to run my life. 
+## The Problem of Coherence
 
-Think of it like JARVIS — an operating system for my biological "suit". 
+**Most people who burn out don't lack willpower. They lack a governor.**
 
-I call it LifeOS. It's not fully autonomous, but it does pre-commit rules and rituals with a system that holds state when I'm tired.
+The nervous system has no long-term memory. It responds to what's in front of it. Under sustained pressure, it optimises for relief—not for the future you're trying to build. The executive function that's supposed to override short-term impulses is the first thing to degrade.
 
-## Hitting The Wall
+This is the problem of coherence: how do you maintain alignment with your values when the part of you that holds those values is compromised?
 
-I'm the founder of a deep tech company. For four years I lived inside slips, resets, and morale management through timelines that kept not arriving. Fifteen people's livelihoods depending on my decisions.
+I'm the founder of a deep tech company. For four years I lived inside slips, resets, and morale management through timelines that kept not arriving. Fifteen people's livelihoods depending on my decisions. Four years of accumulated variance finally exceeded my capacity to absorb it.
 
-Four years of accumulated variance finally exceeded my capacity to absorb it.
+So I built a system to hold the line when I couldn't.
 
----
+## I. The Failure Mode
 
-Nights became compulsive. Refreshing. Checking. Tweaking. Running scenarios. At 1am, replaying the same interaction, rewriting the same slide.
+The failure wasn't dramatic. It was incremental.
 
-I was self-soothing with control. Buying temporary relief with tomorrow's cognition.
+Nights became compulsive—working late to reduce uncertainty, running scenarios, replaying the same interaction, rewriting the same slide. The pattern felt productive, but it was actually self-soothing. I was buying temporary relief with tomorrow's cognition.
 
-It didn't feel optional—when you're the person holding the system together, stopping feels like betrayal. But your body doesn't care about loyalty.
-
----
+It didn't feel optional. When you're the person holding the system together, stopping feels like betrayal. But your body doesn't care about loyalty. It keeps score in a currency you can't negotiate with.
 
 August 2025. HRV in the 30s. Resting heart rate in the 80s and 90s. Deep sleep basically gone. I have ADHD, and my nervous system became so dysregulated I couldn't tolerate my meds.
 
-Four months of trying to recover. More effort. More planning. More discipline. Nothing held.
+Four months of trying to recover. More effort. More planning. More discipline. Nothing held. Because I was trying to solve a nervous system problem with the tool that was compromised: cognition.
 
-Because I was trying to solve a nervous system problem with the tool that was compromised: cognition.
+## II. The Governor
 
-**So I built a governor.**
+What I needed wasn't motivation. It was constraint.
 
-## I. The Governor
-
-A rules engine for a human life.
-
-LifeOS reads objective inputs—sleep, HRV, calendar density—chooses a mode, and enforces constraints when my judgment is degraded.
+I built a rules engine for a human life. It reads objective inputs—sleep, HRV, calendar density—chooses a mode, and enforces constraints when my judgment is degraded. I call it LifeOS.
 
 <Callout type="info">
 
@@ -57,32 +51,15 @@ LifeOS reads objective inputs—sleep, HRV, calendar density—chooses a mode, a
 
 </Callout>
 
-*Chosen from capacity + obligations. Not ambition.*
+*Chosen from capacity and obligations. Not ambition.*
 
 The system tracks seven pillars: Health, Training, Capital, Learning, Relationships, Output, and Integrity. Each has its own status, thresholds, and rules. Health always wins conflicts with other pillars. If the body breaks, nothing else matters.
 
 The point isn't productivity. It's alignment—living every day in accordance with my mission and values, even when my nervous system is fighting me.
 
-A year ago, building something like this required a team. I built it with Claude, Python, a few JSON files, and a Garmin watch.
+A year ago, building something like this required a team. I built it with Claude, Python, a few JSON files, and a Garmin watch. That's the stack.
 
-**That's the stack. That's the whole trick.**
-
-<Callout type="info">
-
-**LifeOS is:**
-- A constraint engine for bad states
-- An incident-response system for the self
-- A continuity layer across weeks
-
-**LifeOS is not:**
-- Therapy
-- Motivation
-- A personality replacement
-- A substitute for rest or relationships
-
-</Callout>
-
-## II. The Interface
+## III. The Interface
 
 Four commands. Each syncs fresh data and launches the AI with context.
 
@@ -93,7 +70,7 @@ lifeos-checkin      # Quick status check
 lifeos-weekly       # Sunday integrity review
 ```
 
-A typical morning session returns something like:
+A typical morning session:
 
 <Callout type="highlight">
 
@@ -107,25 +84,13 @@ A typical morning session returns something like:
 
 </Callout>
 
-Some parts are scripted, some are manual review. The key is the ritual: state, assess, intervene, every time.
+Each session starts by reading a constitution—a file that encodes everything the system needs to know. When I start, the AI knows my constraints, my current state, my open loops, and what I committed to.
 
-Each session starts by reading the constitution—a file that encodes everything the system needs to know.
+The session starts where the last one ended.
 
-<Callout type="info">
+## IV. The Rules
 
-**Prime Directive**
-
-Protect long-term trajectory against drift. Ensure every week moves toward the mission. Surface friction early. Close loops ruthlessly.
-
-</Callout>
-
-When I start a session, the AI knows my constraints, my current state, my open loops, and what I committed to.
-
-**The session starts where the last one ended.**
-
-## III. The Rules
-
-Every rule has three parts: **signal → constraint → enforcement.**
+Every rule has three parts: signal, constraint, enforcement.
 
 When the signal appears, the rule fires. This is runtime, not philosophy.
 
@@ -133,7 +98,7 @@ When the signal appears, the rule fires. This is runtime, not philosophy.
 
 **TRAJECTORY — "Kill the side quest"**
 
-Activates when: excited by a new idea, not on the scoreboard, "researching" instead of shipping, running 3+ parallel threads in one day.
+Activates when: excited by a new idea not on the scoreboard, "researching" instead of shipping, running three or more parallel threads in one day.
 
 *If it's not on the scoreboard, it doesn't get time.*
 
@@ -145,23 +110,17 @@ Activates when: resentment appears, replaying a conversation, withholding to "ke
 
 **DURABILITY — "Pay the debt first"**
 
-Activates when: past 9pm and feeling urgency, chasing certainty (checking, tweaking, refreshing), 2-of-5 debt indicators fire.
+Activates when: past 9pm and feeling urgency, chasing certainty, two of five debt indicators fire.
 
 *After 9pm: no decisions.*
 
 </Callout>
 
-The debt indicators come from my Garmin and my behaviour:
-
-- Sleep quality down for 2+ nights
-- HRV trending down or RHR trending up
-- Racing thoughts after 9pm
-- Compulsive checking or "one more thing"
-- Emotional volatility (irritation, despair, overconfidence)
+The debt indicators come from biometrics and behaviour: sleep quality down for two or more nights, HRV trending down, racing thoughts after 9pm, compulsive checking, emotional volatility.
 
 Any two of these fire DURABILITY. The rule is automatic.
 
-## IV. Continuity
+## V. Continuity
 
 State persists in JSON. The AI reads it at session start:
 
@@ -174,13 +133,7 @@ State persists in JSON. The AI reads it at session start:
 }
 ```
 
-Continuity is maintained through handoffs. The session starts where the last one ended.
-
-## V. Capture
-
-I don't use a task manager. No kanban boards. No spec cards. No categories.
-
-I write a stream of consciousness into a journal. The system extracts what matters.
+Continuity is maintained through handoffs. I don't use a task manager. I write stream of consciousness into a journal. The system extracts what matters.
 
 A recent entry:
 
@@ -190,16 +143,9 @@ A recent entry:
 
 </Callout>
 
-The system reads this and extracts:
-- **Open loop:** Visa situation. 30-day deadline
-- **Follow-up:** Reem. Visa assistance
-- **Completed:** Assessment for Heidi
+The system reads this and extracts open loops, follow-ups, and completions. I didn't file anything. I didn't tag anything. I just wrote what was on my mind.
 
-I didn't file anything. I didn't tag anything. I just wrote what was on my mind. The extraction is automatic.
-
-**Capture became cheap. That's why it actually happens.**
-
-Week one: 3 entries. Week three: 16. Friction disappeared, so truth started showing up.
+Capture became cheap. That's why it actually happens.
 
 ## VI. The System in Practice
 
@@ -209,17 +155,11 @@ The system checks my state. Body Battery: 11 out of 100. Training Readiness: 42.
 
 The rule fires: recovery day tomorrow.
 
-I wanted to push. But past-me knew this pattern. Feeling good after a hard effort doesn't mean you have recovered. The debt is invisible until you try to spend what isn't there.
+I wanted to push. But past-me knew this pattern. Feeling good after a hard effort doesn't mean you've recovered. The debt is invisible until you try to spend what isn't there.
 
 I took the rest day. Two days later, Training Readiness was back to 88.
 
-**The system didn't stop me from training. It stopped me from undoing the training.**
-
-Evening session. The system has already pulled my messages and identified loose ends: a friend I said I'd game with this weekend (no time confirmed), apartment leads I'd messaged but not followed up.
-
-It drafts a message with three game options and a proposed time. It creates a calendar event. It queues follow-ups to the apartment contacts. I review, edit, and hit send.
-
-Five loops close in three minutes. Conversations that would have drifted. Commitments that would have become broken promises.
+The system didn't stop me from training. It stopped me from undoing the training.
 
 ---
 
@@ -227,9 +167,7 @@ It doesn't work perfectly. Sometimes I override it. Sometimes I bargain with it.
 
 A few weeks ago, I pushed through a low Training Readiness day because I "felt fine." It took four days to recover instead of one. The following week, I added a rule: Training Readiness below 40 means easy effort only. No exceptions.
 
-The system catches me earlier. The recovery loop is shorter. I still relapse into old patterns. The difference is I catch it in hours, not weeks.
-
-**And when I fail, I add a rule.**
+I still relapse into old patterns. The difference is I catch it in hours, not weeks. And when I fail, I add a rule.
 
 ## VII. Four Months Later
 
@@ -237,17 +175,12 @@ Four months of biometric data. The numbers aren't the point. The pattern is.
 
 <DataInsight
   insight="Resting heart rate: 57 → 49"
-  context="8 beats per minute in 4 months. Already down from the 80s-90s at the low point."
+  context="Down 8 beats per minute in four months. Already down from the 80s-90s at the low point."
 />
 
 <DataInsight
   insight="HRV: 68 → 79"
   context="Heart rate variability. Up from the 30s at the low point. Still climbing."
-/>
-
-<DataInsight
-  insight="Hypersomnia: 14-16h → normal 7-8h"
-  context="Dysregulation caused excessive sleep. Less is better here."
 />
 
 <DataInsight
@@ -259,11 +192,9 @@ Four months of biometric data. The numbers aren't the point. The pattern is.
 
 The system didn't heal me. I trained, slept more, reduced stress, and changed my environment. But LifeOS made those behaviours inevitable. It prevented me from sabotaging the recovery.
 
-Four months ago, I couldn't run. I couldn't think clearly. I was surviving, not living.
+Four months ago, I couldn't run. I couldn't think clearly. Now I'm training for a 100km ultramarathon. I've executed an international relocation. The mission feels closer, not further away.
 
-Now I'm training for a 100km ultramarathon—600+ minutes of training per week. I've executed an international relocation. I wake up excited about my work again. My mission feels closer, not further away.
-
-**Not through heroic effort. Through systems.**
+Not through heroic effort. Through systems.
 
 ## VIII. Dependence
 
@@ -277,23 +208,19 @@ This isn't outsourcing agency. It's locking in the decisions I made while sane.
 
 The rules don't disappear if the system goes down. I internalise them through repetition. The AI is training wheels that become muscle memory.
 
-## IX. What Remains
+LifeOS doesn't cure depression. It doesn't replace therapy, sleep, or relationships. It just prevents irreversible decisions while compromised.
 
-LifeOS doesn't cure depression. It doesn't replace therapy, sleep, or relationships.
-
-It just prevents irreversible decisions while compromised.
-
-## X. The Hard Stops
+## IX. The Hard Stops
 
 These are the hard stops. Written into the system.
 
 <Callout type="info">
 
-**Shutdown Enforcement:** No new work after shutdown. If something is undone at shutdown, it becomes a backlog item for tomorrow—never a night rescue. "Just one more thing" is not permitted.
+**Shutdown Enforcement:** No new work after shutdown. If something is undone, it becomes a backlog item for tomorrow—never a night rescue.
 
-**Friction Budget:** If friction score hits 3 or higher (sleep disruption + admin load + conflict + travel + injury), operate in Maintenance Mode. No expansion in any pillar.
+**Friction Budget:** If friction score hits three or higher, operate in Maintenance Mode. No expansion in any pillar.
 
-**Debt Repayment:** Any two of five debt indicators fire → 24 hours minimum repayment before intensity returns. A coffee and a walk are not repayment.
+**Debt Repayment:** Any two of five debt indicators fire → 24 hours minimum repayment before intensity returns.
 
 **9pm Curfew:** After 9pm—no decisions, no strategy, no relationship processing. Write it down, close the laptop, sleep.
 
@@ -301,7 +228,7 @@ These are the hard stops. Written into the system.
 
 Everything else is negotiable.
 
-## XI. The Access Shift
+## X. The Access Shift
 
 None of this was blocked by technology.
 
@@ -316,13 +243,11 @@ A year ago, personal governance required a team. Now it's a file, a watch, and a
 
 <SummaryBox title="Build Your Own">
 
-Write 3 hard stops. Define 5 triggers. Pick 3 rituals. Add enforcement.
+Write three hard stops. Define five triggers. Pick three rituals. Add enforcement.
 
 **Constraints + Triggers + Cadence + Enforcement.**
 
 </SummaryBox>
-
-Without it, I would have kept making midnight decisions from a compromised state and paid for them the next day.
 
 The tools now exist for anyone to build personal governance: a few rules, a few triggers, a few rituals, enforced by something that doesn't negotiate when you're tired.
 
