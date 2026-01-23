@@ -1,125 +1,253 @@
 ---
 title: The Solar Gravitational Lens
-description: Photographing continents on distant worlds—and why the galaxy will be seen before it's visited.
+description: Photographing distant worlds by turning the Sun into a telescope.
 date: 2026-01-22
-draft: true
+draft: false
 ---
 
 import Callout from '../../components/Callout.astro';
 import PullQuote from '../../components/PullQuote.astro';
 import DataInsight from '../../components/DataInsight.astro';
 import SummaryBox from '../../components/SummaryBox.astro';
+import Share from '../../components/Share.astro';
+import Figure from '../../components/Figure.astro';
 
-## Draft Structure
+import sglInfographic from '../../../public/images/sgl_infographic.png';
+import sglLensing from '../../../public/images/sun_gravitational_lensing_still.png';
+import sglExoplanet from '../../../public/images/sgl_exoplanet.png';
+import exoplanetsArt from '../../../public/images/exoplanets-artist-rendering.jpg';
+import kepler186f from '../../../public/images/1-kepler186f.webp';
+import solarSail from '../../../public/images/solar_sail.png';
 
-### I. The Sun as a Lens
+## The Lands Beyond
 
-**Intuitive explanation:**
-- Gravity bends light (Einstein, 1915)
-- Every star is a gravitational lens
-- The Sun focuses light at ~550 AU (focal line)
-- This is not theory—it's settled physics
+Throughout human history, if you wanted to know what lay beyond the horizon, you walked there. If you wanted to understand a distant land, you sailed for months or years. If you wanted to study another world orbiting another star, well, you could only guess. 
 
-**Key analogy:** The Sun acts like a magnifying glass the size of a star.
+For most of our history, certainty had a price: you had to arrive.
 
-### II. What SGL Can See
+**Until Einstein gave us a loophole.**
 
-**The scale jump:**
-- Current exoplanet observation: single pixels, spectra
-- SGL capability: ~10 km resolution at 100 light-years
-- **You can see continents. Oceans. Ice caps. Cloud patterns.**
+Picture a spacecraft far beyond Pluto. It points not at the planet it wants to see, but at the Sun. Around the Sun, in the glare, is a thread-thin ring of light. That ring encodes an image. Over months, a world resolves.
 
-<DataInsight 
-  insight="SGL could resolve features as small as 10 km on an exoplanet 100 light-years away."
-  context="That's the difference between knowing a planet exists and seeing its geography."
+The Sun can be used as a telescope large enough to map a distant Earth. Not by traveling there. By turning gravity into optics.
+
+**Bringing other worlds into view long before we can reach them.**
+
+## I. Turning the Sun into a Telescope
+
+The Sun has been bending starlight for billions of years. And in that bending is a telescope we’ve never been able to reach.
+
+Einstein finished general relativity in 1915<sup><a href="#ref-1">[1]</a></sup>. General relativity describes how matter shapes spacetime, and spacetime shapes motion.
+
+Light also traces the curvature of spacetime. Rays skimming the Sun are curved, which creates a long focal line<sup><a href="#ref-2">[2]</a></sup>. For rays at the solar edge, the focal line begins around 547 AU—roughly fourteen times Pluto's distance—and continues outward. Unlike a glass lens, the Sun's gravity doesn't focus to a single point, but along a line. It's an extended focal region. What arrives is not a picture but an Einstein ring that only computation can turn back into geography. In 1979, physicist V.R. Eshleman proposed using this "solar lens" for astronomy<sup><a href="#ref-3">[3]</a></sup>.
+
+<Figure 
+  src={sglLensing}
+  alt="Diagram showing how the Sun's gravity bends light from a distant exoplanet into an Einstein ring"
+  caption="Starlight passing near the Sun is deflected by curved spacetime. At the right distance, that same bending makes the Sun the front element of a telescope."
 />
 
-**What becomes possible:**
-- Biosignature detection (chlorophyll, oxygen, methane)
-- Geological mapping (plate tectonics, volcanism)
-- Weather systems (atmospheric circulation)
-- Seasonal changes (vegetation cycles)
+### The Numbers Are Extraordinary
 
-### III. The Technical Challenge (and Why It's Solvable)
+At visible wavelengths, the Solar Gravitational Lens can amplify light by a factor of ~10¹¹ near the optical axis<sup><a href="#ref-4">[4]</a></sup>. That's not a better telescope—it's a different regime of astronomy.
 
-**Challenges:**
-1. Getting to 550 AU (Voyager took 45 years, but with Starship + nuclear propulsion: ~15-25 years)
-2. Staying aligned (precision station-keeping)
-3. Reconstructing images (computational challenge, not physical)
-4. Pointing at target star (orbital mechanics)
+Mission studies show that with a ~1-meter telescope near 550 AU, tens-of-kilometres-class surface features in reconstruction are theoretically achievable with months to a year of observations (with careful coronagraphy and sufficient integration to overcome coronal glare)<sup><a href="#ref-4">[4]</a></sup>. Enough to draw coastlines, then with time, build time-separated maps: seasons, ice extent, and persistent cloud belts emerging as a slow statistical signal.
 
-**Why this is infrastructure, not miracle:**
-- Propulsion: nuclear electric (already demonstrated)
-- Alignment: ion thrusters (tested technology)
-- Reconstruction: AI + massive compute (improving exponentially)
-- Launch: Starship makes it affordable
+Without the SGL, comparable detail likely requires extremely large space interferometers—baselines on the order of tens of kilometres or more. Or you use the one lens in the solar system already that large: the Sun.
 
-### IV. The Epistemological Shift
+<Figure 
+  src={sglInfographic}
+  alt="Infographic showing the Solar Gravitational Lens concept and mission architecture"
+  caption="The mission architecture: a telescope at 550 AU—roughly fourteen times Pluto's distance—positions itself along the Sun's focal line. The Sun's gravity becomes an optical element with an effective aperture measured in stellar radii."
+  wide={true}
+/>
 
-**This is not astronomy. This is cartography.**
+**A lens the size of the Sun.** A real optical property that's been waiting for us to use since the Sun formed 4.6 billion years ago.
 
-<PullQuote>
+## II. Cosmic Cartography
 
-The Age of Exploration didn't begin when ships were built. It began when maps became possible.
+Right now, we know thousands of exoplanets exist. We've detected them indirectly by watching stars dim or measuring their gravitational wobble. We can infer their size, their mass, and their orbital period. We can even analyse light passing through their atmospheres and detect specific molecules.
 
-</PullQuote>
+But we can't *see* them.
 
-**SGL creates:**
-- A map of the galaxy
-- Without visiting it
-- Without disturbing it
-- Just by looking
+The best images we have of exoplanets are single pixels. Sometimes a handful of pixels. Enough to confirm they exist. Not enough to understand them. We know a planet is there. We don't know what it looks like.
 
-**Emotional arc:**
-```
-We once guessed    (pre-telescopes)
-Then we inferred   (Hubble, spectroscopy)
-Now we can see     (SGL: geography, biology)
-```
+**The Solar Gravitational Lens changes that.**
 
-### V. What This Changes
+### From Pixels to Geography
 
-**Exploration decouples from colonization:**
-- You can study a world without going there
-- You can detect life without contact
-- You can prioritize missions with actual knowledge
+The SGL doesn't take a photograph. It solves an inverse problem.
 
-**Science becomes democratic:**
-- Anyone can request telescope time
-- Data is public
-- Exoplanet geography becomes a field
+What arrives is not a picture but an encoding: an Einstein ring where every point contains a blurred contribution from much of the planet's disk. You build an image by scanning the ring, letting rotation change the view, and then solving the inverse problem.
 
-**The galaxy becomes knowable:**
-- Within 100 years, we could map thousands of worlds
-- Resolution improves with baseline (multiple SGL telescopes)
-- The unknown shrinks faster than we can explore
+In practice, the spacecraft steps laterally through the focal region and records the ring's brightness distribution at each position, building up a dataset the reconstruction algorithm inverts into a map. It's closer to tomography than photography—gravity as the optics, computation as the camera.
 
-### VI. The Age of Wonders Is Here
+A 1-metre telescope at 550 AU could reconstruct a megapixel map of an Earth-like world at ~30 parsecs—tens-of-kilometres-class surface features—with months of integration<sup><a href="#ref-4">[4]</a> <a href="#ref-5">[5]</a></sup>.
 
-**Close with:**
-- SGL removes ignorance of *where*
-- Physics permits this today
-- The constraint is infrastructure, not knowledge
-- What remains is *how* to move—and abundance is solving that too (setup for Free Starship)
+<Figure 
+  src={sglExoplanet}
+  alt="Simulated SGL image of an Earth-like exoplanet showing continents, oceans, and clouds"
+  caption="Simulated reconstruction of an Earth-like exoplanet as viewed through the Solar Gravitational Lens. At tens-of-kilometres-class detail, continents, oceans, ice caps, and large-scale cloud structure become visible in reconstruction."
+  wide={true}
+/>
+
+You could see *geography*. A slow reveal: coastlines, cloud patterns, bright ice, assembled over months of light and computation. The marks of a world still changing, or one long frozen in place.
+
+## III. The Engineering Challenge
+
+**The limiting factor has shifted from optics to mission execution.**
+
+Now comes the price of admission: the journey.
+
+### Distance and Time
+
+547 AU is far. For context, Pluto orbits at roughly 40 AU. Voyager 1—launched in 1977—is still far short of 550 AU<sup><a href="#ref-7">[7]</a></sup>. At that pace, reaching 547 AU would take well over a century.
+
+Multiple propulsion concepts could get us there in 15–25 years, depending on mass, power, and risk tolerance. **Solar sails** diving close to the Sun can achieve extreme exit velocities<sup><a href="#ref-8">[8]</a></sup>. **Laser propulsion** could push transit times even lower<sup><a href="#ref-9">[9]</a></sup>.
+
+<Figure 
+  src={solarSail}
+  alt="Solar sail spacecraft concept for high-speed deep space missions"
+  caption="Solar sail concept: diving close to the Sun and using intense photon pressure to reach 550 AU in roughly two decades."
+/>
+
+A mission launched in the 2030s could return data in the 2040s or 2050s—fast enough that the people who build it could see its first maps.
+
+### The Hard Parts
+
+The biggest challenge is station-keeping. You must control your position precisely across the image plane; small offsets change what part of the ring you sample. Holding that precision for years, 550 AU from home, is the real test. Ion thrusters are ideal: low thrust, high efficiency, flight-proven.
+
+SGL imaging is computational astronomy. You sample the ring over time, then solve an inverse problem to recover the map—physics as the instrument, computation as the camera. The physics is known. The hard part is building a system that can trust its own reconstruction<sup><a href="#ref-4">[4]</a> <a href="#ref-5">[5]</a></sup>.
+
+### The Mission
+
+Mission studies favour a swarm: a handful of small probes rather than one large spacecraft<sup><a href="#ref-11">[11]</a></sup>. Each carries a meter-class telescope, a coronagraph to block the Sun, and propellant for years of station-keeping. Power from RTGs. Communication via optical laser links.
+
+Start with one probe. One nearby star with a temperate rocky planet. One year of observation to build the first map. That's the buildable version: flagship-class in ambition, except its instrument is the Sun.
+
+What remains is engineering, funding, and will.
+
+## IV. The Galaxy Becomes Knowable
+
+The SGL is not a search instrument—it's a follow-up instrument. It answers questions about planets we've already found. Each mission is dedicated to one target star; switching targets requires lateral travel measured in AU. That makes each probe a dedicated observatory: one star, one world, one long stare. So we'd focus on the most promising candidates: nearby stars with planets in habitable zones, worlds with hints of biosignatures.
+
+Over the coming decades, we could build a catalogue of mapped worlds. Detect biosignatures—not spectral hints, but *maps* of where the strongest biosignature-like features concentrate<sup><a href="#ref-4">[4]</a></sup>. The unknown doesn't disappear. But it shrinks faster than we can explore it physically.
+
+<Figure 
+  src={exoplanetsArt}
+  alt="Artist's rendering of diverse exoplanets"
+  caption="Thousands of exoplanets await mapping. With the SGL, each becomes a world we can study in detail."
+/>
+
+## V. An Age of Wonders Lies Beyond
+
+The Solar Gravitational Lens has existed since the Sun formed. Every star creates one. The physics is settled. The price is institutional: decades of patience, billions of dollars, and a mission that pays off only once it's farther than any spacecraft we've ever flown.
+
+It's a spacecraft, a telescope, a mission profile. Flagship-class in ambition. Buildable with today's physics—and engineering we already know how to do, at scale.
+
+For most of history, knowledge required presence. Then telescopes made distance visible. The SGL would do something stranger: turn a star into an instrument and make geography visible at interstellar range.
+
+<Figure 
+  src={kepler186f}
+  alt="Artist's conception of Kepler-186f, an Earth-sized exoplanet in the habitable zone"
+  caption="Kepler-186f: an Earth-sized planet in the habitable zone, about 500 light-years away. Worlds like this become mappable."
+/>
+
+You don't send a crewed mission to another star without knowing which worlds are worth visiting. The SGL is the map that makes the rest possible.
+
+At 550 AU, a small spacecraft stares at a thread-thin ring of light around the Sun—an Einstein ring carrying light from another world. Over months, a coastline appears. Then continents. The first resolved map of an exo-Earth will be an Earthrise-level moment. 
+
+**The Sun built the lens. We can build the mission.**
+
+### What Comes Next
+
+Once you've mapped a coastline 30 light-years away, you might want to go there. The SGL gives us the map. But maps demand vessels.
+
+*The Free Starship* explores what happens when going stops requiring logistics, when a spacecraft can refuel from gas giants and operate for millennia without resupply lines. 
+
+Read onwards about the Free Starship as our next feature in Age of Wonders.
+
+<Share
+  title="The Solar Gravitational Lens"
+  description="Photographing continents on distant worlds—by turning the Sun into a telescope."
+/>
 
 ---
 
-## Notes for Development
+## Notes & References
 
-**Tone:** This should feel like Galileo + Hubble + Google Maps had a child.
+**Sources (in order of appearance):**
 
-**Key emphasis:**
-- Non-invasive exploration
-- Perception without presence
-- Knowledge without conquest
+<span id="ref-1">[1]</span> Einstein, A. (1915).  
+"Die Feldgleichungen der Gravitation." *Sitzungsberichte der Königlich Preußischen Akademie der Wissenschaften* (Berlin), 844-847.  
+(Einstein's field equations establishing general relativity; foundation for gravitational lensing.)
 
-**Citations needed:**
-- Turyshev et al. (SGL mission design papers)
-- Einstein lens equations
-- Current propulsion capabilities
-- Image reconstruction algorithms
+<span id="ref-2">[2]</span> Einstein, A. (1936).  
+"Lens-Like Action of a Star by the Deviation of Light in the Gravitational Field."  
+*Science* 84 (2188): 506-507 — <a href="https://science.sciencemag.org/content/84/2188/506" target="_blank">https://science.sciencemag.org/content/84/2188/506</a>  
+(Einstein's original calculation showing the Sun acts as a gravitational lens.)
 
-**Connections:**
-- Payoff for Essay 2's "indexed universe" theme
-- Proves "distance ≠ barrier to knowledge"
-- Sets up Essay 7's "now let's move" argument
+<span id="ref-3">[3]</span> Eshleman, V.R. (1979).  
+"Gravitational lens of the sun: its potential for observations and communications over interstellar distances."  
+*Science* 205 (4411): 1133-1135 — <a href="https://science.sciencemag.org/content/205/4411/1133" target="_blank">https://science.sciencemag.org/content/205/4411/1133</a>  
+(First proposal to use the solar gravitational lens for astronomy.)
+
+<span id="ref-4">[4]</span> Turyshev, S.G. & Toth, V.T. (2020).  
+"Direct Multipixel Imaging and Spectroscopy of an Exoplanet with a Solar Gravity Lens Mission."  
+arXiv:2002.11871 — <a href="https://arxiv.org/abs/2002.11871" target="_blank">https://arxiv.org/abs/2002.11871</a>  
+(Analysis showing a 1-m telescope at 550 AU could image an Earth-analog at 30 pc with ~10 km resolution.)
+
+<span id="ref-5">[5]</span> Turyshev, S.G. & Toth, V.T. (2023).  
+"Imaging faint sources with the extended solar gravitational lens."  
+arXiv:2301.07495 — <a href="https://arxiv.org/abs/2301.07495" target="_blank">https://arxiv.org/abs/2301.07495</a>  
+(Updated modelling of imaging faint sources and deconvolution feasibility.)
+
+<span id="ref-6">[6]</span> Turyshev, S.G. & Toth, V.T. (2017).  
+"Diffraction of light by the gravitational field of the Sun and the solar corona."  
+arXiv:1704.06824 — <a href="https://arxiv.org/abs/1704.06824" target="_blank">https://arxiv.org/abs/1704.06824</a>  
+(Theoretical modelling of the SGL including solar corona noise effects.)
+
+<span id="ref-7">[7]</span> NASA Jet Propulsion Laboratory.  
+"Voyager Mission Status."  
+<a href="https://voyager.jpl.nasa.gov/mission/status/" target="_blank">https://voyager.jpl.nasa.gov/mission/status/</a>  
+(Current probe distances for context on deep-space timelines.)
+
+<span id="ref-8">[8]</span> Landis, G.A. (2016).  
+"Mission to the Gravitational Focus of the Sun: A Critical Analysis."  
+arXiv:1604.06351 — <a href="https://arxiv.org/abs/1604.06351" target="_blank">https://arxiv.org/abs/1604.06351</a>  
+(Critical analysis of SGL mission feasibility and propulsion challenges, including solar sail architectures.)
+
+<span id="ref-9">[9]</span> Manchester, Z. & Loeb, A. (2017).  
+"Stability of a Light Sail Riding on a Laser Beam."  
+arXiv:1609.09506 — <a href="https://arxiv.org/abs/1609.09506" target="_blank">https://arxiv.org/abs/1609.09506</a>  
+(Technical analysis of laser-assisted propulsion relevant to SGL mission profiles.)
+
+<span id="ref-10">[10]</span> Breakthrough Initiatives.  
+"Breakthrough Starshot."  
+<a href="https://breakthroughinitiatives.org/initiative/3" target="_blank">https://breakthroughinitiatives.org/initiative/3</a>  
+(Laser sail mission concept with relevance to SGL delivery architectures.)
+
+<span id="ref-11">[11]</span> NASA Innovative Advanced Concepts (NIAC) (2020).  
+"Direct Multipixel Imaging and Spectroscopy of an Exoplanet with a Solar Gravitational Lens Mission."  
+<a href="https://www.nasa.gov/general/direct-multipixel-imaging-and-spectroscopy-of-an-exoplanet-with-a-solar-gravitational-lens-mission/" target="_blank">https://www.nasa.gov/general/direct-multipixel-imaging-and-spectroscopy-of-an-exoplanet-with-a-solar-gravitational-lens-mission/</a>  
+(NASA-funded mission concept development for SGL observatory.)
+
+**Technical Notes:**
+
+*Values are representative of published mission studies; exact figures depend on wavelength, coronagraph design, and reconstruction assumptions.*
+
+- **Focal distance:** The focal line begins at ~547 AU (where f = R☉²/2rg) and extends outward. Light grazing the Sun's limb is deflected by ~1.75 arcseconds. See [2], [4] for derivations.
+
+- **Optical gain:** ~10¹⁰–10¹¹ brightness amplification at optical/near-IR wavelengths [4]. This pushes the photon budget into a fundamentally different regime from conventional telescopes.
+
+- **Image formation:** The planet appears as an Einstein ring; meter-scale motion in the image plane corresponds (order-of-magnitude) to tens-of-kilometres-class changes in the reconstructed surface footprint, depending on wavelength, coronagraph performance, and noise assumptions. Deconvolution recovers the map—analogous to Event Horizon Telescope imaging.
+
+- **Integration time:** Months to a year for megapixel-class maps of Earth-analogs at tens of parsecs [4, 5]. Nearer targets (e.g., Proxima b at 1.3 pc) require substantially less time.
+
+- **Propulsion:** Solar sails with sundiver maneuvers can achieve tens of AU/year exit velocities [8]. Laser propulsion could reduce times further [9].
+
+- **Station-keeping:** Sub-kilometre accuracy maintained for years via ion thrusters. The Sun, telescope, and target must remain extremely well aligned to sub-microradian precision—so well that tiny pointing errors distort what you measure.
+
+- **Mission architecture:** Swarm concepts with multiple small probes provide redundancy and enable parallel observations [11]. Optical laser links return data at tractable rates even from 550+ AU.
+
+- **Why no alternative works:** Space interferometers need ~100 km baselines; fast flybys spend only minutes at target with prohibitive communication challenges. Each non-SGL approach falls 2–5 orders of magnitude short [4].
