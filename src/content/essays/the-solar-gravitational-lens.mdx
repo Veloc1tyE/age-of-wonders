@@ -19,19 +19,16 @@ import exoplanetsArt from '../../../public/images/exoplanets-artist-rendering.jp
 import kepler186f from '../../../public/images/1-kepler186f.webp';
 import solarSail from '../../../public/images/solar_sail.png';
 
-## The Lands Beyond
+**Photographing a Distant World**
 
-Throughout human history, if you wanted to know what lay beyond the horizon, you walked there. If you wanted to understand a distant land, you sailed for months or years. If you wanted to study another world orbiting another star, well, you could only guess. 
+Picture a spacecraft far beyond Pluto—fourteen times its distance from the Sun. The spacecraft doesn't point at the planet it wants to see. It points at the Sun. Around the Sun, in the glare, is a thread-thin ring of light. That ring encodes an image. Over months, a world resolves.
 
-For most of our history, certainty had a price: you had to arrive.
-
-**Until Einstein gave us a loophole.**
-
-Picture a spacecraft far beyond Pluto. It points not at the planet it wants to see, but at the Sun. Around the Sun, in the glare, is a thread-thin ring of light. That ring encodes an image. Over months, a world resolves.
-
-The Sun can be used as a telescope large enough to map a distant Earth. Not by traveling there. By turning gravity into optics.
-
-**Bringing other worlds into view long before we can reach them.**
+<Figure 
+  src={sglExoplanet}
+  alt="Simulated SGL image of an Earth-like exoplanet showing continents, oceans, and clouds"
+  caption="Simulated reconstruction of an Earth-like exoplanet as viewed through the Solar Gravitational Lens."
+  wide={true}
+/>
 
 ## I. Turning the Sun into a Telescope
 
@@ -58,7 +55,7 @@ Without the SGL, comparable detail likely requires extremely large space interfe
 <Figure 
   src={sglInfographic}
   alt="Infographic showing the Solar Gravitational Lens concept and mission architecture"
-  caption="The mission architecture: a telescope at 550 AU—roughly fourteen times Pluto's distance—positions itself along the Sun's focal line. The Sun's gravity becomes an optical element with an effective aperture measured in stellar radii."
+  caption="A telescope at 550 AU—roughly fourteen times Pluto's distance—aligns with the Sun's focal line. The Sun's gravity becomes an optical element with an effective aperture measured in stellar radii."
   wide={true}
 />
 
@@ -80,16 +77,9 @@ The SGL doesn't take a photograph. It solves an inverse problem.
 
 What arrives is not a picture but an encoding: an Einstein ring where every point contains a blurred contribution from much of the planet's disk. You build an image by scanning the ring, letting rotation change the view, and then solving the inverse problem.
 
-In practice, the spacecraft steps laterally through the focal region and records the ring's brightness distribution at each position, building up a dataset the reconstruction algorithm inverts into a map. It's closer to tomography than photography—gravity as the optics, computation as the camera.
+In practice, the spacecraft steps laterally through the focal region and records the ring's brightness distribution at each position, building up a dataset that the reconstruction algorithm inverts into a map. It's closer to tomography than photography—gravity as the optics, computation as the camera.
 
 A 1-metre telescope at 550 AU could reconstruct a megapixel map of an Earth-like world at ~30 parsecs—tens-of-kilometres-class surface features—with months of integration<sup><a href="#ref-4">[4]</a> <a href="#ref-5">[5]</a></sup>.
-
-<Figure 
-  src={sglExoplanet}
-  alt="Simulated SGL image of an Earth-like exoplanet showing continents, oceans, and clouds"
-  caption="Simulated reconstruction of an Earth-like exoplanet as viewed through the Solar Gravitational Lens. At tens-of-kilometres-class detail, continents, oceans, ice caps, and large-scale cloud structure become visible in reconstruction."
-  wide={true}
-/>
 
 You could see *geography*. A slow reveal: coastlines, cloud patterns, bright ice, assembled over months of light and computation. The marks of a world still changing, or one long frozen in place.
 
@@ -123,15 +113,15 @@ SGL imaging is computational astronomy. You sample the ring over time, then solv
 
 Mission studies favour a swarm: a handful of small probes rather than one large spacecraft<sup><a href="#ref-11">[11]</a></sup>. Each carries a meter-class telescope, a coronagraph to block the Sun, and propellant for years of station-keeping. Power from RTGs. Communication via optical laser links.
 
-Start with one probe. One nearby star with a temperate rocky planet. One year of observation to build the first map. That's the buildable version: flagship-class in ambition, except its instrument is the Sun.
+The SGL is not a search instrument—it's a follow-up instrument. Each probe is dedicated to one target star; switching targets requires lateral travel measured in AU. Start with one probe. One nearby star has a temperate rocky planet—one year of observation to build the first map.
 
 What remains is engineering, funding, and will.
 
-## IV. The Galaxy Becomes Knowable
+## IV. Cataloguing The Galaxy
 
-The SGL is not a search instrument—it's a follow-up instrument. It answers questions about planets we've already found. Each mission is dedicated to one target star; switching targets requires lateral travel measured in AU. That makes each probe a dedicated observatory: one star, one world, one long stare. So we'd focus on the most promising candidates: nearby stars with planets in habitable zones, worlds with hints of biosignatures.
+Over the coming decades, we could build a catalogue: not spectral hints, but *maps*. Coastlines resolved. Ice caps tracked across seasons. Biosignature concentrations pinpointed to hemispheres<sup><a href="#ref-4">[4]</a></sup>.
 
-Over the coming decades, we could build a catalogue of mapped worlds. Detect biosignatures—not spectral hints, but *maps* of where the strongest biosignature-like features concentrate<sup><a href="#ref-4">[4]</a></sup>. 
+Each probe is a dedicated observatory: one star, one world, one long stare. So we'd prioritise the nearest candidates—temperate worlds with atmospheric hints worth following up. Proxima b. TRAPPIST--and characterise them in detail.
 
 <Figure 
   src={exoplanetsArt}
@@ -139,13 +129,15 @@ Over the coming decades, we could build a catalogue of mapped worlds. Detect bio
   caption="Thousands of exoplanets await mapping. With the SGL, each becomes a world we can study in detail."
 />
 
+The SGL shifts the question from *"Are there other Earths?"* to *"Where do we go first?"*
+
 ## V. An Age of Wonders Lies Beyond
 
 The Solar Gravitational Lens has existed since the Sun formed. Every star creates one. The physics is settled. The price is institutional: decades of patience, billions of dollars, and a mission that pays off only once it's farther than any spacecraft we've ever flown.
 
-It's a spacecraft, a telescope, a mission profile. Flagship-class in ambition. Buildable with today's physics—and engineering we already know how to do, at scale.
+It's a spacecraft, a telescope, a mission profile—flagship-class in ambition. Buildable with today's physics—and engineering we already know how to do, at scale.
 
-For most of history, knowledge required presence. Then telescopes made distance visible. The SGL would do something stranger: turn a star into an instrument and make geography visible at interstellar range.
+For most of history, knowledge required presence. Then, telescopes made distance visible. The SGL would do something stranger: turn a star into an instrument and make geography visible at interstellar range.
 
 <Figure 
   src={kepler186f}
@@ -155,13 +147,13 @@ For most of history, knowledge required presence. Then telescopes made distance 
 
 You don't send a crewed mission to another star without knowing which worlds are worth visiting. The SGL is the map that makes the rest possible.
 
-At 550 AU, a small spacecraft stares at a thread-thin ring of light around the Sun—an Einstein ring carrying light from another world. Over months, a coastline appears. Then continents. The first resolved map of an exo-Earth will be an Earthrise-level moment. 
+At 550 AU, a small spacecraft stares at a thread-thin ring of light around the Sun—an Einstein ring carrying light from another world. Over months, a coastline appears. Then the continents. The first resolved map of an exo-Earth will be an Earthrise-level moment. 
 
 **The Sun built the lens. We can build the mission.**
 
 ### What Comes Next
 
-Once you've mapped a coastline 30 light-years away, likely want to go there. The SGL gives us the map. But maps demand vessels.
+Once you've mapped a coastline 30 light-years away, you likely want to go there. The SGL gives us the map. But maps demand vessels.
 
 *The Free Starship* (coming soon) explores what happens when a spacecraft can refuel from gas giants and operate indefinitely without supply chains from Earth. 
 
