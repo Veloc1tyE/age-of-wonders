@@ -23,21 +23,11 @@ const CANONICAL_ORDER = [
 
 const essays = (await getCollection("essays"))
   .filter(e => !e.data.draft)
+  .filter(e => CANONICAL_ORDER.includes(e.slug)) // Only show essays in canonical order
   .sort((a, b) => {
     const indexA = CANONICAL_ORDER.indexOf(a.slug);
     const indexB = CANONICAL_ORDER.indexOf(b.slug);
-    
-    // If both are in canonical order, sort by that
-    if (indexA !== -1 && indexB !== -1) {
-      return indexA - indexB;
-    }
-    
-    // If only one is in canonical order, it comes first
-    if (indexA !== -1) return -1;
-    if (indexB !== -1) return 1;
-    
-    // For any new essays not in canonical order, sort by date (most recent first)
-    return b.data.date.getTime() - a.data.date.getTime();
+    return indexA - indexB;
   });
 ---
 
