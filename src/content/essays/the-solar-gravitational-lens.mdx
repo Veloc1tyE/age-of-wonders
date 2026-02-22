@@ -21,7 +21,7 @@ import solarSail from '../../../public/images/solar_sail.png';
 
 **Photographing a Distant World**
 
-Picture a spacecraft far beyond Pluto—fourteen times its distance from the Sun. The spacecraft doesn't point at the planet it wants to see. It points at the Sun. Around the Sun, in the glare, is a thread-thin ring of light. That ring encodes an image. Over months, a world resolves.
+Picture a spacecraft far beyond Pluto—fourteen times its distance from the Sun. The spacecraft doesn't point at the planet it wants to see. It points at the Sun. Around the Sun, in the glare, is a thread-thin ring of light — an image encoded in gravity. Over months, a world resolves.
 
 <Figure 
   src={sglExoplanet}
@@ -48,7 +48,7 @@ Light also traces the curvature of spacetime. Rays skimming the Sun are curved, 
 
 At visible wavelengths, the Solar Gravitational Lens (SGL) can amplify light by a factor of ~10¹¹ near the optical axis<sup><a href="#ref-4">[4]</a></sup>. That's not a better telescope—it's a different regime of astronomy.
 
-Mission studies show that with a ~1-meter telescope near 550 AU, tens-of-kilometres-class surface features in reconstruction are theoretically achievable with months to a year of observations (with careful coronagraphy and sufficient integration to overcome coronal glare)<sup><a href="#ref-4">[4]</a></sup>. Enough to draw coastlines, then with time, build time-separated maps: seasons, ice extent, and persistent cloud belts emerging as a slow statistical signal.
+A modest one-metre telescope at that distance could resolve continents on a distant Earth — enough to draw coastlines, then over time, map seasons, ice extent, and persistent cloud belts as they shift.<sup><a href="#ref-4">[4]</a></sup>
 
 Without the SGL, comparable detail likely requires extremely large space interferometers—baselines on the order of hundreds of kilometres or more. Or you use the one lens in the solar system already that large: the Sun.
 
@@ -59,25 +59,25 @@ Without the SGL, comparable detail likely requires extremely large space interfe
   wide={true}
 />
 
-**A lens the size of the Sun.** A real optical property that's been waiting for us to use since the Sun formed 4.6 billion years ago.
+**A lens the size of the Sun.** The Sun has been a telescope for billions of years. The only question is when we decide to use it.
 
 ## II. Cosmic Cartography
 
-Right now, we know thousands of exoplanets exist. We've detected them indirectly by watching stars dim or measuring their gravitational wobble. We can infer their size, their mass, and their orbital period. We can even analyse light passing through their atmospheres and detect specific molecules.
+We've confirmed thousands of exoplanets. We know their sizes, orbits, and something of their atmospheres. We can infer whether a world is temperate. We can detect carbon dioxide in its air.
 
 But we can't *see* them.
 
-The best images we have of exoplanets are single pixels. Sometimes a handful of pixels. Enough to confirm they exist. Not enough to understand them. We know a planet is there. We don't know what it looks like.
+The best images are single pixels. Enough to confirm a planet exists. Not enough to understand it.
 
 **The Solar Gravitational Lens changes that.**
 
 ### From Pixels to Geography
 
-The SGL doesn't take a photograph. It solves an inverse problem.
+The SGL doesn't take pictures. It reconstructs worlds.
 
-What arrives is not a picture but an encoding: an Einstein ring where every point contains a blurred contribution from much of the planet's disk. You build an image by scanning the ring, letting rotation change the view, and then solving the inverse problem.
+What arrives is an Einstein ring: every point on it contains a blurred contribution from much of the planet's disk. The spacecraft steps laterally through the focal region, records how the ring's brightness shifts at each position, and builds a dataset. Then reconstruction inverts that dataset into a map.
 
-In practice, the spacecraft steps laterally through the focal region and records the ring's brightness distribution at each position, building up a dataset that the reconstruction algorithm inverts into a map. It's closer to tomography than photography—gravity as the optics, computation as the camera.
+It's closer to medical imaging than photography — reconstructing an object from encoded signals rather than capturing a direct image. The physics is the instrument. Computation is the camera.
 
 A 1-metre telescope at 550 AU could reconstruct a megapixel map of an Earth-like world at ~30 parsecs—tens-of-kilometres-class surface features—with months of integration<sup><a href="#ref-4">[4]</a> <a href="#ref-5">[5]</a></sup>.
 
@@ -85,15 +85,17 @@ You could see *geography*. A slow reveal: coastlines, cloud patterns, bright ice
 
 ## III. The Engineering Challenge
 
-**The limiting factor has shifted from optics to mission execution.**
+The physics is settled.
 
-Now comes the price of admission: the journey.
+The optics already exist.
+
+What remains is the journey.
 
 ### Distance and Time
 
-547 AU is far. For context, Pluto orbits at roughly 40 AU. Voyager 1—launched in 1977—is still far short of 550 AU<sup><a href="#ref-7">[7]</a></sup>. At that pace, reaching 547 AU would take well over a century.
+547 AU is far. Pluto orbits at roughly 40 AU. Voyager 1 — launched in 1977 — is still short of 550 AU<sup><a href="#ref-7">[7]</a></sup>. At that range, the Sun itself shrinks to a bright star in the sky. At Voyager's pace, reaching the focal line would take well over a century.
 
-Multiple propulsion concepts could get us there in 15–25 years, depending on mass, power, and risk tolerance. **Solar sails** diving close to the Sun can achieve extreme exit velocities<sup><a href="#ref-8">[8]</a></sup>. **Laser propulsion** could push transit times even lower<sup><a href="#ref-9">[9]</a></sup>.
+Multiple propulsion concepts could get us there in 15–25 years. Solar sails diving close to the Sun can reach extreme exit velocities; laser propulsion could push faster still<sup><a href="#ref-8">[8]</a><a href="#ref-9">[9]</a></sup>. The propulsion is not the hard part.
 
 <Figure 
   src={solarSail}
@@ -105,15 +107,17 @@ A mission launched in the 2030s could return data in the 2040s or 2050s—fast e
 
 ### The Hard Parts
 
-The biggest challenge is station-keeping. You must control your position precisely across the image plane; small offsets change what part of the ring you sample. Holding that precision for years, 550 AU from home, is the real test. Ion thrusters are ideal: low thrust, high efficiency, flight-proven.
+The biggest challenge is station-keeping. Each metre of lateral drift blurs the reconstructed image — because every shift changes which part of the ring you sample. Holding that precision for years, 550 AU from home, is the real test. Ion thrusters are ideal: low thrust, high efficiency, flight-proven.
 
 SGL imaging is computational astronomy. You sample the ring over time, then solve an inverse problem to recover the map—physics as the instrument, computation as the camera. The physics is known. The hard part is building a system that can trust its own reconstruction<sup><a href="#ref-4">[4]</a> <a href="#ref-5">[5]</a></sup>.
 
 ### The Mission
 
-Mission studies favour a swarm: a handful of small probes rather than one large spacecraft<sup><a href="#ref-11">[11]</a></sup>. Each carries a meter-class telescope, a coronagraph to block the Sun, and propellant for years of station-keeping. Power from RTGs. Communication via optical laser links.
+Mission studies favour a swarm: a handful of small probes, each dedicated to a single target, rather than one large flagship<sup><a href="#ref-11">[11]</a></sup>.
 
-The SGL is not a search instrument—it's a follow-up instrument. Each probe is dedicated to one target star; switching targets requires lateral travel measured in AU. Start with one probe. One nearby star has a temperate rocky planet—one year of observation to build the first map.
+Each carries a metre-class telescope, a coronagraph to block the Sun's glare, and ion propulsion for years of station-keeping. Power from RTGs. Communication via optical laser links — a thread of light across half the solar system.
+
+The SGL is not a search instrument — it's a follow-up instrument. You already know which world you're looking at. You commit one probe, one star, one long stare. A year of observation to build the first map.
 
 What remains is engineering, funding, and will.
 
