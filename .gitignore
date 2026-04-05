@@ -18,6 +18,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# generated PDFs
+pdfs/
+
 # macOS-specific files
 .DS_Store
 

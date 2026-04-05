@@ -14,7 +14,7 @@ export const POST: APIRoute = async ({ request }) => {
     const { filepath, content } = await request.json();
     
     // Validate filepath to prevent directory traversal
-    if (filepath.includes('..') || !filepath.startsWith('src/')) {
+    if (filepath.includes('..') || !(filepath.startsWith('src/') || filepath.startsWith('private/'))) {
       return new Response(JSON.stringify({ error: 'Invalid filepath' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
