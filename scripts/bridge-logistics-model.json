@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ageofwonders.org/schemas/bridge-logistics-model-v1.json",
+  "title": "Bridge to Infinity — Cislunar logistics & population flow model",
+  "description": "Portable parameter pack for running Earth launcher, lunar export, habitat completion, and matched-flow sanity checks. Paste into an external model or import as context. Not a forecast — illustrative scenario from the essay thesis.",
+  "version": "1.0.0",
+  "source": "Age of Wonders essay: Bridge to Infinity (Appendix L + Section IV throughput tables)",
+  "units": {
+    "mass": "tonnes (t) unless noted as kg",
+    "time": "per year (/yr) for rates",
+    "people": "count"
+  },
+  "constants": {
+    "habitat_total_mass_t": 150000,
+    "habitat_residents": 10000,
+    "lunar_mass_fraction_per_habitat": 0.9,
+    "earth_complexity_fraction_per_habitat": 0.1,
+    "lunar_mass_per_habitat_t": 135000,
+    "earth_complexity_per_habitat_t": 15000,
+    "lunar_fraction_to_habitats": 0.6,
+    "complexity_cargo_per_new_resident_t": 1.5,
+    "natural_growth_rate_offworld": 0.015,
+    "earth_peak_population_billions": 10.3,
+    "reference_payload_delivered_leo_per_shot_t": 100,
+    "reference_shots_per_day": 1,
+    "reference_shots_per_6h": 4,
+    "reference_shots_per_hour": 24,
+    "reference_2024_world_upmass_t": 2171
+  },
+  "derived_reference_throughputs_t_per_year": {
+    "one_site_daily_100t_payload": 36500,
+    "one_site_6h_100t_payload": 146000,
+    "one_site_hourly_100t_payload": 876000,
+    "notes": "Payload = mass delivered to LEO per shot (essay table). Total launched mass including bridge stage is larger."
+  },
+  "formulas": {
+    "habitats_per_year": "habitats_per_year = lunar_fraction_to_habitats * lunar_export_t_per_year / lunar_mass_per_habitat_t",
+    "capacity_added_residents_per_year": "capacity_added = habitats_per_year * habitat_residents",
+    "earth_complexity_required_t_per_year": "M_earth_complexity = capacity_added * complexity_cargo_per_new_resident_t",
+    "earth_launcher_capacity_t_per_year": "M_earth_launch = N_sites * N_tubes_per_site * shots_per_tube_per_year * payload_t_per_shot",
+    "hourly_equivalent_tubes_for_complexity": "N_tubes_equiv = M_earth_complexity / reference_one_tube_hourly_throughput_t_per_year",
+    "complexity_match_ratio": "match = M_earth_launch_network / M_earth_complexity (values near 1 = balanced pipeline)"
+  },
+  "lunar_export_ramp_t_per_year_by_decade": {
+    "2050s": 10000,
+    "2060s": 100000,
+    "2070s": 500000,
+    "2080s": 2000000,
+    "2090s": 10000000,
+    "2100s": 50000000,
+    "2120s": 200000000,
+    "2150s": 500000000
+  },
+  "earth_launcher_network_essay_table_t_per_year": {
+    "2070s": { "equiv_sites": 1, "export_t_per_year": 36500 },
+    "2080s": { "equiv_sites": "2-3", "export_t_per_year": 200000 },
+    "2090s": { "equiv_sites": 5, "export_t_per_year": 750000 },
+    "2100s": { "equiv_sites": 8, "export_t_per_year": 2000000 },
+    "2120s": { "equiv_sites": 12, "export_t_per_year": 5000000 },
+    "2150s": { "equiv_sites": "15+", "export_t_per_year": 10000000, "note": "Essay table; may be conservative vs matched-flow at max lunar habitat rate — see worked_examples" }
+  },
+  "worked_examples": {
+    "2150s_matched_flow_sanity": {
+      "lunar_export_t_per_year": 500000000,
+      "habitats_per_year": 2222.2222222222222,
+      "capacity_added_residents_per_year": 22222222,
+      "earth_complexity_required_t_per_year": 33333333,
+      "one_tube_hourly_throughput_t_per_year": 876000,
+      "hourly_equivalent_tubes_at_100t_payload": 38.05300684931507,
+      "essay_2150s_earth_export_t_per_year": 10000000,
+      "gap_factor_essay_vs_matched": 3.3333333333333335,
+      "interpretation": "At 500 Mt/yr lunar and 1.5 t complexity per new resident, Earth must export ~33 Mt/yr to match ~22.2M residents/yr habitat capacity. Essay's ~10 Mt/yr row implies either lower fill rate, falling kg/person as orbital fabs mature, or parallel non-launcher lift — reconcile in scenario runs."
+    },
+    "single_site_people_transport_upper_bound": {
+      "assumption_kg_per_person_for_ferry_leg": 2000,
+      "hourly_100t_payload_t_per_year": 876000,
+      "people_per_year_if_all_payload_is_passengers": 438000,
+      "note": "Upper bound only; real system splits cargo vs crew, bridge vehicle limits, and human-rated g-load may use separate tubes."
+    }
+  },
+  "bottleneck_variables_for_sensitivity": [
+    "N_sites (geography)",
+    "N_tubes_per_site (parallel launch lanes per megacomplex)",
+    "shots_per_tube_per_year (thermal, storage recharge, maintenance)",
+    "payload_t_per_shot",
+    "bridge_vehicle_flights_per_year (may be < launcher shots if vehicles are limiting)",
+    "cryogenic_propellant_production_t_per_year",
+    "lunar_export_t_per_year",
+    "orbital_assembly_throughput",
+    "complexity_cargo_per_new_resident_t (should decline over decades if orbital industry matures)"
+  ],
+  "prompt_for_external_model": "You are given bridge-logistics-model.json. Compute: (1) habitats_per_year and capacity_added for any lunar_export_t_per_year; (2) required Earth complexity export for matched flow; (3) required tubes at hourly 100t equivalent; (4) sweep N_sites and N_tubes_per_site to hit a target complexity export. Flag when Earth export table < matched complexity. Use formulas object exactly."
+}

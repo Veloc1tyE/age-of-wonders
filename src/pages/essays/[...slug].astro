@@ -138,7 +138,7 @@ if (!import.meta.env.PROD) {
         </div>
         <textarea id="editor" data-filepath={filepath}>{rawContent}</textarea>
         <div class="edit-footer">
-          <p>Changes saved to disk. Use <code>git add</code> and <code>git commit</code> to stage.</p>
+          <p>Cmd+S to save · Cmd+E to toggle · Esc to close · saves to disk and reloads</p>
         </div>
       </div>
     </div>
@@ -146,84 +146,91 @@ if (!import.meta.env.PROD) {
 </SiteLayout>
 
 <script>
-  // Check for edit mode
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('edit') === 'true') {
-    showEditMode();
-  }
-  
-  // Also listen for keyboard shortcut: Cmd+E or Ctrl+E
-  document.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'e') {
-      e.preventDefault();
-      showEditMode();
-    }
-  });
-  
-  function showEditMode() {
+  function initEditMode() {
     const overlay = document.getElementById('edit-mode');
-    if (!overlay) return;
-    
-    overlay.style.display = 'flex';
-    
+    if (!overlay) return; // not in dev or no rawContent
+
     const editor = document.getElementById('editor') as HTMLTextAreaElement;
-    const saveBtn = document.getElementById('save-btn');
-    const closeBtn = document.getElementById('close-btn');
-    
-    // Focus editor
-    editor?.focus();
-    
-    saveBtn?.addEventListener('click', async () => {
-      const content = editor.value;
-      const filepath = editor.dataset.filepath;
-      
+    const saveBtn = document.getElementById('save-btn') as HTMLButtonElement;
+    const closeBtn = document.getElementById('close-btn') as HTMLButtonElement;
+
+    function openEditor() {
+      overlay.style.display = 'flex';
+      editor?.focus();
+    }
+
+    function closeEditor() {
+      overlay.style.display = 'none';
+      const url = new URL(window.location.href);
+      url.searchParams.delete('edit');
+      window.history.replaceState({}, '', url.pathname);
+    }
+
+    async function doSave() {
+      if (!editor) return;
       saveBtn.textContent = 'Saving...';
-      saveBtn.setAttribute('disabled', 'true');
-      
+      saveBtn.disabled = true;
       try {
         const res = await fetch('/api/save', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ filepath, content })
+          body: JSON.stringify({ filepath: editor.dataset.filepath, content: editor.value })
         });
-        
         if (res.ok) {
-          saveBtn.textContent = 'Saved ✓';
-          setTimeout(() => {
-            saveBtn.textContent = 'Save';
-            saveBtn.removeAttribute('disabled');
-          }, 2000);
+          // Bust the service worker cache for this page so the reload is fresh
+          if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+            const cacheKeys = await caches.keys();
+            for (const key of cacheKeys) {
+              const cache = await caches.open(key);
+              await cache.delete(window.location.href);
+            }
+          }
+          saveBtn.textContent = 'Saved ✓ — reloading…';
+          setTimeout(() => { window.location.reload(); }, 800);
         } else {
-          const error = await res.json();
-          alert(`Save failed: ${error.error}`);
+          const err = await res.json();
+          alert(`Save failed: ${err.error}`);
           saveBtn.textContent = 'Save';
-          saveBtn.removeAttribute('disabled');
+          saveBtn.disabled = false;
         }
-      } catch (error) {
-        alert(`Save failed: ${error}`);
+      } catch (e) {
+        alert(`Save failed: ${e}`);
         saveBtn.textContent = 'Save';
-        saveBtn.removeAttribute('disabled');
+        saveBtn.disabled = false;
       }
-    });
-    
-    closeBtn?.addEventListener('click', () => {
-      overlay.style.display = 'none';
-      // Remove ?edit=true from URL
-      const url = new URL(window.location.href);
-      url.searchParams.delete('edit');
-      window.history.replaceState({}, '', url.pathname);
-    });
-    
-    // ESC key to close
+    }
+
+    // Wire up buttons once (cloneNode trick removes any old listeners from prior navigation)
+    const newSave = saveBtn.cloneNode(true) as HTMLButtonElement;
+    const newClose = closeBtn.cloneNode(true) as HTMLButtonElement;
+    saveBtn.replaceWith(newSave);
+    closeBtn.replaceWith(newClose);
+    newSave.addEventListener('click', doSave);
+    newClose.addEventListener('click', closeEditor);
+
+    // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'e') {
+        e.preventDefault();
+        overlay.style.display === 'none' ? openEditor() : closeEditor();
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key === 's' && overlay.style.display !== 'none') {
+        e.preventDefault();
+        doSave();
+      }
       if (e.key === 'Escape' && overlay.style.display !== 'none') {
-        overlay.style.display = 'none';
-        const url = new URL(window.location.href);
-        url.searchParams.delete('edit');
-        window.history.replaceState({}, '', url.pathname);
+        closeEditor();
       }
     });
+
+    // Open immediately if ?edit=true in URL
+    if (new URLSearchParams(window.location.search).get('edit') === 'true') {
+      openEditor();
+    }
   }
+
+  // Re-init on every ViewTransitions navigation
+  document.addEventListener('astro:page-load', initEditMode);
 </script>
 
 <style>

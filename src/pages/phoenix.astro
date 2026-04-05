@@ -1,0 +1,117 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import fs from "fs";
+import path from "path";
+import { marked } from "marked";
+
+export const prerender = false;
+
+if (import.meta.env.PROD) {
+  return Astro.redirect("/404");
+}
+
+const filepath = "private/letters/project-phoenix.md";
+let rawContent = "";
+let htmlContent = "";
+
+try {
+  rawContent = fs.readFileSync(path.join(process.cwd(), filepath), "utf-8");
+  const bodyContent = rawContent.replace(/^---[\s\S]*?---\s*/, "");
+  htmlContent = await marked(bodyContent);
+} catch (e) {
+  console.error("Could not read phoenix file:", e);
+}
+---
+
+<SiteLayout title="Project Phoenix">
+  <div class="phoenix-content" set:html={htmlContent} />
+
+  {!import.meta.env.PROD && rawContent && (
+    <div id="edit-mode" class="edit-overlay" style="display: none;">
+      <div class="edit-container">
+        <div class="edit-header">
+          <h3>{filepath}</h3>
+          <div>
+            <button id="save-btn" class="btn-primary">Save</button>
+            <button id="close-btn" class="btn-secondary">Close</button>
+          </div>
+        </div>
+        <textarea id="editor" data-filepath={filepath}>{rawContent}</textarea>
+        <div class="edit-footer">
+          <p>Cmd+S to save. Cmd+E to toggle editor. Esc to close.</p>
+        </div>
+      </div>
+    </div>
+  )}
+</SiteLayout>
+
+<script>
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'e') {
+      e.preventDefault();
+      toggleEdit();
+    }
+  });
+
+  function toggleEdit() {
+    const overlay = document.getElementById('edit-mode');
+    if (!overlay) return;
+    if (overlay.style.display === 'none') {
+      overlay.style.display = 'flex';
+      (document.getElementById('editor') as HTMLTextAreaElement)?.focus();
+    } else {
+      overlay.style.display = 'none';
+    }
+  }
+
+  async function doSave() {
+    const editor = document.getElementById('editor') as HTMLTextAreaElement;
+    const saveBtn = document.getElementById('save-btn')!;
+    saveBtn.textContent = 'Saving...';
+    try {
+      const res = await fetch('/api/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filepath: editor.dataset.filepath, content: editor.value })
+      });
+      saveBtn.textContent = res.ok ? 'Saved \u2713' : 'Error';
+    } catch {
+      saveBtn.textContent = 'Error';
+    }
+    setTimeout(() => { saveBtn.textContent = 'Save'; }, 2000);
+  }
+
+  document.getElementById('save-btn')?.addEventListener('click', doSave);
+  document.getElementById('close-btn')?.addEventListener('click', () => {
+    document.getElementById('edit-mode')!.style.display = 'none';
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const overlay = document.getElementById('edit-mode');
+    if (!overlay || overlay.style.display === 'none') return;
+    if ((e.metaKey || e.ctrlKey) && e.key === 's') { e.preventDefault(); doSave(); }
+    if (e.key === 'Escape') { overlay.style.display = 'none'; }
+  });
+</script>
+
+<style>
+  .phoenix-content { max-width: 100%; }
+  .phoenix-content :global(table) { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; }
+  .phoenix-content :global(th), .phoenix-content :global(td) { padding: 8px 12px; border: 1px solid #e2e2e2; text-align: left; }
+  .phoenix-content :global(th) { background: #f8f8f8; font-weight: 600; }
+  .phoenix-content :global(h2) { margin-top: 2.5em; }
+  .phoenix-content :global(h3) { margin-top: 1.8em; }
+
+  .edit-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+  .edit-container { background: white; width: 100%; max-width: 1400px; height: 90vh; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .edit-header { padding: 1rem 1.5rem; border-bottom: 1px solid #e5e5e5; display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; }
+  .edit-header h3 { margin: 0; font-size: 0.9rem; color: #666; font-family: 'Monaco','Menlo',monospace; }
+  #editor { flex: 1; padding: 2rem; font-family: 'Monaco','Menlo','Ubuntu Mono',monospace; font-size: 14px; line-height: 1.6; border: none; resize: none; outline: none; background: #fafafa; color: #1a1a1a; }
+  .edit-footer { padding: 1rem 1.5rem; border-top: 1px solid #e5e5e5; background: #f9f9f9; font-size: 0.875rem; color: #666; }
+  .edit-footer p { margin: 0; }
+  .edit-header button { padding: 0.5rem 1rem; border: none; border-radius: 4px; font-size: 0.875rem; font-weight: 500; cursor: pointer; margin-left: 0.5rem; }
+  .btn-primary { background: #333; color: white; }
+  .btn-primary:hover { background: #555; }
+  .btn-secondary { background: #e5e5e5; color: #333; }
+  .btn-secondary:hover { background: #d5d5d5; }
+</style>
