@@ -1,7 +1,7 @@
 // Service Worker for Age of Wonders
 // Stale-while-revalidate: instant from cache, fresh in background
 
-const CACHE_VERSION = 'age-of-wonders-v5';
+const CACHE_VERSION = 'age-of-wonders-v8';
 
 // Install event - take over immediately
 self.addEventListener('install', () => {
@@ -66,6 +66,19 @@ self.addEventListener('fetch', (event) => {
 
   // Skip service worker itself
   if (event.request.url.includes('/sw.js')) {
+    return;
+  }
+
+  // Respect hard refresh (Cmd+Shift+R) — bypass cache and fetch fresh
+  if (event.request.cache === 'reload' || event.request.cache === 'no-cache') {
+    event.respondWith(
+      fetch(event.request).then((response) => {
+        if (response && response.status === 200) {
+          caches.open(CACHE_VERSION).then((cache) => cache.put(event.request, response.clone()));
+        }
+        return response;
+      })
+    );
     return;
   }
 

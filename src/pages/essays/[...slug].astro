@@ -208,7 +208,10 @@ if (!import.meta.env.PROD) {
     newSave.addEventListener('click', doSave);
     newClose.addEventListener('click', closeEditor);
 
-    // Keyboard shortcuts
+    // Keyboard shortcuts — abort any listener from a prior navigation before adding a new one
+    (window as any).__editModeAC?.abort();
+    const ac = new AbortController();
+    (window as any).__editModeAC = ac;
     document.addEventListener('keydown', (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'e') {
         e.preventDefault();
@@ -221,7 +224,7 @@ if (!import.meta.env.PROD) {
       if (e.key === 'Escape' && overlay.style.display !== 'none') {
         closeEditor();
       }
-    });
+    }, { signal: ac.signal });
 
     // Open immediately if ?edit=true in URL
     if (new URLSearchParams(window.location.search).get('edit') === 'true') {

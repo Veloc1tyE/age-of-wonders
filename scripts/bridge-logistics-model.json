@@ -1,93 +1,335 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://ageofwonders.org/schemas/bridge-logistics-model-v1.json",
-  "title": "Bridge to Infinity — Cislunar logistics & population flow model",
-  "description": "Portable parameter pack for running Earth launcher, lunar export, habitat completion, and matched-flow sanity checks. Paste into an external model or import as context. Not a forecast — illustrative scenario from the essay thesis.",
-  "version": "1.0.0",
-  "source": "Age of Wonders essay: Bridge to Infinity (Appendix L + Section IV throughput tables)",
+  "$id": "https://ageofwonders.org/schemas/bridge-logistics-model-v3.json",
+  "title": "Bridge to Infinity — Integrated cislunar logistics model",
+  "description": "Portable parameter pack for the Bridge to Infinity architecture: electromagnetic launcher, aerodynamic turn, lunar export, habitat completion, and matched-flow population model. Not a forecast — illustrative scenario from the essay thesis.",
+  "version": "3.0.0",
+  "source": "Age of Wonders essay: Bridge to Infinity (Appendices B–D, C2, L, M)",
   "units": {
     "mass": "tonnes (t) unless noted as kg",
     "time": "per year (/yr) for rates",
-    "people": "count"
+    "velocity": "m/s or km/s as noted",
+    "people": "count",
+    "density": "kg/m³",
+    "pressure": "kPa"
   },
-  "constants": {
+
+  "reference_design": {
+    "description": "Primary design point used throughout the essay. 8 km summit + 12 km tension-stabilised CNT pylon = 20 km near-vertical exit. Cargo exits at 3 km/s; human flights exit at 700 m/s. Both share the same pylon and exit altitude; tunnel velocity, tunnel length, and bank program differ. Both tunnels are ~30 km.",
+    "summit_altitude_km": 8,
+    "pylon_height_km": 12,
+    "exit_altitude_km": 20,
+    "cargo_exit_velocity_km_s": 3.0,
+    "human_exit_velocity_m_s": 700,
+    "human_summit_velocity_m_s": 852,
+    "exit_angle": "near-vertical",
+    "exit_density_kg_m3": 0.089,
+    "cargo_exit_dynamic_pressure_kPa": 401,
+    "human_exit_dynamic_pressure_kPa": 22,
+    "g_philosophy": {
+      "cargo": "20g sustained throughout linear tunnel (~15 s) + 30g curvilinear fine alignment (~2 s) + 20g aero bank (full C_L, <3 s)",
+      "human": "3g sustained linear acceleration in tunnel (~29 s to 852 m/s) + 3–7g centripetal in curvilinear section (~21 s, coils maintain velocity only, 7g for <3 s) + coast through pylon (~16 s, 852→700 m/s gravity loss) + ~1g aero bank at full C_L (~11 s) + engine burn ~0.9g→5g over ~420 s (85% below 3g). Total tunnel entry to orbit: ~8 minutes.",
+      "rationale": "At 852 m/s summit velocity, the curvilinear turn radius is ~15 km at 5g — geometrically feasible within a mountain. Exit dynamic pressure is 22 kPa, below rocket Max Q. The vehicle banks at full authority with only ~1g peak. Both tunnels are ~30 km (cargo at 20g: ~28 km; human at 3g: ~30 km). The propellant penalty is modest: 58% savings vs 64% for cargo. Human savings come mainly from loss elimination, not aerodynamics."
+    },
+    "cargo_summary": {
+      "tunnel_km_linear": 23,
+      "tunnel_km_curvilinear": 5,
+      "tunnel_km_total": 28,
+      "tunnel_g_linear": 20,
+      "tunnel_g_curvilinear": 30,
+      "tunnel_duration_s": 17,
+      "exit_velocity_km_s": 3.0,
+      "aero_delta_v_m_s": 500,
+      "aero_peak_g": 20,
+      "engine_duty_hydrolox_km_s": 7.2,
+      "engine_burn_initial_g": 2.2,
+      "engine_burn_final_g": 10,
+      "engine_burn_duration_s": 180,
+      "engine_burn_mass_ratio": 4.84,
+      "propellant_per_100t_t": 385,
+      "savings_pct": 64
+    },
+    "human_summary": {
+      "exit_velocity_m_s": 700,
+      "summit_velocity_m_s": 852,
+      "tunnel_km_linear": 12,
+      "tunnel_km_curvilinear": 18,
+      "tunnel_km_total": 30,
+      "tunnel_profile": "12 km at 3g sustained (linear acceleration to 852 m/s) + 18 km curvilinear (3–7g centripetal, 7g for <3 s, coils maintain velocity only)",
+      "tunnel_duration_s": 50,
+      "pylon_coast_s": 16,
+      "pylon_gravity_loss_m_s": 152,
+      "aero_delta_v_m_s": 105,
+      "aero_peak_g": 1.0,
+      "aero_peak_duration_s": 11,
+      "aero_note": "At 700 m/s, full C_L = 0.5 produces ~1g peak — the bank is barely perceptible. Human savings come from loss elimination (1.3 km/s), not the aero turn (~105 m/s).",
+      "engine_duty_hydrolox_km_s": 7.8,
+      "engine_burn_initial_g": 0.9,
+      "engine_burn_final_g": 5.0,
+      "engine_burn_duration_s": 420,
+      "engine_burn_mass_ratio": 5.53,
+      "propellant_per_100t_t": 453,
+      "savings_pct": 58,
+      "vehicle_type": "Near-vacuum optimised space-plane. Exits at Mach 2.4 from 20 km, banks aerodynamically, uses wing lift to maintain altitude during engine burn. Structurally simpler than the cargo lifting body — exit dynamic pressure (22 kPa) is gentler than rocket Max Q."
+    },
+    "rationale_exit_velocity_cargo": "Aero Δv scales linearly with v₀; launcher energy and tunnel length scale as v₀². At 3 km/s the marginal propellant saving is diminishing while infrastructure costs accelerate — the knee of the curve.",
+    "rationale_exit_velocity_human": "At 3 km/s, the curvilinear turn radius at 5g is 184 km — geometrically impossible within any mountain. At 852 m/s summit velocity (700 m/s exit after pylon coast), r = 15 km — feasible. The lower speed reduces exit dynamic pressure from 401 kPa to 22 kPa, gives a ~30 km tunnel (matching cargo scale), and the propellant penalty (58% vs 64% savings) is modest. Human savings come mainly from loss elimination (1.3 km/s), not the aero turn.",
+    "rationale_exit_altitude": "Lower exit = more air = more aero Δv. The pylon is the binding constraint, not the aerodynamics. 20 km from an 8 km summit with a 12 km pylon is the practical sweet spot.",
+    "rationale_near_vertical": "Tension-stabilised vertical mast is the simplest stayed geometry (symmetric guys, pure compression into mountain). Both cargo and human vehicles share the same pylon — tunnel velocity, tunnel length, and bank program differ.",
+    "pylon_is_coasting": true,
+    "pylon_coasting_note": "The pylon contains no accelerating coils. All acceleration is completed inside the mountain tunnel before the payload reaches the summit. Cargo at 3,039 m/s loses ~39 m/s over ~4 s (negligible). Human vehicle at 852 m/s loses ~152 m/s over ~16 s, arriving at 700 m/s — significant, but pre-loaded by the tunnel. The pylon carries only its own weight, vacuum containment, and wind loading — never the reaction forces of accelerating a vehicle."
+  },
+
+  "launcher_architecture": {
+    "loss_elimination_km_s": 1.5,
+    "losses_eliminated": {
+      "drag_km_s": 0.5,
+      "gravity_km_s": 0.9,
+      "steering_km_s": 0.1
+    },
+    "gravity_loss_note": "Fully eliminated. Vertical climb is electromagnetic (no engine burn). Vehicle banks aerodynamically and ignites near-horizontal. No powered flight against gravity vector.",
+    "shared_bore": {
+      "total_km": 30,
+      "linear_km": 12,
+      "curvilinear_km": 18,
+      "curvilinear_turn_degrees": 70,
+      "note": "One bore serves both vehicle classes. 12 km linear + 18 km curvilinear (clothoid, 70° turn toward vertical). Humans accelerate at 3g in the linear section, 5-7g centripetal in the curve. Cargo accelerates at 20+g throughout, reaching up to 3 km/s — the curve produces 30-50g centripetal at cargo speeds."
+    },
+    "cargo_tunnel": {
+      "acceleration_g_sustained": "20+",
+      "uses_shared_bore": true,
+      "total_tunnel_km": 30,
+      "total_duration_s": 15,
+      "note": "Cargo accelerates at 20+g through the full 30 km shared bore (linear + curvilinear). Centripetal forces in the curve reach 30-50g at cargo speeds — within ruggedised tolerances."
+    },
+    "human_rated_tunnel": {
+      "exit_velocity_m_s": 700,
+      "summit_velocity_m_s": 852,
+      "sustained_acceleration_g": 3,
+      "linear_track_km": 12,
+      "curvilinear_section": {
+        "purpose": "Curves trajectory from bore angle to near-vertical for pylon entry",
+        "g_force": "3–7g centripetal (graduated clothoid; 7g for <3 s)",
+        "duration_s": 21,
+        "turn_radius_at_5g_km": 15,
+        "turn_radius_at_7g_km": 10,
+        "coils": "maintain velocity against gravity only — no linear acceleration",
+        "arc_length_km": 18,
+        "angular_change_degrees": 70
+      },
+      "total_tunnel_length_km": 30,
+      "total_duration_seconds": 50,
+      "pylon_coast_s": 16,
+      "pylon_gravity_loss_m_s": 152,
+      "note": "12 km at 3g sustained (linear acceleration to 852 m/s) + 18 km curvilinear (3–7g centripetal, 7g <3 s). At 852 m/s the turn radius is 15 km at 5g — geometrically feasible (vs 184 km at 3 km/s). Same pylon as cargo. The 16 s pylon coast loses 152 m/s to gravity, arriving at 700 m/s at the top. Both tunnels are ~30 km."
+    }
+  },
+
+  "aerodynamic_turn": {
+    "closed_form_formula": "Δv_aero = (ρ₀ × v₀ × H × S × C_L) / (2m)",
+    "scaling_law": "Every 7.5 km lower in exit altitude doubles Δv_aero",
+    "peak_g_formula": "a_peak = (ρ₀ × v₀² × S × C_L) / (2m), decays to 37% in H/v₀ ≈ 2.5 seconds",
+    "atmosphere_scale_height_km": 7.5,
+
+    "wing_loading_formula": "Δv_aero = ρ₀ × v₀ × H × C_L × g / (2 × R × W_L). Absolute mass cancels: planform S is set by landing wing loading W_L = m_final × g / S, and m_exit = R × m_final.",
+    "vehicle_classes": {
+      "cargo_purpose_built": {
+        "landing_wing_loading_N_m2": 2000,
+        "approach_speed_knots": 130,
+        "C_L_hypersonic": 0.5,
+        "L_D_hypersonic": 1.5,
+        "planform_m2": 490,
+        "dimensions_m": "~31 × 16",
+        "exit_mass_kg": 484000,
+        "payload_kg": 50000,
+        "note": "S/m ≈ 0.001 m²/kg — mass cancels in closed-form via wing loading constraint"
+      },
+      "cargo_conservative": {
+        "landing_wing_loading_N_m2": 3000,
+        "C_L_hypersonic": 0.3,
+        "L_D_hypersonic": 2.0,
+        "note": "Smaller planform, moderate bank. S/m set by W_L."
+      }
+    },
+
+    "reference_design_results": {
+      "exit_20km_cargo_purpose_built": {
+        "aero_delta_v_m_s": 500,
+        "peak_lateral_g": 20,
+        "g_decay_time_constant_s": 2.5,
+        "engine_duty_hydrolox_km_s": 7.2,
+        "propellant_per_100t_payload_t": 385,
+        "savings_vs_kerolox_baseline_pct": 64
+      },
+      "exit_20km_human_700ms_full_bank": {
+        "exit_velocity_m_s": 700,
+        "effective_C_L": 0.5,
+        "aero_delta_v_m_s": 105,
+        "peak_lateral_g": 1.0,
+        "peak_duration_s": 11,
+        "time_constant_s": 10.7,
+        "exit_dynamic_pressure_kPa": 22,
+        "engine_duty_hydrolox_km_s": 7.8,
+        "propellant_per_100t_payload_t": 453,
+        "savings_vs_kerolox_baseline_pct": 58,
+        "note": "Same pylon, same exit altitude, different exit velocity. At 700 m/s, full C_L produces ~1g peak — barely perceptible. Human savings come from loss elimination, not the aero turn."
+      }
+    },
+
+    "aero_delta_v_by_exit_altitude_cargo_purpose_built_m_s": {
+      "15_km": 1097,
+      "18_km": 686,
+      "20_km": 501,
+      "22_km": 366,
+      "25_km": 219,
+      "30_km": 101
+    },
+
+    "drag_penalty": "At L/D = 2, drag costs ~half the lift impulse from vertical velocity. Deducted from surplus vertical budget (vehicle has ~3000 m/s, needs only ~500-700 m/s residual). Never the binding constraint."
+  },
+
+  "propulsion": {
+    "hydrolox": { "Isp_s": 465, "v_e_km_s": 4.56, "exhaust": "water vapour" },
+    "ntp": { "Isp_s": 900, "v_e_km_s": 8.83, "exhaust": "hydrogen" }
+  },
+
+  "propellant_savings_table": {
+    "reference_payload_t": 100,
+    "all_rocket_kerolox_baseline_propellant_t": 1081,
+    "scenarios": [
+      { "label": "All-rocket kerolox", "delta_v_km_s": 9.2, "Isp_s": 380, "propellant_t": 1081, "savings_pct": 0 },
+      { "label": "Launcher only + hydrolox", "delta_v_km_s": 7.7, "Isp_s": 465, "propellant_t": 441, "savings_pct": 59 },
+      { "label": "Launcher + aero (20 km cargo) + hydrolox", "delta_v_km_s": 7.2, "Isp_s": 465, "propellant_t": 385, "savings_pct": 64 },
+      { "label": "Launcher + aero (20 km human 700 m/s) + hydrolox", "delta_v_km_s": 7.8, "Isp_s": 465, "propellant_t": 453, "savings_pct": 58 },
+      { "label": "Launcher + aero (20 km cargo) + NTP", "delta_v_km_s": 7.2, "Isp_s": 900, "propellant_t": 127, "savings_pct": 88 }
+    ]
+  },
+
+  "energy_budget": {
+    "electric_throw_kWh_per_kg_at_20km": 1.9,
+    "propellant_synthesis_dominates": true,
+    "propellant_energy_per_kg_propellant_kWh": 10.9,
+    "reference_total_energy_10pct_dry_7_2_kWh_per_kg": 104,
+    "dry_fraction_sensitivity": "Moving from 10% to 15% dry fraction roughly doubles total energy per kg payload."
+  },
+
+  "three_layers_of_free_delta_v": [
+    "1. Electricity → 700–3000 m/s vertical (eliminates drag, gravity loss, steering loss: ~1.3–1.5 km/s). Cargo at 3 km/s; humans at 700 m/s.",
+    "2. Aerodynamics → 105–500 m/s horizontal (lifting body banks in thin air, converts surplus vertical: zero propellant cost). Cargo at 20g peak; humans at ~1g full bank.",
+    "3. Vacuum → engine burns near-horizontal with head start from layers 1+2. Cargo 7.2 km/s duty; human 7.8 km/s duty."
+  ],
+
+  "engine_burn_physics": {
+    "note": "Constant-thrust engine: acceleration increases as propellant is consumed. a_final / a_initial = mass_ratio.",
+    "formula_burn_time": "t_burn = mf × (MR - 1) × v_e / T, where T = mf × a_final",
+    "formula_g_at_time": "a(t) = T / (m₀ - ṁt), smoothly increasing from a_initial to a_final",
+    "burn_window_note": "The ~10 min unpowered ballistic window is only a constraint for the first 1-2 minutes. Once the engine has built several km/s of horizontal velocity, the vehicle is partially in orbit and no longer needs the ballistic arc to stay above the atmosphere."
+  },
+
+  "human_launch_profile": {
+    "description": "Complete timeline from tunnel entry to orbit for human-rated vehicle at reference design (20 km exit, 700 m/s).",
+    "total_duration_minutes": "~8",
+    "phases": [
+      { "phase": "Tunnel linear acceleration", "duration_s": 29, "g_force": "3g sustained", "feel": "Firm push into seat back. Half a minute." },
+      { "phase": "Tunnel curvilinear section", "duration_s": 21, "g_force": "3–7g centripetal (7g <3 s)", "feel": "Progressive roller-coaster banked turn through the mountain's shoulder" },
+      { "phase": "Pylon coast", "duration_s": 16, "g_force": "~0g (decelerating under gravity, 852→700 m/s)", "feel": "Sixteen seconds of silence. Vacuum. Stars visible. Earth's curve on the horizon." },
+      { "phase": "Exit + aero bank", "duration_s": 11, "g_force": "~1g lateral", "feel": "Barely perceptible roll. Dynamic pressure 22 kPa, gentler than rocket Max Q." },
+      { "phase": "Engine ignition", "duration_s": 0, "g_force": "~0.9g", "feel": "Gentle nudge" },
+      { "phase": "Engine burn (early)", "duration_s": 260, "g_force": "0.9–2g", "feel": "Gradually building, comfortable. Wing lift maintains altitude in thin air." },
+      { "phase": "Engine burn (mid)", "duration_s": 100, "g_force": "2–3g", "feel": "Firm but familiar" },
+      { "phase": "Engine burn (late)", "duration_s": 60, "g_force": "3–5g", "feel": "Strong push, brief — final propellant burning off" },
+      { "phase": "Cutoff", "duration_s": 0, "g_force": "0g", "feel": "Weightlessness. In orbit." }
+    ],
+    "key_insight": "The harshest moment is the tunnel curve (7g for <3 seconds at the tightest bend). The aero bank is barely perceptible (~1g). The engine burn starts gently (~0.9g) and builds to 5g final over ~7 minutes; about 85% of the burn is below 3g. Total tunnel to orbit: ~8 minutes. This is a transit system with one sharp bend in the mountain."
+  },
+
+  "shared_infrastructure_principle": "One ~30 km bore (12 km linear + 18 km curvilinear toward vertical) serves both cargo and human vehicles. The same coils, the same vacuum, the same mountain. Humans accelerate at 3g, navigating the curve at 5-7g centripetal. Cargo accelerates at 20+g throughout, reaching up to 3 km/s — the curve that gives humans a roller-coaster gives cargo 30-50g. Both exit through the same pylon (coasting section, 20 km). One tunnel. One pylon. Two programs.",
+
+  "habitat_and_migration": {
     "habitat_total_mass_t": 150000,
     "habitat_residents": 10000,
-    "lunar_mass_fraction_per_habitat": 0.9,
-    "earth_complexity_fraction_per_habitat": 0.1,
+    "lunar_mass_fraction": 0.9,
+    "earth_complexity_fraction": 0.1,
     "lunar_mass_per_habitat_t": 135000,
     "earth_complexity_per_habitat_t": 15000,
     "lunar_fraction_to_habitats": 0.6,
-    "complexity_cargo_per_new_resident_t": 1.5,
-    "natural_growth_rate_offworld": 0.015,
-    "earth_peak_population_billions": 10.3,
-    "reference_payload_delivered_leo_per_shot_t": 100,
-    "reference_shots_per_day": 1,
-    "reference_shots_per_6h": 4,
-    "reference_shots_per_hour": 24,
-    "reference_2024_world_upmass_t": 2171
+    "natural_growth_rate_offworld": 0.015
   },
-  "derived_reference_throughputs_t_per_year": {
-    "one_site_daily_100t_payload": 36500,
-    "one_site_6h_100t_payload": 146000,
-    "one_site_hourly_100t_payload": 876000,
-    "notes": "Payload = mass delivered to LEO per shot (essay table). Total launched mass including bridge stage is larger."
+
+  "two_stage_decay_model": {
+    "formula": "C(t) = max(C₀ × e^(-λt), C_floor)",
+    "C0_t_per_resident": 1.5,
+    "lambda_per_year": 0.03,
+    "C_floor_t_per_resident": 0.3,
+    "phase_1": "Bootstrap: 1.5 t/person, decaying ~3%/yr as orbital fabs come online",
+    "phase_2": "Mature: floor at ~0.3 t/person (cultural goods, biological samples, speciality equipment)"
   },
-  "formulas": {
-    "habitats_per_year": "habitats_per_year = lunar_fraction_to_habitats * lunar_export_t_per_year / lunar_mass_per_habitat_t",
-    "capacity_added_residents_per_year": "capacity_added = habitats_per_year * habitat_residents",
-    "earth_complexity_required_t_per_year": "M_earth_complexity = capacity_added * complexity_cargo_per_new_resident_t",
-    "earth_launcher_capacity_t_per_year": "M_earth_launch = N_sites * N_tubes_per_site * shots_per_tube_per_year * payload_t_per_shot",
-    "hourly_equivalent_tubes_for_complexity": "N_tubes_equiv = M_earth_complexity / reference_one_tube_hourly_throughput_t_per_year",
-    "complexity_match_ratio": "match = M_earth_launch_network / M_earth_complexity (values near 1 = balanced pipeline)"
+
+  "throughput_reference": {
+    "one_site_daily_100t_t_per_year": 36500,
+    "one_site_6h_100t_t_per_year": 146000,
+    "one_site_hourly_100t_t_per_year": 876000
   },
+
   "lunar_export_ramp_t_per_year_by_decade": {
-    "2050s": 10000,
-    "2060s": 100000,
-    "2070s": 500000,
-    "2080s": 2000000,
-    "2090s": 10000000,
-    "2100s": 50000000,
-    "2120s": 200000000,
-    "2150s": 500000000
+    "2050s": 10000, "2060s": 100000, "2070s": 500000, "2080s": 2000000,
+    "2090s": 10000000, "2100s": 50000000, "2120s": 200000000, "2150s": 500000000
   },
-  "earth_launcher_network_essay_table_t_per_year": {
-    "2070s": { "equiv_sites": 1, "export_t_per_year": 36500 },
-    "2080s": { "equiv_sites": "2-3", "export_t_per_year": 200000 },
-    "2090s": { "equiv_sites": 5, "export_t_per_year": 750000 },
-    "2100s": { "equiv_sites": 8, "export_t_per_year": 2000000 },
-    "2120s": { "equiv_sites": 12, "export_t_per_year": 5000000 },
-    "2150s": { "equiv_sites": "15+", "export_t_per_year": 10000000, "note": "Essay table; may be conservative vs matched-flow at max lunar habitat rate — see worked_examples" }
-  },
+
   "worked_examples": {
-    "2150s_matched_flow_sanity": {
-      "lunar_export_t_per_year": 500000000,
-      "habitats_per_year": 2222.2222222222222,
-      "capacity_added_residents_per_year": 22222222,
-      "earth_complexity_required_t_per_year": 33333333,
-      "one_tube_hourly_throughput_t_per_year": 876000,
-      "hourly_equivalent_tubes_at_100t_payload": 38.05300684931507,
-      "essay_2150s_earth_export_t_per_year": 10000000,
-      "gap_factor_essay_vs_matched": 3.3333333333333335,
-      "interpretation": "At 500 Mt/yr lunar and 1.5 t complexity per new resident, Earth must export ~33 Mt/yr to match ~22.2M residents/yr habitat capacity. Essay's ~10 Mt/yr row implies either lower fill rate, falling kg/person as orbital fabs mature, or parallel non-launcher lift — reconcile in scenario runs."
+    "reference_design_cargo": {
+      "exit_altitude_km": 20,
+      "exit_velocity_km_s": 3.0,
+      "tunnel_length_km": 30,
+      "tunnel_g_sustained": "20+",
+      "uses_shared_bore": true,
+      "vehicle_planform_m2": 490,
+      "vehicle_dimensions_m": "~31 × 16",
+      "vehicle_exit_mass_kg": 484000,
+      "aero_delta_v_m_s": 500,
+      "peak_lateral_g": 20,
+      "engine_duty_hydrolox_km_s": 7.2,
+      "propellant_t": 385,
+      "savings_pct": 64
     },
-    "single_site_people_transport_upper_bound": {
-      "assumption_kg_per_person_for_ferry_leg": 2000,
-      "hourly_100t_payload_t_per_year": 876000,
-      "people_per_year_if_all_payload_is_passengers": 438000,
-      "note": "Upper bound only; real system splits cargo vs crew, bridge vehicle limits, and human-rated g-load may use separate tubes."
+    "reference_design_human": {
+      "exit_altitude_km": 20,
+      "exit_velocity_m_s": 700,
+      "summit_velocity_m_s": 852,
+      "tunnel_profile": "12 km at 3g sustained (linear to 852 m/s) + 18 km curvilinear (3–7g centripetal, 7g <3 s, coils maintain velocity only)",
+      "tunnel_length_km": 30,
+      "tunnel_duration_s": 50,
+      "pylon_coast_s": 16,
+      "aero_delta_v_m_s": 105,
+      "aero_peak_lateral_g": 1.0,
+      "aero_peak_duration_s": 11,
+      "exit_dynamic_pressure_kPa": 22,
+      "engine_duty_hydrolox_km_s": 7.8,
+      "propellant_t": 453,
+      "savings_pct": 58,
+      "vehicle_type": "Near-vacuum optimised space-plane"
+    },
+    "2150s_matched_flow_with_decay": {
+      "lunar_export_t_per_year": 500000000,
+      "habitats_per_year": 2222,
+      "capacity_added_residents_per_year": 22222222,
+      "complexity_per_resident_t_at_maturity": 0.35,
+      "earth_complexity_required_t_per_year": 7777778,
+      "hourly_equivalent_tubes": 8.9
     }
   },
+
   "bottleneck_variables_for_sensitivity": [
-    "N_sites (geography)",
-    "N_tubes_per_site (parallel launch lanes per megacomplex)",
-    "shots_per_tube_per_year (thermal, storage recharge, maintenance)",
+    "exit_altitude_km (sets aero delta-v budget — exponential leverage via density)",
+    "vehicle_dry_fraction (exponential sensitivity on propellant and energy — the cliff)",
+    "vehicle_W_L_and_C_L (landing wing loading and hypersonic lift coefficient — Δv_aero = ρ₀v₀HC_Lg/(2RW_L), mass cancels)",
+    "N_sites × N_tubes_per_site (network throughput capacity)",
+    "shots_per_tube_per_year (thermal, propellant storage recharge, maintenance)",
     "payload_t_per_shot",
-    "bridge_vehicle_flights_per_year (may be < launcher shots if vehicles are limiting)",
     "cryogenic_propellant_production_t_per_year",
-    "lunar_export_t_per_year",
-    "orbital_assembly_throughput",
-    "complexity_cargo_per_new_resident_t (should decline over decades if orbital industry matures)"
+    "lunar_export_t_per_year (sets habitat capacity)",
+    "complexity_per_resident_t (two-stage decay: starts at 1.5, floor at ~0.3)"
   ],
-  "prompt_for_external_model": "You are given bridge-logistics-model.json. Compute: (1) habitats_per_year and capacity_added for any lunar_export_t_per_year; (2) required Earth complexity export for matched flow; (3) required tubes at hourly 100t equivalent; (4) sweep N_sites and N_tubes_per_site to hit a target complexity export. Flag when Earth export table < matched complexity. Use formulas object exactly."
+
+  "prompt_for_external_model": "You are given bridge-logistics-model-v3.json. The architecture has three layers of free delta-v: (1) electromagnetic launcher eliminates ~1.3–1.5 km/s of losses, (2) aerodynamic bank of lifting body converts surplus vertical to horizontal at zero propellant cost (closed-form: Δv_aero = ρ₀v₀HC_Lg/(2RW_L) — absolute mass cancels via wing-loading constraint), (3) vacuum-optimised engine burns near-horizontal. Reference design: 20 km exit (8 km summit + 12 km pylon, coasting — no coils in pylon). One ~30 km shared bore (12 km linear + 18 km curvilinear). CARGO: 20+g sustained throughout, up to 3 km/s exit, banks at full C_L (~500 m/s free, 20g peak, engine 7.2 km/s, 64% savings). HUMAN: 3g linear to 852 m/s, 5-7g centripetal in curve, 700 m/s exit (152 m/s gravity loss in 16 s pylon coast), banks at full C_L (~105 m/s free, ~1g peak, engine 7.8 km/s, 58% savings). One tunnel, one pylon, two programs. Pylon is pure coasting section shared by both. Same pylon, different exit velocity and tunnel geometry. Compute: (a) Δv_aero for any altitude, velocity, and g-limit; (b) engine duty and propellant via Tsiolkovsky; (c) habitat capacity from lunar export; (d) Earth complexity export via two-stage decay C(t)=max(1.5e^(-0.03t), 0.3); (e) launch tube requirements. Optimise for minimum propellant subject to pylon height and g-load constraints."
 }
