@@ -234,6 +234,8 @@ Underneath the institutional layer is the **edge**: a workstation in a research 
 
 </Callout>
 
+The hierarchy is also a density gradient. Frontier slots are scarce because they require contiguous high-density power — single sites at hundreds of megawatts to gigawatts, behind a single substation, with the cooling, networking, and operator depth for synchronous training. Plateau and edge slots are abundant because they only need fragmented kilowatts to megawatts: corners of regional colocation facilities, sovereign and university clusters, industrial behind-the-meter capacity, commercial buildings, household nodes. The migration runs from scarce-high-density into abundant-low-density. Older silicon does not have to win the contest for the next frontier slot — it only has to win the contest for slots that were previously uneconomic at full chip price, and at sufficiently low CapEx, that contest is trivial. Appendix G works through the OpEx arithmetic and the deployment-phase frictions that follow.
+
 The financial damage of the bust is real, but secondary. Some neocloud operators levered against five-year power-purchase agreements and six-month customer books do not survive. Some equity gets wiped. Some debt gets restructured. Some sovereign projects stall. The losses fall hardest on the investors who underwrote the cycle at its peak. But this is the surface layer. The structural layer is the migration. The silicon does not disappear. It changes hands, changes facility, changes country, and increasingly changes *scale* — from concentrated frontier campuses to distributed plateau and edge slots that did not previously have access to compute at this price.
 
 And the migration does not have to appear on a second-hand market to count. Each of the channels above — internal cascade, institutional absorption, edge fabric — shows up most often as a falling unit price on a billing page, not a fire sale at an auction. The physical chip may never leave the hyperscaler that ordered it. The abundance arrives anyway.
@@ -469,6 +471,42 @@ The combined-cycle utility plant captures secondary heat through a steam turbine
 That 45.7% markup is the grid-avoidance tax. The chip is the same; the slot is the same; the workload is the same. The difference is the thermodynamic penalty paid to install power in months rather than years.
 
 The tax compounds the regional cost spreads of Appendix B. In LNG-import regions, where the underlying fuel is already six or seven times the Henry Hub price, a behind-the-meter simple-cycle installation can run at roughly nine to ten times the fuel-only marginal cost of a Henry Hub combined-cycle baseline. Compute is a geography, and the cost of escaping the geography is itself a tax. This is the operational lower bound on the slot-scarcity rent: the marginal slot is not merely expensive; the most readily available substitutes for it are physically inefficient.
+
+### G. Slot Density, the OpEx Paradox, and the Migration Path
+
+The body argues that compute migrates down a slot hierarchy: frontier → plateau → edge. A natural objection is that if energised power slots are universally scarce, even chips with zero remaining CapEx will be displaced by next-generation silicon in every slot they could occupy. The migration would collapse before it started; older hardware would become e-waste rather than redistributed asset.
+
+Call this the **OpEx vs slot paradox**: at $0 CapEx, an older chip still carries an opportunity cost equal to the next-generation chip that could occupy the same slot. If slots are uniformly bottlenecked, the opportunity cost is uniformly high, and the rational operator runs the most efficient chip available everywhere. Migration is irrational; the older hardware is shredded.
+
+The paradox resolves once you notice that slot scarcity is not uniform.
+
+**What is scarce is contiguous high-density power.** Single permitted sites delivering hundreds of megawatts to gigawatts behind a single substation, with the cooling, networking depth, and operator capability to absorb a synchronous training run. Those sites are bottlenecked by transformer queues, substation permits, multi-year grid-interconnect cycles, and the institutional capability to operate a hyperscale facility. There are very few in the world. Each one is intensely contested.
+
+**What is not scarce is decentralised low-density energised capacity.** Tier-2 colocation facilities with hundreds of kilowatts of spare power. Sovereign and university clusters. Commercial buildings with industrial HVAC and stable kilowatt-class server rooms. Industrial sites with behind-the-meter generation. Office buildings, research labs, household nodes — millions of permitted, energised, underutilised electrical slots scattered through the built world. The grid does not have to be expanded to use them. They already exist.
+
+| Slot tier | Power density | Site count (order of magnitude) | Workload type | Binding constraint |
+|---|---|---|---|---|
+| Frontier | 100 MW – 1 GW contiguous | tens to low hundreds globally | Synchronous training | Substations, transformer queues, multi-year permitting |
+| Plateau | 1 MW – 100 MW distributed | thousands | Inference, fine-tuning, batch, simulation | Existing colocation, sovereign, and enterprise capacity |
+| Edge | 0.5 kW – 1 MW fragmented | millions | Local inference, agents, batch | Wall socket, room cooling, residential grid |
+
+These decentralised slots are currently empty of frontier compute not because they cannot host it, but because a new chip carrying a \$30,000–\$40,000 cost basis requires 90%+ utilisation at premium hyperscaler economics to justify the purchase. A brand-new accelerator running at 15% utilisation in a 50 kW office slot is a CapEx disaster.
+
+Once the chip's CapEx is written down toward zero, that math flips. A depreciated chip running at 20% utilisation in a 50 kW slot pays back trivially. The hardware becomes economic at utilisations and densities that were impossible at full price. The migration is not chip-replaces-chip in the same scarce slot. It is *chip-discovers-new-slot in the previously-uneconomic decentralised tier*.
+
+A further mechanism aggregates these decentralised slots into useful continuous capacity. Intermittent compute distributed across time zones can be networked into a **follow-the-sun virtual cloud**: workloads route to whichever region is currently sitting on cheap energy — midday solar in California, nighttime wind in the North Sea, off-peak grid power in Asia. Inference, fine-tuning, batch processing, embedding generation, and simulation are highly parallelisable and latency-tolerant; they do not require the synchronous gigawatt-class interconnects that frontier training requires. Decentralised execution frameworks already treat node availability as a probability distribution rather than a hard constraint.
+
+This is the architecture of plateau-tier intelligence: hyper-cheap silicon harvesting the latent energy margins of the built world, aggregated temporally to deliver continuous utility, running the latency-tolerant workloads that constitute the bulk of economic compute demand.
+
+The deployment phase will have its own new binding constraints. Three are already visible:
+
+1. **Verification overhead.** In a decentralised multi-tenant network, an operator cannot trust that a node executed a computation honestly. Naïve redundancy would erase the cost advantage. The market response: lightweight cryptographic dispute arbitration and step-level deterministic verification — pinpointing the matrix multiplication where two nodes diverge mathematically rather than re-running entire workloads.
+2. **WAN bandwidth.** Cross-region pipeline parallelism strains inter-data-centre bandwidth. The market response: extreme activation compression (up to roughly 100× reduction via model-bottlenecking techniques) and increasingly sparse, locally-completed sub-graphs rather than tightly-coupled gradient sync.
+3. **Machine-to-machine procurement.** Traditional cloud infrastructure assumes human enterprise contracts and fixed billing cycles. A global virtual cloud cannot scale under that framework. The market response: permissionless compute-scheduling protocols — autonomous agents that discover, evaluate, price, and lease individual slots in real time, matching shifting workload demand against localised energy drops on a second-by-second basis.
+
+None of these problems are fully solved today. The thesis does not require them to be. It requires only that the existence of hyper-capable, hyper-cheap silicon plus a vast tier of underutilised decentralised slots creates the economic incentive to solve them. That is the precise pattern Carlota Perez identified as the engine of the deployment phase: the financial capital of the installation phase produces a substrate that the production capital of the deployment phase reorganises, optimises, and deploys.
+
+The OpEx paradox is real, but it is a paradox only in the hyperscaler frame. Once the frame widens to include the entire built world's latent kilowatts, the paradox dissolves into a migration path.
 
 ---
 
