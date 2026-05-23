@@ -1,0 +1,492 @@
+---
+title: Computational Abundance
+description: We're in the installation phase of the intelligence grid. Mass redistribution will follow.
+date: 2026-05-23
+draft: false
+---
+
+import Callout from '../../components/Callout.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import DataInsight from '../../components/DataInsight.astro';
+import SummaryBox from '../../components/SummaryBox.astro';
+import Share from '../../components/Share.astro';
+
+Across the AI supply chain, millions of accelerators are in motion — ordered, manufactured, staged, shipped, queued for facilities that do not yet have power. xAI's Colossus programme targets a million accelerators on its own; Meta's roadmap references multi-million Blackwell- and Rubin-class deployments through 2027; Oracle, OpenAI, the U.S. Department of Energy, and the rest of the hyperscaler cohort fill in the remainder.<sup><a href="#ref-7">[7]</a></sup><sup><a href="#ref-10">[10]</a></sup>
+
+At any moment, large numbers of them sit on pallets in warehouses around the world. Climate-controlled, security-gated, quiet. Waiting for a transformer. Waiting for a substation. Waiting for a gas turbine, a water permit, a cooling loop, a grid interconnection, a building whose steel is still being raised in another state.
+
+Some will never be plugged in by the hyperscalers that ordered them at all. For others, one, two, even three generations of silicon will ship before they see a power connection — by which time the frontier runs on hardware that did not exist when the order was placed.
+
+The chips work. The story that priced them does not.
+
+This is not waste. It is potential. Every chip on every pallet is a fragment of the future intelligence layer — finite, valuable, and currently looking for a home. The hyperscalers that ordered them will not run all of them in their scarcest power slots; the economics forbid it. So the chips will migrate. Some will settle into hyperscaler-internal inference workloads. Some will move into tier-2 colocation facilities, regional clouds, sovereign clusters, university labs, enterprise on-premise deployments, industrial sites. Some will end their journey on a researcher's workstation, in a small business, in a household plugged into a network of consumer GPUs that collectively serves inference for users who could never afford a hyperscaler instance.
+
+Millions of chips moving through the supply chain are not a stranded asset. They are seed material for a redistribution that has not happened yet.
+
+Call this essay an argument from infrastructure. The AI boom is real. The technology is real. The capital structure pricing it is not. What follows the bust is not scarcity. It is abundance — a vast inventory of compute, priced for a future that did not arrive on time, available to a future that will.
+
+The first AI capital cycle will overbuild the machinery of intelligence before the economy knows how to use it. The bust will teach it.
+
+And then millions of chips, currently asleep on pallets, will go to work — not all in one place, not all on the same problem, but in every slot in the economy that can use a fragment of intelligence at a fraction of the price.
+
+## I. The Plug
+
+People assume the limit on AI is intelligence.
+
+It isn't. The limit is electricity, permitting, and time.
+
+The hyperscalers expect to spend more than \$700 billion on AI and cloud infrastructure in 2026 alone.<sup><a href="#ref-1">[1]</a></sup> To fund it, the top five U.S. hyperscalers issued a record \$121 billion in corporate bonds during 2025 — more than four times their historical annual average — and Bank of America projects \$175 billion in 2026 issuance. Amazon's \$54 billion global bond sale in March 2026 was the largest debt transaction in the company's history.<sup><a href="#ref-18">[18]</a></sup> AI-linked venture deployment reached roughly a quarter-trillion dollars in a single quarter, dominated by OpenAI's \$122 billion round, Anthropic's \$30 billion round, and xAI's \$20 billion round.<sup><a href="#ref-2">[2]</a></sup> U.S. private equity poured \$45.7 billion into data centres in 2025, representing 72% of all sector investment.<sup><a href="#ref-3">[3]</a></sup> Every quarter, the bottleneck moves further down the supply chain: Nvidia, TSMC, SK Hynix, Vertiv, GE Vernova, Siemens Energy, transformers, substations, turbines, permits. (See Appendix A for definitions, period coverage, and the source aggregation.)
+
+None of it ships intelligence to a customer.
+
+It ships steel, copper, silicon, and slabs of poured concrete to a power easement that does not exist yet. The bottleneck has migrated. It used to be the model. Then briefly it was the chip. Now it is the substation, the transformer, the gas turbine, the air permit, the water permit, the cooling tower, the seven-year European grid-interconnect queue.<sup><a href="#ref-4">[4]</a></sup>
+
+<DataInsight
+  insight="Amazon now says European grid interconnections can take up to seven years; a data centre takes about two years to build."
+  context="The model trains in months. The transformer arrives in years. Capital cycles are not aligned with grid cycles."
+/>
+
+The market priced AI as if compute and intelligence were the same thing. They are not. Compute is silicon in racks in halls connected to substations connected to gas turbines or nuclear cores connected to fuel that has to be physically delivered. The chip is the easy part. The accelerator industry is scaling aggressively, but even its bottlenecks — HBM, advanced packaging, substrates, networking — move faster than permitting queues, substations, and interconnect approvals.
+
+In 2026 the geographic dimension of this became unignorable. Henry Hub gas sat near \$2.83/MMBtu while TTF in Europe and JKM in Asia traded above \$17 and \$18/MMBtu respectively.<sup><a href="#ref-5">[5]</a></sup> Run that fuel through a combined-cycle plant at the U.S. EIA's 2024 heat rate<sup><a href="#ref-6">[6]</a></sup> and the fuel-only marginal cost of electricity in LNG-import regions is six to seven times the U.S. baseline. For a continuously loaded 100 MW campus the fuel-only marginal-cost spread alone is roughly \$100 million a year — before transmission, capacity charges, cooling, financing, or carbon. (Appendix B walks the full arithmetic.) Compute is now a geography.
+
+But the deeper fact is not geographic. It is temporal.
+
+<PullQuote>
+
+The limiting factor in AI is no longer whether chips can think. It is whether anyone can plug them in before they depreciate.
+
+</PullQuote>
+
+A GPU is not a bridge. A bridge delayed by two years is still a bridge. A GPU delayed by two years has crossed an architectural boundary. Hopper to Blackwell. Blackwell to Rubin. Rubin to whatever comes next. Time does not merely postpone its revenue. Time changes what it is.
+
+The chip in the box ages on the calendar, not on the meter. And the calendar is now being set by the grid.
+
+The scarce asset, in this whole machine, is not the GPU. It is the **slot**: permitted power, cooling, land, transformer capacity, networking, operators, and the legal right to turn electricity into computation twenty-four hours a day, for the next decade.
+
+Every order book at Nvidia and TSMC is a claim on a future slot. Every announcement of "X gigawatts of accelerator capacity" is a claim on a slot. Every campus under construction is a slot factory. The order book equals demand only if the slots arrive on time. They are not arriving on time.
+
+In January 2026, Amazon Web Services raised the price of its H200 Capacity Blocks by 15% — one of the first material current-generation cloud-compute price increases on record, breaking a long-running pattern of monotonic decline since EC2 launched in 2006.<sup><a href="#ref-19">[19]</a></sup> The chip is not what is scarce. The energised slot is.
+
+## II. The Order Book Is Not Demand
+
+Walk a small public sample of named projects — not a census of the industry, but enough to make the structural gap visible.
+
+| Project | Announced accelerators | Facility load | Confirmed energised | Status |
+|---|---|---|---|---|
+| xAI Colossus (Memphis) | ~1,000,000 target; 220,000+ today<sup><a href="#ref-7">[7]</a></sup> | ~1.3 GW programme target; ~290 MW current | ~290 MW + 300 MW expansion under build | Operational + expansion |
+| Oracle / OpenAI Abilene | 400,000 GB200-class<sup><a href="#ref-8">[8]</a></sup> | ~1.2 GW (facility design) | 2 of 8 buildings operational (~300 MW) | Partial |
+| DOE Solstice + Equinox | 110,000 Blackwell<sup><a href="#ref-9">[9]</a></sup> | ~140 MW | Equinox expected H1 2026 | Planned |
+| Meta roadmap 2025–2027 | "Multi-million" Blackwell/Rubin<sup><a href="#ref-10">[10]</a></sup> | Multi-GW | Undisclosed | Roadmap |
+
+*Facility-load figures use disclosed facility design power where available (Colossus, Abilene) and an industry-rough heuristic of approximately 1.3 kW per top-end accelerator for all-in load otherwise.<sup><a href="#ref-11">[11]</a></sup> See Appendix C for the arithmetic and caveats.*
+
+Take the three projects with disclosed status. Together they imply on the order of 2.6 gigawatts of accelerator facility load ordered or planned. The confirmed energised fraction, by mid-2026, is closer to 0.6 gigawatts. Roughly a fifth of the ordered facility load in this sample is plugged in. The rest is on paper, on order, in transit, in queue, in storage, or on a slab of concrete awaiting a transformer.
+
+That is one half of the gap.
+
+The other half is utilisation.
+
+Cast AI, surveying production Kubernetes clusters across AWS, Azure, and Google Cloud, measured an average sustained GPU utilisation of 5%.<sup><a href="#ref-12">[12]</a></sup> Frontier training clusters at the labs run much higher. Enterprise GPU fleets often do not. Across the broad surface of paid-for cloud accelerators, the typical chip spends most of its life waiting for a workload that arrived in a different time zone, a different team, or a different fiscal year.
+
+These two datasets should not be naively merged. Frontier silicon at the labs runs hotter and faster; enterprise silicon runs cooler and slower. Read them as bounding cases rather than a single ratio. The energisation share is roughly a fifth in the public sample. The utilisation share, in the segments where Cast AI measured, is around five percent. Together they make the same directional point: across the broad surface of paid-for capacity, a great deal of ordered compute is currently doing very little economic work. The rest is an option on future demand — a placeholder, a reservation, an insurance contract, a strategic hedge against being last in line for a slot. (Appendix D treats the two figures as bounding cases rather than a unified ratio.)
+
+<Callout type="info">
+
+**The order book is not demand.** It is the right to access scarce compute if the workloads arrive.
+
+**Capacity announcements are not energised power.** A gigawatt of accelerators is a gigawatt of transformers, substations, gas contracts, water permits, and skilled labour, not a tape-out.
+
+**Reservations are not utilisation.** A reserved instance running idle is a depreciating asset, not a productive one.
+
+**Capex is not revenue.** A balance-sheet wager that the agentic economy will mature on schedule is not the same thing as the schedule maturing.
+
+</Callout>
+
+What has been priced as a vertical demand curve for compute is, in significant part, a vertical demand curve for *optionality* on compute. That is a meaningful distinction, because options expire. The Blackwell-era chips ordered for 2025 deployment run into Rubin and Rubin Ultra. The chips ordered after that run into Feynman-era roadmap pressure. The grid moves slower than the architecture cadence.
+
+The order book was built for a market in which intelligence would be transformed into deployed economic agents within eighteen months — a vertical labour-replacement story. The deployment rails of that story did not arrive on time. Models are powerful and getting more powerful. The verification, observability, permissions, audit, rollback, and trust infrastructure that converts capability into deployable autonomous workflows is still being built. So is the legal architecture. So is the institutional appetite. The frontier-lab demand curve is real. The economy-wide demand curve is real *eventually*. It is not real in the energisation window of the chip already ordered.
+
+The market mistook capability for deployability.
+
+The deployment economy does not arrive when models become impressive. It arrives when each domain builds its Stockfish.
+
+The frameworks are arriving — the NIST AI Risk Management Framework, ISO/IEC 42001, sector-specific eval suites, the open-source agent-testing ecosystem.<sup><a href="#ref-15">[15]</a></sup> None of them mature in eighteen months. The closest analogue is autonomous driving. Level 4 was demonstrated around 2016 — impressive enough to convince many observers that broad deployment was a year or two away.<sup><a href="#ref-16">[16]</a></sup> A decade later, commercial deployment remains confined to a handful of geofenced cities, because industrial-grade autonomy requires reliability several orders of magnitude beyond the demo. The last few nines take a decade of guardrails, QA, simulation, verification, geofencing, fleet management, and regulatory engagement — not another year of model improvement. Agentic workflows will follow the same arc.
+
+The pattern repeats elsewhere. Medical-imaging AI cleared regulatory approval years before it became routine in hospital workflows. Financial-services model-risk management — formalised by the U.S. Federal Reserve's SR 11-7 guidance in 2011 — still gates the pace at which any new model reaches a deployed credit, trading, or compliance role.<sup><a href="#ref-17">[17]</a></sup> Even within software itself, code completion entered everyday use years before autonomous engineering agents began to clear the acceptance bars of serious organisations. Capability arrives before verification, regulation, and integration. AI in the broader economy faces the same clock.
+
+That mistake is not an indictment of AI. It is the recurring error of every infrastructure cycle that confuses *what is possible* with *what is deployable today*. Railroads in the 1870s. Telegraph in the 1840s. Fibre in 1999. The technology is correctly identified. The timetable is not.
+
+## III. The Depreciation Clock
+
+The hyperscaler preference stack does the rest of the work.
+
+A hyperscaler with a scarce power permit and an even scarcer top-tier substation will not run last-generation chips in that slot. The economics forbid it. Frontier model training is increasingly optimised for the current accelerator architecture: memory bandwidth, interconnect topology, sparsity support, low-precision throughput, on-package networking. The performance-per-watt of the current generation is engineered against the next model the lab intends to train, not the last. The newest racks earn the scarcest watts.
+
+Older chips are not too slow for the universe. They are too inefficient, in scarce frontier slots, to justify frontier use.
+
+This produces a strange asset class. The world's most ambitious computing hardware, paid for at full price, becomes economically displaced inside the very facilities built to house it — not because the chips have failed, but because the marginal frontier watt belongs to something newer. The depreciation accelerates. Inventory ages. Some of it never reaches a powered rack at all, because the rack is now reserved for its successor.
+
+<DataInsight
+  insight="A GPU delayed by two years is not delayed like a road or a bridge. It is delayed like a phone, a server, or a racing car."
+  context="Time does not merely postpone its revenue. Time changes what it is."
+/>
+
+The depreciation clock has three hands.
+
+The first is the architecture cadence. Two-year cycles, each generation delivering multiples of performance per watt on the workloads the labs care about — and large multiples on the low-precision inference paths that increasingly dominate deployed compute. A chip born into the wrong cycle window is a different product than the chip its purchaser intended to buy.
+
+The second is software stack alignment. Frontier training kernels, compiler optimisations, library support, and reference implementations migrate to current silicon. The older chip remains supported, but the developer attention moves.
+
+The third is the power contract. A 100 MW interconnection slot built in 2027 will not be filled with the GPUs ordered for it in 2024 if the GPUs ordered in 2026 do an order of magnitude more work per watt on the workloads that pay for them. The interconnection is the scarce asset. The chip is fungible. The slot will accept the highest-performing tenant.
+
+These three hands rotate together. A chip in storage in 2026 ages on all three at once.
+
+And yet — and this is the structural fact that distinguishes this cycle from earlier hardware eras — the chip does not stop being useful when it stops being frontier.
+
+In an earlier era, two generations behind was a sentence. The chip you bought in 1996 was useless in 2000. That era is over. Moore's law slowdown has changed the depreciation profile of compute. Per-transistor cost has plateaued. Per-watt performance is still improving, but in narrower bands and on specific workloads rather than across the board. A 7 nm chip from 2019 still does floating-point arithmetic perfectly well. A Hopper-class accelerator from 2023 still performs trillions of multiplications per second per device. None of that has changed.
+
+What has changed is the marginal economics of *frontier* training on those chips. The newest accelerators are not marginally better than their predecessors at the frontier. They are categorically better, and they will stay that way.
+
+Concede that fully. **The newest chips will remain dominant for frontier training. The abundance comes from non-frontier workloads.**
+
+Run the same model on the older silicon and the run takes longer, costs more in energy, and ties up cluster topology that could host newer racks. But "longer and more expensive" is not "impossible" — and for most economic workloads, longer and more expensive is the wrong frame entirely.
+
+The bulk of demand the economy actually places on compute is not for training a one-trillion-parameter foundation model from scratch. It is for inference at low latency, embedding generation at large scale, batch document processing, fine-tuning, retrieval, ranking, simulation, rendering, robotics control loops, scientific computing. None of those workloads care which architecture cadence they are running on. They care about price per useful operation, latency per query, throughput per dollar, and reliability over time.
+
+A Hopper-era GPU, repriced below the cost basis its first owner needed to recover, is not a bad accelerator. It is a fantastic inference engine, a fantastic fine-tuning platform, a fantastic simulator — misallocated frontier hardware becoming correctly priced plateau infrastructure. It loses only one battle — the next billion-dollar frontier training run — and even there, the loss is relative, not absolute.
+
+The compute does not vanish. It simply becomes non-frontier — useful for the broad surface of economic work that does not require the newest model, but priced as if it were. That mispricing is the fuse. When it burns through, the hardware changes hands.
+
+<PullQuote>
+
+The frontier moves first. The plateau absorbs what it leaves behind.
+
+</PullQuote>
+
+## IV. The Fibre Beneath the Ocean
+
+The right historical analogue is not Pets.com. It is fibre.
+
+Between 1996 and 2001, telecom carriers laid millions of miles of long-haul fibre across the United States. The capital structures that financed it — WorldCom, Global Crossing, Qwest, 360networks, Williams Communications — collapsed almost entirely. By the early 2000s, a vast share of installed long-haul fibre was dark. The companies that built it were bankrupt or reorganised. The cost basis of the asset was crushed against the wall of cancelled customer demand.
+
+And then it became the spine of the internet.
+
+The fibre did not move. The capacity did not shrink. The cost per gigabit transmitted dropped by orders of magnitude as the surviving operators acquired the bankrupt infrastructure for cents on the dollar and lit it as broader demand finally arrived. Netflix streams on that fibre. YouTube serves on that fibre. AWS replicates across it. The applications were waiting on the *price* of bandwidth, not the *existence* of it. Liquidation set the price.
+
+The internet built on the financial corpses of the people who first paid for it.
+
+The dot-com bust is often told as a story of bad ideas. It was not. It was a story of correct ideas on the wrong timetable, financed at the wrong duration, with the wrong assumption about how quickly the last mile would absorb the backbone. Bandwidth supply ran years ahead of broadband penetration, content delivery networks, mobile devices, video codecs, business models, and consumer behaviour. The backbone arrived first. Everything else caught up over a decade.
+
+AI is building the same shape.
+
+The compute backbone is being laid down at unprecedented scale: hyperscaler campuses, sovereign clusters, megaprojects in Texas, Wyoming, the UAE, Saudi Arabia, Korea, Japan. The accelerator order books reach years into the future. The model training is real. The labs are real. The capability is real. What is missing is the last mile.
+
+The mechanism by which the reset propagates may be quieter than the fibre crash. Hyperscaler balance sheets are larger than the telecom carriers' were. Internal cascading absorbs more of the inventory before it ever reaches an external market. Sovereign and enterprise buyers can hold compute on long horizons without forced sale. The AI cycle may not need WorldComs and Global Crossings to deliver the same outcome. But the *shape* — backbone overbuilt against an underbuilt last mile, capacity repriced as the timetable resets, infrastructure that no first owner can monetise becoming the substrate the next owner can — is the same.
+
+The AI last mile is institutional. It is the verification, observability, permissions, audit, rollback, legal acceptance, procurement, insurance, liability, and workflow ownership that converts a capable model into a deployable agent. Coding got there first because coding has compile, lint, test, and revert built in by default — every output is checkable in seconds against a deterministic substrate. Most other domains do not have that. Legal review, medical diagnosis, financial analysis, industrial control, and customer-facing operations have to build their verification harnesses from scratch, against domain-specific failure modes, under regulatory regimes that did not contemplate autonomous agents, inside organisations whose change-management cycles measure in years.
+
+In the meantime, the backbone is being financed at duration assumptions the deployment rails cannot meet.
+
+<PullQuote>
+
+Bubbles do not destroy infrastructure. They destroy the capital structures that paid too much for it.
+
+</PullQuote>
+
+## V. The Repricing Mechanism
+
+The important event is not liquidation. It is migration.
+
+The mechanism is simpler than a financial crisis. Hyperscalers have a finite number of premium power slots, and the marginal economics force them to fill those slots with the newest hardware. Last-generation chips do not have to fail commercially to lose their place in those slots. They only have to fall behind the per-watt economics of the next generation on the workloads the slot was built for.
+
+That eviction is the trigger. What happens after is where the abundance lives.
+
+The compute flows down the slot hierarchy through several channels at once. The dominant and quietest is the **hyperscaler-internal cascade**: chips bought for frontier training drop to internal inference, then to ad ranking, then to batch work, the same silicon quietly serving different economics inside the same firm year by year. This is invisible from outside. It shows up only as falling unit prices in cost-per-token guidance and steadily cheaper hyperscaler inference SKUs.
+
+The redistribution does not always wait for the bust, or for the second tier of buyers. In early 2026, Anthropic took a long-term lease on xAI's Colossus 1 — a facility built around 220,000+ Nvidia processors across roughly 300 MW of energised Memphis capacity — at \$1.25 billion a month through May 2029, equivalent to a \$15 billion annualised run rate.<sup><a href="#ref-20">[20]</a></sup> xAI did not need Colossus 1 for its own frontier training; Grok-5 is being trained on the newer Colossus 2 site. Rather than leave premium energised silicon under-utilised, xAI leased capacity to a frontier competitor. That transaction is the migration mechanism in miniature: even the most premium slots get reallocated when their original owner cannot use them productively. The price falls until something that can fill the slot takes it. The cascade starts at the top.
+
+Beyond the hyperscaler tier, the **institutional layer** absorbs another wave: tier-2 colocation, regional clouds, sovereign clusters, enterprise on-premise deployments, university research clusters, industrial sites with cheap local power and modest compute appetite, even crypto-era datacentres rebuilt for a different workload. The frontier is concentrated. The plateau is distributed. Old hyperscaler racks find new homes in lower-priority slots — never the scarcest watts, but the second-scarcest, the third, the tenth, the thousandth.
+
+Underneath the institutional layer is the **edge**: a workstation in a research lab, a server in a small business, a single accelerator in a household. The slow-Moore cushion combined with algorithmic deflation means a last-generation accelerator running a distilled and quantised model is a capable assistant on a personal machine — and, connected to a network, a node in a distributed inference fabric. The architecture exists in early form: open-source projects in which thousands of consumer GPUs collectively serve inference for users who would never rent a hyperscaler instance.
+
+These distributed networks will not replace hyperscaler inference for latency-critical, regulated, or high-reliability workloads. They do not need to. Their role is to absorb cheap, distributed computation at the edge of the economy, where price matters more than perfect uptime and the marginal alternative is no compute at all.
+
+<Callout type="info">
+
+**The Slot Hierarchy**
+
+**Frontier slot** — newest accelerators, premium permitted power, largest training runs, hyperscaler and lab economics. Few sites. Enormous capex. Capability discovery.
+
+**Plateau slot** — previous-generation accelerators, cheaper power, inference, fine-tuning, simulation, regional and enterprise workloads. Many sites. Modest capex per site. Capability diffusion.
+
+**Edge slot** — laptops, phones, embedded GPUs, local agents, household nodes. Near-zero marginal cost. Ubiquitous. Trivial capex. Capability access.
+
+</Callout>
+
+The financial damage of the bust is real, but secondary. Some neocloud operators levered against five-year power-purchase agreements and six-month customer books do not survive. Some equity gets wiped. Some debt gets restructured. Some sovereign projects stall. The losses fall hardest on the investors who underwrote the cycle at its peak. But this is the surface layer. The structural layer is the migration. The silicon does not disappear. It changes hands, changes facility, changes country, and increasingly changes *scale* — from concentrated frontier campuses to distributed plateau and edge slots that did not previously have access to compute at this price.
+
+And the migration does not have to appear on a second-hand market to count. Each of the channels above — internal cascade, institutional absorption, edge fabric — shows up most often as a falling unit price on a billing page, not a fire sale at an auction. The physical chip may never leave the hyperscaler that ordered it. The abundance arrives anyway.
+
+The first buyer takes the loss. The second buyer takes the asset.
+
+In every prior infrastructure boom this is how the abundance arrived. Canals in Britain. Railroads in the United States. Optical fibre at the turn of the millennium. The infrastructure outlives the company that built it. The cost basis resets. The customer who could not afford the asset at the asking price finds it accessible at the recovery price — and, more importantly, the customer who could not access the asset *at all*, because it was concentrated in a few hands at a few sites, finds it geographically and economically nearby.
+
+Liquidation makes headlines. Redistribution is what changes the world.
+
+<Callout type="info">
+
+**Calibration note.** This essay is not predicting that every hyperscaler balance sheet breaks or that chips flood a visible second-hand market. The mechanism can be quieter than that: lower cloud prices, internal reassignment, delayed depreciation schedules, regional resale, sovereign absorption, and enterprise on-prem deployment. The thesis does not require a fire sale. It requires only that compute priced for frontier scarcity eventually serves non-frontier demand, and that the slot hierarchy fills downward as it does so. The fibre crash is the canonical instance, but it is not the only shape the same dynamic can take. The mechanism can break loudly, or it can reprice quietly. The outcome is the same.
+
+</Callout>
+
+## VI. Stockfish for Everything
+
+The maximalist version of the AI story imagines one enormous model doing everything. A country of geniuses in a data centre. A digital workforce, fungible across every task, replacing labour wholesale.
+
+That is not the shape of useful intelligence. It is not the shape Stockfish took.
+
+Stockfish is the strongest chess engine in human history. It does not win by running the largest neural network ever trained. It wins because thirty years of engineering have produced a system in which a relatively small neural network — the NNUE evaluation — is wrapped inside ruthlessly optimised search code, transposition tables, opening books, endgame tablebases, move-ordering heuristics, pruning techniques, and a testing harness so disciplined that no patch lands without statistical proof of improvement. The intelligence is in the assembly.
+
+Notably, modern Stockfish-class engines now outperform the original AlphaZero-style benchmark systems. A small NNUE evaluation network wrapped in engineered scaffolding, running blazing-fast on commodity CPUs, beats a much larger pure-neural approach from the previous paradigm — one that required substantial GPU compute to play at all. The bounded engineered system outperforms the raw neural network. That is the shape of plateau intelligence — and the preview of how agentic workflows will mature across the economy.
+
+Stockfish is not important here because chess resembles the economy. It is important because it shows how useful intelligence becomes reliable: by embedding learned judgement inside a larger engineered system that constrains, tests, and corrects it.
+
+Most economically useful AI will look the same.
+
+<PullQuote>
+
+The economy does not need one god-model. It needs a million Stockfishes: bounded engines where learned judgement is trapped inside rules, tests, logs, permissions, and rollback.
+
+</PullQuote>
+
+A frontier model is the evaluation function. The system that surrounds it — the search, the verification, the tool use, the permissions, the retrieval, the testing, the rollback, the audit log — is the chess engine. Without that scaffolding, the model is a powerful chess-piece evaluator playing without rules. With it, the model becomes an engineered agent: bounded, testable, verifiable, deployable.
+
+<Callout type="info">
+
+**The model is the evaluator.** Capability per token. Powerful, expensive, improving.
+
+**The scaffolding is the engine.** Search, verification, tool use, permissions, observability, rollback. Mostly conventional software. Mostly traditional engineering. The hard part of deployable agentic intelligence.
+
+**The workflow is the game.** Each domain — legal review, customer support, accounting close, materials design, surgical scheduling — has its own rules, its own scoring function, its own acceptable failure modes, its own tablebase of solved cases.
+
+**The diffusion is the network of engines.** Not one god-model. Thousands of bounded agents, each specialised, each verified, each cheap to run.
+
+</Callout>
+
+This is the shape of the intelligence layer the migrated infrastructure will host. Smaller, distilled, specialised models running on plateau-tier accelerators, wrapped in heavy verification software, deployed against narrow but valuable workflows. Not a substitute for human judgement. A substrate for it.
+
+The frontier labs will keep training larger models on the newest hardware. The labs are correct to do this. But the *deployment* of capability — the diffusion of intelligence into the ordinary machinery of civilisation — happens on the cheaper, older, more plentiful tier, with smaller models distilled out of the frontier and re-engineered for industrial use.
+
+The frontier is the laboratory. The plateau is the economy.
+
+And the second law of this dynamic is just as important as the first.
+
+The cost of running a given level of intelligence on a given piece of hardware falls every year. Not because the hardware changes — because the software does. Distillation, quantisation, sparsity, speculative decoding, KV-cache compression, mixture-of-experts routing, continuous batching, paged attention, FlashAttention, Triton kernels, compiler advances. Each compounds on the others. The effect, measured at the level of cost-per-token for a given capability level, has been a halving every six to twelve months for several years.<sup><a href="#ref-13">[13]</a></sup>
+
+The same chip, two years later, runs better software, against smaller models, with cheaper inference, on a broader set of workloads. The depreciation curve and the algorithm curve run in opposite directions. The first owner of the chip carries the hardware loss. The second owner inherits the algorithmic gain.
+
+<PullQuote>
+
+Hardware depreciates. Algorithms compound.
+
+</PullQuote>
+
+Project that forward against a glut of Hopper-class and Blackwell-class accelerators — some on the second-hand market, some still inside the hyperscalers that bought them but reassigned to non-frontier workloads, all benefiting from the same compounding software stack. Inference prices fall sharply on hyperscaler SKUs and on the open market alike. Capability per dollar continues to climb. All at the same time.
+
+The frontier remains expensive. The plateau gets cheaper.
+
+## VII. The Intelligence Layer
+
+The cost of computation has never had a stable demand curve.
+
+Every prior collapse in compute price — mainframe to minicomputer, minicomputer to PC, PC to cloud, cloud to mobile, mobile to smartphone — has produced not a smaller market for the older tier but a vastly larger market overall, organised around use cases that were uneconomic at the previous price. Cheaper bandwidth did not produce a smaller telecoms industry. It produced streaming, social networks, cloud, SaaS, video calls, online gaming, the mobile internet, the modern internet-native enterprise.
+
+Demand for compute is not fixed. It is discovered by lowering the price.
+
+When the price of a plateau slot collapses, three things happen.
+
+**Things once scheduled become continuous.** Climate models. Materials search. Robotics simulation. Drug-candidate screening. What used to be a study becomes a query. What used to be a query becomes a background process.
+
+**Things once centralised become local.** Inference on every laptop and phone, with full privacy and zero latency. Personal agents running on the edge of the user, not the edge of the cloud. Translation, transcription, summarisation, retrieval — happening on the device, not on a server.
+
+**Things once expert-only become ambient.** Legal review against every contract. Diagnostic second opinions for every imaging study. Tutoring at the marginal cost of a kilowatt-hour. Industrial optimisation for every shop floor.
+
+None of these are constrained by intelligence. They are constrained by price.
+
+<PullQuote>
+
+The demand for computation is not fixed. It is discovered by lowering the price.
+
+</PullQuote>
+
+The phrase used in *[Create an Age of Wonders](/essays/create-an-age-of-wonders)* is intelligence as infrastructure.<sup><a href="#ref-14">[14]</a></sup> The post-bust world is what that phrase means in practice.
+
+An intelligence layer is not a product. It is a property of the substrate. Bandwidth became a property of the substrate sometime around 2010 — at some point we stopped designing applications around "is the user online?" and started designing them around the assumption that they are. Electricity became a property of the substrate sometime in the 1930s. Refrigeration. Plumbing. Roads. Each of these started as an event — a thing you visited, paid for, scheduled — and became infrastructure: present, cheap, taken for granted.
+
+Compute is in the middle of that transition right now, and intelligence is following it.
+
+The shape of the post-bust intelligence layer is already visible in early form. Smaller models embedded inside ordinary software. Local agents on laptops and phones. Open-weights ecosystems running on commodity hardware. Specialist models for medical imaging, legal search, code review, customer support, materials design, scientific writing, and a thousand other narrow tasks. Each one cheap. Each one bounded. Each one verifiable. Each one operating on a substrate of compute that, at the margin, costs almost nothing.
+
+The frontier labs will still exist. The frontier models will still be expensive. The capability gradient will keep climbing. But the *deployment surface* — where the actual economic work gets done — will be the cheap, plentiful, diffused tier. The same shape as electricity. The expensive part is the grid. The cheap part is the outlet.
+
+The Age of Wonders thesis is that the universe is abundant and the limiter is access. The current AI cycle is a textbook case of access running ahead of itself in one direction and behind itself in another. Frontier intelligence is scarce. Frontier silicon — HBM, advanced packaging, networking, premium energised sites — is scarce. What is *not* permanently scarce is civilisational intelligence, plateau silicon two cycles back, or the algorithms that run on either. What is scarce today, at every layer, is the integrated slot: power, cooling, interconnect, permits, verification, trust, and a workflow ready to absorb the output.
+
+The bubble overbuilt one half of the access problem — raw compute — on the assumption that the other half — deployment, verification, trust, and workflow ownership — would arrive at the same speed. The bust corrects the timetable. The infrastructure persists.
+
+Carlota Perez named the pattern. The installation phase is when capital floods into a new infrastructure faster than society can reorganise around it. The financial crisis arrives when the timetable proves wrong. The deployment phase follows, decade-long, on the infrastructure left behind. Canals, railroads, electricity, highways, fibre. Each produced a financial event that obscured an infrastructural arrival. The arrival is what mattered.
+
+<PullQuote>
+
+The bubble is the installation phase of the intelligence grid. The crash will not destroy the grid. It will set the access price.
+
+</PullQuote>
+
+Abundance is not infinity. Compute will still consume energy, occupy land, require cooling, and depend on supply chains. Abundance has never meant the absence of cost. It means a collapse in marginal constraint: the point at which something once rationed becomes ordinary enough to build on without asking permission each time.
+
+The bubble promised a country of geniuses in a data centre.
+
+That was the wrong image.
+
+The abundance era will not look like a nation of synthetic workers waiting behind an API. It will look like intelligence in the walls: in the spreadsheet, the router, the factory scheduler, the medical scanner, the law office, the classroom, the phone, the machine tool, the weather model, the lab bench.
+
+The AI bubble will not decide whether intelligence matters. It will decide who paid the first, stupidly expensive price for making intelligence cheap.
+
+The first AI capital cycle may end in disappointment.
+
+But disappointment is not extinction. In infrastructure cycles, disappointment is how the cost basis resets.
+
+The financiers may inherit the loss.
+
+The civilisation inherits computation cheap enough to think with.
+
+<Share
+  title="Computational Abundance"
+  description="The AI bubble is the installation phase of the intelligence grid. The crash will not destroy the grid. It will set the access price."
+/>
+
+---
+
+## Technical Appendix
+
+*Key arithmetic and supporting data behind the quantitative claims in the essay body. Inline citations map to the reference section below.*
+
+### A. AI Capex Aggregate, 2025–2026
+
+| Source | Figure | Period | Notes |
+|---|---|---|---|
+| Hyperscaler AI/cloud capex guidance (Microsoft, Alphabet, Meta, Amazon, Oracle, CoreWeave) | >\$700B aggregate | FY2026 plans | Industry sum from Reuters aggregation across hyperscaler guidance; Moody's projects ~\$820B in FY2027.<sup><a href="#ref-1">[1]</a></sup> |
+| Hyperscaler corporate bond issuance | \$121B (2025) → \$175B projected (2026) | Annual | Top-five U.S. hyperscalers; ~4× historical annual average. Amazon's \$54B March 2026 issuance was the company's largest ever debt transaction. Bank of America projection for 2026.<sup><a href="#ref-18">[18]</a></sup> |
+| AI venture funding | ~\$255B | Single quarter (Q1 2026) | PitchBook tracked quarterly deployment, exceeding the full 2025 total. Dominated by OpenAI (\$122B), Anthropic (\$30B), and xAI (\$20B) financings; excluding the top-five transactions, broader quarterly deal value contracts by 73%.<sup><a href="#ref-2">[2]</a></sup> |
+| U.S. data centre investment | \$45.7B PE | FY2025 | S&P Global Market Intelligence; PE deployment represented 72% of \$63.35B total sector investment.<sup><a href="#ref-3">[3]</a></sup> |
+
+The figures are not comparable line items (capex, debt issuance, venture funding, and private-equity deployment are different cash flows), but together they describe the scale and structural mutation of finance directed at the AI infrastructure stack across distinct capital pools. The bond-issuance line in particular signals a regime change: historically self-funding technology platforms have shifted to external debt markets as organic free cash flow has compressed under the weight of physical buildout. Amazon's trailing-twelve-month free cash flow fell roughly 95% to \$1.2 billion in the same window in which it issued \$54 billion in bonds.
+
+### B. Energy Arithmetic — Fuel-Only Marginal Cost
+
+Using the U.S. Energy Information Administration's 2024 average operating heat rate for natural gas-fired generation (7,754 Btu/kWh)<sup><a href="#ref-6">[6]</a></sup> and front-month gas prices in May 2026:<sup><a href="#ref-5">[5]</a></sup>
+
+| Hub | Front-month gas | Fuel-only generation cost | Multiple vs. Henry Hub |
+|---|---|---|---|
+| Henry Hub (U.S.) | \$2.83/MMBtu | ~\$22/MWh | 1.0× |
+| TTF (Europe) | ~\$17/MMBtu | ~\$132/MWh | ~6.0× |
+| JKM (Asia) | ~\$18.80/MMBtu | ~\$146/MWh | ~6.6× |
+
+For a 100 MW continuously loaded campus (8,760 hours per year at full load = 876,000 MWh annual draw), the fuel-only marginal-cost spread between Henry Hub and TTF is approximately \$96M/year. This excludes transmission, capacity charges, cooling overhead, financing, and carbon costs — each of which compounds the regional disadvantage further. The spread is the lower bound on the fuel-only delta between regions; it is not a full delivered-power cost comparison.
+
+### C. Named-Project Facility-Load Estimates
+
+| Project | Reported scale | Facility load | Confirmed energised |
+|---|---|---|---|
+| xAI Colossus 1 | 220,000+ Nvidia processors<sup><a href="#ref-7">[7]</a></sup> | ~290 MW (consistent with reported facility power) | ~290 MW; 300 MW expansion under build |
+| xAI Colossus programme | ~1,000,000 target | ~1.3 GW target (heuristic) | Partially built |
+| Oracle / OpenAI Abilene | 400,000 GB200-class<sup><a href="#ref-8">[8]</a></sup> | ~1.2 GW (facility design, per Oracle / Crusoe disclosure) | 2 of 8 buildings operational (~300 MW) |
+| DOE Solstice + Equinox | 110,000 Blackwell<sup><a href="#ref-9">[9]</a></sup> | ~140 MW (heuristic) | Equinox planned H1 2026 |
+| Meta roadmap 2025–2027 | "Multi-million" Blackwell/Rubin<sup><a href="#ref-10">[10]</a></sup> | Multi-GW | Undisclosed |
+
+The heuristic of approximately 1.3 kW of all-in facility load per top-end accelerator<sup><a href="#ref-11">[11]</a></sup> is an order-of-magnitude estimate, not a designed figure for any single deployment. Real facility loads vary with cooling architecture (air vs. direct-liquid vs. immersion), networking density, silicon mix, and PUE. Where projects have disclosed their permitted facility design power (Colossus 1, Abilene), we use the reported figure rather than the heuristic. Abilene's 1.2 GW design against a 400,000-chip GB200 footprint exceeds a pure chip-thermal heuristic by roughly 2×: design power is sized for liquid cooling overhead, dense networking, on-site substations, and the expectation that a hyperscaler campus is built with operational headroom for future racks and architecture refreshes. The point of the table is the gap between announced and energised, not the precise kW-per-chip multiplier.
+
+Roughly summed across the three projects with disclosed status (Colossus programme target ~1.3 GW + Abilene 1.2 GW + DOE 0.14 GW), the order book implies on the order of 2.6 GW of facility load. The mid-2026 energised share — Colossus 1 (~290 MW) plus Abilene 2-of-8 (~300 MW) — totals ~0.6 GW. Roughly a fifth of disclosed ordered load is plugged in. This is the directional figure used in the body.
+
+### D. Bounding Cases — Energisation and Utilisation
+
+The roughly 21% energised share and the Cast AI 5% utilisation share are *not* multiplied together in the body. They describe different stages of the compute pipeline:
+
+- **Energisation share** describes ordered facility load that has been turned on. Source: public sample of named hyperscaler and sovereign projects in Appendix C. Roughly a fifth of disclosed ordered load in the sample is plugged in.
+- **Utilisation share** describes the time-fraction of an active GPU spent on productive work. Source: Cast AI 2026 Kubernetes survey across AWS, Azure, and GCP enterprise clusters.<sup><a href="#ref-12">[12]</a></sup> Approximately 5% mean sustained.
+
+Frontier training clusters at the labs almost certainly run far higher utilisation than enterprise cloud fleets. The named hyperscaler projects also represent only a subset of total accelerator orders. Treat the two figures as bounding cases rather than a unified ratio. Together they describe a real and material gap between paid-for capacity and economically productive capacity.
+
+### E. Cost-Per-Token Decline
+
+Stanford HAI AI Index and Epoch AI compute-cost time series document a roughly 10× annual decline in inference cost at fixed capability level across the 2022–2026 window.<sup><a href="#ref-13">[13]</a></sup>
+
+The most striking single data point: the cost of querying models at GPT-3.5-equivalent capability fell from approximately \$20 per million tokens in late 2022 to approximately \$0.07 per million tokens in late 2024 — a roughly 280× reduction across the two-year window. GPT-4 itself launched in March 2023 at \$30 / \$60 per million input/output tokens; by August 2024, GPT-4o offered the same capability tier at \$3 / \$10 per million tokens, a roughly 10× compression in seventeen months. DeepSeek V3 entered the market in January 2025 at \$0.14 per million input tokens, undercutting GPT-4o by approximately 95%; DeepSeek R1 entered at \$0.55 per million input tokens against OpenAI o1's \$15 per million. Epoch AI's broader survey reports a median annual decline of roughly 50× across the inference market, with selected capability brackets falling at rates closer to 200× per year in the post-2024 window.
+
+The decline is jointly attributable to hardware improvement, algorithmic efficiency (quantisation, distillation, sparsity, speculative decoding, KV-cache optimisation, mixture-of-experts routing, continuous batching, paged attention, FlashAttention, Triton kernels, scheduler advances), competitive pricing pressure from open-weights models, and software stack maturity. The hardware contribution alone is much smaller than the headline rate; the software-and-competition contribution is dominant. This is the structural reason the depreciation curve and the algorithm curve run in opposite directions: the same chip, two years later, runs better software against smaller models with cheaper inference. The second owner of the chip inherits the algorithmic gain.
+
+---
+
+## Notes & References
+
+<span id="ref-1">[1]</span> Reuters (2026). "Big tech AI and cloud spending to exceed \$700 billion in 2026." Industry capex aggregation across hyperscaler guidance.
+
+<span id="ref-2">[2]</span> PitchBook (2026). "AI Venture Funding, Q1 2026." First-quarter deployment of approximately \$255 billion exceeded the full-year 2025 total. Aggregate dominated by mega-financings.
+
+<span id="ref-3">[3]</span> S&P Global Market Intelligence (2026). "U.S. Data Center Investment, 2025 Annual." Private equity deployed \$45.7 billion, 72% of \$63.35 billion total sector investment.
+
+<span id="ref-4">[4]</span> Reuters (2026). Amazon European infrastructure briefing on grid interconnection timelines, citing seven-year horizons against approximately two-year data centre construction cycles.
+
+<span id="ref-5">[5]</span> CME Group (Henry Hub front-month, June 2026 contract). ICE / Reuters quote pages for TTF (€50.167/MWh) and JKM (\$18.80/MMBtu), converted at ECB euro reference rate 1.1628 EUR/USD (15 May 2026).
+
+<span id="ref-6">[6]</span> U.S. Energy Information Administration (2024). "Average operating heat rate for natural gas-fired generation": 7,754 Btu/kWh, used here as the conversion basis for fuel-only generation cost.
+
+<span id="ref-7">[7]</span> Reuters (2026). "xAI Colossus expansion." Colossus 1 reported holding more than 220,000 Nvidia processors and adding 300 MW of capacity; programme target of one million accelerators referenced in xAI roadmap statements.
+
+<span id="ref-8">[8]</span> Reuters / Crusoe Energy / Oracle (2026). "Abilene, Texas campus." 400,000 GB200-class chips ordered; 1.2 GW total facility design power across eight planned buildings, two operational as of mid-2026. Project capital approximately \$15 billion, including a \$9.6 billion JPMorgan-led loan. Operated under a fifteen-year Oracle master lease to OpenAI as the end tenant.
+
+<span id="ref-9">[9]</span> Nvidia / U.S. Department of Energy (2026). "Solstice and Equinox systems at Argonne National Laboratory." Combined 110,000 Blackwell GPUs planned; Equinox expected in first half 2026.
+
+<span id="ref-10">[10]</span> Meta Platforms (2026). Infrastructure roadmap referencing multi-million Blackwell- and Rubin-class accelerator deployment across 2025–2027.
+
+<span id="ref-11">[11]</span> Reuters / industry references. 1.3 kW all-in facility load per top-end accelerator used as an order-of-magnitude heuristic, consistent with Colossus 1's reported 220,000+ processors against approximately 300 MW of associated facility power. Real deployments vary with cooling architecture, networking density, and silicon mix.
+
+<span id="ref-12">[12]</span> Cast AI (2026). "Kubernetes GPU Utilization Report." Average sustained GPU utilization of 5% across surveyed production clusters on AWS, Azure, and GCP. Not necessarily representative of frontier training clusters at major AI labs.
+
+<span id="ref-13">[13]</span> Multiple sources, including Stanford HAI AI Index and Epoch AI compute-cost time series. Inference cost at fixed capability level has declined approximately 10× per year over the 2022–2026 window.
+
+<span id="ref-14">[14]</span> See ["Create an Age of Wonders"](/essays/create-an-age-of-wonders) for the framing of intelligence as infrastructure, alongside the broader Age of Wonders thesis that the universe is abundant and the limiter is access.
+
+<span id="ref-15">[15]</span> NIST AI Risk Management Framework (AI 100-1), published January 2023, with the Generative AI Profile (AI 600-1) added in 2024. ISO/IEC 42001:2023, "Information technology — Artificial intelligence — Management system." Both are foundational frameworks for AI governance; neither was designed for autonomous-agent deployment and both will require sector-specific extension to serve as production verification rails.
+
+<span id="ref-16">[16]</span> SAE J3016 Level 4 ("high driving automation") was publicly demonstrated by Waymo, Cruise, and others in 2015–2016. As of 2026, commercial Level 4 robotaxi services operate in a small number of geofenced cities (Phoenix, San Francisco, Los Angeles, Austin, and a handful of others). The 10+ year gap between demonstration and limited commercial deployment is the relevant analogue for the verification, regulation, and integration lag in deploying autonomous AI agents across broader sectors of the economy.
+
+<span id="ref-17">[17]</span> U.S. Federal Reserve / Office of the Comptroller of the Currency (2011). "Supervisory Guidance on Model Risk Management," SR 11-7 / OCC 2011-12. The foundational framework gating model deployment across U.S. banking, capital markets, and credit decisioning. Subsequent guidance (the Fed's SR 22-6 and OCC updates) extends the same principles to machine-learning and AI models. The standard's slow extension to generative AI is itself an instance of the verification-lag pattern this essay describes.
+
+<span id="ref-18">[18]</span> Moody's Ratings (2026) and Bank of America Global Research (2026). Top-five U.S. hyperscalers issued a record \$121 billion in corporate bonds during 2025 — more than four times their historical annual issuance average — with 2026 issuance projected at approximately \$175 billion. Amazon's \$54 billion global bond sale in March 2026 was the largest debt transaction in the company's history; in the same window Amazon's trailing-twelve-month free cash flow fell roughly 95% to \$1.2 billion. Oracle's FY2026 capex guidance was revised upward by \$15 billion to \$50 billion, with approximately half intended to be funded through external equity and equity-like instruments to preserve its investment-grade rating.
+
+<span id="ref-19">[19]</span> Reuters (2026); industry pricing trackers. Amazon Web Services raised the list price of its H200 Capacity Blocks by 15% in January 2026 — one of the first material current-generation cloud-compute price increases on public record, against the long-running pattern of monotonic decline in headline cloud-compute pricing since EC2 launched in 2006. The increase applied to current-generation H200 reserved capacity, indicating that the binding constraint was energised, permitted slot availability rather than chip supply.
+
+<span id="ref-20">[20]</span> SpaceX S-1 filing (2026); Reuters and Seoul Economic Daily reporting on Anthropic compute agreements. Anthropic took a long-term lease on xAI's Colossus 1 facility — built around 220,000+ Nvidia processors across approximately 300 MW of energised capacity in Memphis — at \$1.25 billion per month through May 2029, equivalent to an annualised run rate of approximately \$15 billion. Disclosed following the February 2026 merger of xAI into SpaceX (combined entity valued at \$1.25 trillion). Anthropic operates the Colossus 1 lease alongside separate multi-gigawatt commit agreements with Google and Amazon, against the backdrop of Claude Code reaching approximately \$2.5 billion in annualised recurring revenue by February 2026. The lease's exact perimeter of compute access is subject to commercial confidentiality; the headline figure and term are well-sourced across multiple outlets.
+
+### Background references
+
+DeepMind, OpenAI, Anthropic technical reports on model distillation, quantisation, and inference efficiency improvements over the 2022–2026 window.
+
+BlackRock (2026). EMEA Client Survey on AI investment opportunity. More than 50% of 732 surveyed firms identified energy providers as the leading AI investment opportunity, with 37% selecting infrastructure.
+
+Reuters (2026). Blackstone / Halliburton \$1 billion investment in VoltaGrid for data centre power.
+
+Reuters (2026). U.S. Department of Energy UPRISE programme targeting 5 GW of nuclear capacity by 2029 through uprates and restarts.
+
+Brynjolfsson, E. & McAfee, A. (2014). *The Second Machine Age.* W.W. Norton.
+
+Smil, V. (2017). *Energy and Civilization: A History.* MIT Press.
+
+Carlota Perez (2002). *Technological Revolutions and Financial Capital.* Edward Elgar. The canonical account of installation phases, gilded-age over-investment, financial crisis, and deployment phases that follow.
+
+David, P.A. (1990). "The Dynamo and the Computer: An Historical Perspective on the Modern Productivity Paradox." *American Economic Review* 80(2). On the lag between general-purpose technology arrival and economic productivity gains.
+
+NIST AI Risk Management Framework. https://www.nist.gov/itl/ai-risk-management-framework
+
+International Energy Agency (2024). "Electricity 2024." On data centre electricity demand projections through 2026.
