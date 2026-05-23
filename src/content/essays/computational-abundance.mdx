@@ -172,7 +172,7 @@ The frontier moves first. The plateau absorbs what it leaves behind.
 
 </PullQuote>
 
-## IV. The Fibre Beneath the Ocean
+## IV. The Backbone and the Last Mile
 
 The right historical analogue is not Pets.com. It is fibre.
 
@@ -180,21 +180,25 @@ Between 1996 and 2001, telecom carriers laid millions of miles of long-haul fibr
 
 And then it became the spine of the internet.
 
-The fibre did not move. The capacity did not shrink. The cost per gigabit transmitted dropped by orders of magnitude as the surviving operators acquired the bankrupt infrastructure for cents on the dollar and lit it as broader demand finally arrived. Netflix streams on that fibre. YouTube serves on that fibre. AWS replicates across it. The applications were waiting on the *price* of bandwidth, not the *existence* of it. Liquidation set the price.
+But it took twenty years.
 
-The internet built on the financial corpses of the people who first paid for it.
+The bottleneck was never the backbone. The backbone was finished by 2001. The bottleneck was *distribution* — the last copper mile between the optical trunk and the household, the dial-up modem at kilobit speeds, the DSL upgrade at megabit speeds, then cable DOCSIS, fibre-to-the-curb, fibre-to-the-home, 3G, 4G, 5G. Bandwidth at the trunk was abundant from the day the fibre was lit. Bandwidth at the wall socket arrived a generation later, in layers, against the slow economics of digging up streets, upgrading consumer-premises equipment, building edge data centres, writing codecs that survived lossy radio links, and convincing households to pay for something they had not previously known they wanted. The streaming era required the entire intermediate stack — content-delivery networks, set-top boxes, mobile devices, video codecs, broadband subscriptions, app stores — to mature. The optical trunk did its job in eighteen months. The distribution layer took two decades.
 
-The dot-com bust is often told as a story of bad ideas. It was not. It was a story of correct ideas on the wrong timetable, financed at the wrong duration, with the wrong assumption about how quickly the last mile would absorb the backbone. Bandwidth supply ran years ahead of broadband penetration, content delivery networks, mobile devices, video codecs, business models, and consumer behaviour. The backbone arrived first. Everything else caught up over a decade.
+Netflix streams on that fibre. YouTube serves on that fibre. AWS replicates across it. The applications were waiting on the last mile.
+
+The dot-com bust is often told as a story of bad ideas. It was not. It was correct ideas on the wrong timetable, financed at the wrong duration, against an underbuilt distribution layer.
 
 AI is building the same shape.
 
-The compute backbone is being laid down at unprecedented scale: hyperscaler campuses, sovereign clusters, megaprojects in Texas, Wyoming, the UAE, Saudi Arabia, Korea, Japan. The accelerator order books reach years into the future. The model training is real. The labs are real. The capability is real. What is missing is the last mile.
+The compute backbone is being laid down at unprecedented scale: hyperscaler campuses, sovereign clusters, megaprojects in Texas, Wyoming, the UAE, Saudi Arabia, Korea, Japan. The accelerator order books reach years into the future. The model training is real. The labs are real. The capability is real. What is missing is the distribution layer.
 
-The mechanism by which the reset propagates may be quieter than the fibre crash. Hyperscaler balance sheets are larger than the telecom carriers' were. Internal cascading absorbs more of the inventory before it ever reaches an external market. Sovereign and enterprise buyers can hold compute on long horizons without forced sale. The AI cycle may not need WorldComs and Global Crossings to deliver the same outcome. But the *shape* — backbone overbuilt against an underbuilt last mile, capacity repriced as the timetable resets, infrastructure that no first owner can monetise becoming the substrate the next owner can — is the same.
+In AI, the distribution layer is not made of copper. It is made of reliability engineering, software guardrails, verification, observability, permissions, audit, and rollback; ringfencing, agentic harnesses, model distillation, quantisation, and the long tail of optimisations that make smaller models perform like larger ones on commodity hardware; integration into industry-specific software stacks, regulatory regimes, legal acceptance, procurement, insurance, liability, and workflow ownership — the slow institutional work of teaching a sector, medicine, law, finance, manufacturing, government, how to use a new tool without breaking itself. A frontier training run produces a raw input. Turning that input into intelligence the economy can actually use is the distribution problem, and it is the problem the rest of this essay describes.
 
-The AI last mile is institutional. It is the verification, observability, permissions, audit, rollback, legal acceptance, procurement, insurance, liability, and workflow ownership that converts a capable model into a deployable agent. Coding got there first because coding has compile, lint, test, and revert built in by default — every output is checkable in seconds against a deterministic substrate. Most other domains do not have that. Legal review, medical diagnosis, financial analysis, industrial control, and customer-facing operations have to build their verification harnesses from scratch, against domain-specific failure modes, under regulatory regimes that did not contemplate autonomous agents, inside organisations whose change-management cycles measure in years.
+Coding got there first because coding has compile, lint, test, and revert built in by default — every output is checkable in seconds against a deterministic substrate. Most other domains do not have that. They have to build their distribution layer from scratch, against domain-specific failure modes, under regulatory regimes that did not contemplate autonomous agents, inside organisations whose change-management cycles measure in years.
 
-In the meantime, the backbone is being financed at duration assumptions the deployment rails cannot meet.
+In the meantime, the backbone is being financed at duration assumptions the distribution layer cannot meet.
+
+The mechanism by which the reset propagates may be quieter than the fibre crash. Hyperscaler balance sheets are larger than the telecom carriers' were. Internal cascading absorbs more of the inventory before it ever reaches an external market. Sovereign and enterprise buyers can hold compute on long horizons without forced sale. The AI cycle may not need WorldComs and Global Crossings to deliver the same outcome. But the *shape* — backbone overbuilt against an underbuilt distribution layer, capacity repriced as the timetable resets, infrastructure that no first owner can monetise becoming the substrate the next owner can — is the same.
 
 <PullQuote>
 
