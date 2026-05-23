@@ -15,7 +15,7 @@ Across the AI supply chain, millions of accelerators are in motion — ordered, 
 
 At any moment, large numbers of them sit on pallets in warehouses around the world. Climate-controlled, security-gated, quiet. Waiting for a transformer. Waiting for a substation. Waiting for a gas turbine, a water permit, a cooling loop, a grid interconnection, a building whose steel is still being raised in another state.
 
-Some will never be plugged in by the hyperscalers that ordered them at all. For others, one, two, even three generations of silicon will ship before they see a power connection — by which time the frontier runs on hardware that did not exist when the order was placed.
+Some will never be plugged into the original slots their buyers had in mind. For others, one, two, even three generations of silicon will ship before they see a power connection — by which time the frontier runs on hardware that did not exist when the order was placed.
 
 The chips work. The story that priced them does not.
 
@@ -31,7 +31,7 @@ And then millions of chips, currently asleep on pallets, will go to work — not
 
 ## I. The Plug
 
-People assume the limit on AI is intelligence.
+People assume the limit on AI is compute.
 
 It isn't. The limit is electricity, permitting, and time.
 
@@ -116,6 +116,14 @@ The frameworks are arriving — the NIST AI Risk Management Framework, ISO/IEC 4
 The pattern repeats elsewhere. Medical-imaging AI cleared regulatory approval years before it became routine in hospital workflows. Financial-services model-risk management — formalised by the U.S. Federal Reserve's SR 11-7 guidance in 2011 — still gates the pace at which any new model reaches a deployed credit, trading, or compliance role.<sup><a href="#ref-17">[17]</a></sup> Even within software itself, code completion entered everyday use years before autonomous engineering agents began to clear the acceptance bars of serious organisations. Capability arrives before verification, regulation, and integration. AI in the broader economy faces the same clock.
 
 That mistake is not an indictment of AI. It is the recurring error of every infrastructure cycle that confuses *what is possible* with *what is deployable today*. Railroads in the 1870s. Telegraph in the 1840s. Fibre in 1999. The technology is correctly identified. The timetable is not.
+
+<Callout type="info">
+
+**What if the bulls are right?** The bull case is not incoherent. AI demand may keep rising fast enough to absorb the order book. Hyperscalers may recycle older chips internally rather than face a public second-hand market. Sovereign buyers may tolerate low utilisation indefinitely for strategic reasons. Networking topologies, HBM allocation, software stacks, and export-control regimes may all make cross-cohort migration harder than "chips move down the hierarchy" implies. Each of these is genuinely possible.
+
+The thesis does not require a visible GPU fire sale to hold. It requires only that compute financed for frontier scarcity eventually be forced to serve lower-margin, non-frontier demand. That can happen through internal reassignment, lower cloud SKUs, secondary leases, regional resale, sovereign absorption, or simple accelerated depreciation. The mechanism can break loudly or it can reprice quietly. The repricing is what matters.
+
+</Callout>
 
 ## III. The Depreciation Clock
 
@@ -208,9 +216,7 @@ The redistribution does not always wait for the bust, or for the second tier of 
 
 Beyond the hyperscaler tier, the **institutional layer** absorbs another wave: tier-2 colocation, regional clouds, sovereign clusters, enterprise on-premise deployments, university research clusters, industrial sites with cheap local power and modest compute appetite, even crypto-era datacentres rebuilt for a different workload. The frontier is concentrated. The plateau is distributed. Old hyperscaler racks find new homes in lower-priority slots — never the scarcest watts, but the second-scarcest, the third, the tenth, the thousandth.
 
-Underneath the institutional layer is the **edge**: a workstation in a research lab, a server in a small business, a single accelerator in a household. The slow-Moore cushion combined with algorithmic deflation means a last-generation accelerator running a distilled and quantised model is a capable assistant on a personal machine — and, connected to a network, a node in a distributed inference fabric. The architecture exists in early form: open-source projects in which thousands of consumer GPUs collectively serve inference for users who would never rent a hyperscaler instance.
-
-These distributed networks will not replace hyperscaler inference for latency-critical, regulated, or high-reliability workloads. They do not need to. Their role is to absorb cheap, distributed computation at the edge of the economy, where price matters more than perfect uptime and the marginal alternative is no compute at all.
+Underneath the institutional layer is the **edge**: a workstation in a research lab, a server in a small business, a single accelerator in a household. The slow-Moore cushion combined with algorithmic deflation means a last-generation accelerator running a distilled and quantised model is a capable assistant on a personal machine. The edge will not replace hyperscaler inference for latency-critical, regulated, or high-reliability workloads. It does not need to. Its role is to absorb cheap, distributed computation at the bottom of the economy, where price matters more than perfect uptime and the marginal alternative is no compute at all.
 
 <Callout type="info">
 
@@ -301,8 +307,6 @@ The frontier remains expensive. The plateau gets cheaper.
 The cost of computation has never had a stable demand curve.
 
 Every prior collapse in compute price — mainframe to minicomputer, minicomputer to PC, PC to cloud, cloud to mobile, mobile to smartphone — has produced not a smaller market for the older tier but a vastly larger market overall, organised around use cases that were uneconomic at the previous price. Cheaper bandwidth did not produce a smaller telecoms industry. It produced streaming, social networks, cloud, SaaS, video calls, online gaming, the mobile internet, the modern internet-native enterprise.
-
-Demand for compute is not fixed. It is discovered by lowering the price.
 
 When the price of a plateau slot collapses, three things happen.
 
