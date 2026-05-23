@@ -48,7 +48,7 @@ It ships steel, copper, silicon, and slabs of poured concrete to a power easemen
 
 The market priced AI as if compute and intelligence were the same thing. They are not. Compute is silicon in racks in halls connected to substations connected to gas turbines or nuclear cores connected to fuel that has to be physically delivered. The chip is the easy part. The accelerator industry is scaling aggressively, but even its bottlenecks — HBM, advanced packaging, substrates, networking — move faster than permitting queues, substations, and interconnect approvals.
 
-In 2026 the geographic dimension of this became unignorable. Henry Hub gas sat near \$2.83/MMBtu while TTF in Europe and JKM in Asia traded above \$17 and \$18/MMBtu respectively.<sup><a href="#ref-5">[5]</a></sup> Run that fuel through a combined-cycle plant at the U.S. EIA's 2024 heat rate<sup><a href="#ref-6">[6]</a></sup> and the fuel-only marginal cost of electricity in LNG-import regions is six to seven times the U.S. baseline. For a continuously loaded 100 MW campus the fuel-only marginal-cost spread alone is roughly \$100 million a year — before transmission, capacity charges, cooling, financing, or carbon. (Appendix B walks the full arithmetic.) Compute is now a geography.
+In 2026 the geographic dimension of this became unignorable. Henry Hub gas sat near \$2.83/MMBtu while TTF in Europe and JKM in Asia traded above \$17 and \$18/MMBtu respectively.<sup><a href="#ref-5">[5]</a></sup> Run that fuel through a combined-cycle plant at the U.S. EIA's 2024 heat rate<sup><a href="#ref-6">[6]</a></sup> and the fuel-only marginal cost of electricity in LNG-import regions is six to seven times the U.S. baseline. For a continuously loaded 100 MW campus the fuel-only marginal-cost spread alone is roughly \$100 million a year — before transmission, capacity charges, cooling, financing, or carbon. (Appendix B walks the full arithmetic; Appendix F covers the thermodynamic tax of bypassing the grid entirely via behind-the-meter generation.) Compute is now a geography.
 
 But the deeper fact is not geographic. It is temporal.
 
@@ -425,6 +425,33 @@ The most striking single data point: the cost of querying models at GPT-3.5-equi
 
 The decline is jointly attributable to hardware improvement, algorithmic efficiency (quantisation, distillation, sparsity, speculative decoding, KV-cache optimisation, mixture-of-experts routing, continuous batching, paged attention, FlashAttention, Triton kernels, scheduler advances), competitive pricing pressure from open-weights models, and software stack maturity. The hardware contribution alone is much smaller than the headline rate; the software-and-competition contribution is dominant. This is the structural reason the depreciation curve and the algorithm curve run in opposite directions: the same chip, two years later, runs better software against smaller models with cheaper inference. The second owner of the chip inherits the algorithmic gain.
 
+### F. The Grid-Avoidance Tax
+
+The seven-year European grid interconnection queue<sup><a href="#ref-4">[4]</a></sup> and similar U.S. backlogs have driven hyperscalers and developers toward behind-the-meter generation: modular, on-site, gas-fired power deployed directly alongside data centres. The canonical 2026 instance is the \$1 billion strategic investment by Blackstone Tactical Opportunities and Halliburton into VoltaGrid, supporting a 7.5 GW forward order book of modular natural-gas systems through 2030 and manufacturing capacity sized for up to 300 MW per month of reciprocating engines and turbines.<sup><a href="#ref-21">[21]</a></sup> The pitch: skip the queue, install power in months rather than years, operate under simplified minor-source air permits.
+
+The pitch is real. So is the thermodynamic cost.
+
+Thermal efficiency of a generator is the ratio of its electrical output to fuel input, conventionally expressed via the operating heat rate (Btu of fuel per kWh of electricity):
+
+$$\eta = \frac{3{,}412.142}{\mathrm{HR}}$$
+
+Using the U.S. EIA's 2024 average tested heat rates by prime mover:<sup><a href="#ref-6">[6]</a></sup>
+
+| Generation class | Heat rate (Btu/kWh) | Thermal efficiency | Gas consumption (ft³/kWh) |
+|---|---|---|---|
+| Combined-cycle utility gas (best in class) | 7,548 | ~45.2% | ~7.35 |
+| Average U.S. grid natural gas | 7,754 | ~44.0% | ~7.55 |
+| Reciprocating internal-combustion gas | 8,924 | ~38.2% | ~8.69 |
+| Simple-cycle gas turbine | 10,999 | ~31.0% | ~10.71 |
+
+Gas consumption assumes approximately 1,027 Btu per cubic foot of pipeline natural gas.
+
+The combined-cycle utility plant captures secondary heat through a steam turbine; behind-the-meter simple-cycle and reciprocating units do not, because the marginal payoff for captured heat does not justify the deployment delay and the engineering complexity at modular scale. Per kWh of electricity delivered, a simple-cycle gas turbine consumes roughly 45.7% more natural gas than a best-in-class combined-cycle plant — and emits CO₂ in direct proportion.
+
+That 45.7% markup is the grid-avoidance tax. The chip is the same; the slot is the same; the workload is the same. The difference is the thermodynamic penalty paid to install power in months rather than years.
+
+The tax compounds the regional cost spreads of Appendix B. In LNG-import regions, where the underlying fuel is already six or seven times the Henry Hub price, a behind-the-meter simple-cycle installation can run at roughly nine to ten times the fuel-only marginal cost of a Henry Hub combined-cycle baseline. Compute is a geography, and the cost of escaping the geography is itself a tax. This is the operational lower bound on the slot-scarcity rent: the marginal slot is not merely expensive; the most readily available substitutes for it are physically inefficient.
+
 ---
 
 ## Notes & References
@@ -469,15 +496,15 @@ The decline is jointly attributable to hardware improvement, algorithmic efficie
 
 <span id="ref-20">[20]</span> SpaceX S-1 filing (2026); Reuters and Seoul Economic Daily reporting on Anthropic compute agreements. Anthropic took a long-term lease on xAI's Colossus 1 facility — built around 220,000+ Nvidia processors across approximately 300 MW of energised capacity in Memphis — at \$1.25 billion per month through May 2029, equivalent to an annualised run rate of approximately \$15 billion. Disclosed following the February 2026 merger of xAI into SpaceX (combined entity valued at \$1.25 trillion). Anthropic operates the Colossus 1 lease alongside separate multi-gigawatt commit agreements with Google and Amazon, against the backdrop of Claude Code reaching approximately \$2.5 billion in annualised recurring revenue by February 2026. The lease's exact perimeter of compute access is subject to commercial confidentiality; the headline figure and term are well-sourced across multiple outlets.
 
+<span id="ref-21">[21]</span> Blackstone Tactical Opportunities and Halliburton (2026) press release; Reuters and switchgear-industry trade reporting. \$1 billion strategic equity investment into VoltaGrid to fund growth and the acquisition of Propell Energy Technology, supporting a 7.5 GW forward order book of modular natural-gas generation systems through 2030 deployed directly alongside data centres and industrial sites. Manufacturing capacity sized for up to 300 MW per month of reciprocating engines and turbine systems from facilities in Granbury, Texas. VoltaGrid's modular QPac platform delivers up to 20 MW per node, with combined configurations reaching ~200 MW under simplified minor-source air permits. EIA 2024 average tested heat rates (Tables 8.1 and 8.2) used for the efficiency arithmetic; ~1,027 Btu/ft³ pipeline gas energy content used for fuel-volume conversion.
+
 ### Background references
 
 DeepMind, OpenAI, Anthropic technical reports on model distillation, quantisation, and inference efficiency improvements over the 2022–2026 window.
 
 BlackRock (2026). EMEA Client Survey on AI investment opportunity. More than 50% of 732 surveyed firms identified energy providers as the leading AI investment opportunity, with 37% selecting infrastructure.
 
-Reuters (2026). Blackstone / Halliburton \$1 billion investment in VoltaGrid for data centre power.
-
-Reuters (2026). U.S. Department of Energy UPRISE programme targeting 5 GW of nuclear capacity by 2029 through uprates and restarts.
+Reuters (2026). U.S. Department of Energy UPRISE programme targeting 5 GW of nuclear capacity by 2029 through reactor uprates, restarts, and lifespan extensions, supported by the Office of Energy Dominance Financing's \$289 billion of available loan authority. The long-term grid-side resolution of the slot bottleneck described in this essay; treated in detail in a forthcoming companion piece.
 
 Brynjolfsson, E. & McAfee, A. (2014). *The Second Machine Age.* W.W. Norton.
 
