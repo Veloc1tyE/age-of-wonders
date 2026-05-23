@@ -15,7 +15,7 @@ Across the AI supply chain, millions of accelerators are in motion — ordered, 
 
 At any moment, large numbers of them sit on pallets in warehouses around the world. Climate-controlled, security-gated, quiet. Waiting for a transformer. Waiting for a substation. Waiting for a gas turbine, a water permit, a cooling loop, a grid interconnection, a building whose steel is still being raised in another state.
 
-Some will never be plugged in. For others, one, two, even three generations of silicon will ship before they see a power connection — by which time the frontier runs on hardware that did not exist when the order was placed.
+Some may never be plugged into the slots they were ordered for. For others, one, two, even three generations of silicon will ship before they see a power connection — by which time the frontier runs on hardware that did not exist when the order was placed.
 
 The chips work. The story that priced them does not.
 
@@ -81,13 +81,13 @@ Walk a small public sample of named projects — not a census of the industry, b
 
 *Facility-load figures use disclosed facility design power where available (Colossus, Abilene) and an industry-rough heuristic of approximately 1.3 kW per top-end accelerator for all-in load otherwise.<sup><a href="#ref-11">[11]</a></sup> See Appendix C for the arithmetic and caveats.*
 
-Take the three projects with disclosed status. Together they imply on the order of 2.6 gigawatts of accelerator facility load ordered or planned. The confirmed energised fraction, by mid-2026, is closer to 0.6 gigawatts. Roughly a fifth of the ordered facility load in this sample is plugged in. The rest is on paper, on order, in transit, in queue, in storage, or on a slab of concrete awaiting a transformer.
+Take the three projects with disclosed status. Together they imply on the order of 2.6 gigawatts of accelerator facility load ordered or planned. The confirmed energised fraction, by mid-2026, is closer to 0.6 gigawatts. Roughly a fifth of the ordered facility load *in this public sample* is plugged in. The sample is directional, not a census — the named projects skew toward the largest, most visible, most slowly permitted builds; smaller deployments may energise faster, and the hyperscalers' internal capacity is not in this table at all. The rest is on paper, on order, in transit, in queue, in storage, or on a slab of concrete awaiting a transformer.
 
 That is one half of the gap.
 
 The other half is utilisation.
 
-Cast AI, surveying production Kubernetes clusters across AWS, Azure, and Google Cloud, measured an average sustained GPU utilisation of 5%.<sup><a href="#ref-12">[12]</a></sup> Frontier training clusters at the labs run much higher. Enterprise GPU fleets often do not. Across the broad surface of paid-for cloud accelerators, the typical chip spends most of its life waiting for a workload that arrived in a different time zone, a different team, or a different fiscal year.
+Cast AI, surveying production Kubernetes clusters across AWS, Azure, and Google Cloud, measured an average sustained GPU utilisation of 5%.<sup><a href="#ref-12">[12]</a></sup> The figure is an enterprise observation, not a frontier one. Frontier training clusters at the labs run much higher; their workloads are batched, predictable, and capable of saturating expensive silicon for weeks at a time. Enterprise GPU fleets do not have that workload structure. Across the broad surface of paid-for *enterprise* cloud accelerators, the typical chip spends most of its life waiting for a workload that arrived in a different time zone, a different team, or a different fiscal year.
 
 These two datasets should not be naively merged. Frontier silicon at the labs runs hotter and faster; enterprise silicon runs cooler and slower. Read them as bounding cases rather than a single ratio. The energisation share is roughly a fifth in the public sample. The utilisation share, in the segments where Cast AI measured, is around five percent. Together they make the same directional point: across the broad surface of paid-for capacity, a great deal of ordered compute is currently doing very little economic work. The rest is an option on future demand — a placeholder, a reservation, an insurance contract, a strategic hedge against being last in line for a slot. (Appendix D treats the two figures as bounding cases rather than a unified ratio.)
 
@@ -105,7 +105,7 @@ These two datasets should not be naively merged. Frontier silicon at the labs ru
 
 What has been priced as a vertical demand curve for compute is, in significant part, a vertical demand curve for *optionality* on compute. That is a meaningful distinction, because options expire. The Blackwell-era chips ordered for 2025 deployment run into Rubin and Rubin Ultra. The chips ordered after that run into Feynman-era roadmap pressure. The grid moves slower than the architecture cadence.
 
-The order book was built for a market in which intelligence would be transformed into deployed economic agents within eighteen months — a vertical labour-replacement story. The deployment rails of that story did not arrive on time. Models are powerful and getting more powerful. The verification, observability, permissions, audit, rollback, and trust infrastructure that converts capability into deployable autonomous workflows is still being built. So is the legal architecture. So is the institutional appetite. The frontier-lab demand curve is real. The economy-wide demand curve is real *eventually*. It is not real in the energisation window of the chip already ordered.
+Much of the most aggressive AI-infrastructure pricing assumed that agentic workflows would convert model capability into economic labour substitution on a near-term timetable — a vertical labour-replacement story. The deployment rails of that story did not arrive on time. Models are powerful and getting more powerful. The verification, observability, permissions, audit, rollback, and trust infrastructure that converts capability into deployable autonomous workflows is still being built. So is the legal architecture. So is the institutional appetite. The frontier-lab demand curve is real. The economy-wide demand curve is real *eventually*. It is not real in the energisation window of the chip already ordered.
 
 The market mistook capability for deployability.
 
@@ -263,6 +263,10 @@ Notably, modern Stockfish-class engines now outperform the original AlphaZero-st
 Stockfish is not important here because chess resembles the economy. It is important because it shows how useful intelligence becomes reliable: by embedding learned judgement inside a larger engineered system that constrains, tests, and corrects it.
 
 Most economically useful AI will look the same.
+
+The progression is not hypothetical. Game-playing AI moved through three stages in the 2010s: **imitation learning** (supervised networks trained on human games), **reinforcement learning** (AlphaGo Zero and AlphaZero, self-play from scratch), and finally **engineered environments** — Stockfish-class systems wrapping a small NNUE network inside three decades of search, tablebases, opening books, pruning heuristics, and a statistical testing harness, outperforming the pure-RL approach on commodity CPUs. Large language models have followed the same sequence on the same timescale: imitation learning at pre-training scale (GPT-2, GPT-3, base models), reinforcement learning from human feedback and then from verifiable rewards (RLHF, then o1- and R1-style RL on reasoning, math, and code), and now the environments phase — Cursor, Claude Code, Operator, Deep Research, AlphaProof, robotic foundation models — wrapping frontier models inside sandboxed execution, tool use, retrieval, verification, and rollback.
+
+Two developmental arcs, a decade apart, ending in the same shape: learned components inside engineered scaffolding, outperforming the unbounded learned system on production tasks. The Stockfish shape is not a forecast. It is what deployable AI already looks like.
 
 <PullQuote>
 
