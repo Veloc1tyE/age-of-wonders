@@ -264,9 +264,15 @@ Stockfish is not important here because chess resembles the economy. It is impor
 
 Most economically useful AI will look the same.
 
-The progression is not hypothetical. Game-playing AI moved through three stages in the 2010s: **imitation learning** (supervised networks trained on human games), **reinforcement learning** (AlphaGo Zero and AlphaZero, self-play from scratch), and finally **engineered environments** — Stockfish-class systems wrapping a small NNUE network inside three decades of search, tablebases, opening books, pruning heuristics, and a statistical testing harness, outperforming the pure-RL approach on commodity CPUs. Large language models have followed the same sequence on the same timescale: imitation learning at pre-training scale (GPT-2, GPT-3, base models), reinforcement learning from human feedback and then from verifiable rewards (RLHF, then o1- and R1-style RL on reasoning, math, and code), and now the environments phase — Cursor, Claude Code, Operator, Deep Research, AlphaProof, robotic foundation models — wrapping frontier models inside sandboxed execution, tool use, retrieval, verification, and rollback.
+The progression is not hypothetical. It has now played out in three different domains.
 
-Two developmental arcs, a decade apart, ending in the same shape: learned components inside engineered scaffolding, outperforming the unbounded learned system on production tasks. The Stockfish shape is not a forecast. It is what deployable AI already looks like.
+**Game-playing AI** in the 2010s: imitation learning (supervised networks trained on human games), reinforcement learning (AlphaGo Zero and AlphaZero, self-play from scratch), and finally engineered environments — Stockfish-class systems wrapping a small NNUE network inside three decades of search, tablebases, opening books, pruning heuristics, and a statistical testing harness, outperforming the pure-RL approach on commodity CPUs.
+
+**Self-driving** through the 2010s and 2020s: imitation learning (ALVINN, then NVIDIA DAVE-2 and behaviour cloning from logged human driving), reinforcement learning in simulation, and now engineered environments — Waymo's L4 stack pairs specialised perception networks with HD maps, geofencing, hand-engineered planners, redundant safety layers, simulation harnesses running billions of synthetic miles, statistical fleet monitoring, and remote operator backup. In commercial deployment, the wrapped-and-bounded approach has outpaced pure end-to-end neural driving by a decade.
+
+**Large language models** in the 2020s: imitation learning at pre-training scale (GPT-2, GPT-3, base models), reinforcement learning from human feedback and then from verifiable rewards (RLHF, then o1- and R1-style RL on reasoning, math, and code), and now the environments phase — Cursor, Claude Code, Operator, Deep Research, AlphaProof, robotic foundation models — wrapping frontier models inside sandboxed execution, tool use, retrieval, verification, and rollback.
+
+Three developmental arcs, in three different domains — one a formal game, one open-world physical robotics, one general language and reasoning — all ending in the same shape: learned components inside engineered scaffolding, outperforming the unbounded learned system on production tasks. The Stockfish shape is not a forecast. It is what deployable AI already looks like.
 
 <PullQuote>
 
