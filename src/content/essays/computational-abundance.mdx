@@ -11,7 +11,7 @@ import DataInsight from '../../components/DataInsight.astro';
 import SummaryBox from '../../components/SummaryBox.astro';
 import Share from '../../components/Share.astro';
 
-Across the AI supply chain, millions of accelerators are in motion — ordered, manufactured, staged, shipped, queued for facilities that do not yet have power. xAI's Colossus programme targets a million accelerators on its own; Meta's roadmap references multi-million Blackwell- and Rubin-class deployments through 2027; Oracle, OpenAI, the U.S. Department of Energy, and the rest of the hyperscaler cohort add many more.<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-2">[2]</a></sup>
+Across the AI supply chain, millions of accelerators are in motion: ordered, manufactured, staged, shipped, queued for facilities that do not yet have power. xAI's Colossus programme targets a million accelerators on its own; Meta's roadmap references multi-million Blackwell- and Rubin-class deployments through 2027; Oracle, OpenAI, the U.S. Department of Energy, and the rest of the hyperscaler cohort add many more.<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-2">[2]</a></sup>
 
 At any moment, many of them sit on pallets in warehouses around the world. Climate-controlled, security-gated, quiet. Waiting for a transformer. Waiting for a substation. Waiting for a gas turbine, a grid interconnection, or steel from another state.
 
@@ -23,7 +23,7 @@ The first AI capital cycle is overbuilding the machinery of intelligence before 
 
 The limit on AI is electricity, permitting, and time.
 
-The hyperscalers expect to spend more than \$700 billion on AI and cloud infrastructure in 2026 alone.<sup><a href="#ref-3">[3]</a></sup> To fund it, the top five U.S. hyperscalers issued a record \$121 billion in corporate bonds during 2025 — more than four times their historical annual average — and Bank of America projects \$175 billion in 2026 issuance.
+The hyperscalers expect to spend more than \$700 billion on AI and cloud infrastructure in 2026 alone.<sup><a href="#ref-3">[3]</a></sup> To fund it, the top five U.S. hyperscalers issued a record \$121 billion in corporate bonds during 2025, more than four times their historical annual average, and Bank of America projects \$175 billion in 2026 issuance.
 
 Amazon's \$54 billion global bond sale in March 2026 was the largest debt transaction in the company's history.<sup><a href="#ref-4">[4]</a></sup> AI-linked venture deployment reached roughly a quarter-trillion dollars in a single quarter, dominated by OpenAI's \$122 billion round, Anthropic's \$30 billion round, and xAI's \$20 billion round.<sup><a href="#ref-5">[5]</a></sup> U.S. private equity poured \$45.7 billion into data centres in 2025, representing 72% of all sector investment.<sup><a href="#ref-6">[6]</a></sup> Every quarter, the bottleneck moves further down the supply chain: Nvidia, TSMC, SK Hynix, Vertiv, GE Vernova, Siemens Energy, transformers, substations, turbines, permits. (See Appendix A for definitions, period coverage, and the source aggregation.)
 
@@ -154,9 +154,9 @@ Running the same model on older silicon takes longer, costs more in energy, and 
 
 The bulk of demand the economy actually places on compute is not for training a one-trillion-parameter foundation model from scratch. It is for inference at low latency, embedding generation at large scale, batch document processing, fine-tuning, retrieval, ranking, simulation, rendering, robotics control loops, scientific computing. None of those workloads care which architecture cadence they are running on. They care about price per useful operation, latency per query, throughput per dollar, and reliability over time.
 
-A Hopper-era GPU, repriced below the cost basis its first owner needed to recover, is a fantastic inference engine, a fantastic fine-tuning platform, a fantastic simulator: misallocated frontier hardware becoming correctly priced plateau infrastructure. It loses only one contest, the next billion-dollar frontier training run, and even there the loss is relative.
+A Hopper-era GPU, repriced below the cost basis its first owner needed to recover, is a fantastic inference engine, a fantastic fine-tuning platform, a fantastic simulator: misallocated frontier hardware becoming correctly priced plateau infrastructure. It loses only one contest: the next billion-dollar frontier training run. Even there, the loss is relative.
 
-The compute does not vanish. It simply becomes non-frontier — useful for the broad surface of economic work that does not require the newest model, but priced as if it were. That mispricing is the fuse. When it burns through, the hardware changes hands.
+The compute does not vanish. It simply becomes non-frontier: useful for the broad surface of economic work that does not require the newest model, but priced as if it were. That mispricing is the fuse. When it burns through, the hardware changes hands.
 
 <PullQuote>
 
@@ -212,7 +212,7 @@ The mechanism is simpler than a financial crisis. Hyperscalers have a finite num
 
 That eviction is the trigger. What happens after is where the abundance lives.
 
-The compute flows down the slot hierarchy through several channels at once. The dominant and quietest is the **hyperscaler-internal cascade**: chips bought for frontier training drop to internal inference, then to ad ranking, then to batch work, the same silicon quietly serving different economics inside the same firm year by year. This is invisible from outside. It shows up only as falling unit prices in cost-per-token guidance and steadily cheaper hyperscaler inference SKUs.
+The compute flows down the slot hierarchy through several channels at once. The dominant and quietest is the **hyperscaler-internal cascade**: chips bought for frontier training drop to internal inference, then to ad ranking, then to batch work. The same silicon quietly serves different economics inside the same firm, year by year. This is invisible from outside. It shows up only as falling unit prices in cost-per-token guidance and steadily cheaper hyperscaler inference SKUs.
 
 The redistribution does not always wait for the bust, or for the second tier of buyers. In May 2026, Anthropic took over the entire ~300 MW capacity of Colossus 1 — the Memphis facility built around 220,000+ Nvidia processors — under a SpaceX S-1 disclosed agreement at \$1.25 billion per month through May 2029, with reduced fees during the initial ramp and a 90-day termination right for either party.<sup><a href="#ref-20">[20]</a></sup> xAI itself shifted internal frontier training to Colossus 2 in Southaven, Mississippi, deploying next-generation GB200 Blackwell. The arrangement is the migration mechanism running on premium current-generation silicon: even fully energised frontier hardware reallocates as soon as another tenant can put it to higher-value use. The cascade starts at the top.
 
