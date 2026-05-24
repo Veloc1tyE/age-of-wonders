@@ -250,6 +250,8 @@ Liquidation makes headlines. Redistribution is what changes the world.
 
 **Calibration note.** This essay is not predicting that every hyperscaler balance sheet breaks or that chips flood a visible second-hand market. The mechanism can be quieter than that: lower cloud prices, internal reassignment, delayed depreciation schedules, regional resale, sovereign absorption, and enterprise on-prem deployment. The thesis does not require a fire sale. It requires only that compute priced for frontier scarcity eventually serves non-frontier demand, and that the slot hierarchy fills downward as it does so. The fibre crash is the canonical instance, but it is not the only shape the same dynamic can take. The mechanism can break loudly, or it can reprice quietly. The outcome is the same.
 
+The thesis is also robust to the trajectory of frontier capability itself. If the frontier keeps compounding, plateau hardware runs the compressed descendants of fresh capability. If the frontier slows — and the inputs to it (hyperscaler capex, grid permits, HBM supply, packaging capacity) are already operating near a political and physical ceiling — plateau hardware runs durable capability for longer, the gap between old and new hardware narrows, open-weight models catch up faster, and the bottleneck shifts even sooner from capability discovery to deployment engineering. Either way, the deployment layer is where intelligence becomes infrastructure.
+
 </Callout>
 
 ## VI. Stockfish for Everything
@@ -593,6 +595,16 @@ with the recursion $L(t) = L_0 \cdot E(t)$ — cheap deployed intelligence helps
 $$E(t) = E_\infty \cdot \exp\!\big(A \, e^{\beta t}\big)$$
 
 A double exponential, bounded above by deployment friction (verification, testing, integration, organisational change-management). **The migration thesis does not require this functional form to fire at full strength.** The load-bearing claim is the weaker one: $\beta > 0$. AI-assisted engineering improves the rate at which the software layer adapts to whatever compute is cheapest and available. The double exponential is an intuition pump for why plateau-fill may run faster than prior infrastructure cycles, not a forecast.
+
+**H.7 — Frontier slowdown.** The $g_q$ values above assume the frontier continues to compound at recent rates. Three constraints suggest the rate may not hold indefinitely.
+
+First, Moore's law has stalled at the device level. The transistor-scale doubling that delivered smaller, faster, cheaper, and more efficient compute together for forty years no longer comes free. Hennessy and Patterson describe the resulting era as a "new golden age" of domain-specific architecture, parallelism, and hardware-software co-design. The frontier still compounds, but through capital intensity, packaging innovation, and system-scale engineering rather than quiet transistor scaling.
+
+Second, the capital base is already extreme. Hyperscaler AI spending is projected at over \$700 billion in 2026.<sup><a href="#ref-1">[1]</a></sup> Frontier training compute has grown ~5×/year since 2020; frontier training cost has grown ~3.5×/year; per-chip FLOP/\$ has improved only ~1.37×/year over the same period. Each additional doubling becomes harder to finance against political tolerance, grid headroom, HBM supply, and shareholder patience.
+
+Third, capability appears to scale approximately logarithmically with compute on standard benchmarks. Each additional order of magnitude of compute buys a roughly fixed *absolute* increment of capability, not a proportional one. As benchmarks saturate and the easy gains compress, the marginal frontier dollar buys less visible capability.
+
+**The identity is monotonic in slowdown.** A frontier that compounds at $g_q = 2.0$ per architectural release does not fire the CapEx identity. A frontier that compounds at $g_q \approx 1.15$ annualised — the rate that emerges if release cadence stretches from two years to four — fires it strongly. The slower the frontier compounds, the more easily $g_q(1-\delta) < 1$ holds, and the longer plateau hardware retains relative value. If scaling continues, plateau hardware runs the compressed descendants of fresh capability. If scaling slows, plateau hardware runs durable capability for longer. The Plateau Crossover thesis is robust in both directions.
 
 **Three depreciation regimes.** The identity rests on distinguishing three depreciation rates that, in AI hardware, move at different speeds:
 
