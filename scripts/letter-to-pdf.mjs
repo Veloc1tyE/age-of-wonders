@@ -7,7 +7,7 @@
  *   node scripts/letter-to-pdf.mjs private/letters/project-phoenix.md
  */
 
-import { readFileSync, writeFileSync, mkdirSync, unlinkSync } from 'fs';
+import { readFileSync, mkdirSync } from 'fs';
 import { join, resolve, basename } from 'path';
 import { fileURLToPath } from 'url';
 import { marked } from 'marked';
@@ -37,55 +37,55 @@ function escapeHtml(str) {
 
 function getCSS() {
   return `
-@page { size: A4; margin: 1.8cm 0 1.5cm 0; }
+@page { size: A4; margin: 2.0cm 0 1.8cm 0; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 10.5pt;
-  line-height: 1.85;
+  font-size: 11pt;
+  line-height: 1.8;
   color: #222;
-  padding: 48px 80px 48px;
+  padding: 52px 88px 52px;
   -webkit-font-smoothing: antialiased;
 }
 
 .letter-header {
-  margin-bottom: 40px;
+  margin-bottom: 44px;
   padding-bottom: 32px;
   border-bottom: 1.5pt solid #222;
 }
 
 .company-name {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 22pt;
+  font-size: 24pt;
   font-weight: 500;
   color: #111;
   letter-spacing: -0.3px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .classification {
   font-size: 8.5pt;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: #999;
+  letter-spacing: 1.4px;
+  color: #aaa;
   margin-bottom: 28px;
 }
 
 .meta-table {
-  font-size: 9.5pt;
-  line-height: 1.8;
+  font-size: 10pt;
+  line-height: 1.9;
   color: #555;
 }
 
 .meta-table .label {
   font-weight: 500;
-  color: #888;
+  color: #999;
   text-transform: uppercase;
   font-size: 8pt;
   letter-spacing: 0.8px;
-  width: 60px;
+  width: 68px;
   display: inline-block;
   vertical-align: top;
 }
@@ -95,71 +95,73 @@ body {
 }
 
 .meta-row {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .document-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 28pt;
+  font-size: 30pt;
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.12;
   color: #111;
-  margin-bottom: 6px;
-  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+  letter-spacing: -0.4px;
 }
 
 .document-subtitle {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 16pt;
+  font-size: 17pt;
   font-weight: 300;
   font-style: italic;
-  color: #666;
-  margin-bottom: 32px;
+  color: #777;
+  margin-bottom: 36px;
 }
+
+article h1 { display: none; }
 
 article h2 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 17pt;
+  font-size: 18pt;
   font-weight: 500;
   color: #111;
-  margin-top: 36px;
-  margin-bottom: 14px;
-  line-height: 1.25;
+  margin-top: 44px;
+  margin-bottom: 16px;
+  line-height: 1.2;
   page-break-before: always;
   page-break-after: avoid;
 }
 
-article h2:first-child {
+article h2:first-of-type {
   page-break-before: avoid;
 }
 
 article h3 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 13pt;
+  font-size: 14pt;
   font-weight: 500;
   color: #1a1a1a;
-  margin-top: 28px;
-  margin-bottom: 10px;
-  line-height: 1.35;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  line-height: 1.3;
   page-break-after: avoid;
 }
 
-article p { margin-bottom: 16px; orphans: 3; widows: 3; }
+article p { margin-bottom: 18px; orphans: 3; widows: 3; }
 article a { color: #444; text-decoration: none; border-bottom: 0.5px solid #ccc; }
-article strong { font-weight: 500; color: #1a1a1a; }
+article strong { font-weight: 600; color: #111; }
 
-article ul, article ol { margin: 14px 0; padding-left: 26px; }
-article li { margin-bottom: 5px; }
+article ul, article ol { margin: 14px 0 18px; padding-left: 28px; }
+article li { margin-bottom: 7px; }
 
 article hr {
   border: none;
-  border-top: 0.5pt solid #ddd;
-  margin: 32px 0;
+  border-top: 0.5pt solid #e0e0e0;
+  margin: 36px 0;
 }
 
 article blockquote {
-  margin: 24px 0;
-  padding: 0 0 0 22px;
+  margin: 28px 0;
+  padding: 4px 0 4px 24px;
   border-left: 2px solid #ddd;
   color: #555;
   font-style: italic;
@@ -172,26 +174,26 @@ article blockquote {
 article table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0 24px;
-  font-size: 9.5pt;
+  margin: 24px 0 28px;
+  font-size: 10.5pt;
   line-height: 1.6;
   page-break-inside: avoid;
 }
 
 article thead th {
-  font-weight: 500;
+  font-weight: 600;
   color: #111;
   text-align: left;
-  padding: 8px 12px;
+  padding: 9px 14px;
   border-bottom: 1.5pt solid #222;
   font-size: 8.5pt;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
 }
 
 article tbody td {
-  padding: 7px 12px;
-  border-bottom: 0.5pt solid #e8e8e8;
+  padding: 9px 14px;
+  border-bottom: 0.5pt solid #ebebeb;
   color: #333;
   vertical-align: top;
 }
@@ -201,7 +203,7 @@ article tbody tr:last-child td {
 }
 
 article tbody td strong {
-  font-weight: 500;
+  font-weight: 600;
   color: #111;
 }
 
@@ -214,10 +216,12 @@ function buildHTML(data, bodyHtml) {
   const fontsUrl = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap';
 
   const parts = [];
+  const docTitle = [data.title, data.subtitle].filter(Boolean).join(' — ') || 'Document';
   parts.push('<!DOCTYPE html>');
   parts.push('<html lang="en">');
   parts.push('<head>');
   parts.push('<meta charset="utf-8">');
+  parts.push('<title>' + escapeHtml(docTitle) + '</title>');
   parts.push('<link rel="preconnect" href="https://fonts.googleapis.com">');
   parts.push('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>');
   parts.push('<link href="' + fontsUrl + '" rel="stylesheet">');
@@ -265,9 +269,9 @@ async function generatePDF(htmlContent, outputPath) {
   });
   const page = await browser.newPage();
 
-  const tmpHtml = join(OUTPUT_DIR, '_tmp_letter.html');
-  writeFileSync(tmpHtml, htmlContent);
-  await page.goto('file://' + tmpHtml, { waitUntil: 'networkidle0' });
+  // Use setContent instead of file:// temp HTML — Chrome shows <title> briefly then
+  // replaces the tab/document label with the filename for local file URLs.
+  await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
   await page.evaluate(() => document.fonts.ready);
 
   await page.pdf({
@@ -282,7 +286,6 @@ async function generatePDF(htmlContent, outputPath) {
   });
 
   await browser.close();
-  try { unlinkSync(tmpHtml); } catch {}
 }
 
 async function main() {
