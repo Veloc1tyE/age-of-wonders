@@ -413,7 +413,13 @@ Em-dashes are the default connector for complex thoughts. They should be the exc
 
 When em-dashes are acceptable:
 - **Appositive definitions** where the dash names something: "the NNUE evaluation — a small neural network — is wrapped inside search code." The aside is essential, not decorative.
+- **Name/concept reveal at end of clause**: "A vertical electromagnetic launcher, rooted in a mountain, reaching through the stratosphere — Meridian." The em-dash introduces the name at the moment of reveal, like a punchline. Converting to a comma or colon kills the beat.
+- **Parenthetical lists**: when the parenthetical itself contains a list, commas create ambiguity. "Every prior collapse in compute price — mainframe to minicomputer, minicomputer to PC, PC to cloud — has produced…" Use em-dashes here. Replacing them with commas makes the list unreadable.
 - **Sharp contrasts** where the dash creates a deliberate beat: "A bridge delayed by two years is still a bridge. A GPU delayed by two years — three generations behind." But test whether a full stop is still cleaner.
+
+**Colon as the preferred em-dash substitute when introducing a list or elaboration:**
+> ❌ "The distribution layer is being built — verification, observability, permissions, rollback."  
+> ✅ "The distribution layer is being built: verification, observability, permissions, rollback."
 
 The signal that an em-dash is hiding a structural problem: if removing it forces you to split the sentence, the sentence needed splitting.
 
@@ -530,7 +536,44 @@ If the sentence feels weak without the intensifier, the issue is the noun or ver
 
 ---
 
-### Principle 18: Spelling and hyphenation consistency
+### Principle 18: Fragment sentences are intentional
+
+Very short sentences — including fragments — are a deliberate rhetorical device in this canon. They create rhythm breaks and let a claim land alone.
+
+> "Courage is the bottleneck."  
+> "Not before."  
+> "The magic is in the assembly."  
+> "A probe collects data and dies. Arcadia can live."
+
+Do not pad these to full sentences. Do not add subject-verb structure when a fragment is clearly working. The test: read it aloud. If the brevity creates a beat, it's right.
+
+This also applies to single-sentence paragraphs. A short standalone paragraph is not an orphan; it is a rest beat. Merging it into the preceding paragraph destroys the pacing.
+
+---
+
+### Principle 19: Preserve register — different essays speak differently
+
+The corpus spans distinct registers:
+- **Personal narrative** (Building Coherence): present-tense vignettes, direct first-person, emotional specificity
+- **Technical exposition** (Bridge to Infinity, The Free Starship, The Solar Gravitational Lens): precise vocabulary, quantified claims, appendices
+- **Analytical** (Computational Abundance): argument-driven, data-anchored, formal reasoning with named mechanisms
+- **Visionary-accessible** (Create an Age of Wonders, Perceptual Abundance): declarative optimism, broad readership
+
+Style principles apply *within* each register — they do not flatten all essays to the same voice. "Felt productive. Was actually self-soothing." is correct for Building Coherence. The same fragment pair would be wrong in a technical appendix. When editing, ask: what is the register of this essay? Then apply the principles within it.
+
+---
+
+### Principle 20: Concept capitalisation is deliberate
+
+When the canon treats an abstract word as a proper noun — "Abundance" in *Create an Age of Wonders*, "the Slot" in *Computational Abundance* — the capitalisation signals that the word is doing the work of a name. It marks the central concept of the essay, the thing the whole argument is oriented around.
+
+Do not lowercase these automatically. The test: is this word acting as a concept name — something the essay defines and builds on — or as an ordinary adjective? If it is the concept, preserve the capital.
+
+Conversely, do not capitalise abstract nouns that are not doing this work. "Energy abundance" in a passing clause stays lowercase. "Abundance changes the equation" — where Abundance is the thesis — takes a capital.
+
+---
+
+### Principle 21: Spelling and hyphenation consistency
 
 This canon uses British conventions. Check:
 - "datacentre" (one word) — not "data-center" or "data centre"
@@ -560,6 +603,9 @@ Before any essay goes live, run through:
 14. **Check section-end sentences** — do any bridge to the next section? Cut the bridge, trust the heading
 15. **Check trailing spaces** — run a search for `" \n"` or `"  "` in the file
 16. **British spelling pass** — "datacentre", "-ise" endings, no stray Americanisms
+17. **Check concept capitalisation** — "Abundance", "Slot", etc.: are they capitalised where they function as a concept name? Are they not capitalised where they're just nouns?
+18. **Check fragment sentences** — are very short sentences or paragraphs intact? Don't pad them; they are beats
+19. **Register check** — is the prose consistent with the essay's register (personal narrative / technical / analytical / visionary)? Apply principles within the register, not against it
 
 ---
 
