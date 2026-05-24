@@ -276,7 +276,7 @@ A formal game, open-world robotics, general language and reasoning — three dom
 
 <PullQuote>
 
-The economy does not need one god-model. It needs a million Stockfishes: bounded engines where learned judgement is trapped inside rules, tests, logs, permissions, and rollback.
+The economy does not need one god-model. It needs a million Stockfishes: bounded engines where learned judgement is empowered by rules, tests, logs, permissions, and rollback.
 
 </PullQuote>
 
@@ -312,7 +312,7 @@ Hardware depreciates. Algorithms compound.
 
 </PullQuote>
 
-Project that forward against a glut of Hopper-class and Blackwell-class accelerators, some on the second-hand market, some still inside the hyperscalers that bought them but reassigned to non-frontier workloads, all benefiting from the same compounding software stack. Inference prices fall sharply on hyperscaler SKUs and on the open market alike. Capability per dollar continues to climb. All at the same time.
+Project that forward against a glut of Hopper-class and Blackwell-class accelerators, some on the second-hand market, some still inside the hyperscalers that bought them but reassigned to non-frontier workloads, all benefiting from the same compounding software stack. Inference prices fall sharply on hyperscaler SKUs and on the open market alike. Capability per dollar continues to climb. All at the same time. Appendix H derives the underlying four-curve identity.
 
 The frontier remains expensive. The plateau gets cheaper.
 
@@ -356,7 +356,7 @@ Carlota Perez named the pattern. The installation phase is when capital floods i
 
 <PullQuote>
 
-The bubble is the installation phase of the intelligence grid. The crash will not destroy the grid. It will set the access price.
+The bubble is the installation phase of the intelligence grid.
 
 </PullQuote>
 
@@ -374,7 +374,7 @@ But disappointment is not extinction. In infrastructure cycles, disappointment i
 
 The financiers may inherit the loss.
 
-Civilisation inherits computation cheap enough to think with.
+Civilisation inherits computation cheap enough to diffuse through everything.
 
 <Share
   title="Computational Abundance"
@@ -502,6 +502,86 @@ The deployment phase will have its own binding constraints. Two are already visi
 Later deployment-phase infrastructure — autonomous machine-to-machine procurement, permissionless compute-scheduling protocols, real-time slot leasing against localised energy drops — sits beyond the scope of this essay. The thesis does not require any of these problems to be solved today. It requires only that the existence of hyper-capable, hyper-cheap silicon plus a vast tier of underutilised decentralised slots creates the economic incentive to solve them. That is the precise pattern Carlota Perez identified as the engine of the deployment phase: the financial capital of the installation phase produces a substrate that the production capital of the deployment phase reorganises, optimises, and deploys.
 
 The OpEx paradox is real, but it is a paradox only in the hyperscaler frame. Once the frame widens to include the entire built world's latent kilowatts, the paradox dissolves into a migration path.
+
+### H. The Plateau Crossover
+
+The body argues that AI hardware depreciates out of frontier use long before it depreciates out of economic usefulness. This appendix derives the structural identity. Four rates govern the dynamics.
+
+| Symbol | Quantity | Empirical value | Source |
+|---|---|---|---|
+| $r_h$ | Annual frontier hardware capability growth | ~1.37× (FLOPS/\$, long-run); ~1.40× (FLOPS/W, long-run); ~1.55× (memory bandwidth/\$, Hopper→Blackwell); ~2.0× (FP8 throughput, Hopper→Blackwell) | Epoch AI compute trends |
+| $r_s$ | Annual software-efficiency multiplier at fixed capability | ~50× (inference); ~3× (pre-training, halving every ~7.6 months) | Stanford HAI AI Index; Epoch AI |
+| $\delta$ | Annual secondary-market capital cost decay | ~0.28 (used H100 SXM5: \$35–40K new in 2023 → \$15K used by mid-2026) | Industry pricing |
+| $\beta$ | Workflow-discovery recursion rate (AI-assisted engineering productivity feedback) | Empirically positive; bounded above by deployment friction | This essay |
+
+**The identity.** Let $\tilde{C}(t, \tau)$ denote useful capability per dollar of a chip purchased used at time $t$, with age $\tau$ — the chip was frontier $\tau$ years ago:
+
+$$\tilde{C}(t, \tau) = \frac{C_0 \cdot r_h^{\,t-\tau} \cdot E(t)}{P_0 \cdot (1-\delta)^\tau}$$
+
+A new frontier chip purchased at time $t$ has $\tau = 0$:
+
+$$\tilde{C}_F(t) = \frac{C_0 \cdot r_h^{\,t} \cdot E(t)}{P_0}$$
+
+The software multiplier $E(t)$ benefits both equally and cancels in the ratio. The structural factor — the **Plateau Crossover Identity** — is:
+
+$$\boxed{\frac{\tilde{C}(t, \tau)}{\tilde{C}_F(t)} = \frac{1}{[r_h \cdot (1-\delta)]^\tau}}$$
+
+When $r_h(1-\delta) < 1$, plateau hardware delivers more useful capability per dollar than frontier hardware, with an exponentially growing advantage in $\tau$.
+
+**The threshold condition.**
+
+$$r_h \cdot (1-\delta) < 1 \iff \delta > \frac{r_h - 1}{r_h}$$
+
+The secondary market must reprice faster than the frontier advances. The condition is dimension-specific. Different capability dimensions have different $r_h$, and the inequality fires on some and not others:
+
+| Capability dimension | $r_h$ | Threshold $\delta^*$ | Observed $\delta$ | Identity fires? |
+|---|---|---|---|---|
+| Long-run FLOPS/\$ | 1.37 | 0.27 | 0.28 | Yes (marginal) |
+| Long-run FLOPS/W | 1.40 | 0.29 | 0.28 | No (marginal) |
+| Memory bandwidth/\$ (Hopper→Blackwell) | 1.55 | 0.35 | 0.28 | No |
+| FP8 tensor throughput (Hopper→Blackwell) | 2.00 | 0.50 | 0.28 | No |
+
+On raw dimensions, frontier hardware dominates by the strict reading of the identity. But raw FLOPS is not what most plateau workloads bind on. Two corrections lift the operative comparison.
+
+**Correction 1 — log capability scaling.** Standard inference benchmarks scale approximately as $\beta_K \log_{10}(\text{compute})$. A 4× FLOPS deficit corresponds to a benchmark gap of roughly 3–5 percentage points on MMLU, GPQA, or HumanEval at current scale. Most economically useful workloads have capability *thresholds*, not capability *appetites*: a customer-support router that needs 85% intent-classification accuracy does not benefit from a model scoring 92%. The operative comparison is whether plateau capability exceeds the workload threshold, not whether it matches frontier headroom. The workload surface where plateau is sufficient grows monotonically with $E(t)$.
+
+**Correction 2 — memory-bound, not compute-bound.** Autoregressive LLM inference is memory-bandwidth-bound, not FLOPS-bound. The relevant cap-per-dollar metric is bandwidth per dollar:
+
+| Hardware | State | Price | HBM bandwidth | GB/s per \$ |
+|---|---|---|---|---|
+| H100 SXM5 | Retail (2023) | \$35,000 | 3.35 TB/s | 0.096 |
+| H100 SXM5 | Used (mid-2026) | \$15,000 | 3.35 TB/s | **0.223** |
+| B200 SXM | Retail (mid-2026) | \$40,000 | 8.0 TB/s | 0.200 |
+
+The used H100 delivers ~12% more memory bandwidth per dollar than a new B200 at retail. The B200's structural advantages — 192 GB VRAM, 4× FP8 throughput, NVLink 5 at 1.8 TB/s — bind on training workloads with synchronous gradient sync and on models exceeding 80 GB. Most production inference exhibits neither. **The identity fires on the dimensions that govern plateau workloads, even where it does not fire on raw FLOPS.**
+
+**The workflow-discovery recursion.** Define $L(t)$ as AI-assisted engineering labour available at time $t$ — the pool of agentic software-engineering throughput available to port, optimise, quantise, distill, and productise workloads against the cheapest available compute. The rate of software-efficiency improvement is:
+
+$$\frac{d \log E}{dt} = \alpha_0 + \beta \log L(t)$$
+
+where $\alpha_0$ is the baseline human-only rate and $\beta$ captures the productivity multiplier from AI assistance. The recursion: $L(t)$ is itself proportional to deployed plateau intelligence, $L(t) = L_0 \cdot E(t)$. Substituting and letting $u = \log E$:
+
+$$\frac{du}{dt} = (\alpha_0 + \beta \log L_0) + \beta u$$
+
+This is a linear ODE with solution:
+
+$$E(t) = E_\infty \cdot \exp\!\big(A \, e^{\beta t}\big)$$
+
+A double exponential, bounded above by deployment friction (verification, testing, integration, organisational change-management). The Plateau Crossover Identity holds with any $E(t)$; the recursion accelerates the absolute expansion of plateau workloads without altering the structural CapEx ratio. The thesis does not require the double exponential to fire — it requires only $\beta > 0$, that AI generates *some* of its own scaffolding. In late 2026, AI coding tools have crossed 70% professional-developer adoption. $\beta$ is empirically positive.
+
+**Three depreciation regimes.** The identity rests on distinguishing three depreciation rates that, in AI hardware, move at different speeds:
+
+| Regime | Driven by | Timescale | What it means |
+|---|---|---|---|
+| Frontier obsolescence | $r_h$ | ~2 years | Chip no longer optimal for the next-largest frontier training run |
+| Capability obsolescence | Software stack abandonment, physical failure | 5–10 years | Chip cannot run any useful workload |
+| Economic obsolescence | OpEx vs revenue crossover | Set by slot, workload, and price | Chip's output is worth less than its operating cost |
+
+For most asset classes the three regimes move in lockstep. A car ages out of newness, off the dealership floor, and out of usefulness on similar schedules. AI hardware does not. The frontier moves on two years. Capability moves on five to ten. Economic obsolescence is set by the slot. The Plateau Crossover Identity gives the magnitude of the gap between frontier obsolescence and capability obsolescence: the years during which a chip has fallen off the frontier but is still capable, still supported, and still economic on the slots its first owner did not want.
+
+**The deeper point.** The Plateau Crossover is the inequality form of the migration thesis. As long as $\delta > (r_h - 1)/r_h$ on the capability dimension that some workload binds on, that workload migrates to plateau hardware once the chip is repriced. The fibre crash of 2001 was the same interval in different units: carriers built backbones priced for a deployment curve that did not arrive on time, the bondholders inherited the loss, and the civilisation that came later inherited the bandwidth. The Plateau Crossover Identity is the AI-era statement of the same dynamic. The first capital cycle pays the frontier price. The second buyer inherits the asset. The algorithms make the asset compound.
+
+The Pythagorean Dividend of *[Bridge to Infinity](/essays/bridge-to-infinity)* showed that excess vertical velocity converts to horizontal momentum almost for free, because velocity components add in quadrature. The Plateau Crossover shows that excess frontier capability converts to broad civilisational compute almost for free, because capital decay, software compounding, and a positive workflow-discovery recursion all push in the same direction. The mountain throws excess velocity at the sky and the sky pays it back as orbit. The frontier throws excess capability at the plateau and the plateau pays it back as intelligence in the walls.
 
 ---
 
