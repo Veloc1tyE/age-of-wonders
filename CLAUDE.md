@@ -395,7 +395,54 @@ The body of the section already argued what it means. The close just needs to na
 
 ---
 
-### Principle 11: Spelling and hyphenation consistency
+### Principle 11: Replace em-dashes with full stops or commas
+
+Em-dashes are the default connector for complex thoughts. They should be the exception, not the habit.
+
+**The test for every em-dash:**
+1. Could this be two sentences? → Make it two sentences.
+2. Is the second clause brief and subordinate? → Use a comma.
+3. Is the dash creating a parenthetical aside that interrupts? → Use commas around it, or cut it.
+
+> ❌ "Compute is silicon in racks in halls connected to substations — the kind of infrastructure that takes years to permit."  
+> ✅ "Compute is silicon in racks in halls connected to substations. It takes years to permit."
+
+> ❌ "The distribution layer — verification, observability, permissions, rollback — is being built."  
+> ✅ "The distribution layer, including verification, observability, permissions, and rollback, is being built."  
+> ✅ Or restructure: "The distribution layer is being built: verification, observability, permissions, rollback."
+
+When em-dashes are acceptable:
+- **Appositive definitions** where the dash names something: "the NNUE evaluation — a small neural network — is wrapped inside search code." The aside is essential, not decorative.
+- **Sharp contrasts** where the dash creates a deliberate beat: "A bridge delayed by two years is still a bridge. A GPU delayed by two years — three generations behind." But test whether a full stop is still cleaner.
+
+The signal that an em-dash is hiding a structural problem: if removing it forces you to split the sentence, the sentence needed splitting.
+
+---
+
+### Principle 12: Minimise compound and complex sentence structures
+
+Compound sentences (two independent clauses joined by a conjunction) and complex sentences (main clause + subordinate clause) are not wrong. But they accumulate, and accumulated complexity reads as effort.
+
+**Compound sentences:** usually split at the conjunction.
+
+> ❌ "The frontier labs will keep training larger models on the newest hardware, and the labs are correct to do this."  
+> ✅ "The frontier labs will keep training larger models on the newest hardware. They are correct to do this."
+
+**Complex sentences with embedded subordinate clauses:** break into sequence.
+
+> ❌ "The mechanism by which the reset propagates may be quieter than the fibre crash, because hyperscaler balance sheets are larger than the telecom carriers' were, and internal cascading absorbs more of the inventory before it ever reaches an external market."  
+> ✅ "The reset may be quieter than the fibre crash. Hyperscaler balance sheets are larger than the telecom carriers' were. Internal cascading absorbs more inventory before it reaches an external market."
+
+**Relative clauses that can be separate sentences:** break them out.
+
+> ❌ "A frontier training run produces an input that must then be turned into intelligence the economy can apply."  
+> ✅ "A frontier training run produces an input. Turning that input into intelligence the economy can apply is the distribution problem."
+
+The goal is not to write like a telegram. Long sentences are sometimes exactly right — for rhythm, for listing, for effect. The goal is that every sentence's complexity is earned, not accidental.
+
+---
+
+### Principle 13: Spelling and hyphenation consistency
 
 This canon uses British conventions. Check:
 - "datacentre" (one word) — not "data-center" or "data centre"
@@ -417,8 +464,10 @@ Before any essay goes live, run through:
 6. **Search for:** "in significant part", "somewhat", "notably,", "also already", "is not a forecast", "in many ways"
 7. **Check anaphora lists** — read aloud; all items should take similar time to say
 8. **Check DataInsight fields** — are they sharper than the surrounding prose?
-9. **Check trailing spaces** — run a search for `" \n"` or `"  "` in the file
-10. **British spelling pass** — "datacentre", "-ise" endings, no stray Americanisms
+9. **Check every em-dash** — could it be a full stop? A comma? If yes, change it
+10. **Check compound sentences** — every ", and" or ", but" between independent clauses is a candidate for a full stop
+11. **Check trailing spaces** — run a search for `" \n"` or `"  "` in the file
+12. **British spelling pass** — "datacentre", "-ise" endings, no stray Americanisms
 
 ---
 
