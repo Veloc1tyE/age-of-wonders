@@ -73,9 +73,9 @@ Take the three projects with disclosed status. Together they imply on the order 
 
 That is one half of the gap. The other half is utilisation.
 
-Cast AI, surveying production Kubernetes clusters across AWS, Azure, and Google Cloud, measured an average sustained GPU utilisation of 5%.<sup><a href="#ref-14">[14]</a></sup> The figure is an enterprise observation, not a frontier one. Frontier training clusters at the labs run much higher; their workloads are batched, predictable, and capable of saturating expensive silicon for weeks at a time. Enterprise GPU fleets do not have that workload structure. Across the broad surface of paid-for *enterprise* cloud accelerators, the typical chip spends most of its life idling — waiting for a workload.
+Cast AI, surveying production Kubernetes clusters across AWS, Azure, and Google Cloud, measured an average sustained GPU utilisation of 5%.<sup><a href="#ref-14">[14]</a></sup> That is an enterprise figure, not a frontier one — frontier training clusters run to saturate silicon for weeks at a time. Enterprise fleets provision for bursty demand and idle between requests.
 
-The two numbers describe different stages. Frontier training clusters run to saturate silicon with batched workloads and weeks of continuous compute. Enterprise fleets provision for bursty demand and idle between requests. Read the energisation share and the utilisation share as bounding cases, not a single multiplied ratio: roughly a fifth of disclosed ordered load is plugged in; roughly five percent of enterprise fleet capacity is running productive work at any given moment. Together they point the same direction. Across the broad surface of paid-for capacity, a great deal of ordered compute is currently doing very little economic work. The rest is optionality: a placeholder, a reservation, a hedge against being last in line for a slot. (Appendix D sets out the distinction in full.)
+Read the two figures as bounding cases, not a multiplied ratio. Together they point the same direction. Across the broad surface of paid-for capacity, a great deal of ordered compute is currently doing very little economic work. The rest is optionality — a placeholder, a reservation, a hedge against being last in line for a slot. (Appendix D sets out the distinction in full.)
 
 <Callout type="info">
 
@@ -97,7 +97,7 @@ Models are powerful and getting more powerful. The verification, observability, 
 
 The frameworks are arriving — the NIST AI Risk Management Framework, ISO/IEC 42001, sector-specific eval suites, the open-source agent-testing ecosystem.<sup><a href="#ref-15">[15]</a></sup> None of them mature in eighteen months. The closest analogue is autonomous driving. Level 4 was demonstrated around 2016 — impressive enough to convince many observers that broad deployment was a year or two away.<sup><a href="#ref-16">[16]</a></sup> A decade later, commercial deployment remains confined to a handful of geofenced cities, because industrial-grade autonomy requires reliability several orders of magnitude beyond the demo. The last few nines take a decade of guardrails, QA, simulation, verification, geofencing, fleet management, and regulatory engagement — not another year of model improvement. Agentic workflows will follow the same arc.
 
-The pattern repeats elsewhere. Medical-imaging AI cleared regulatory approval years before it became routine in hospital workflows. Financial-services model-risk management — formalised by the U.S. Federal Reserve's SR 11-7 guidance in 2011 — still gates the pace at which any new model reaches a deployed credit, trading, or compliance role.<sup><a href="#ref-17">[17]</a></sup> Even within software itself, code completion entered everyday use years before autonomous engineering agents began to clear the acceptance bars of serious organisations. Capability arrives before verification, regulation, and integration. AI in the broader economy faces the same clock.
+Capability arrives before verification, regulation, and integration. It always has — in medicine, in finance, in software itself.<sup><a href="#ref-17">[17]</a></sup> AI in the broader economy faces the same clock.
 
 The revenue data makes the asymmetry precise. Almost all of the explosive AI demand growth so far is concentrated in one vertical: software engineering. Cursor, Claude Code, Copilot, Codex, Devin — billion-dollar ARRs in coding. That is not a coincidence. Software engineering spent fifty years building exactly the distribution layer the deployment economy requires: compilers, type systems, linters, version control, test frameworks, CI/CD, sandboxed runtimes, code review workflows, IDEs, and open-source ecosystems with documented APIs. That scaffolding existed before AI coding did. The current revenue is not simply a leading indicator of vertical labour replacement. It is also a trailing indicator of half a century of pre-existing tooling.
 
@@ -186,7 +186,9 @@ Coding got there first because coding has compile, lint, test, and revert built 
 
 In the meantime, the backbone is being financed at duration assumptions the distribution layer cannot meet.
 
-The mechanism by which the reset propagates may be quieter than the fibre crash. Hyperscaler balance sheets are larger than the telecom carriers' were. Internal cascading absorbs more of the inventory before it ever reaches an external market. Sovereign and enterprise buyers can hold compute on long horizons without forced sale. The AI cycle may not need WorldComs and Global Crossings to deliver the same outcome. But the shape is the same: backbone overbuilt against an underbuilt distribution layer, capacity repriced as the timetable resets, infrastructure that no first owner can monetise becoming the substrate the next owner can.
+The mechanism by which the reset propagates may be quieter than the fibre crash. Hyperscaler balance sheets are larger than the telecom carriers' were. Internal cascading absorbs more of the inventory before it ever reaches an external market. Sovereign and enterprise buyers can hold compute on long horizons without forced sale.
+
+The AI cycle may not need WorldComs and Global Crossings to deliver the same outcome. The shape is the same: backbone overbuilt against an underbuilt distribution layer, capacity repriced as the timetable resets, infrastructure that no first owner can monetise becoming the substrate the next owner can.
 
 <PullQuote>
 
@@ -210,7 +212,7 @@ The reverse beat is also already visible. The planned expansion of the Oracle/Op
 
 Beyond the hyperscaler tier, the **institutional layer** absorbs another wave: tier-2 colocation, regional clouds, sovereign clusters, enterprise on-premise deployments, university research clusters, industrial sites with cheap local power and modest compute appetite, even crypto-era datacentres rebuilt for a different workload. The frontier is concentrated. The plateau is distributed. Old hyperscaler racks find new homes in lower-priority slots — never the scarcest watts, but the second-scarcest, the third, the tenth, the thousandth.
 
-Underneath the institutional layer is the **edge**: a workstation in a research lab, a server in a small business, a single accelerator in a household. The slow-Moore cushion combined with algorithmic deflation means a last-generation accelerator running a distilled and quantised model is a capable assistant on a personal machine. The edge will not replace hyperscaler inference for latency-critical, regulated, or high-reliability workloads. It does not need to. Its role is to absorb cheap, distributed computation at throughout the economy, where price matters more than perfect uptime and the marginal alternative is no compute at all.
+Underneath the institutional layer is the **edge**: a workstation in a research lab, a server in a small business, a single accelerator in a household. The slow-Moore cushion combined with algorithmic deflation means a last-generation accelerator running a distilled and quantised model is a capable assistant on a personal machine. The edge will not replace hyperscaler inference for latency-critical, regulated, or high-reliability workloads. It does not need to. Its role is to absorb cheap, distributed computation throughout the economy, where price matters more than perfect uptime and the marginal alternative is no compute at all.
 
 <Callout type="info">
 
@@ -370,7 +372,9 @@ The shape of the post-bust intelligence layer is already visible in early form. 
 
 The frontier labs will still exist. The frontier models will still be expensive. The capability gradient will keep climbing. But the deployment surface, where the actual economic work gets done, will be the cheap, plentiful, diffused tier. The same shape as electricity. The expensive part is the grid. The cheap part is the outlet.
 
-The Age of Wonders thesis is that the universe is abundant and the limiter is access. The current AI cycle is a textbook case of access running ahead of itself in one direction and behind itself in another. Frontier intelligence is scarce. Frontier silicon — HBM, advanced packaging, networking, premium energised sites — is scarce. Civilisational intelligence is not permanently scarce. Nor are plateau silicon two cycles back, or the algorithms that run on it. The scarce thing, at every layer, is the integrated slot: power, cooling, interconnect, permits, verification, trust, and a workflow ready to absorb the output.
+Frontier intelligence is scarce. Frontier silicon — HBM, advanced packaging, networking, premium energised sites — is scarce. Civilisational intelligence is not permanently scarce. Nor is plateau silicon two cycles back, or the algorithms that run on it.
+
+The scarce thing, at every layer, is the integrated slot: power, cooling, interconnect, permits, verification, trust, and a workflow ready to absorb the output.
 
 The bubble overbuilt raw compute on the assumption that deployment, verification, trust, and workflow ownership would arrive at the same speed. The bust corrects the timetable. The infrastructure persists.
 
