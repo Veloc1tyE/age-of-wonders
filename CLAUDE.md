@@ -442,7 +442,95 @@ The goal is not to write like a telegram. Long sentences are sometimes exactly r
 
 ---
 
-### Principle 13: Spelling and hyphenation consistency
+### Principle 13: Replace vague quantifiers with exact figures
+
+One of the defining strengths of this canon is the willingness to name the actual number. Vague quantifiers are a form of hedging.
+
+Replace on sight:
+- "many" → how many?
+- "large", "substantial", "significant" → what figure?
+- "heavy losses" → what operating margin?
+- "rapid growth" → what multiple?
+- "most" → what percentage?
+
+> ❌ "OpenAI reported heavy losses and stalling user growth."  
+> ✅ "OpenAI reported a -122% operating margin. Weekly active users stalled at 905 million."
+
+> ❌ "Hyperscalers have issued substantial corporate debt."  
+> ✅ "Hyperscalers issued $121 billion in corporate bonds in 2025."
+
+When the exact figure is unknown, use a range or an order of magnitude — still more specific than an adjective. "Hundreds of millions" beats "many users." "Roughly $100 million" beats "a significant cost."
+
+The exception: when the quantity is genuinely unknowable and the vagueness is the point. "A thousand other narrow tasks" is intentional approximation; "significant adoption" is lazy quantification.
+
+---
+
+### Principle 14: End sections with a close, not a bridge
+
+A common writing reflex: close a section by previewing the next one. "Having established that the backbone is overbuilt, we can now examine how compute migrates." This is hand-holding. It treats the reader as someone who might not follow without directions.
+
+The alternative: end with a definitive close and let the heading do the bridging work.
+
+> ❌ "The backbone is built. Now the question is how the cascade begins."  
+> ✅ "Liquidation makes headlines. Redistribution is what changes the world."  
+> [heading: **V. The Repricing Mechanism**]
+
+The heading announces the next move. The previous section's final sentence just needs to land cleanly. Readers follow the argument; they don't need a tour guide between sections.
+
+The same principle applies within paragraphs. Don't close a paragraph by summarising what it just said ("This is why the timetable is wrong") when the paragraph already showed it. Trust the argument to have done its work.
+
+---
+
+### Principle 15: Avoid rhetorical questions
+
+Rhetorical questions delay the answer. They are a form of hand-holding: "But what does this mean for deployment?" is a weaker version of just answering it.
+
+> ❌ "So what happens when the frontier hardware gets evicted? The cascade begins."  
+> ✅ "The cascade begins when frontier hardware gets evicted."
+
+> ❌ "Why does coding dominate AI revenue? Because it already had the scaffolding."  
+> ✅ "Coding dominates AI revenue because it already had the scaffolding."
+
+The one exception: a rhetorical question used for deliberate rhetorical effect in an intro or transition, where the pause itself is part of the rhythm. Use once per essay at most.
+
+---
+
+### Principle 16: Name the actor — avoid passive voice
+
+Passive voice hides the actor. Often that hiding is the point: it lets a writer make a claim without committing to who did it.
+
+> ❌ "Level 4 was demonstrated around 2016."  
+> ✅ "Google and Waymo demonstrated Level 4 around 2016."
+
+> ❌ "The expansion was collapsed by a mix of financing complexity and demand revisions."  
+> ✅ "OpenAI revised its demand forecasts. The financing complexity did the rest."
+
+The test: can the actor be named? If yes, name them. The sentence becomes more specific, more accountable, and more alive.
+
+Passive is acceptable when the actor is genuinely unknown, genuinely irrelevant, or when the passive construction is the natural form (e.g. "the chip was manufactured by TSMC" in a context where TSMC is already established).
+
+---
+
+### Principle 17: Cut filler intensifiers
+
+Intensifiers weaken the words they're attached to. They signal that the writer didn't trust the noun or verb to carry its own weight.
+
+Delete on sight: "very", "really", "quite", "truly", "deeply", "highly", "quite simply", "extremely."
+
+> ❌ "A very scarce resource."  
+> ✅ "A scarce resource."
+
+> ❌ "This is a truly counterintuitive result."  
+> ✅ "This is counterintuitive."
+
+> ❌ "The first AI capital cycle is quite clearly overbuilding."  
+> ✅ "The first AI capital cycle is overbuilding."
+
+If the sentence feels weak without the intensifier, the issue is the noun or verb. Replace those, not by amplifying the modifier.
+
+---
+
+### Principle 18: Spelling and hyphenation consistency
 
 This canon uses British conventions. Check:
 - "datacentre" (one word) — not "data-center" or "data centre"
@@ -461,13 +549,17 @@ Before any essay goes live, run through:
 3. **Find every paragraph over 80 words with data** — consider per-subject breaks
 4. **Read section openers** — do they stake a claim or describe a mechanism?
 5. **Read section closers** — do they land alone, or trail off with explanation?
-6. **Search for:** "in significant part", "somewhat", "notably,", "also already", "is not a forecast", "in many ways"
-7. **Check anaphora lists** — read aloud; all items should take similar time to say
-8. **Check DataInsight fields** — are they sharper than the surrounding prose?
-9. **Check every em-dash** — could it be a full stop? A comma? If yes, change it
-10. **Check compound sentences** — every ", and" or ", but" between independent clauses is a candidate for a full stop
-11. **Check trailing spaces** — run a search for `" \n"` or `"  "` in the file
-12. **British spelling pass** — "datacentre", "-ise" endings, no stray Americanisms
+6. **Search for hedges:** "in significant part", "somewhat", "notably,", "also already", "is not a forecast", "in many ways"
+7. **Search for intensifiers:** "very", "really", "quite", "truly", "deeply", "quite simply"
+8. **Check anaphora lists** — read aloud; all items should take similar time to say
+9. **Check DataInsight fields** — are they sharper than the surrounding prose?
+10. **Check every em-dash** — could it be a full stop? A comma? If yes, change it
+11. **Check compound sentences** — every ", and" or ", but" between independent clauses is a candidate for a full stop
+12. **Replace vague quantifiers** — scan for "many", "large", "significant", "substantial", "rapid"; replace with figures
+13. **Check passive voice** — can the actor be named? If yes, name them
+14. **Check section-end sentences** — do any bridge to the next section? Cut the bridge, trust the heading
+15. **Check trailing spaces** — run a search for `" \n"` or `"  "` in the file
+16. **British spelling pass** — "datacentre", "-ise" endings, no stray Americanisms
 
 ---
 
