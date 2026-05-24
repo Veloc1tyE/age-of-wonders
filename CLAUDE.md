@@ -240,34 +240,195 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 - Error states should be soft: dusty rose borders (#d4a5a5), muted coral text (#b88)
 - Clear errors on input to provide immediate feedback
 
-## Editorial & Writing Style
+## Prose Writing Guide
 
-**Word choice:**
-- Avoid generic AI terminology ("copilot" → "safety system") — these words are overloaded and diminish specificity
-- Use precise verbs: "resets" over "descopes", "replaying" over "going over"
-- "couldn't tolerate" is stronger than "could no longer bear" — directness over drama
+This guide distils everything learned across the editing of Computational Abundance, using Perceptual Abundance as the prose model. Apply it when writing or editing any essay in this canon.
 
-**Formatting consistency:**
-- Time formatting: `9pm` not `9 pm` — no space, lowercase
-- Compound modifiers: maintain parallel structure in lists
-- Watch for stray asterisks in bold markers (`*text:**` → `**text:**`)
+---
 
-**Endings and tone:**
-- Avoid motivational pitch tone in conclusions — feels like selling
-- Use counterfactuals to make necessity feel airtight: "Without it, I would have..." grounds the abstract in specific consequences
-- Let the final statement land without explanation — trust the reader
+### The Model: What Perceptual Abundance Does
 
-**Essay structure patterns:**
-- "Is/isn't" callouts early in essays prevent misreading (what this thing IS vs what it's NOT)
-- Example outputs make abstract systems concrete — show the actual interface
-- Horizontal rules create breathing room in narrative openings, but remove them between numbered sections
+Perceptual Abundance is the prose benchmark for this body of work. Its defining characteristics:
 
-**Component usage in essays:**
-- `<Callout type="highlight">` for example outputs, quotes, rule summaries
-- `<Callout type="info">` for definitions, lists, structured information
-- `<DataInsight>` for metrics with context
-- `<PullQuote>` for standout lines that anchor sections
-- `<SummaryBox>` for actionable takeaways at the end
+- **Short declarative sentences.** One idea per sentence. Subject, verb, object. Done.
+- **One idea per paragraph.** A paragraph makes a single move. If it's making two moves, split it.
+- **No hedges.** The essay does not say "seems to" or "might be" or "in significant part." It asserts.
+- **Strong section closings.** Every section ends on a line that lands without needing explanation.
+- **The reader is trusted.** No hand-holding, no recaps, no "as we've seen."
+
+---
+
+### Principle 1: Lead with the positive assertion
+
+The most common prose weakness in this canon: **negative framing before the real claim**.
+
+> ❌ "The slot hierarchy is not a forecast. It is the current state of the world."  
+> ✅ "The slot hierarchy is already in motion."
+
+> ❌ "That mistake is not an indictment of AI. It is the recurring error of every infrastructure cycle..."  
+> ✅ "That mistake is the recurring error of every infrastructure cycle..."
+
+> ❌ "An intelligence layer is not a product. It is a property of the substrate."  
+> ✅ "An intelligence layer is a property of the substrate."
+
+**Rule:** Every "X is not Y. It is Z." sentence should be tested as "X is Z." If the Z form stands, cut the preamble. The defensive setup drains authority from the assertion it's defending.
+
+The exception: when the contrast is the point and earns its own line — "A bridge delayed by two years is still a bridge. A GPU delayed by two years has crossed an architectural boundary." Here both halves are necessary. The test: does the negation add information, or just protect the claim?
+
+---
+
+### Principle 2: Split compound sentences at natural beats
+
+When a sentence joins two independent thoughts with "and" or a comma, ask whether they're stronger apart.
+
+> ❌ "Compute is in the middle of that transition right now, and intelligence is following it."  
+> ✅ "Compute is in the middle of that transition right now. Intelligence is following it."
+
+> ❌ "The bounded engineered system outperforms the raw neural network. That is the shape of plateau intelligence and the preview of how agentic workflows will mature across the economy."  
+> ✅ "The bounded engineered system outperforms the raw neural network. That is the shape of plateau intelligence."
+
+The closing sentence carries the most weight in any paragraph. Don't dilute it with trailing commentary. When the line lands, stop.
+
+---
+
+### Principle 3: Break prose walls — especially data paragraphs
+
+A paragraph over 100 words with no natural hinge is a wall. Find the logical joint and split.
+
+**Data paragraphs need their own structure.** When presenting figures on multiple comparable subjects (three labs, four projects, five generations), give each subject its own paragraph.
+
+> ❌ One 150-word paragraph with OpenAI, xAI, and Anthropic financials concatenated together.  
+> ✅ "The Q1 2026 financials make the asymmetry impossible to miss." [paragraph break] OpenAI paragraph. [break] xAI paragraph. [break] Anthropic paragraph. [break] Conclusion sentence.
+
+The conclusion sentence then stands alone and hits harder precisely because the evidence preceded it clearly.
+
+---
+
+### Principle 4: Section openers state the rule, not the mechanism
+
+The first sentence of a section should stake a claim. Not describe the process — claim it.
+
+> ❌ "The hyperscaler preference stack does the rest of the work."  
+> ✅ "Premium power goes to premium silicon."
+
+> ❌ "The mechanism by which the reset propagates..."  
+> ✅ "The important event is migration."
+
+The section body explains and evidences the claim. The opener makes it.
+
+---
+
+### Principle 5: Cut hedges entirely — don't soften them
+
+Hedges weaken assertions without adding accuracy. The instinct is to soften a bold claim; the effect is to undermine it.
+
+Phrases to delete on sight:
+- "in significant part" / "in large part" → delete or assert fully
+- "somewhat" / "relatively" / "fairly" → delete
+- "it is worth noting" / "notably" → delete; the fact speaks for itself
+- "also already" → pick one; "already" is usually enough
+- "in many ways" / "in some sense" → delete
+
+> ❌ "What has been priced as a vertical demand curve for compute is, in significant part, a vertical demand curve for optionality."  
+> ✅ "What has been priced as a vertical demand curve for compute is a vertical demand curve for optionality."
+
+If the claim feels too bold without the hedge, the issue is the claim, not the hedge. Either commit or cut.
+
+---
+
+### Principle 6: Keep anaphora rhythmically consistent
+
+Parallel structures ("Each one cheap. Each one bounded. Each one verifiable.") create momentum. That momentum breaks if the last item is longer than the others.
+
+> ❌ "Each one cheap. Each one bounded. Each one verifiable. Each one operating on a substrate of compute that, at the margin, costs almost nothing."  
+> ✅ "Each one cheap. Each one bounded. Each one verifiable. Each one running on a substrate that, at the margin, costs almost nothing."
+
+When writing a list in anaphora: read it aloud. If one item takes longer to say than the others, trim it to match the beat.
+
+---
+
+### Principle 7: Section closers land without explanation
+
+The last sentence of a section is the one readers carry with them. Write it as a statement that needs nothing after it.
+
+Strong closers from this canon:
+- "Liquidation makes headlines. Redistribution is what changes the world."
+- "The first buyer takes the loss. The second buyer takes the asset."
+- "Hardware depreciates. Algorithms compound."
+- "The frontier is the laboratory. The plateau is the economy."
+- "The arrival is what mattered."
+
+What makes them work: they are complete, they do not hedge, they do not explain themselves, and they trust the reader to have followed the argument. The moment you add "which shows that..." or "this is why..." after a strong closing line, you've killed it.
+
+---
+
+### Principle 8: DataInsight components crystallise, not paraphrase
+
+The `<DataInsight>` component has two fields: insight and context. Both should be **more specific than the surrounding prose**, not less.
+
+> ❌ insight="A GPU goes out of fashion quickly." context="Time changes how we value it."  
+> ✅ insight="A GPU delayed by two years has crossed an architectural boundary." context="A bridge delayed by two years is still a bridge."
+
+The component should be the sharpest version of the idea — the sentence a reader would screenshot. If it's vaguer than the body text, it's not doing its job.
+
+---
+
+### Principle 9: Subject consistency within sentences
+
+When a sentence implies a subject and then shifts mid-clause, the reader stumbles.
+
+> ❌ "Run the same model on the older silicon and the run takes longer, costs more in energy..."  
+> ✅ "Running the same model on older silicon takes longer, costs more in energy..."
+
+The fix is usually: convert the imperative opener to a gerund, or introduce an explicit subject.
+
+---
+
+### Principle 10: Trailing commentary dilutes closing sentences
+
+After a strong close, resist the urge to add a "this means that..." clause.
+
+> ❌ "The Stockfish architecture is what deployable AI already looks like — and a preview of how agentic workflows will mature across the economy."  
+> ✅ "The Stockfish architecture is what deployable AI already looks like."
+
+The body of the section already argued what it means. The close just needs to name it and stop.
+
+---
+
+### Principle 11: Spelling and hyphenation consistency
+
+This canon uses British conventions. Check:
+- "datacentre" (one word) — not "data-center" or "data centre"
+- "optimisations" / "organisation" / "recognised" — not American -ize forms
+- "aluminium" / "defence" / "licence" (noun)
+- No trailing spaces at end of paragraphs (these accumulate invisibly)
+
+---
+
+### Prose editing checklist before shipping
+
+Before any essay goes live, run through:
+
+1. **Scan for "not X, it is Y" constructions** — test each as "is Y" alone
+2. **Find every sentence over 40 words** — check for natural split points
+3. **Find every paragraph over 80 words with data** — consider per-subject breaks
+4. **Read section openers** — do they stake a claim or describe a mechanism?
+5. **Read section closers** — do they land alone, or trail off with explanation?
+6. **Search for:** "in significant part", "somewhat", "notably,", "also already", "is not a forecast", "in many ways"
+7. **Check anaphora lists** — read aloud; all items should take similar time to say
+8. **Check DataInsight fields** — are they sharper than the surrounding prose?
+9. **Check trailing spaces** — run a search for `" \n"` or `"  "` in the file
+10. **British spelling pass** — "datacentre", "-ise" endings, no stray Americanisms
+
+---
+
+### Component usage
+
+- `<Callout type="highlight">` — example outputs, quotes, rule summaries
+- `<Callout type="info">` — definitions, lists, structured reference information
+- `<DataInsight>` — metrics or contrasts; must be sharper than body prose
+- `<PullQuote>` — the one line per section a reader would quote; place at the climax, not the setup
+- `<SummaryBox>` — actionable takeaways at the end of long essays
 
 ## Recent Fixes Applied
 
