@@ -48,9 +48,7 @@ The limiting factor in AI is no longer whether chips can think. It is whether an
 
 </PullQuote>
 
-A GPU is not a bridge. A bridge delayed by two years is still a bridge. A GPU delayed by two years has crossed an architectural boundary. Hopper to Blackwell. Blackwell to Rubin. Rubin to Feynman. Time does not merely postpone its revenue. Time changes what it is.
-
-The chip in the box ages on the calendar, not on the meter. And the calendar is now being set by the grid.
+A bridge delayed by two years is still a bridge. A GPU delayed by two years has crossed an architectural boundary. Hopper to Blackwell. Blackwell to Rubin. Rubin to Feynman.
 
 The scarce asset, in this whole machine, is not the GPU. It is the **slot**: permitted power, cooling, land, transformer capacity, networking, operators, and the legal right to turn electricity into computation twenty-four hours a day, for the next decade.
 
@@ -60,7 +58,7 @@ In January 2026, Amazon Web Services raised the price of its H200 Capacity Block
 
 ## II. The Order Book Is Not Demand
 
-Walk a small public sample of named projects — not a census of the industry, but enough to make the structural gap visible.
+Walk a small public sample of named projects, enough to make the structural gap visible.
 
 | Project | Announced accelerators | Facility load | Confirmed energised | Status |
 |---|---|---|---|---|
@@ -71,15 +69,13 @@ Walk a small public sample of named projects — not a census of the industry, b
 
 *Facility-load figures use disclosed facility design power where available (Colossus, Abilene) and an industry-rough heuristic of approximately 1.3 kW per top-end accelerator for all-in load otherwise.<sup><a href="#ref-13">[13]</a></sup> See Appendix C for the arithmetic and caveats.*
 
-Take the three projects with disclosed status. Together they imply on the order of 2.6 gigawatts of accelerator facility load ordered or planned. The confirmed energised fraction, by mid-2026, is closer to 0.6 gigawatts. Roughly a fifth of the ordered facility load *in this public sample* is plugged in. The sample is directional, not a census — the named projects skew toward the largest, most visible, most slowly permitted builds; smaller deployments may energise faster, and the hyperscalers' internal capacity is not in this table at all. The rest is on paper, on order, in transit, in queue, in storage, or on a slab of concrete awaiting a transformer.
+Take the three projects with disclosed status. Together they imply on the order of 2.6 gigawatts of accelerator facility load ordered or planned. The confirmed energised fraction, by mid-2026, is closer to 0.6 gigawatts. Roughly a fifth of the ordered facility load *in this public sample* is plugged in.
 
-That is one half of the gap.
-
-The other half is utilisation.
+That is one half of the gap. The other half is utilisation.
 
 Cast AI, surveying production Kubernetes clusters across AWS, Azure, and Google Cloud, measured an average sustained GPU utilisation of 5%.<sup><a href="#ref-14">[14]</a></sup> The figure is an enterprise observation, not a frontier one. Frontier training clusters at the labs run much higher; their workloads are batched, predictable, and capable of saturating expensive silicon for weeks at a time. Enterprise GPU fleets do not have that workload structure. Across the broad surface of paid-for *enterprise* cloud accelerators, the typical chip spends most of its life idling — waiting for a workload.
 
-The two numbers describe different stages. Frontier training clusters run to saturate silicon — batched workloads, weeks of continuous compute. Enterprise fleets provision for bursty demand and idle between requests. Read the energisation share and the utilisation share as bounding cases, not a single multiplied ratio: roughly a fifth of disclosed ordered load is plugged in; roughly five percent of enterprise fleet capacity is running productive work at any given moment. Together they point the same direction. Across the broad surface of paid-for capacity, a great deal of ordered compute is currently doing very little economic work. The rest is optionality: a placeholder, a reservation, a hedge against being last in line for a slot. (Appendix D sets out the distinction in full.)
+The two numbers describe different stages. Frontier training clusters run to saturate silicon with batched workloads and weeks of continuous compute. Enterprise fleets provision for bursty demand and idle between requests. Read the energisation share and the utilisation share as bounding cases, not a single multiplied ratio: roughly a fifth of disclosed ordered load is plugged in; roughly five percent of enterprise fleet capacity is running productive work at any given moment. Together they point the same direction. Across the broad surface of paid-for capacity, a great deal of ordered compute is currently doing very little economic work. The rest is optionality: a placeholder, a reservation, a hedge against being last in line for a slot. (Appendix D sets out the distinction in full.)
 
 <Callout type="info">
 
@@ -95,11 +91,9 @@ The two numbers describe different stages. Frontier training clusters run to sat
 
 What has been priced as a vertical demand curve for compute is, in significant part, a vertical demand curve for *optionality* on compute. That is a meaningful distinction, because options expire. The Blackwell-era chips ordered for 2025 deployment run into Rubin and Rubin Ultra. The chips ordered after that run into Feynman-era roadmap pressure. The grid moves slower than the architecture cadence.
 
-Much of the most aggressive AI-infrastructure pricing assumed that agentic workflows would convert model capability into economic labour substitution on a near-term timetable — a vertical labour-replacement story. The deployment rails of that story did not arrive on time. Models are powerful and getting more powerful. The verification, observability, permissions, audit, rollback, and trust infrastructure that converts capability into deployable autonomous workflows is still being built. So is the legal architecture. So is the institutional appetite. The frontier-lab demand curve is real. The economy-wide demand curve is real *eventually*. It is not real in the energisation window of the chip already ordered.
+Much of the most aggressive AI-infrastructure pricing assumed that agentic workflows would convert model capability into economic labour substitution on a near-term timetable — a vertical labour-replacement story. The deployment rails of that story did not arrive on time. 
 
-The market mistook capability for deployability.
-
-The deployment economy does not arrive when models become impressive. It arrives when each domain builds the scaffolding around them.
+Models are powerful and getting more powerful. The verification, observability, permissions, audit, rollback, and trust infrastructure that converts capability into deployable autonomous workflows is in progress. So is the legal architecture. So is the institutional appetite. The frontier-lab demand curve is real. The economy-wide demand curve is real *eventually*. It is not real in the energisation window of the chip already ordered.
 
 The frameworks are arriving — the NIST AI Risk Management Framework, ISO/IEC 42001, sector-specific eval suites, the open-source agent-testing ecosystem.<sup><a href="#ref-15">[15]</a></sup> None of them mature in eighteen months. The closest analogue is autonomous driving. Level 4 was demonstrated around 2016 — impressive enough to convince many observers that broad deployment was a year or two away.<sup><a href="#ref-16">[16]</a></sup> A decade later, commercial deployment remains confined to a handful of geofenced cities, because industrial-grade autonomy requires reliability several orders of magnitude beyond the demo. The last few nines take a decade of guardrails, QA, simulation, verification, geofencing, fleet management, and regulatory engagement — not another year of model improvement. Agentic workflows will follow the same arc.
 
@@ -123,36 +117,32 @@ That mistake is not an indictment of AI. It is the recurring error of every infr
 
 The hyperscaler preference stack does the rest of the work.
 
-A hyperscaler with a scarce power permit and an even scarcer top-tier substation will not run last-generation chips in that slot. The economics forbid it. Frontier model training is increasingly optimised for the current accelerator architecture: memory bandwidth, interconnect topology, sparsity support, low-precision throughput, on-package networking. The performance-per-watt of the current generation is engineered against the next model the lab intends to train, not the last. The newest racks earn the scarcest watts.
+A hyperscaler with a scarce power permit and an even scarcer top-tier substation will not run last-generation chips in that slot. Frontier model training is increasingly optimised for the current accelerator architecture: memory bandwidth, interconnect topology, sparsity support, low-precision throughput, on-package networking. The performance-per-watt of the current generation is engineered against the next model the lab intends to train.
 
-Older chips are not too slow for the universe. They are too inefficient, in scarce frontier slots, to justify frontier use.
+Older chips are too inefficient, in scarce frontier slots, to justify frontier use.
 
 This produces a strange asset class. The world's most ambitious computing hardware, paid for at full price, becomes economically displaced inside the very facilities built to house it — not because the chips have failed, but because the marginal frontier watt belongs to something newer. The depreciation accelerates. Inventory ages. Some of it never reaches a powered rack at all, because the rack is now reserved for its successor.
 
 <DataInsight
-  insight="A GPU delayed by two years is not delayed like a road or a bridge. It is delayed like a phone, a server, or a racing car."
-  context="Time does not merely postpone its revenue. Time changes what it is."
+  insight="A GPU goes out of fashion quickly."
+  context="Time changes how we value it."
 />
 
 The depreciation clock has three hands.
 
-The first is the architecture cadence. Two-year cycles, each generation delivering multiples of performance per watt on the workloads the labs care about, with large multiples on the low-precision inference paths that increasingly dominate deployed compute. A chip born into the wrong cycle window is a different product than the chip its purchaser intended to buy.
+**The first is the architecture cadence.** Two-year cycles, each generation delivering multiples of performance per watt on the frontier workloads the labs care about.
 
-The second is software stack alignment. Frontier training kernels, compiler optimisations, library support, and reference implementations migrate to current silicon. The older chip remains supported, but the developer attention moves.
+**The second is software stack alignment.** Frontier training kernels, compiler optimisations, library support, and reference implementations migrate to current silicon. The older chip remains supported, but the developer attention moves.
 
-The third is the power contract. A 100 MW interconnection slot built in 2027 will not be filled with the GPUs ordered for it in 2024 if the GPUs ordered in 2026 do an order of magnitude more work per watt on the workloads that pay for them. The interconnection is the scarce asset. The chip is fungible. The slot will accept the highest-performing tenant.
+**The third is the power contract.** A 100 MW interconnection slot built in 2027 will not be filled with the GPUs ordered for it in 2024 if the GPUs ordered in 2026 do much more work per watt on the workloads that pay for them. The interconnection is the scarce asset. The chip is fungible. The slot will accept the highest-performing tenant.
 
-These three hands rotate together. A chip in storage in 2026 ages on all three at once.
-
-And yet the chip does not stop being useful when it stops being frontier.
+These three hands rotate together. And yet the chip does not stop being useful when it stops being frontier.
 
 In an earlier era, two generations behind was a sentence. The chip you bought in 1996 was useless in 2000. That era is over. Moore's law slowdown has changed the depreciation profile of compute. Per-transistor cost has plateaued. Per-watt performance is still improving, but in narrower bands and on specific workloads rather than across the board. A 7 nm chip from 2019 still does floating-point arithmetic perfectly well. A Hopper-class accelerator from 2023 still performs trillions of multiplications per second per device. None of that has changed.
 
 What has changed is the marginal economics of *frontier* training on those chips. The newest accelerators are categorically better at the frontier, and they will stay that way.
 
-Concede that fully. **The newest chips will remain dominant for frontier training. The abundance comes from non-frontier workloads.**
-
-Run the same model on the older silicon and the run takes longer, costs more in energy, and ties up cluster topology that could host newer racks. But "longer and more expensive" is not "impossible" — and for most economic workloads, longer and more expensive is the wrong frame entirely.
+Run the same model on the older silicon and the run takes longer, costs more in energy, and ties up cluster topology that could host newer racks. But for most economic workloads, this is the wrong frame entirely.
 
 The bulk of demand the economy actually places on compute is not for training a one-trillion-parameter foundation model from scratch. It is for inference at low latency, embedding generation at large scale, batch document processing, fine-tuning, retrieval, ranking, simulation, rendering, robotics control loops, scientific computing. None of those workloads care which architecture cadence they are running on. They care about price per useful operation, latency per query, throughput per dollar, and reliability over time.
 
@@ -176,19 +166,23 @@ And then it became the spine of the internet.
 
 But it took twenty years.
 
-The bottleneck was never the backbone. The backbone was finished by 2001. The bottleneck was *distribution* — the last copper mile between the optical trunk and the household, the dial-up modem at kilobit speeds, the DSL upgrade at megabit speeds, then cable DOCSIS, fibre-to-the-curb, fibre-to-the-home, 3G, 4G, 5G. Bandwidth at the trunk was abundant from the day the fibre was lit. Bandwidth at the wall socket arrived a generation later, in layers, against the slow economics of digging up streets, upgrading consumer-premises equipment, building edge data centres, writing codecs that survived lossy radio links, and convincing households to pay for something they had not previously known they wanted. The streaming era required the entire intermediate stack — content-delivery networks, set-top boxes, mobile devices, video codecs, broadband subscriptions, app stores — to mature. The optical trunk did its job in eighteen months. The distribution layer took two decades.
+The bottleneck was never the backbone. The backbone was finished by 2001. The bottleneck was *distribution* — the last copper mile between the optical trunk and the household, the dial-up modem at kilobit speeds, the DSL upgrade at megabit speeds, then cable DOCSIS, fibre-to-the-curb, fibre-to-the-home, 3G, 4G, 5G. 
+
+Bandwidth at the trunk was abundant from the day the fibre was lit. Bandwidth at the wall socket arrived a generation later, in layers, against the slow economics of digging up streets, upgrading consumer-premises equipment, and convincing households to pay for something they had not previously known they wanted. The optical fibre did its job in eighteen months. The distribution layer took two decades.
 
 Netflix streams on that fibre. YouTube serves on that fibre. AWS replicates across it. The applications were waiting on the last mile.
 
-The dot-com bust is often told as a story of bad ideas. It was not. It was correct ideas on the wrong timetable, financed at the wrong duration, against an underbuilt distribution layer.
+The dot-com bust was correct ideas on the wrong timetable, financed at the wrong duration, against an underbuilt distribution layer.
 
 AI is building the same shape.
 
-The compute backbone is being laid down at unprecedented scale: hyperscaler campuses, sovereign clusters, megaprojects in Texas, Wyoming, the UAE, Saudi Arabia, Korea, Japan. The accelerator order books reach years into the future. The model training is real. The labs are real. The capability is real. What is missing is the distribution layer.
+The compute backbone is growing at unprecedented scale: hyperscaler campuses, sovereign clusters, megaprojects in Texas, Wyoming, the UAE, Saudi Arabia, Korea, Japan. The accelerator order books reach years into the future. 
 
-In AI, the distribution layer is made of reliability engineering, software guardrails, verification, observability, permissions, audit, and rollback; ringfencing, agentic harnesses, model distillation, quantisation, and the long tail of optimisations that make smaller models perform like larger ones on commodity hardware; integration into industry-specific software stacks, regulatory regimes, legal acceptance, procurement, insurance, liability, and workflow ownership — the slow institutional work of teaching a sector, medicine, law, finance, manufacturing, government, how to use a new tool without breaking itself. A frontier training run produces a raw input. Turning that input into intelligence the economy can actually use is the distribution problem, and it is the problem the rest of this essay describes.
+The models are capable. The distribution layer is not.
 
-Coding got there first because coding has compile, lint, test, and revert built in by default — every output is checkable in seconds against a deterministic substrate. Most other domains do not have that. They have to build their distribution layer from scratch, against domain-specific failure modes, under regulatory regimes that did not contemplate autonomous agents, inside organisations whose change-management cycles measure in years.
+In AI, the distribution layer is reliability engineering, software guardrails, verification, observability, permissions, audit, and rollback; ringfencing, agentic harnesses, model distillation, quantisation, and the long tail of optimisations that make smaller models perform like larger ones on commodity hardware; integration into industry-specific software stacks, regulatory regimes, legal acceptance, procurement, insurance, liability, and workflow ownership. A frontier training run produces an input. Turning that input into intelligence the economy can apply is the distribution problem.
+
+Coding got there first because coding has compile, lint, test, and revert built in by default. Every output is checkable in seconds against a deterministic substrate. Most other domains do not have that. They have to build their distribution layer from scratch, against domain-specific failure modes, under regulatory regimes that did not contemplate autonomous agents, inside organisations whose change-management cycles measure in years.
 
 In the meantime, the backbone is being financed at duration assumptions the distribution layer cannot meet.
 
@@ -216,7 +210,7 @@ The reverse beat is also already visible. The planned expansion of the Oracle/Op
 
 Beyond the hyperscaler tier, the **institutional layer** absorbs another wave: tier-2 colocation, regional clouds, sovereign clusters, enterprise on-premise deployments, university research clusters, industrial sites with cheap local power and modest compute appetite, even crypto-era datacentres rebuilt for a different workload. The frontier is concentrated. The plateau is distributed. Old hyperscaler racks find new homes in lower-priority slots — never the scarcest watts, but the second-scarcest, the third, the tenth, the thousandth.
 
-Underneath the institutional layer is the **edge**: a workstation in a research lab, a server in a small business, a single accelerator in a household. The slow-Moore cushion combined with algorithmic deflation means a last-generation accelerator running a distilled and quantised model is a capable assistant on a personal machine. The edge will not replace hyperscaler inference for latency-critical, regulated, or high-reliability workloads. It does not need to. Its role is to absorb cheap, distributed computation at the bottom of the economy, where price matters more than perfect uptime and the marginal alternative is no compute at all.
+Underneath the institutional layer is the **edge**: a workstation in a research lab, a server in a small business, a single accelerator in a household. The slow-Moore cushion combined with algorithmic deflation means a last-generation accelerator running a distilled and quantised model is a capable assistant on a personal machine. The edge will not replace hyperscaler inference for latency-critical, regulated, or high-reliability workloads. It does not need to. Its role is to absorb cheap, distributed computation at throughout the economy, where price matters more than perfect uptime and the marginal alternative is no compute at all.
 
 <Callout type="info">
 
@@ -244,27 +238,19 @@ In every prior infrastructure boom this is how the abundance arrived. Canals in 
 
 Liquidation makes headlines. Redistribution is what changes the world.
 
-<Callout type="info">
-
-**Calibration note.** This essay is not predicting that every hyperscaler balance sheet breaks or that chips flood a visible second-hand market. The mechanism can be quieter than that: lower cloud prices, internal reassignment, delayed depreciation schedules, regional resale, sovereign absorption, and enterprise on-prem deployment. The thesis does not require a fire sale. It requires only that compute priced for frontier scarcity eventually serves non-frontier demand, and that the slot hierarchy fills downward as it does so. The fibre crash is the canonical instance, but it is not the only shape the same dynamic can take. The mechanism can break loudly, or it can reprice quietly. The outcome is the same.
-
-The thesis is also robust to the trajectory of frontier capability itself. If the frontier keeps compounding, plateau hardware runs the compressed descendants of fresh capability. If the frontier slows — and the inputs to it (hyperscaler capex, grid permits, HBM supply, packaging capacity) are already operating near a political and physical ceiling — plateau hardware runs durable capability for longer, the gap between old and new hardware narrows, open-weight models catch up faster, and the bottleneck shifts even sooner from capability discovery to deployment engineering. Either way, the deployment layer is where intelligence becomes infrastructure.
-
-</Callout>
-
 ## VI. Stockfish for Everything
 
 The maximalist version of the AI story imagines one enormous model doing everything. A country of geniuses in a data centre. A digital workforce, fungible across every task, replacing labour wholesale.
 
 Stockfish is the strongest chess engine in human history. It does not win by running the largest neural network ever trained. It wins because thirty years of engineering have produced a system in which a relatively small neural network — the NNUE evaluation — is wrapped inside ruthlessly optimised search code, transposition tables, opening books, endgame tablebases, move-ordering heuristics, pruning techniques, and a testing harness so disciplined that no patch lands without statistical proof of improvement. The intelligence is in the assembly.
 
-Notably, modern Stockfish-class engines now outperform the original AlphaZero-style benchmark systems. A small NNUE evaluation network wrapped in engineered scaffolding, running blazing-fast on commodity CPUs, beats a much larger pure-neural approach from the previous paradigm, a system that required substantial GPU compute to play at all. The bounded engineered system outperforms the raw neural network. That is the shape of plateau intelligence — and the preview of how agentic workflows will mature across the economy.
+Notably, modern Stockfish-class engines now outperform the original AlphaZero-style benchmark systems. A small NNUE evaluation network wrapped in engineered scaffolding, running blazing-fast on commodity CPUs, beats a much larger pure-neural approach from the previous paradigm, a system that required substantial GPU compute to play at all. The bounded engineered system outperforms the raw neural network. That is the shape of plateau intelligence and the preview of how agentic workflows will mature across the economy.
 
 Stockfish is not important here because chess resembles the economy. It is important because it shows how useful intelligence becomes reliable: by embedding learned judgement inside a larger engineered system that constrains, tests, and corrects it.
 
 Most economically useful AI will look the same.
 
-The progression is not hypothetical. The same arc — imitation learning, then reinforcement learning, then engineered environments — has now played out three times in three different domains.
+The same arc — imitation learning, then reinforcement learning, then engineered environments — has now played out three times in three different domains.
 
 **Game-playing AI** ran it through the 2010s, ending in Stockfish-class systems: a small NNUE evaluation network wrapped in three decades of search, tablebases, and a statistical testing harness, outperforming pure-RL approaches on commodity CPUs.
 
@@ -304,7 +290,7 @@ There is an allocation principle inside this, and a moral one taking shape along
 
 And the second law of this dynamic is just as important as the first.
 
-The cost of running a given level of intelligence on a given piece of hardware falls every year, not because the hardware changes, but because the software does. Distillation, quantisation, sparsity, speculative decoding, KV-cache compression, mixture-of-experts routing, continuous batching, paged attention, FlashAttention, Triton kernels, compiler advances. Each compounds on the others. The effect, measured at the level of cost-per-token for a given capability level, has been a halving every six to twelve months for several years.<sup><a href="#ref-22">[22]</a></sup>
+The cost of running a given level of intelligence on a given piece of hardware falls every year, not because the hardware changes, but because the software does. Distillation, quantisation, sparsity, speculative decoding, KV-cache compression, mixture-of-experts routing, continuous batching, paged attention, FlashAttention, Triton kernels, compiler advances. Each compounds on the others. The effect, measured at the level of cost-per-token for a given capability level, is orders of magnitude.<sup><a href="#ref-22">[22]</a></sup>
 
 The same chip, two years later, runs better software, against smaller models, with cheaper inference, on a broader set of workloads. The depreciation curve and the algorithm curve run in opposite directions. The first owner of the chip carries the hardware loss. The second owner inherits the algorithmic gain.
 
@@ -332,7 +318,7 @@ For the second owner, time creates value. The same chip runs distilled models, c
 
 The same delay that makes the chip a financial failure for frontier training makes it a more powerful substrate for plateau intelligence. The first owner's loss is the second owner's gain — and the chip is more useful for the wait.
 
-A still deeper asymmetry follows. The substrate compounds in capability and falls in price faster than institutions can metabolise intelligence at any fixed level. Once a model is good enough for contract review, tutoring, diagnosis support, software repair, scheduling, monitoring, or simulation, the deployment layer needs years to build the verification, liability, procurement, and trust infrastructure required to use it. Meanwhile the substrate keeps pushing that same level of capability down the cost curve by 10×, 100×, 1,000×.
+A still deeper asymmetry follows. The substrate compounds in capability and falls in price faster than institutions can metabolise intelligence at any fixed level. Once a model is good enough for contract review, tutoring, diagnosis support, software analysis, scheduling, monitoring, or simulation, the deployment layer needs years to build the verification, liability, procurement, and trust infrastructure required to use it. Meanwhile the substrate keeps pushing that same level of capability down the cost curve by 10×, 100×, 1,000×.
 
 <PullQuote>
 
