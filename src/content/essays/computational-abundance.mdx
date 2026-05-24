@@ -242,6 +242,8 @@ And the migration does not have to appear on a second-hand market to count. Each
 
 The first buyer takes the loss. The second buyer takes the asset.
 
+The mechanism is not a forecast. It has been operating across every prior data-center accelerator generation: T4 at year 8 still serves production inference across AWS and GCP at a fraction of its launch price; A100 at year 6 carries the bulk of enterprise inference at heavily depreciated cloud-SKU pricing; H100 at year 3–4 already trades at higher memory-bandwidth-per-dollar than new B200 retail. The bust does not create the cascade. It scales a cascade that has been continuously operating since at least 2017. (Appendix I works through the empirical record.)
+
 In every prior infrastructure boom this is how the abundance arrived. Canals in Britain. Railroads in the United States. Optical fibre at the turn of the millennium. The infrastructure outlives the company that built it. The cost basis resets. The customer who could not afford the asset at the asking price finds it accessible at the recovery price — and, more importantly, the customer who could not access the asset *at all*, because it was concentrated in a few hands at a few sites, finds it geographically and economically nearby.
 
 Liquidation makes headlines. Redistribution is what changes the world.
@@ -321,6 +323,8 @@ This has no analogue in prior industrial capital. A bridge does not become a bet
 Project that forward against a glut of Hopper-class and Blackwell-class accelerators, some on the second-hand market, some still inside the hyperscalers that bought them but reassigned to non-frontier workloads, all benefiting from the same compounding software stack. Inference prices fall sharply on hyperscaler SKUs and on the open market alike. Capability per dollar continues to climb. All at the same time. Appendix H derives the underlying four-curve identity.
 
 The frontier remains expensive. The plateau gets cheaper. The same silicon does more work each year it sits there.
+
+The deepest mistake of the first capital cycle was not buying too much silicon. It was assuming that silicon alone would deliver abundance. Cheap compute is necessary. It is not abundance. Abundance is what happens when repriced compute meets three other layers: a software stack that lets smaller models do bigger work, engineered scaffolding that constrains those models to verifiable operating envelopes, and institutional verification frameworks — evals, audit, rollback, regulatory acceptance — that let an organisation deploy AI without losing the right to operate. The substrate is necessary. The other three layers make it sufficient. The bubble paid for the first. The deployment phase pays for the other three.
 
 ## VII. The Intelligence Layer
 
@@ -658,6 +662,34 @@ The later and broader one: by the end of 2028, the largest share of economically
 **The deeper point.** The Plateau Crossover is the inequality form of the migration thesis. As long as $\delta > (g_q - 1)/g_q$ on the dimension a workload binds on — with launch-price drift relaxing the threshold further to $\delta > (g_q - p_F)/g_q$ — after correcting for architectural divergence $\mu$ and matching the workload to slots where the thermodynamic multiplier $\theta$ is bearable, that workload migrates to plateau hardware once the chip is repriced. The fibre crash of 2001 was the same interval in different units: carriers built backbones priced for a deployment curve that did not arrive on time, the bondholders inherited the loss, and the civilisation that came later inherited the bandwidth. The Plateau Crossover is the AI-era statement of the same dynamic. The first capital cycle pays the frontier price. The second buyer inherits the asset. The algorithms make the asset compound.
 
 The Pythagorean Dividend of *[Bridge to Infinity](/essays/bridge-to-infinity)* showed that excess vertical velocity converts to horizontal momentum almost for free, because velocity components add in quadrature. The Plateau Crossover shows that excess frontier capability converts to broad civilisational compute almost for free, because capital decay, software compounding, and a positive workflow-discovery recursion all push in the same direction. The mountain throws excess velocity at the sky and the sky pays it back as orbit. The frontier throws excess capability at the plateau and the plateau pays it back as intelligence in the walls.
+
+### I. The Cascade in Progress
+
+The framework predicts a cascade. A natural question: is the cascade a forecast, or is it already running? It is already running, observably, across every prior data-center accelerator generation. The bust window does not invent the dynamic. It scales an existing one to public visibility.
+
+**Generation-by-generation status, mid-2026.**
+
+| Generation | Launch | Launch price (top SKU) | Secondary clearing (mid-2026) | Current production role |
+|---|---|---|---|---|
+| Turing T4 | 2018 | ~\$2,500–10,000 depending on SKU | ~\$1,500–2,500 | Default inference on AWS g4dn, GCP equivalent SKUs; embeddings, ranking, smaller-model serving across enterprise |
+| Ampere A100 | 2020 | ~\$15,000–20,000 (40 / 80 GB SXM4) | ~\$5,000–8,000 | Primary production workload on AWS p4d, Azure ND A100, GCP a2; substantial share of enterprise AI inference globally |
+| Hopper H100 | 2022/2023 | ~\$30,000–35,000 (SXM5) | ~\$15,000 (per Appendix H) | Current workhorse; frontier-adjacent; per Table H.2 already trades at higher memory-bandwidth-per-dollar than new B200 retail |
+| Hopper H200 | 2024 | ~\$30,000–40,000 (limited disclosed) | Limited secondary supply | Current production tier; increasingly inference-priced as Blackwell capacity ramps |
+| Blackwell B200 | 2024/2025 | ~\$40,000 | Negligible secondary supply | Current frontier tier; first observable depreciation cycle still 12–24 months ahead |
+
+Each generation in the table is *simultaneously* serving a different tier of the workload stack today. The slot hierarchy is not a forecast. It is the current state of the world.
+
+**Cloud SKU repricing as the dominant migration channel.** Public AWS pricing data shows g4dn (T4) on-demand prices have fallen roughly 60–65% relative to 2019 launch; p4d (A100) by roughly 40–55% relative to 2021 launch. The chips never left Amazon. The migration ran entirely inside the hyperscaler's balance sheet, visible only as falling unit prices on customer-facing SKUs — the quiet form of the cascade the body describes.
+
+**Hyperscaler depreciation extensions.** Microsoft (2022), Alphabet (2023), Meta (2023), Oracle (2024), and Amazon (2024) have each extended useful-life assumptions for server infrastructure from approximately four years to six years, with several signalling intent to extend further. Each extension is an accounting acknowledgment that the chips remain operationally useful for far longer than the original capex cycle anticipated — precisely the gap between *frontier obsolescence* (~2 years) and *capability obsolescence* (~5–10+ years) the three-regime table predicts.
+
+**Anthropic / Colossus as cascade in miniature.** The May 2026 Anthropic–SpaceX/xAI agreement (§V; ref [20]) is the cascade operating across firm boundaries on premium current-generation silicon. Even energised frontier-tier hardware is allocated to whichever tenant can put it to highest-value use. The dominant version of this cascade happens silently inside hyperscaler SKU price sheets; the Anthropic–Colossus version is the audible instance.
+
+**Cost-per-token compression as observable substrate-level repricing.** Cost-per-token at GPT-3.5-equivalent capability fell ~280× over 2022–2024 (Appendix E). The decline is software-dominant, but the hardware-side decay rate is independently visible in SKU prices on aging silicon, tracking the $\delta \approx 0.25$ band the framework predicts.
+
+**The validation that has already resolved.** Per Table H.2, used H100 at \$15K delivers 0.223 GB/s per dollar of memory bandwidth; new B200 at \$40K delivers 0.200. The Plateau Crossover Identity is firing right now, today, on the dominant production-inference dimension. The framework's load-bearing inequality is not pending future confirmation. It has resolved in the framework's favor on the workload bottleneck that matters most.
+
+**Summary.** The mechanism is operating across every data-center accelerator generation simultaneously: T4 at year 8 still serving production at heavily depreciated prices; A100 at year 6 carrying the bulk of enterprise inference; H100 at year 3–4 already winning bandwidth-per-dollar against the new frontier chip; Blackwell expected to follow the same arc by 2027–2028 (the Blackwell-$\delta$ test in §H). The cascade has been continuously operating since at least the Volta generation in 2017. The bust window is the point at which an already-running mechanism reaches the scale of public visibility, not the moment it begins.
 
 ---
 
