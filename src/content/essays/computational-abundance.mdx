@@ -54,7 +54,7 @@ The scarce asset, in this whole machine, is not the GPU. It is the **slot**: per
 
 Every order book at Nvidia and TSMC is a claim on a future slot. Every announcement of "X gigawatts of accelerator capacity" is a claim on a slot. Every campus under construction is a slot factory. The order book equals demand only if the slots arrive on time. They are not arriving on time.
 
-In January 2026, Amazon Web Services raised the price of its H200 Capacity Blocks by 15% — one of the clearest material price increases in current-generation cloud compute after two decades in which headline cloud pricing mostly moved downward.<sup><a href="#ref-10">[10]</a></sup> The energised slot is what is scarce.
+In January 2026, Amazon Web Services raised the price of its H200 Capacity Blocks by 15% — one of the clearest material price increases in current-generation cloud compute after two decades in which headline cloud pricing mostly moved downward.<sup><a href="#ref-10">[10]</a></sup> The energised slot is scarce.
 
 ## II. The Order Book Is Not Demand
 
@@ -119,7 +119,7 @@ The order book extrapolates coding's adoption curve to verticals whose scaffoldi
 
 </PullQuote>
 
-That mistake is not an indictment of AI. It is the recurring error of every infrastructure cycle that confuses *what is possible* with *what is deployable today*. Railroads in the 1870s. Telegraph in the 1840s. Fibre in 1999. The technology is correctly identified. The timetable is not.
+That mistake is the recurring error of every infrastructure cycle that confuses *what is possible* with *what is deployable today*. Railroads in the 1870s. Telegraph in the 1840s. Fibre in 1999. The technology is correctly identified. The timetable is not.
 
 ## III. The Depreciation Clock
 
@@ -150,7 +150,7 @@ In an earlier era, two generations behind was a sentence. The chip you bought in
 
 What has changed is the marginal economics of *frontier* training on those chips. The newest accelerators are categorically better at the frontier, and they will stay that way.
 
-Run the same model on the older silicon and the run takes longer, costs more in energy, and ties up cluster topology that could host newer racks. But for most economic workloads, this is the wrong frame entirely.
+Running the same model on older silicon takes longer, costs more in energy, and ties up cluster topology that could host newer racks. But for most economic workloads, this is the wrong frame entirely.
 
 The bulk of demand the economy actually places on compute is not for training a one-trillion-parameter foundation model from scratch. It is for inference at low latency, embedding generation at large scale, batch document processing, fine-tuning, retrieval, ranking, simulation, rendering, robotics control loops, scientific computing. None of those workloads care which architecture cadence they are running on. They care about price per useful operation, latency per query, throughput per dollar, and reliability over time.
 
@@ -242,7 +242,7 @@ And the migration does not have to appear on a second-hand market to count. Each
 
 The first buyer takes the loss. The second buyer takes the asset.
 
-The mechanism is not a forecast. It has been operating across every prior datacentre accelerator generation: T4 at year 8 still serves production inference across AWS and GCP at a fraction of its launch price; A100 at year 6 carries the bulk of enterprise inference at heavily depreciated cloud-SKU pricing; H100 at year 3–4 already trades at higher memory-bandwidth-per-dollar than new B200 retail. The bust does not create the cascade. It scales a cascade that has been continuously operating since at least 2017. (Appendix I works through the empirical record.)
+The mechanism has been operating across every prior datacentre accelerator generation: T4 at year 8 still serves production inference across AWS and GCP at a fraction of its launch price; A100 at year 6 carries the bulk of enterprise inference at heavily depreciated cloud-SKU pricing; H100 at year 3–4 already trades at higher memory-bandwidth-per-dollar than new B200 retail. The bust does not create the cascade. It scales a cascade that has been continuously operating since at least 2017. (Appendix I works through the empirical record.)
 
 In every prior infrastructure boom this is how the abundance arrived. Canals in Britain. Railroads in the United States. Optical fibre at the turn of the millennium. The infrastructure outlives the company that built it. The cost basis resets. The customer who could not afford the asset at the asking price finds it accessible at the recovery price. The customer who could not access it at all — because it was concentrated in a few hands at a few sites — finds it geographically and economically nearby.
 
@@ -268,7 +268,7 @@ The same arc — imitation learning, then reinforcement learning, then engineere
 
 **Large language models** are running it now: imitation at pre-training scale (GPT-2, GPT-3), then RLHF and verifiable-reward RL (o1, R1), and now the environments phase — Cursor, Claude Code, Operator, Deep Research, AlphaProof, robotic foundation models — wrapping frontier models inside sandboxed execution, tool use, retrieval, verification, and rollback.
 
-A formal game, open-world robotics, general language and reasoning — three domains, one shape: learned components inside engineered scaffolding, outperforming the unbounded learned system on production tasks. The Stockfish architecture is not a forecast. It is what deployable AI already looks like.
+A formal game, open-world robotics, general language and reasoning — three domains, one shape: learned components inside engineered scaffolding, outperforming the unbounded learned system on production tasks. The Stockfish architecture is what deployable AI already looks like.
 
 <PullQuote>
 
@@ -372,7 +372,7 @@ The demand for computation is not fixed. It is discovered by lowering the price.
 
 The phrase used in *[Create an Age of Wonders](/essays/create-an-age-of-wonders)* is intelligence as infrastructure.<sup><a href="#ref-23">[23]</a></sup> The post-bust world is what that phrase means in practice.
 
-An intelligence layer is not a product. It is a property of the substrate. Bandwidth became a property of the substrate sometime around 2010. We stopped designing applications around "is the user online?" and started designing them around the assumption that they are. Electricity became a property of the substrate sometime in the 1930s. Refrigeration. Plumbing. Roads. Each of these started as an event — a thing you visited, paid for, scheduled — and became infrastructure: present, cheap, taken for granted.
+An intelligence layer is a property of the substrate. Bandwidth became a property of the substrate sometime around 2010. We stopped designing applications around "is the user online?" and started designing them around the assumption that they are. Electricity became a property of the substrate sometime in the 1930s. Refrigeration. Plumbing. Roads. Each of these started as an event — a thing you visited, paid for, scheduled — and became infrastructure: present, cheap, taken for granted.
 
 Compute is in the middle of that transition right now. Intelligence is following it.
 
@@ -611,7 +611,7 @@ The identity fires cleanly on the three dimensions that govern most production i
 
 $$\frac{\tilde{C}_P}{\tilde{C}_F} = \left[\frac{p_F}{g_q(1-\delta)}\right]^\tau = \left[\frac{1.05}{1.34 \times 0.753}\right]^3 = \left[\frac{1.05}{1.009}\right]^3 = (1.041)^3 \approx 1.12$$
 
-Predicted plateau advantage: ~12%. Empirical observation (Table H.2): used H100 at 0.223 GB/s/\$ vs new B200 at 0.200 GB/s/\$ = 11.5% advantage. **Model and empirical agree to within one percentage point.** The identity is not a wishful structural claim. It is a quantitative one that matches the market.
+Predicted plateau advantage: ~12%. Empirical observation (Table H.2): used H100 at 0.223 GB/s/\$ vs new B200 at 0.200 GB/s/\$ = 11.5% advantage. **Model and empirical agree to within one percentage point.** The identity is a quantitative one that matches the market.
 
 The second refinement — capability thresholds rather than capability appetites — formalises the lift to the workload-economic plane.
 
@@ -633,7 +633,7 @@ $$\frac{\tilde{C}(t, \tau)}{\tilde{C}_F(t)} = \frac{1}{\mu(t, \tau) \cdot [g_q \
 
 $\mu$ partially offsets the depreciation advantage. Empirically, $\mu$ is small for workloads dominated by FP16/BF16/FP8 transformer inference (most production deployment today) and substantial for workloads that lean on the newest precision formats. The migration thesis is robust to modest $\mu > 1$; it fails only if $\mu$ grows faster than $1/[g_q(1-\delta)]$, which would require a sustained pattern of new software locking out previous generations on most economically useful workloads. The reverse is empirically observed: distillation, quantisation, and inference kernels keep finding ways to fit modern models onto older silicon.
 
-**H.4 — VRAM step-function.** Memory capacity is not a continuous variable. A 70B-parameter model at FP8 occupies ~70 GB before KV cache. On H100 (80 GB), it fits with little headroom and typically requires two-GPU tensor-parallel configurations, introducing all-reduce communication overhead of 9–23% of end-to-end decoding latency. On H200 (141 GB) or B200 (192 GB), the same model fits single-GPU with concurrent KV caches and no TP penalty. The CapEx identity assumes capability decays smoothly; in reality, model-fit thresholds create non-linear cliffs. Plateau hardware wins inside the cliff and loses outside it. The migration thesis holds because most production workloads fit inside the cliff for previous-generation hardware, even as frontier *training* requires the next cliff.
+**H.4 — VRAM step-function.** A 70B-parameter model at FP8 occupies ~70 GB before KV cache. On H100 (80 GB), it fits with little headroom and typically requires two-GPU tensor-parallel configurations, introducing all-reduce communication overhead of 9–23% of end-to-end decoding latency. On H200 (141 GB) or B200 (192 GB), the same model fits single-GPU with concurrent KV caches and no TP penalty. The CapEx identity assumes capability decays smoothly; in reality, model-fit thresholds create non-linear cliffs. Plateau hardware wins inside the cliff and loses outside it. The migration thesis holds because most production workloads fit inside the cliff for previous-generation hardware, even as frontier *training* requires the next cliff.
 
 **H.5 — The Economic Crossover (OpEx-extended).** The CapEx identity is a numerator-only model. The full economic comparison requires operating costs. Define amortised capital cost per useful operation as $A(\tau, t)$ and operating cost per useful operation as $O(\tau, t, s, w)$, where $s$ indexes the slot and $w$ the workload. Economic capability per dollar:
 
@@ -711,7 +711,7 @@ The framework predicts a cascade. A natural question: is the cascade a forecast,
 | Hopper H200 | 2024 | ~\$30,000–40,000 (limited disclosed) | Limited secondary supply | Current production tier; increasingly inference-priced as Blackwell capacity ramps |
 | Blackwell B200 | 2024/2025 | ~\$40,000 | Negligible secondary supply | Current frontier tier; first observable depreciation cycle still 12–24 months ahead |
 
-Each generation in the table is *simultaneously* serving a different tier of the workload stack today. The slot hierarchy is not a forecast. It is the current state of the world.
+Each generation in the table is *simultaneously* serving a different tier of the workload stack today. The slot hierarchy is already in motion.
 
 **Cloud SKU repricing as the dominant migration channel.** Public AWS pricing data shows g4dn (T4) on-demand prices have fallen roughly 60–65% relative to 2019 launch; p4d (A100) by roughly 40–55% relative to 2021 launch. The chips never left Amazon. The migration ran entirely inside the hyperscaler's balance sheet, visible only as falling unit prices on customer-facing SKUs — the quiet form of the cascade the body describes. The cascade is visible in a second pricing surface today: hyperscaler on-demand H100 SKUs list at approximately \$8.59–\$11.06 per hour, while specialised cloud providers and spot networks deliver the same H100 capability at \$1.03–\$2.50 per hour — a 4–10× spread on the same chip in the same year. The hyperscaler price is the slot rent; the spot price is the underlying chip economics, repriced for a buyer who can tolerate intermittency.
 
