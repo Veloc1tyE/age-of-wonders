@@ -236,9 +236,9 @@ Underneath the institutional layer is the **edge**: a workstation in a research 
 
 A second axis runs through the slot hierarchy.
 
-Inside the plateau tier itself, hyperscaler public cloud is not the natural home of plateau intelligence. It is the premium access layer. The 4–10× spread between hyperscaler on-demand H100 SKUs and specialist clouds delivering the same hardware (Appendix J) is not a depreciation curve. It is a slot-rent curve. The chip is identical. The premium is for trust, energised slot, procurement, immediate availability, and enterprise support.
+Inside the plateau tier itself, hyperscaler public cloud is the premium access layer. The 4–10× spread between hyperscaler on-demand H100 SKUs and specialist clouds delivering the same hardware (Appendix J) is not a depreciation curve. It is a slot-rent curve. The chip is identical. The premium is for trust, energised slot, procurement, immediate availability, and enterprise support.
 
-That premium is durable for one class of customer and a tax for another. The boom phase had one scarce unit: access to any serious GPU capacity. Hyperscalers dominated it. The deployment phase has a different scarce unit. It is verified intelligence inside a workflow at acceptable cost. That unit does not necessarily live on AWS. It lives wherever regional cloud, sovereign cluster, second-tier colocation, enterprise rack, or industrial site provides verified compute at the lowest fully-burdened cost.
+That premium is durable for one class of customer and a tax for another. The boom phase had one scarce unit: access to any serious GPU capacity. Hyperscalers dominated it. The deployment phase has a different scarce unit: verified intelligence inside a workflow at acceptable cost. That unit lives on the economic substrate — wherever regional cloud, sovereign cluster, second-tier colocation, enterprise rack, or industrial site provides verified compute at the lowest fully-burdened cost.
 
 Hyperscalers may retain revenue share while losing workload share. The cloud keeps the frontier. The plateau escapes the cloud.
 
@@ -709,7 +709,7 @@ The earliest and sharpest one: by end of 2027, secondary-market clearing prices 
 
 The second runs on the workload surface: by the end of 2028, the largest share of economically deployed AI — measured by tokens served, queries answered, decisions made, dollars saved — should be running on Hopper-class and early-Blackwell hardware rather than on whatever the contemporary frontier silicon is at that time. If frontier hardware still serves the majority of production workloads in late 2028, the framework is wrong in a way no amount of careful unit analysis can rescue.
 
-The third runs on the pricing surface itself: by the end of 2028, the spread between hyperscaler on-demand H100/H200 rentals and specialist-cloud or marketplace rentals for the same hardware should remain wide or widen — not converge. The spread today sits at 4–10× (Appendix J). If hyperscaler pricing converges down toward specialist pricing — closing the spread below approximately 2× — the bifurcation between premium access layer and economic substrate has not occurred, and the workload-versus-revenue-share decoupling (§V, Appendix J) is falsified. The spread is checkable monthly from public price pages.
+The third runs on the pricing surface itself: by the end of 2028, the spread between hyperscaler on-demand H100/H200 rentals and specialist-cloud or marketplace rentals for the same hardware should remain wide or widen — not converge. The spread today sits at 4–10× (Appendix J). If hyperscaler pricing converges down toward specialist pricing — closing the spread below approximately 2× — the bifurcation between premium access layer and economic substrate has not occurred, and the workload-share / revenue-share decoupling (§V, Appendix J) is falsified. The spread is checkable monthly from public price pages.
 
 **The deeper point.** The Plateau Crossover is the inequality form of the migration thesis. As long as $\delta > (g_q - 1)/g_q$ on the dimension a workload binds on — with launch-price drift relaxing the threshold further to $\delta > (g_q - p_F)/g_q$ — after correcting for architectural divergence $\mu$ and matching the workload to slots where the thermodynamic multiplier $\theta$ is bearable, that workload migrates to plateau hardware once the chip is repriced. The fibre crash of 2001 was the same interval in different units: carriers built backbones priced for a deployment curve that did not arrive on time, the bondholders inherited the loss, and the civilisation that came later inherited the bandwidth. The Plateau Crossover is the AI-era statement of the same dynamic. The first capital cycle pays the frontier price. The second buyer inherits the asset. The algorithms make the asset compound.
 
@@ -753,16 +753,16 @@ The second axis named in §V — premium access layer versus economic substrate 
 
 | Access tier | Example | Per-H100 GPU-hour |
 |---|---|---|
-| Hyperscaler on-demand | AWS p5.48xlarge (8× H100) | ~\$6.88 (\$55.04/hr ÷ 8) |
-| Hyperscaler reserved (Capacity Blocks) | AWS p5.48xlarge reserved | ~\$4.33 (\$34.61/hr ÷ 8) |
-| Hyperscaler on-demand (alternative) | Azure ND H100 v5 class | ~\$12.29 |
+| AWS on-demand | p5.48xlarge (8× H100) | ~\$6.88 (\$55.04/hr ÷ 8) |
+| AWS reserved (Capacity Blocks) | p5.48xlarge reserved | ~\$4.33 (\$34.61/hr ÷ 8) |
+| Azure on-demand | ND H100 v5 class | ~\$12.29 |
 | Specialist cloud, mid-band | CoreWeave, Lambda, Civo, Denvr | ~\$2.25–\$4.29 |
 | Marketplace / spot network | vast.ai-class supply, GPUPerHour | ~\$1.25–\$2.75 |
 | Owned hardware, amortised | New H100 PCIe ~\$25K; SXM ~\$35–40K | under \$1.50 at high utilisation |
 
 The spread between hyperscaler on-demand and marketplace supply for the *same chip in the same year* is approximately 4–10×. The structural delta is not depreciation. It is the cost of a bundle: trusted, energised, instantly available, supported, billed, and procured through enterprise channels. That bundle is durable for one class of customer and a tax for another.
 
-**What the spread implies.** Hyperscaler GPU rental pricing is not measuring the depreciated value of the chip. It is measuring the value of trusted, energised, guaranteed-availability capacity within an enterprise procurement envelope. A chip can move out of frontier status while the hyperscaler SKU built around it remains expensive. The H100 is the visible case: out of frontier as of Blackwell launch, still priced as scarce on hyperscaler clouds, simultaneously available at marketplace rates that approach amortised owned-hardware cost. AWS raising H200 Capacity Block prices by 15% in January 2026 (§I, body) is the same mechanism running on the next-generation chip: scarcity priced into the *slot*, not into the silicon.
+**What the spread implies.** Hyperscaler GPU rental pricing measures slot rent. A chip can move out of frontier status while the hyperscaler SKU built around it remains expensive. The H100 is the visible case: out of frontier as of Blackwell launch, still priced as scarce on hyperscaler clouds, simultaneously available at marketplace rates that approach amortised owned-hardware cost. AWS raising H200 Capacity Block prices by 15% in January 2026 (§I, body) is the same mechanism running on the next-generation chip: scarcity priced into the *slot*, not into the silicon.
 
 **The bifurcation, mapped.** The premium access layer captures: largest training runs, premium managed inference, latency-sensitive global APIs, regulated enterprise workloads, customers paying for procurement simplicity, organisations without internal MLOps depth. The economic substrate captures: batch inference, embeddings, fine-tuning, document processing, simulation, scientific computing, bounded agentic systems, retrieval and ranking pipelines, narrow-vertical Stockfish workflows. Both surfaces persist. They serve different customers.
 
