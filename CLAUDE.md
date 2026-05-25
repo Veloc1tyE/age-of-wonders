@@ -242,7 +242,94 @@ The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of
 
 ## Prose Writing Guide
 
-This guide distils everything learned across the editing of Computational Abundance, using Perceptual Abundance as the prose model. Apply it when writing or editing any essay in this canon.
+This guide covers two layers: the **argumentative layer** (what to claim and how to structure it) and the **prose layer** (how to write the sentences). Both matter. A well-constructed argument in weak prose is forgettable. Clean prose around a weak argument is polished nothing.
+
+---
+
+## Argumentative Guide
+
+### The canonical argument pattern
+
+The defining quality of this canon — what distinguishes it from adjacent future-optimism writing — is a refusal to argue from possibility alone. The move is always:
+
+1. **Name what is already true.** Physics, observed data, running mechanism. Not what could happen. What is.
+2. **Name the access constraint.** What prevents the world from using what is already there.
+3. **Name the mechanism of change.** How that constraint is shifting. Not that it will shift — how it is shifting, now.
+4. **Let the implication follow without stating it.** The reader draws the conclusion. You supply the evidence.
+
+"This could happen" is not a claim. "This is happening, via this mechanism" is.
+
+Every essay in the canon has a named mechanism: the cascade and plateau crossover (Computational Abundance), the Pythagorean Dividend (Bridge to Infinity), retrieval replacing inference (Perceptual Abundance), logistics as the real limiter and fuel autonomy as the solution (The Free Starship), gravitational lensing as the pre-existing instrument (The Solar Gravitational Lens). If you cannot name the mechanism, the argument is not finished.
+
+---
+
+### The access frame
+
+The connective thread of the canon: **the universe is abundant; access is the constraint**. Every essay should be able to answer: what is abundant but inaccessible here, and what mechanism is changing that?
+
+This doesn't need to be stated explicitly. But if an essay has no answer, it probably doesn't belong in the canon. The frame is the filter.
+
+**The master vocabulary problem.** The canon's structural terms — abundance, access, infrastructure, bottleneck, substrate, frontier, plateau — recur because they are load-bearing, not decorative. Repetition is correct. But there is a failure mode: invoking the word instead of demonstrating the concept. Using "access" as a premise rather than arriving at it as a conclusion.
+
+Perceptual Abundance almost never uses the canonical vocabulary. The reader reaches "access" by the end because the essay showed them retrieval replacing inference. The word is earned. When you find yourself reaching for a canonical term early in a paragraph, ask: could the paragraph show the concept instead? If yes, show it and let the term arrive at the end, or not at all.
+
+---
+
+### Falsifiability
+
+Each essay's central claim should be capable of being wrong. If it cannot be disproven, it is not a claim — it is a mood.
+
+The test: name one observable that, if it came in differently, would falsify the argument. Computational Abundance does this explicitly (two named predictions in the appendix with dates). The other essays do it implicitly (SGL: the physics would have to be wrong; Free Starship: fusion would have to be fundamentally unscalable; Perceptual Abundance: access would have to have remained stable). If you cannot name the falsifier, you are writing a feeling, not an argument.
+
+The optimism in this canon is load-bearing. That is what separates it from motivational writing.
+
+---
+
+### Essay openings
+
+The prose principles cover section openers. Essay openers have a different job: drop the reader into something that exists in the world before any argument appears.
+
+The Free Starship opens on Saturn without explaining why. Perceptual Abundance opens with a claim about history ("For most of history, we looked at the stars and guessed") — concrete and temporal before it is abstract. Bridge to Infinity opens with the sensation of launch. Building Coherence opens with a physical state (can't run, can't think clearly).
+
+**The rule:** open with something that exists — a place, a moment, a physical fact — before you open with your thesis. The thesis earns its place by arriving after evidence, not before it.
+
+---
+
+### The appendix as structural feature
+
+Technical essays carry quantitative claims. Those claims need to be checkable without interrupting the argument. The solution is the appendix: the body makes the claim and traces the logic; the appendix provides the arithmetic for anyone who wants to verify it.
+
+If an essay has numerical claims, the calculations belong in an appendix. This keeps the body readable while maintaining rigour. Bridge to Infinity and Computational Abundance do this correctly: a reader who does not follow the maths can follow the argument; a reader who wants the maths can find it.
+
+---
+
+### The canon's register: engineering scripture
+
+The canon's prose operates in a specific register that has no standard name: **engineering scripture**. Liturgical cadence. Technical content. The revelation that the real world is larger, richer, and more accessible than our inherited systems admit.
+
+The best sentences in the canon are engineering scripture: "The physics is the instrument. Computation is the camera." "The galaxy is not far. It's just not supplied." "Hardware depreciates. Algorithms compound." They are not poetic decoration on an engineering argument, nor engineering explanation tacked onto a poetic claim. They are the same thing at the same time.
+
+When prose is failing, this is the test: is the technical and the mythic meaning converging on the same sentence, or pulling away from each other? Convergence is the target.
+
+---
+
+### Canon coherence
+
+New essays should connect explicitly to existing ones where the argument builds on them. The SGL–Free Starship connection is the model: the SGL provides the map; the Free Starship provides the vessel. Each essay cites the one whose work it depends on.
+
+Before publishing a new essay: does it use the access frame? Does it name its mechanism? Does it connect to at least one prior essay where the argument continues?
+
+**Building Coherence has a specific structural role in the canon: it provides human scale.** Without it, the argument runs from civilisation to infrastructure to mechanism, all above the level of a single life. Building Coherence anchors it at ground level. "A text file and a watch" does more for the canon's credibility than any technical appendix, because it proves the author inhabits the same world the canon describes. New essays benefit from a Building Coherence equivalent — a moment where the civilisational argument comes down to one person trying to think clearly on a Tuesday morning.
+
+---
+
+### The manifesto trap
+
+Create an Age of Wonders operates in the manifesto register. This is the correct register for an entry point. But the manifesto register is also the most conventional — it is how most adjacent writing in the abundant-future genre sounds.
+
+When in doubt, move from manifesto toward mechanism. The more specific the mechanism, the less the essay resembles other writing. "Abundance is possible" is a manifesto sentence. "Solar costs have fallen 90% in a decade; the infrastructure constraint is now political, not physical" is a mechanism sentence. The second is harder to dismiss and harder to replicate.
+
+A related failure: the mythic register doing work to cover gaps in the argument rather than illuminate it. The Free Starship has moments where the prose is reaching further than the underlying claim is ready to support. In the other essays, the poetic and technical meanings converge on the same sentence. When they diverge — when the lyrical register is more confident than the argument beneath it — the fix is argumentative, not tonal. Close the gap in the mechanism and the prose finds its level.
 
 ---
 
@@ -561,6 +648,8 @@ The corpus spans distinct registers:
 
 Style principles apply *within* each register — they do not flatten all essays to the same voice. "Felt productive. Was actually self-soothing." is correct for Building Coherence. The same fragment pair would be wrong in a technical appendix. When editing, ask: what is the register of this essay? Then apply the principles within it.
 
+The manifesto register (Create an Age of Wonders) carries the highest risk of sounding generic. The correction is always the same: replace a possibility claim with a mechanism claim. See the Argumentative Guide.
+
 ---
 
 ### Principle 20: Concept capitalisation is deliberate
@@ -573,7 +662,35 @@ Conversely, do not capitalise abstract nouns that are not doing this work. "Ener
 
 ---
 
-### Principle 21: Spelling and hyphenation consistency
+### Principle 21: One inversion at a time
+
+The engine of the canon's prose is the conceptual inversion — reversing a received assumption about scarcity, cost, distance, or possibility. The trap is compounding inversions. When two or three appear in the same paragraph, they cancel each other out: the reader cannot hold all the turns at once, and the momentum of each individual inversion dissipates.
+
+The rule: **one inversion per paragraph**. Earn the turn. Hold it long enough for it to register. Then move.
+
+This is why the handle sentences work — "The frontier is the laboratory. The plateau is the economy." "Reality stopped being inference. It became retrieval." Each is a single turn, presented alone, surrounded by enough room to land. Crowding the turn undermines it.
+
+When reviewing a paragraph, count the inversions. If there are two, split the paragraph. If there are three, the argument has been compressed past the point of legibility — expand before condensing.
+
+---
+
+### Principle 22: Connective tissue between aphorisms
+
+A sequence of strong sentences without connective tissue between them becomes a sequence of hammer blows. The reader stops receiving them as argument and starts receiving them as percussion. This is most visible in the manifesto and analytical pieces.
+
+The fix is not to remove the aphorisms. It is to write **movement sentences** around the best ones: sentences whose job is purely to carry the reader from the last landed thing to the next. They don't try to mean anything beyond "and from there—." They give the aphorism room to resonate before the next one arrives.
+
+A movement sentence is not padding. It is pacing. Pacing is what separates a list of strong sentences from an argument.
+
+> Movement sentence: "That shift happened slowly, and then quickly, and then the question changed entirely."  
+> Movement sentence: "The infrastructure preceded the demand, as it always does."  
+> Movement sentence: "The mechanism is not new. Only the scale is."
+
+These sentences carry weight in proportion to what they're between. Placed before a strong aphorism, they create the beat the aphorism needs.
+
+---
+
+### Principle 23: Spelling and hyphenation consistency
 
 This canon uses British conventions. Check:
 - "datacentre" (one word) — not "data-center" or "data centre"
@@ -587,7 +704,7 @@ This canon uses British conventions. Check:
 
 Before any essay goes live, run through:
 
-1. **Scan for "not X, it is Y" constructions** — test each as "is Y" alone
+1. **Scan for "not X, it is Y" constructions** — test each as "is Y" alone; also scan for "Y, not X" constructions — test each as "Y" alone. Exception: keep when the contrast IS the information (e.g. "architectural, not physical" where both terms carry distinct meaning). Default is to cut.
 2. **Find every sentence over 40 words** — check for natural split points
 3. **Find every paragraph over 80 words with data** — consider per-subject breaks
 4. **Read section openers** — do they stake a claim or describe a mechanism?
@@ -606,6 +723,14 @@ Before any essay goes live, run through:
 17. **Check concept capitalisation** — "Abundance", "Slot", etc.: are they capitalised where they function as a concept name? Are they not capitalised where they're just nouns?
 18. **Check fragment sentences** — are very short sentences or paragraphs intact? Don't pad them; they are beats
 19. **Register check** — is the prose consistent with the essay's register (personal narrative / technical / analytical / visionary)? Apply principles within the register, not against it
+20. **Mechanism check** — can you name the essay's access-change mechanism in one sentence? If not, the argument is unfinished
+21. **Access frame check** — what is abundant but inaccessible here? What is changing that? Both halves should be answerable
+22. **Essay opener check** — does the essay open with something that exists in the world (a place, moment, physical fact) before the thesis arrives? Or does it open with the thesis?
+23. **Falsifier check** — what observable, if different, would falsify the central claim? If there is none, it is a mood, not an argument
+24. **Inversion count per paragraph** — if a paragraph contains two or more conceptual inversions, split it
+25. **Vocabulary as earned vs handed** — for each canonical term (abundance, access, substrate, frontier), ask: did the reader arrive at this word through the argument, or was it handed to them? If handed, consider showing the concept and letting the term arrive later
+26. **Technical/mythic convergence check** — for lyrical sentences, ask: do the technical and mythic meanings converge on the same sentence? If the prose is reaching further than the argument, fix the argument
+27. **Connective tissue check** — read the three sentences before each aphorism. Is there a movement sentence? If every sentence in a section is trying to land, add a carrier sentence before the best one
 
 ---
 
