@@ -234,6 +234,14 @@ Underneath the institutional layer is the **edge**: a workstation in a research 
 
 </Callout>
 
+A second axis runs through the slot hierarchy.
+
+Inside the plateau tier itself, hyperscaler public cloud is not the natural home of plateau intelligence. It is the premium access layer. The 4–10× spread between hyperscaler on-demand H100 SKUs and specialist clouds delivering the same hardware (Appendix J) is not a depreciation curve. It is a slot-rent curve. The chip is identical. The premium is for trust, energised slot, procurement, immediate availability, and enterprise support.
+
+That premium is durable for one class of customer and a tax for another. The boom phase had one scarce unit: access to any serious GPU capacity. Hyperscalers dominated it. The deployment phase has a different scarce unit. It is verified intelligence inside a workflow at acceptable cost. That unit does not necessarily live on AWS. It lives wherever regional cloud, sovereign cluster, second-tier colocation, enterprise rack, or industrial site provides verified compute at the lowest fully-burdened cost.
+
+Hyperscalers may retain revenue share while losing workload share. The cloud keeps the frontier. The plateau escapes the cloud.
+
 The migration is not old chip replaces new chip in the same scarce slot — the new chip wins wherever the slot is scarce. The migration is old chip discovers a different slot. Frontier scarcity is contiguous high-density power: hundreds of megawatts to gigawatts behind a single substation, with the cooling and operator depth for synchronous training. Plateau abundance is fragmented low-density power: corners of regional colocation, sovereign and university clusters, industrial behind-the-meter capacity, commercial buildings, household nodes. At full chip price, a new accelerator cannot justify those slots. Written down, an older one can. Appendix G works through the arithmetic and the deployment-phase frictions that follow.
 
 The financial damage of the bust is real, but secondary. Some neocloud operators levered against five-year power-purchase agreements and six-month customer books do not survive. Some equity gets wiped. Some debt gets restructured. Some sovereign projects stall. The losses fall hardest on the investors who underwrote the cycle at its peak. But that is the surface. The structural event is migration. The silicon does not disappear. It changes hands, changes facility, changes country, and increasingly changes *scale* — from concentrated frontier campuses to distributed plateau and edge slots that did not previously have access to compute at this price.
@@ -695,11 +703,13 @@ Third, capability appears to scale approximately logarithmically with compute on
 
 For most asset classes the three regimes move in lockstep. A car ages out of newness, off the dealership floor, and out of usefulness on similar schedules. AI hardware does not. The frontier moves on two years. Capability moves on five to ten. Economic obsolescence is set by the slot. The CapEx Crossover Identity gives the magnitude of the gap between frontier obsolescence and capability obsolescence — the years during which a chip has fallen off the frontier but is still capable, still supported, and still economic on slots its first owner did not want.
 
-**Two empirical tests.** The framework admits two cleanly falsifiable observables on different timetables.
+**Three empirical tests.** The framework admits three cleanly falsifiable observables on different timetables.
 
-The earlier and sharper one: by end of 2027, secondary-market clearing prices for Blackwell B200 SXM should sit in the \$22–28K range — a $\delta$ of approximately 0.25–0.35 over two to three years from launch, reproducing the Hopper depreciation arc one generation later. If Blackwell holds near launch (above \$35K) into 2028, the eviction mechanism that powers the migration is not operating on the current generation. The framework is wrong in the specific way it claims to be falsifiable: the inequality $\delta > (g_q - p_F)/g_q$ fails empirically, not theoretically.
+The earliest and sharpest one: by end of 2027, secondary-market clearing prices for Blackwell B200 SXM should sit in the \$22–28K range — a $\delta$ of approximately 0.25–0.35 over two to three years from launch, reproducing the Hopper depreciation arc one generation later. If Blackwell holds near launch (above \$35K) into 2028, the eviction mechanism that powers the migration is not operating on the current generation. The framework is wrong in the specific way it claims to be falsifiable: the inequality $\delta > (g_q - p_F)/g_q$ fails empirically, not theoretically.
 
-The later and broader one: by the end of 2028, the largest share of economically deployed AI — measured by tokens served, queries answered, decisions made, dollars saved — should be running on Hopper-class and early-Blackwell hardware rather than on whatever the contemporary frontier silicon is at that time. If frontier hardware still serves the majority of production workloads in late 2028, the framework is wrong in a way no amount of careful unit analysis can rescue.
+The second runs on the workload surface: by the end of 2028, the largest share of economically deployed AI — measured by tokens served, queries answered, decisions made, dollars saved — should be running on Hopper-class and early-Blackwell hardware rather than on whatever the contemporary frontier silicon is at that time. If frontier hardware still serves the majority of production workloads in late 2028, the framework is wrong in a way no amount of careful unit analysis can rescue.
+
+The third runs on the pricing surface itself: by the end of 2028, the spread between hyperscaler on-demand H100/H200 rentals and specialist-cloud or marketplace rentals for the same hardware should remain wide or widen — not converge. The spread today sits at 4–10× (Appendix J). If hyperscaler pricing converges down toward specialist pricing — closing the spread below approximately 2× — the bifurcation between premium access layer and economic substrate has not occurred, and the workload-versus-revenue-share decoupling (§V, Appendix J) is falsified. The spread is checkable monthly from public price pages.
 
 **The deeper point.** The Plateau Crossover is the inequality form of the migration thesis. As long as $\delta > (g_q - 1)/g_q$ on the dimension a workload binds on — with launch-price drift relaxing the threshold further to $\delta > (g_q - p_F)/g_q$ — after correcting for architectural divergence $\mu$ and matching the workload to slots where the thermodynamic multiplier $\theta$ is bearable, that workload migrates to plateau hardware once the chip is repriced. The fibre crash of 2001 was the same interval in different units: carriers built backbones priced for a deployment curve that did not arrive on time, the bondholders inherited the loss, and the civilisation that came later inherited the bandwidth. The Plateau Crossover is the AI-era statement of the same dynamic. The first capital cycle pays the frontier price. The second buyer inherits the asset. The algorithms make the asset compound.
 
@@ -734,6 +744,33 @@ Each generation in the table is *simultaneously* serving a different tier of the
 **The validation that has already resolved.** Per Table H.2, used H100 at \$15K delivers 0.223 GB/s per dollar of memory bandwidth; new B200 at \$40K delivers 0.200. The Plateau Crossover Identity is firing right now, today, on the dominant production-inference dimension. The framework's load-bearing inequality is not pending future confirmation. It has resolved in the framework's favor on the workload bottleneck that matters most.
 
 **Summary.** The mechanism is operating across every data-center accelerator generation simultaneously: T4 at year 8 still serving production at heavily depreciated prices; A100 at year 6 carrying the bulk of enterprise inference; H100 at year 3–4 already winning bandwidth-per-dollar against the new frontier chip; Blackwell expected to follow the same arc by 2027–2028 (the Blackwell-$\delta$ test in §H). The cascade has been continuously operating since at least the Volta generation in 2017. The bust window is the point at which an already-running mechanism reaches the scale of public visibility, not the moment it begins.
+
+### J. Hyperscaler Premium and the Plateau Substrate
+
+The second axis named in §V — premium access layer versus economic substrate — is observable on the pricing surface today. The same chip clears at very different prices depending on the bundle wrapped around it.
+
+**Snapshot, May 2026.** Public pricing for H100-class capacity, by access tier:
+
+| Access tier | Example | Per-H100 GPU-hour |
+|---|---|---|
+| Hyperscaler on-demand | AWS p5.48xlarge (8× H100) | ~\$6.88 (\$55.04/hr ÷ 8) |
+| Hyperscaler reserved (Capacity Blocks) | AWS p5.48xlarge reserved | ~\$4.33 (\$34.61/hr ÷ 8) |
+| Hyperscaler on-demand (alternative) | Azure ND H100 v5 class | ~\$12.29 |
+| Specialist cloud, mid-band | CoreWeave, Lambda, Civo, Denvr | ~\$2.25–\$4.29 |
+| Marketplace / spot network | vast.ai-class supply, GPUPerHour | ~\$1.25–\$2.75 |
+| Owned hardware, amortised | New H100 PCIe ~\$25K; SXM ~\$35–40K | under \$1.50 at high utilisation |
+
+The spread between hyperscaler on-demand and marketplace supply for the *same chip in the same year* is approximately 4–10×. The structural delta is not depreciation. It is the cost of a bundle: trusted, energised, instantly available, supported, billed, and procured through enterprise channels. That bundle is durable for one class of customer and a tax for another.
+
+**What the spread implies.** Hyperscaler GPU rental pricing is not measuring the depreciated value of the chip. It is measuring the value of trusted, energised, guaranteed-availability capacity within an enterprise procurement envelope. A chip can move out of frontier status while the hyperscaler SKU built around it remains expensive. The H100 is the visible case: out of frontier as of Blackwell launch, still priced as scarce on hyperscaler clouds, simultaneously available at marketplace rates that approach amortised owned-hardware cost. AWS raising H200 Capacity Block prices by 15% in January 2026 (§I, body) is the same mechanism running on the next-generation chip: scarcity priced into the *slot*, not into the silicon.
+
+**The bifurcation, mapped.** The premium access layer captures: largest training runs, premium managed inference, latency-sensitive global APIs, regulated enterprise workloads, customers paying for procurement simplicity, organisations without internal MLOps depth. The economic substrate captures: batch inference, embeddings, fine-tuning, document processing, simulation, scientific computing, bounded agentic systems, retrieval and ranking pipelines, narrow-vertical Stockfish workflows. Both surfaces persist. They serve different customers.
+
+**Revenue share versus workload share.** The two metrics can decouple. Hyperscalers may continue to capture the majority of *AI infrastructure revenue* — because enterprise customers pay the bundle premium — while losing the majority of *AI inference workload* by token volume, query volume, or useful inference-hours. The workload migrates to wherever fully-burdened cost is lowest; the revenue follows wherever the trust premium is paid. The two surfaces measure different things and need not move together.
+
+**Falsifier.** If hyperscaler on-demand H100/H200 pricing converges down toward marketplace pricing — closing the spread below approximately 2× by the end of 2028 — the premium access layer thesis is wrong. Hyperscaler clouds would in that case be the natural home of plateau intelligence, and the workload-share / revenue-share decoupling would not materialise. The spread is checkable monthly from public price pages. As of May 2026, it is widening, not closing.
+
+**Caveat on snapshot volatility.** Pricing snapshots will move. AWS Capacity Blocks reprice dynamically. Specialist clouds run promotional rates. Marketplaces fluctuate with supply. The structural claim does not depend on the specific dollar figures in the table being correct on any given month. It depends on the *shape* of the price surface — a wide, durable spread between premium and economic-substrate tiers for the same hardware. If that shape collapses, the bifurcation has not occurred.
 
 ---
 
