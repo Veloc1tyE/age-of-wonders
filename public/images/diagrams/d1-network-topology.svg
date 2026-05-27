@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" font-family="Inter, -apple-system, sans-serif">
+  <defs>
+    <style>
+      .ink { fill: none; stroke: #1A1A1A; }
+      .grey { fill: none; stroke: #707070; }
+      .palegrey-fill { fill: #E8E8E8; }
+      .beam { stroke: #C89455; fill: none; stroke-linecap: round; }
+      .label { font-size: 20px; fill: #1A1A1A; }
+      .sublabel { font-size: 16px; fill: #555; }
+      .anno { font-size: 14px; fill: #555; }
+      .serif-anno { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 17px; fill: #1A1A1A; font-style: italic; }
+      .title { font-size: 22px; fill: #1A1A1A; font-weight: 500; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1100" fill="#FAFAFA"/>
+
+  <!-- Section locator (upper right) -->
+  <text x="1540" y="50" class="anno" text-anchor="end" font-style="italic">&#167;VI.</text>
+
+  <!-- Altitude reference lines (pale grey dashed) -->
+  <line x1="80" y1="900" x2="1480" y2="900" stroke="#D0D0D0" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="80" y1="600" x2="1480" y2="600" stroke="#D0D0D0" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="80" y1="280" x2="1480" y2="280" stroke="#D0D0D0" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Altitude scale (right edge) -->
+  <text x="1520" y="905" class="anno" fill="#707070">0 km &#8212; ground</text>
+  <text x="1520" y="605" class="anno" fill="#707070">10 km &#8212; cloud deck / weather ceiling</text>
+  <text x="1520" y="285" class="anno" fill="#707070">20 km &#8212; relay altitude (above troposphere)</text>
+
+  <!-- Generation Point (left) -->
+  <rect x="110" y="800" width="170" height="100" class="ink" stroke-width="1.25"/>
+  <!-- PV rows inside -->
+  <rect x="128" y="855" width="134" height="6" class="palegrey-fill" stroke="#707070" stroke-width="0.5"/>
+  <rect x="128" y="868" width="134" height="6" class="palegrey-fill" stroke="#707070" stroke-width="0.5"/>
+  <rect x="128" y="881" width="134" height="6" class="palegrey-fill" stroke="#707070" stroke-width="0.5"/>
+  <text x="195" y="825" class="label" text-anchor="middle" font-weight="500">Generation Point</text>
+  <text x="195" y="845" class="sublabel" text-anchor="middle">IPP / ZETDC bus-bar</text>
+
+  <!-- Laser Ground Station -->
+  <rect x="320" y="800" width="180" height="100" class="ink" stroke-width="1.25"/>
+  <!-- Upward aperture triangle -->
+  <polygon points="400,820 385,855 415,855" class="ink" stroke-width="1.25"/>
+  <text x="410" y="872" class="label" text-anchor="middle" font-weight="500">Laser Ground Station</text>
+  <text x="410" y="890" class="sublabel" text-anchor="middle">Fiber-laser (P1&#8211;2) &#183; PCSEL (P3)</text>
+
+  <!-- Stratospheric Relay (primary) -->
+  <ellipse cx="800" cy="280" rx="170" ry="18" class="ink" stroke-width="1.25" fill="#E8E8E8"/>
+  <text x="800" y="245" class="label" text-anchor="middle" font-weight="500">Stratospheric Relay &#183; 20 km altitude</text>
+  <text x="800" y="320" class="sublabel" text-anchor="middle">HAPS platform &#8212; infinite flight</text>
+
+  <!-- Redundant relay (dashed) -->
+  <ellipse cx="1050" cy="280" rx="110" ry="13" class="ink" stroke-width="1" fill="#F2F2F2" stroke-dasharray="5 4" opacity="0.55"/>
+  <text x="1050" y="260" class="anno" text-anchor="middle" opacity="0.75">redundant relay (Phase 2+)</text>
+
+  <!-- Cloud between relay and receiver A -->
+  <ellipse cx="950" cy="560" rx="90" ry="32" fill="#E8E8E8" opacity="0.9"/>
+  <ellipse cx="915" cy="555" rx="55" ry="22" fill="#E8E8E8" opacity="0.9"/>
+  <ellipse cx="985" cy="555" rx="50" ry="20" fill="#E8E8E8" opacity="0.9"/>
+
+  <!-- Beams -->
+  <!-- Uplink from ground station to relay -->
+  <line x1="400" y1="820" x2="790" y2="298" class="beam" stroke-width="2.75"/>
+  <!-- Primary downlink to Receiver A -->
+  <line x1="810" y1="298" x2="1020" y2="830" class="beam" stroke-width="2.75"/>
+  <!-- Primary downlink to Receiver B -->
+  <line x1="820" y1="298" x2="1300" y2="830" class="beam" stroke-width="2.75"/>
+  <!-- Dashed reposition line to receiver A (goes around the cloud) -->
+  <path d="M 810 298 Q 1080 500 1025 830" class="beam" stroke-width="2.25" stroke-dasharray="8 5" opacity="0.7"/>
+
+  <!-- End-Receiver A -->
+  <rect x="970" y="830" width="100" height="60" class="ink" stroke-width="1.25"/>
+  <text x="1020" y="855" class="label" text-anchor="middle" font-weight="500">End-Receiver</text>
+  <text x="1020" y="875" class="anno" text-anchor="middle">village A</text>
+
+  <!-- Battery A -->
+  <rect x="895" y="920" width="70" height="42" class="ink" stroke-width="1"/>
+  <rect x="905" y="912" width="8" height="10" class="ink" stroke-width="0.75"/>
+  <rect x="948" y="912" width="8" height="10" class="ink" stroke-width="0.75"/>
+  <text x="930" y="948" class="anno" text-anchor="middle">Battery</text>
+  <text x="930" y="978" class="anno" text-anchor="middle" font-size="12">hours-level buffer</text>
+
+  <!-- Diesel A -->
+  <rect x="980" y="920" width="70" height="42" class="palegrey-fill" stroke="#1A1A1A" stroke-width="1"/>
+  <text x="1015" y="948" class="anno" text-anchor="middle">Diesel</text>
+  <text x="1015" y="978" class="anno" text-anchor="middle" font-size="12">sustained-cloud backup</text>
+
+  <!-- Microgrid loads A -->
+  <rect x="1065" y="925" width="80" height="30" class="ink" stroke-width="1"/>
+  <text x="1105" y="945" class="anno" text-anchor="middle" font-size="12">Microgrid</text>
+  <rect x="1150" y="910" width="8" height="55" class="ink" stroke-width="1"/>
+  <text x="1168" y="945" class="anno" font-size="12">Mobile tower</text>
+
+  <!-- Delivery lines -->
+  <line x1="965" y1="940" x2="985" y2="940" class="ink" stroke-width="1"/>
+  <line x1="1050" y1="940" x2="1065" y2="940" class="ink" stroke-width="1"/>
+
+  <!-- End-Receiver B -->
+  <rect x="1250" y="830" width="100" height="60" class="ink" stroke-width="1.25"/>
+  <text x="1300" y="855" class="label" text-anchor="middle" font-weight="500">End-Receiver</text>
+  <text x="1300" y="875" class="anno" text-anchor="middle">village B</text>
+
+  <!-- Battery B -->
+  <rect x="1195" y="920" width="60" height="42" class="ink" stroke-width="1"/>
+  <text x="1225" y="948" class="anno" text-anchor="middle">Battery</text>
+
+  <!-- Diesel B -->
+  <rect x="1265" y="920" width="60" height="42" class="palegrey-fill" stroke="#1A1A1A" stroke-width="1"/>
+  <text x="1295" y="948" class="anno" text-anchor="middle">Diesel</text>
+
+  <!-- Microgrid B -->
+  <rect x="1340" y="925" width="70" height="30" class="ink" stroke-width="1"/>
+  <text x="1375" y="945" class="anno" text-anchor="middle" font-size="12">Microgrid</text>
+
+  <!-- Village caption beneath receivers -->
+  <text x="1020" y="1005" class="serif-anno" text-anchor="middle">Village microgrid (Eastern Highlands)</text>
+  <text x="1300" y="1005" class="serif-anno" text-anchor="middle">Village microgrid (Eastern Highlands)</text>
+
+  <!-- Distance annotation -->
+  <text x="800" y="1055" class="serif-anno" text-anchor="middle">Ground station to receiver: 50&#8211;250 km depending on corridor.</text>
+
+  <!-- Resilience annotation (lower-left) -->
+  <text x="80" y="985" class="serif-anno" font-size="12">Resilience stack &#8212; (1) relay above troposphere &#183; (2) LOS repositioning &#183; (3) aerosol</text>
+  <text x="80" y="1003" class="serif-anno" font-size="12">evaporation &#183; (4) hours-level battery buffer &#183; (5) community diesel for sustained cloud.</text>
+  <text x="80" y="1021" class="serif-anno" font-size="12">Battery kept small by design; diesel duty cycle inverts from primary to backup.</text>
+
+  <!-- Budget redistribution annotation (lower-right) -->
+  <text x="1520" y="985" class="serif-anno" font-size="12" text-anchor="end">Community-side assets (receiver, battery, diesel,</text>
+  <text x="1520" y="1003" class="serif-anno" font-size="12" text-anchor="end">distribution) financed by redirection of the transmission</text>
+  <text x="1520" y="1021" class="serif-anno" font-size="12" text-anchor="end">CAPEX that copper extension would have consumed.</text>
+
+  <!-- Caption block -->
+  <text x="800" y="1085" class="anno" text-anchor="middle" fill="#707070">Diagram D1 &#8212; Network Topology. Source: Aquila Space Technologies and NextEra, April 2026.</text>
+</svg>

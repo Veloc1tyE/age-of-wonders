@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" font-family="Inter, -apple-system, sans-serif">
+  <rect width="1200" height="780" fill="#FAFAFA"/>
+
+  <!-- Baseline (ground) -->
+  <line x1="80" y1="660" x2="660" y2="660" stroke="#1A1A1A" stroke-width="1.25"/>
+
+  <!-- Concentric semi-circles, centred at (370, 660), opening upward.
+       Outermost ring = Layer 1 (Exclusion zone); innermost ring = Layer 5 (Optical interlock). -->
+  <path d="M 90 660 A 280 280 0 0 1 650 660" fill="#F4F4F4" stroke="#1A1A1A" stroke-width="1"/>
+  <path d="M 150 660 A 220 220 0 0 1 590 660" fill="#EAEAEA" stroke="#1A1A1A" stroke-width="0.75"/>
+  <path d="M 210 660 A 160 160 0 0 1 530 660" fill="#E0E0E0" stroke="#1A1A1A" stroke-width="0.75"/>
+  <path d="M 270 660 A 100 100 0 0 1 470 660" fill="#D6D6D6" stroke="#1A1A1A" stroke-width="0.75"/>
+  <path d="M 320 660 A  50  50 0 0 1 420 660" fill="#F2D9BF" stroke="#C89455" stroke-width="1.25"/>
+
+  <!-- Beam line + origin -->
+  <line x1="370" y1="660" x2="370" y2="605" stroke="#C89455" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="370" cy="660" r="4.5" fill="#1A1A1A"/>
+
+  <!-- Ring numerals at each semicircle crown, outer ? inner = 1 ? 5 -->
+  <text x="370" y="386" text-anchor="middle" font-size="11" fill="#707070" font-weight="500" letter-spacing="1.5">1</text>
+  <text x="370" y="446" text-anchor="middle" font-size="11" fill="#707070" font-weight="500" letter-spacing="1.5">2</text>
+  <text x="370" y="506" text-anchor="middle" font-size="11" fill="#707070" font-weight="500" letter-spacing="1.5">3</text>
+  <text x="370" y="566" text-anchor="middle" font-size="11" fill="#707070" font-weight="500" letter-spacing="1.5">4</text>
+  <text x="370" y="618" text-anchor="middle" font-size="11" fill="#8A5A1E" font-weight="500" letter-spacing="1.5">5</text>
+
+  <!-- Callouts, right side. Callout lines land on the crown of each semicircle and
+       rise to label groups stacked top?bottom in the same outer?inner order. -->
+
+  <!-- Layer 1 � Exclusion zone (outermost, 280-radius arc) -->
+  <line x1="370" y1="380" x2="680" y2="316" stroke="#1A1A1A" stroke-width="0.5"/>
+  <text x="690" y="312" font-size="14" fill="#1A1A1A" font-weight="500">1 &#183; Exclusion zone</text>
+  <text x="690" y="332" font-size="12" fill="#555">Pre-cleared airspace corridor, NOTAM in force, fenced ground footprint.</text>
+
+  <!-- Layer 2 � C2 link monitoring (220-radius arc) -->
+  <line x1="370" y1="440" x2="680" y2="386" stroke="#1A1A1A" stroke-width="0.5"/>
+  <text x="690" y="382" font-size="14" fill="#1A1A1A" font-weight="500">2 &#183; C2 link monitoring</text>
+  <text x="690" y="402" font-size="12" fill="#555">GPS telemetry and ADS-B. Beam off on any unauthorised signature.</text>
+
+  <!-- Layer 3 � Radar mapping (160-radius arc) -->
+  <line x1="370" y1="500" x2="680" y2="458" stroke="#1A1A1A" stroke-width="0.5"/>
+  <text x="690" y="454" font-size="14" fill="#1A1A1A" font-weight="500">3 &#183; Radar mapping</text>
+  <text x="690" y="474" font-size="12" fill="#555">Active volumetric sensing. Beam off on any corridor intrusion.</text>
+
+  <!-- Layer 4 � Detect and Avoid (100-radius arc) -->
+  <line x1="370" y1="560" x2="680" y2="528" stroke="#1A1A1A" stroke-width="0.5"/>
+  <text x="690" y="524" font-size="14" fill="#1A1A1A" font-weight="500">4 &#183; Detect and Avoid</text>
+  <text x="690" y="544" font-size="12" fill="#555">Camera-based, optical and thermal &#8212; independent physics from radar.</text>
+
+  <!-- Layer 5 � Optical interlock (innermost, 50-radius arc, amber) -->
+  <line x1="370" y1="612" x2="680" y2="600" stroke="#C89455" stroke-width="0.6"/>
+  <text x="690" y="596" font-size="14" fill="#1A1A1A" font-weight="500">5 &#183; Optical interlock (beacon return)</text>
+  <text x="690" y="616" font-size="12" fill="#555">1550 nm beacon confirms lock. Laser power decay 30 &#181;s; full loop &lt;1 ms.</text>
+
+  <!-- Governing rule callout -->
+  <rect x="680" y="180" width="460" height="92" rx="3" fill="#FAF5EE" stroke="#C89455" stroke-width="1.25"/>
+  <text x="910" y="210" text-anchor="middle" font-size="11" fill="#8A5A1E" font-weight="500" letter-spacing="1.4">GOVERNING RULE</text>
+  <text x="910" y="234" text-anchor="middle" font-size="14" fill="#1A1A1A" font-weight="500">IEC 60825-21 Part 21 &#183; Virtual Protective Housing</text>
+  <text x="910" y="256" text-anchor="middle" font-size="12" fill="#555" font-style="italic">No person, bird, or aircraft reaches the beam before it shuts off.</text>
+
+  <!-- CAA NZ validation -->
+  <text x="370" y="706" text-anchor="middle" font-size="12" fill="#707070" font-style="italic">Accepted by the Civil Aviation Authority of New Zealand, April 2024 &#8212; first authorisation of its kind by any national aviation regulator.</text>
+
+  <!-- Caption -->
+  <text x="600" y="748" text-anchor="middle" font-size="11" fill="#707070" font-style="italic">Diagram D4 &#183; Five-Layer Active Safety Architecture &#183; Layers ordered outer &#8594; inner; beam at centre. Source: Aquila Space Technologies, April 2026.</text>
+</svg>
