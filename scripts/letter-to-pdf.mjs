@@ -127,11 +127,14 @@ article h2 {
   margin-top: 44px;
   margin-bottom: 16px;
   line-height: 1.2;
+  break-before: page;
   page-break-before: always;
+  break-after: avoid;
   page-break-after: avoid;
 }
 
 article h2:first-of-type {
+  break-before: avoid;
   page-break-before: avoid;
 }
 
@@ -207,7 +210,7 @@ article tbody td strong {
   color: #111;
 }
 
-h2, h3 { page-break-after: avoid; }
+article h3 { break-after: avoid; page-break-after: avoid; }
 p { orphans: 3; widows: 3; }
 `;
 }
