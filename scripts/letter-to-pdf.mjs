@@ -127,15 +127,15 @@ article h2 {
   margin-top: 44px;
   margin-bottom: 16px;
   line-height: 1.2;
-  break-before: page;
-  page-break-before: always;
   break-after: avoid;
   page-break-after: avoid;
 }
 
-article h2:first-of-type {
-  break-before: avoid;
-  page-break-before: avoid;
+.page-break {
+  break-before: page;
+  page-break-before: always;
+  height: 0;
+  display: block;
 }
 
 article h3 {
@@ -301,7 +301,13 @@ async function main() {
   const absPath = resolve(ROOT, filepath);
   const raw = readFileSync(absPath, 'utf-8');
   const { data, content } = parseFrontmatter(raw);
-  const bodyHtml = marked.parse(content);
+  let bodyHtml = marked.parse(content);
+  // Inject explicit page-break divs before every h2 except the first
+  let firstH2 = true;
+  bodyHtml = bodyHtml.replace(/<h2[ >]/g, (match) => {
+    if (firstH2) { firstH2 = false; return match; }
+    return '<div class="page-break"></div>' + match;
+  });
   const fullHtml = buildHTML(data, bodyHtml);
 
   mkdirSync(OUTPUT_DIR, { recursive: true });
