@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="Inter, -apple-system, sans-serif">
+  <rect width="900" height="560" fill="#FAFAFA"/>
+
+  <!--
+    Chart area: x0=120, y0=460, width=680, height=360
+    X: 0&#8211;400km  ? x = 120 + (km/400)&#215;680
+    Y: 0&#8211;1200M$ ? y = 460 ? (M$/1200)&#215;360
+    Key x-values: 0?120  100?290  200?460  300?630  400?800
+    Key y-values: 0?460  400M?340  800M?220  1200M?100
+  -->
+
+  <!-- Pale grid -->
+  <line x1="120" y1="100" x2="800" y2="100" stroke="#EAEAEA" stroke-width="0.75"/>
+  <line x1="120" y1="220" x2="800" y2="220" stroke="#EAEAEA" stroke-width="0.75"/>
+  <line x1="120" y1="340" x2="800" y2="340" stroke="#EAEAEA" stroke-width="0.75"/>
+  <line x1="290" y1="100" x2="290" y2="460" stroke="#EAEAEA" stroke-width="0.75"/>
+  <line x1="460" y1="100" x2="460" y2="460" stroke="#EAEAEA" stroke-width="0.75"/>
+  <line x1="630" y1="100" x2="630" y2="460" stroke="#EAEAEA" stroke-width="0.75"/>
+
+  <!-- Axes -->
+  <line x1="120" y1="460" x2="800" y2="460" stroke="#1A1A1A" stroke-width="1"/>
+  <line x1="120" y1="460" x2="120" y2="90" stroke="#1A1A1A" stroke-width="1"/>
+
+  <!-- X labels -->
+  <text x="120" y="482" text-anchor="middle" font-size="14" fill="#888">0</text>
+  <text x="290" y="482" text-anchor="middle" font-size="14" fill="#888">100 km</text>
+  <text x="460" y="482" text-anchor="middle" font-size="14" fill="#888">200 km</text>
+  <text x="630" y="482" text-anchor="middle" font-size="14" fill="#888">300 km</text>
+  <text x="800" y="482" text-anchor="middle" font-size="14" fill="#888">400 km</text>
+  <text x="460" y="516" text-anchor="middle" font-size="13" fill="#555" font-weight="500">Distance from grid backbone</text>
+
+  <!-- Y labels -->
+  <text x="112" y="464" text-anchor="end" font-size="13" fill="#888">0</text>
+  <text x="112" y="344" text-anchor="end" font-size="13" fill="#888">$400M</text>
+  <text x="112" y="224" text-anchor="end" font-size="13" fill="#888">$800M</text>
+  <text x="112" y="104" text-anchor="end" font-size="13" fill="#888">$1.2B</text>
+
+  <!-- Error band $1M&#8211;$3M/km -->
+  <!-- Upper ($3M): at 400km y=460?360=100 -->
+  <!-- Lower ($1M): at 400km y=460?120=340 -->
+  <polygon points="120,460 800,100 800,340 120,460" fill="#D0D0D0" opacity="0.40"/>
+
+  <!-- Copper centre line ($2M/km): at 400km y=460?240=220 -->
+  <line x1="120" y1="460" x2="800" y2="220" stroke="#555" stroke-width="2"/>
+
+  <!-- Copper label &#8212; left-aligned, inside chart -->
+  <text x="540" y="215" font-size="15" fill="#333" font-weight="600">Conventional grid</text>
+  <text x="540" y="234" font-size="13" fill="#777">$1M &#8211; $3M per kilometre</text>
+
+  <!-- Grid Illusion wedge label &#8212; centred in widest region -->
+  <text x="530" y="380" text-anchor="middle" font-size="32" fill="#1A1A1A" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic">The Grid Illusion</text>
+  <text x="530" y="410" text-anchor="middle" font-size="15" fill="#888" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic">no rural tariff can close this gap</text>
+
+  <!-- Lightway line &#8212; perfectly flat. Distance-independence is the whole
+       point, so the line carries the claim visually. -->
+  <line x1="120" y1="452" x2="800" y2="452" stroke="#C89455" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Lightway label &#8212; shifted right to follow the chart's natural visual
+       flow (origin &#8594; diverging lines &#8594; right edge). Sitting near 320 km, the
+       label reinforces that the Lightway line is still flat deep into the
+       corridor. The flat geometry carries "distance-independent" on its own. -->
+  <text x="680" y="440" font-size="15" fill="#C89455" font-weight="600">Lightway</text>
+
+  <!-- Source caption -->
+  <text x="460" y="543" text-anchor="middle" font-size="11" fill="#AAAAAA" font-style="italic">Source: Aquila Space Technologies and NextEra, April 2026.</text>
+</svg>

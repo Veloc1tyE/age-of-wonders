@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" font-family="Inter, -apple-system, sans-serif">
+  <defs>
+    <style>
+      .country { fill: none; stroke: #1A1A1A; stroke-width: 0.9; }
+      .light { fill: #F2F2F2; stroke: #1A1A1A; stroke-width: 0.75; }
+      .pipeline { fill: #F2DBBC; fill-opacity: 0.75; stroke: #1A1A1A; stroke-width: 1; }
+      .ocean { fill: #EAEAEA; }
+      .label { font-size: 14px; fill: #1A1A1A; }
+      .country-label { font-size: 13px; fill: #555; font-weight: 500; }
+      .anchor-label { font-size: 18px; fill: #1A1A1A; font-weight: 500; }
+      .serif-anno { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 14px; fill: #1A1A1A; font-style: italic; }
+      .caption { font-size: 13px; fill: #707070; }
+    </style>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#C89455" stop-opacity="0.32"/>
+      <stop offset="70%" stop-color="#C89455" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#C89455" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1100" fill="#FAFAFA"/>
+  <!-- section-locator removed for visual cleanliness -->
+
+  <!-- Ocean backdrop (pale grey region for seas) -->
+  <rect x="50" y="130" width="1500" height="760" fill="#EEEEEE"/>
+
+  <!-- DRC (far north, large) -->
+  <path class="light" d="M 250 140 L 660 140 L 700 250 L 640 330 L 500 350 L 360 330 L 280 270 Z"/>
+  <text x="480" y="230" class="country-label" text-anchor="middle">Democratic Republic of the Congo</text>
+
+  <!-- Tanzania (northeast) -->
+  <path class="light" d="M 680 190 L 900 190 L 960 260 L 950 370 L 840 370 L 740 320 L 690 260 Z"/>
+  <text x="820" y="280" class="country-label" text-anchor="middle">Tanzania</text>
+
+  <!-- Angola (west) -->
+  <path class="light" d="M 180 300 L 450 330 L 460 500 L 280 540 L 180 500 L 150 380 Z"/>
+  <text x="310" y="420" class="country-label" text-anchor="middle">Angola</text>
+
+  <!-- Zambia (north of Zimbabwe) -->
+  <path class="light" d="M 500 370 L 780 370 L 820 480 L 790 520 L 560 520 L 470 470 Z"/>
+  <text x="650" y="445" class="country-label" text-anchor="middle">Zambia</text>
+
+  <!-- Malawi (east) -->
+  <path class="light" d="M 860 380 L 925 380 L 940 530 L 890 560 L 855 500 Z"/>
+  <text x="895" y="475" class="country-label" text-anchor="middle">Malawi</text>
+
+  <!-- Mozambique (east of Zimbabwe) PIPELINE -->
+  <path class="pipeline" d="
+    M 930 380 L 1100 360 L 1200 420 L 1180 550 L 1100 680 L 980 770
+    L 900 720 L 880 620 L 900 520 Z"/>
+  <text x="1060" y="500" class="country-label" text-anchor="middle" font-weight="500">Mozambique</text>
+  <text x="1060" y="518" class="serif-anno" text-anchor="middle" font-size="12">Pipeline &#8212; principals active</text>
+
+  <!-- Namibia (southwest) -->
+  <path class="light" d="M 170 530 L 430 540 L 440 700 L 360 770 L 220 750 L 160 680 Z"/>
+  <text x="300" y="650" class="country-label" text-anchor="middle">Namibia</text>
+
+  <!-- Botswana (south-central west) -->
+  <path class="light" d="M 460 540 L 680 540 L 700 690 L 640 740 L 500 740 L 450 670 Z"/>
+  <text x="575" y="640" class="country-label" text-anchor="middle">Botswana</text>
+
+  <!-- ZIMBABWE (anchor) &#8212; amber -->
+  <!-- Radial glow behind -->
+  <circle cx="820" cy="580" r="280" fill="url(#glow)"/>
+
+  <path d="
+    M 720 540 L 880 540 L 900 570 L 880 640 L 850 690 L 760 700 L 720 670 L 700 600 Z
+  " fill="#C89455" fill-opacity="0.85" stroke="#1A1A1A" stroke-width="1.5"/>
+
+  <!-- Harare star -->
+  <g transform="translate(810, 600)">
+    <polygon points="0,-10 3,-3 10,-3 4,2 6,10 0,5 -6,10 -4,2 -10,-3 -3,-3" fill="#1A1A1A"/>
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#1A1A1A" stroke-width="0.75"/>
+  </g>
+
+  <!-- Mutare pin for Eastern Highlands corridor -->
+  <circle cx="880" cy="610" r="3.5" fill="#1A1A1A"/>
+  <text x="890" y="615" class="serif-anno" font-size="11">Eastern Highlands corridor</text>
+
+  <!-- Zimbabwe label -->
+  <text x="800" y="500" class="anchor-label" text-anchor="middle">Zimbabwe</text>
+  <text x="800" y="523" class="serif-anno" text-anchor="middle">SADC anchor regulatory node &#8212; IEC standard first-mover</text>
+  <text x="800" y="732" class="serif-anno" text-anchor="middle" font-size="12">MOU signed 2026</text>
+
+  <!-- South Africa (far south) PIPELINE -->
+  <path class="pipeline" d="
+    M 320 770 L 950 770 L 1000 870 L 780 930 L 560 910 L 380 870 Z"/>
+  <text x="670" y="850" class="country-label" text-anchor="middle" font-weight="500">South Africa</text>
+  <text x="670" y="870" class="serif-anno" text-anchor="middle" font-size="12">Pipeline &#8212; principals active</text>
+
+  <!-- Lesotho (inside SA) -->
+  <ellipse cx="780" cy="850" rx="28" ry="22" fill="#F2F2F2" stroke="#1A1A1A" stroke-width="0.75"/>
+  <text x="780" y="855" class="country-label" text-anchor="middle" font-size="10">Lesotho</text>
+
+  <!-- Eswatini -->
+  <ellipse cx="920" cy="820" rx="18" ry="16" fill="#F2F2F2" stroke="#1A1A1A" stroke-width="0.75"/>
+  <text x="920" y="823" class="country-label" text-anchor="middle" font-size="9">Eswatini</text>
+
+  <!-- Madagascar (island east) -->
+  <path class="light" d="M 1340 500 L 1400 510 L 1430 650 L 1420 780 L 1360 800 L 1330 720 L 1310 600 Z"/>
+  <text x="1370" y="650" class="country-label" text-anchor="middle">Madagascar</text>
+
+  <!-- Small island states -->
+  <circle cx="1480" cy="380" r="8" class="light"/>
+  <text x="1485" y="400" class="country-label" font-size="10">Seychelles</text>
+
+  <circle cx="1480" cy="660" r="8" class="light"/>
+  <text x="1490" y="665" class="country-label" font-size="10">Mauritius</text>
+
+  <circle cx="1190" cy="400" r="6" class="light"/>
+  <text x="1195" y="415" class="country-label" font-size="10">Comoros</text>
+
+  <!-- Radiating dashed lines from Zimbabwe to pipeline states -->
+  <line x1="810" y1="600" x2="670" y2="850" stroke="#C89455" stroke-width="1.5" stroke-dasharray="7 4"/>
+  <line x1="810" y1="600" x2="1060" y2="500" stroke="#C89455" stroke-width="1.5" stroke-dasharray="7 4"/>
+  <!-- Terminator open circles -->
+  <circle cx="670" cy="850" r="6" fill="#FAFAFA" stroke="#C89455" stroke-width="1.5"/>
+  <circle cx="1060" cy="500" r="6" fill="#FAFAFA" stroke="#C89455" stroke-width="1.5"/>
+
+  <text x="900" y="745" class="serif-anno" font-size="11" text-anchor="middle">Subsequent pipeline adoptions</text>
+
+  <!-- Legend (lower-left) -->
+  <g transform="translate(80, 940)">
+    <text x="0" y="0" class="country-label" font-weight="500">Legend</text>
+    <rect x="0" y="12" width="16" height="10" fill="#C89455" fill-opacity="0.85" stroke="#1A1A1A"/>
+    <text x="24" y="22" class="anno">Amber (beaconed): signed anchor state &#8212; Zimbabwe.</text>
+    <rect x="0" y="32" width="16" height="10" fill="#F2DBBC" fill-opacity="0.75" stroke="#1A1A1A"/>
+    <text x="24" y="42" class="anno">Pale amber with dashed line: active principal-level pipeline.</text>
+    <rect x="0" y="52" width="16" height="10" fill="#F2F2F2" stroke="#1A1A1A"/>
+    <text x="24" y="62" class="anno">Pale grey: framework adoption region &#8212; Phase 3 horizon, 2032+ (per MOU &#167;3).</text>
+  </g>
+
+  <!-- Italic line at foot -->
+  <text x="800" y="1025" class="serif-anno" text-anchor="middle" font-size="16">The regulatory architecture of optical transmission, in Southern Africa, is the architecture written first with the Republic of Zimbabwe.</text>
+
+  <!-- Caption block -->
+  <text x="800" y="1065" class="caption" text-anchor="middle">Diagram D6 &#8212; SADC First-Mover Map. Source: Aquila Space Technologies and NextEra, April 2026.</text>
+</svg>
