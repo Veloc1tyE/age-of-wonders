@@ -72,7 +72,7 @@ That is one half of the gap. The other half is utilisation.
 
 Cast AI's survey of production Kubernetes clusters across AWS, Azure, and Google Cloud measured an average sustained GPU utilisation of 5%.<sup><a href="#ref-14">[14]</a></sup> That is an enterprise figure, not a frontier one — frontier training clusters saturate silicon for weeks at a time. Enterprise fleets provision for bursty demand and idle between requests.
 
-Read the two figures as bounding cases, not a multiplied ratio. They point the same direction. Across the broad surface of paid-for capacity, much of the ordered compute is doing very little economic work. The rest is optionality — a placeholder, a reservation, a hedge against being last in line for a slot. Appendix D sets out the distinction.
+Read the two figures as bounding cases, not a multiplied ratio. They point the same direction. Across the broad surface of paid-for capacity, much of the ordered compute is doing little economic work. The rest is optionality — a placeholder, a reservation, a hedge against being last in line for a slot. Appendix D sets out the distinction.
 
 <Callout type="info">
 
@@ -120,7 +120,7 @@ This is the recurring error of every infrastructure cycle that confuses *what is
 
 Premium power goes to premium silicon.
 
-A hyperscaler with a scarce power permit and an even scarcer top-tier substation will not run last-generation chips in that slot. Frontier training is increasingly optimised for the current architecture: memory bandwidth, interconnect topology, sparsity support, low-precision throughput, on-package networking. The performance-per-watt of the current generation is engineered against the next model the lab intends to train.
+A hyperscaler with a scarce power permit and an even scarcer top-tier substation will not run last-generation chips in that slot. Frontier training is optimised for the current architecture: memory bandwidth, interconnect topology, sparsity support, low-precision throughput, on-package networking. The performance-per-watt of the current generation is engineered against the next model the lab intends to train.
 
 Older chips are too inefficient, in scarce frontier slots, to justify frontier use.
 
@@ -252,7 +252,7 @@ The maximalist version of the AI story imagines one enormous model doing everyth
 
 Stockfish is the strongest chess engine in human history. It does not win by running the largest neural network ever trained. It wins because thirty years of engineering have produced a system in which a small neural network — the NNUE evaluation — sits inside ruthlessly optimised search code, transposition tables, opening books, endgame tablebases, move-ordering heuristics, pruning techniques, and a testing harness so disciplined that no patch lands without statistical proof of improvement. The intelligence is in the assembly.
 
-Modern Stockfish now outperforms the original AlphaZero-style benchmark systems. A small NNUE network wrapped in engineered scaffolding, running on commodity CPUs, beats a much larger pure-neural approach that required substantial GPU compute just to play. The bounded engineered system outperforms the raw neural network. That is the shape of plateau intelligence.
+Modern Stockfish now outperforms the original AlphaZero-style benchmark systems. A small NNUE network wrapped in engineered scaffolding, running on commodity CPUs, beats a much larger pure-neural approach that required GPU compute just to play. The bounded engineered system outperforms the raw neural network. That is the shape of plateau intelligence.
 
 Stockfish matters here not because chess resembles the economy, but because it shows how useful intelligence becomes reliable: by embedding learned judgement inside an engineered system that constrains, tests, and corrects it.
 
@@ -294,7 +294,7 @@ This is what the migrated infrastructure will host: smaller, distilled, speciali
 
 The frontier labs will keep training larger models on the newest hardware. They are correct to. But capability deployment — the diffusion of intelligence into the ordinary machinery of civilisation — happens on the cheaper, older, more plentiful tier, with smaller models distilled out of the frontier and re-engineered for industrial use.
 
-The recipe is standard. A frontier model — increasingly a trillion-parameter mixture-of-experts whose total brain compounds while only a fraction of its parameters activate per token — serves as the teacher, generating millions of synthetic reasoning traces and logit distributions for a target workflow. A smaller dense student, single-GPU class, is fine-tuned to match those traces, then aligned with reinforcement learning against an automated validator: a compiler, a schema check, a domain-specific scorer. The result is a deterministic specialist that operates at the bulk of the teacher's accuracy on the bounded workflow at a small fraction of the inference cost. The frontier becomes the data factory for the plateau.
+The recipe is standard. A frontier model — a trillion-parameter mixture-of-experts whose total brain compounds while only a fraction of its parameters activate per token — serves as the teacher, generating millions of synthetic reasoning traces and logit distributions for a target workflow. A smaller dense student, single-GPU class, is fine-tuned to match those traces, then aligned with reinforcement learning against an automated validator: a compiler, a schema check, a domain-specific scorer. The result is a deterministic specialist that operates at the bulk of the teacher's accuracy on the bounded workflow at a small fraction of the inference cost. The frontier becomes the data factory for the plateau.
 
 An allocation principle follows. Frontier cognition is the scarcest cognitive resource humanity has produced. Spending it on tasks that do not require it is the cognitive equivalent of running a supercomputer to keep a calculator app on screen. Frontier intelligence discovers, judges, and creates. Plateau intelligence executes, repeats, monitors, and verifies.
 
