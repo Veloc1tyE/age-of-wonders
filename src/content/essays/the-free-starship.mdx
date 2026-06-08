@@ -10,6 +10,7 @@ import PullQuote from '../../components/PullQuote.astro';
 import DataInsight from '../../components/DataInsight.astro';
 import Figure from '../../components/Figure.astro';
 import Share from '../../components/Share.astro';
+import CollapsibleAppendix from '../../components/CollapsibleAppendix.astro';
 import cityTakeoff from '../../../public/images/free-starship-city-takeoff.jpg';
 import saturnOrbit from '../../../public/images/free-starship-saturn.jpg';
 import saturnSkimming from '../../../public/images/free-starship-saturn-skimming.jpg';
@@ -232,7 +233,7 @@ Build a ship that can refuel. Build a ship that can repair. Build a ship that ca
 
 ---
 
-## Technical Appendix
+<CollapsibleAppendix title="Technical Appendix">
 
 *Key calculations supporting quantitative claims in the essay body. Inline citations [1]–[27] and [SGL] map to the reference section below.*
 
@@ -407,6 +408,8 @@ This is the single biggest architectural fork in the system. D-He3 buys performa
 **Active magnetic shielding.** NASA NIAC work on spacecraft-scale magnetospheric protection proposes dipolar torus topologies to deflect a large fraction of GCR including HZE. Deflection of a GeV proton requires $\int B_\perp \, dr$ on the order of ~3 T·m. The approach introduces new failure modes (cryogenics, quench protection, structural loads) and net benefit must be assessed with full particle transport including secondaries.<sup><a href="#ref-26">[26]</a></sup>
 
 **Interstellar medium impacts.** At 0.01–0.05c, collisions with interstellar gas and dust become a distinct hazard class not captured by GCR shielding alone. Even atomic hydrogen at 0.05c carries ~1.2 MeV/nucleon. Over decades of cruise, cumulative damage modes include surface erosion, gas implantation and blistering, and rare catastrophic dust grain impacts. Forward shielding design, erosion-resistant coatings, and a sacrificial leading-edge architecture are engineering requirements for Tier B, separate from and additional to the radiation shielding problem.
+
+</CollapsibleAppendix>
 
 ---
 

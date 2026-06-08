@@ -1,0 +1,144 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "Technical Appendix" } = Astro.props;
+---
+
+<details class="appendix-toggle">
+  <summary class="appendix-toggle__summary">
+    <span class="appendix-toggle__title">{title}</span>
+    <span class="appendix-toggle__control">
+      <span class="appendix-toggle__state"></span>
+      <span class="appendix-toggle__chevron" aria-hidden="true"></span>
+    </span>
+  </summary>
+  <div class="appendix-toggle__body">
+    <slot />
+  </div>
+</details>
+
+<style>
+  .appendix-toggle {
+    margin: 40px 0 0;
+  }
+
+  .appendix-toggle__summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 6px 0;
+    color: var(--text);
+    transition: color 0.25s ease;
+  }
+
+  .appendix-toggle__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .appendix-toggle__title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+  }
+
+  .appendix-toggle__control {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+    color: var(--muted);
+    transition: color 0.25s ease;
+  }
+
+  .appendix-toggle__state {
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+
+  .appendix-toggle__state::after {
+    content: "Show";
+  }
+
+  .appendix-toggle[open] .appendix-toggle__state::after {
+    content: "Hide";
+  }
+
+  .appendix-toggle__chevron {
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform 0.25s ease;
+  }
+
+  .appendix-toggle[open] .appendix-toggle__chevron {
+    transform: translateY(1px) rotate(225deg);
+  }
+
+  .appendix-toggle__summary:hover {
+    color: var(--accent);
+  }
+
+  .appendix-toggle__summary:hover .appendix-toggle__control {
+    color: var(--accent);
+  }
+
+  .appendix-toggle__body {
+    margin-top: 8px;
+  }
+
+  @media print {
+    .appendix-toggle__body {
+      display: block !important;
+    }
+  }
+</style>
+
+<script>
+  function openForHash() {
+    const hash = decodeURIComponent(location.hash.slice(1));
+    if (!hash) return;
+    const target = document.getElementById(hash);
+    if (!target) return;
+    const details = target.closest("details.appendix-toggle") as HTMLDetailsElement | null;
+    if (details && !details.open) {
+      details.open = true;
+      requestAnimationFrame(() => target.scrollIntoView());
+    }
+  }
+
+  function onDocClick(e: Event) {
+    const node = e.target as HTMLElement | null;
+    if (!node || typeof node.closest !== "function") return;
+    const link = node.closest('a[href^="#"]');
+    if (!link) return;
+    const id = decodeURIComponent((link.getAttribute("href") || "").slice(1));
+    if (!id) return;
+    const target = document.getElementById(id);
+    const details = target?.closest("details.appendix-toggle") as HTMLDetailsElement | null;
+    if (details) details.open = true;
+  }
+
+  if (!(window as any).__appendixToggleBound) {
+    (window as any).__appendixToggleBound = true;
+    document.addEventListener("click", onDocClick, true);
+    window.addEventListener("hashchange", openForHash);
+    window.addEventListener("beforeprint", () => {
+      document.querySelectorAll("details.appendix-toggle").forEach((d) => {
+        (d as HTMLDetailsElement).open = true;
+      });
+    });
+  }
+
+  document.addEventListener("astro:page-load", openForHash);
+</script>
