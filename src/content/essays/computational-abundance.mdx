@@ -9,6 +9,7 @@ import Callout from '../../components/Callout.astro';
 import PullQuote from '../../components/PullQuote.astro';
 import DataInsight from '../../components/DataInsight.astro';
 import Share from '../../components/Share.astro';
+import CollapsibleAppendix from '../../components/CollapsibleAppendix.astro';
 
 Across the AI supply chain, millions of accelerators are in motion: ordered, manufactured, staged, shipped, queued for facilities that do not yet have power. xAI's Colossus programme targets a million accelerators on its own; Meta's roadmap references multi-million Blackwell- and Rubin-class deployments through 2027; Oracle, OpenAI, the U.S. Department of Energy, and the rest of the hyperscaler cohort add many more.<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-2">[2]</a></sup>
 
@@ -415,7 +416,7 @@ Civilisation inherits computation cheap enough to diffuse through everything.
 
 ---
 
-## Technical Appendix
+<CollapsibleAppendix title="Technical Appendix">
 
 *Key arithmetic and supporting data behind the quantitative claims in the essay body. Inline citations map to the reference section below.*
 
@@ -888,6 +889,8 @@ The second runs on the mid-wave: by the end of 2029, the autonomous-merge rate o
 The third runs on multiplier mechanics directly: by the end of 2028, peer-reviewed work on multi-component scaffolding stacks (test loops, multi-agent verification, retrieval grounding, formal verification on covered surface) should report combined effective reliability of ≥99% on tasks where base-model one-shot reliability sits in the 80–90% range. If the published evidence converges on combined effective reliability that stays below ~95% on the same baseline, the L.3 multiplier identity is overstated and the L.4 timeline shifts later by two to four years.
 
 **The deeper point.** The headline is the long march. The economic substance is the wave. The body essay's §VI argues that the deployable shape of intelligence is bounded learned judgement inside engineered scaffolding. This appendix quantifies the consequence: the *deployment timeline* under that architecture is wave-shaped across 2026–2040, governed by the reliability-bar lattice and the Stockfish multiplier. Each wave passes inference demand through to the access layer continuously. The "decade-plus to 99.99% everything" framing is correct on the terminal date, irrelevant to the economic story between now and that date, and structurally favourable to a multi-year lease-underwritten access-layer position. The slower the base-model curve, the more value migrates to whoever built the scaffolding around it — and the more durable the demand for the inference compute that hosts it.
+
+</CollapsibleAppendix>
 
 ---
 

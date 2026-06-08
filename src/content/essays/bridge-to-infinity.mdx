@@ -10,6 +10,7 @@ import PullQuote from '../../components/PullQuote.astro';
 import DataInsight from '../../components/DataInsight.astro';
 import SummaryBox from '../../components/SummaryBox.astro';
 import Share from '../../components/Share.astro';
+import CollapsibleAppendix from '../../components/CollapsibleAppendix.astro';
 import Figure from '../../components/Figure.astro';
 import meridianLaunch from '../../../public/images/meridian-launch.png';
 import halcyonAngled from '../../../public/images/halcyon-angled.png';
@@ -339,7 +340,7 @@ Meridian does not escape the atmosphere. It sorts it.
 
 ---
 
-## Technical Appendix
+<CollapsibleAppendix title="Technical Appendix">
 
 *Key calculations supporting quantitative claims in the essay body. Inline citations map to the reference section below.*
 
@@ -1289,6 +1290,8 @@ The combined effect: the exponent drops from $9.2/3.24 = 2.84$ (ground kerolox) 
 
 **The deeper point.** The SSTO spaceplane simply starts in the wrong place. Move the starting line from sea level to 20 km in vacuum, and the mass budget that was always negative becomes robustly positive. The launcher *is* the first stage — made of bedrock and electricity instead of aluminium and kerosene, used thousands of times, never discarded.
 
+
+</CollapsibleAppendix>
 
 ---
 
