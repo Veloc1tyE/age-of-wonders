@@ -1,25 +1,36 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file guides Claude Code (claude.ai/code) when working in this repository.
+
+It has two jobs.
+
+First, keep the site fast, stable, and clean.
+
+Second, protect the standard of the canon.
+
+Age of Wonders is a body of work about abundance, access, and the future humanity can build. The implementation has to carry that belief. The prose has to carry it too.
 
 ## Vision & Purpose
 
-Age of Wonders is a body of writing and creative work exploring a simple belief system:
+Age of Wonders is a body of writing and creative work built on three ideas:
 
 1. **The universe is abundant beyond our wildest dreams.**
 2. **Scarcity is never necessary.**
 3. **Access is the limiter.**
 
-The content explores themes of:
-- Material abundance and its relationship to moral expansion
-- Energy as the fundamental determinant of living standards
-- Long-term thinking and infrastructure that enables access
-- Optimism about humanity's future without blind techno-utopianism
-- Reaching for the stars, both literally and metaphorically
+The canon explores:
 
-**Aesthetic:** Elegant, readable, thoughtful. Like a well-crafted essay collection. Clean typography (Cormorant Garamond + Inter), generous whitespace, focused on the content. The feeling is "quiet confidence" — the design assumes the content is worth reading rather than trying to convince you.
+- Material abundance and moral expansion
+- Energy as the foundation of living standards
+- Infrastructure as the bridge between possibility and use
+- Optimism without denial
+- Reaching for the stars, literally and metaphorically
 
-**The medium is the message.** If you're going to create something about wonders, the thing itself better be a wonder. The site's craft must embody the same standard as the ideas it contains. Every pixel, every interaction, every spacing decision — it all speaks. Mediocre execution would undermine the entire premise.
+**Aesthetic:** Elegant, readable, restrained. The site should feel like a serious essay collection. Cormorant Garamond gives the work grace. Inter gives the interface clarity. Whitespace does the rest.
+
+The feeling is quiet confidence. The design does not beg for attention. It assumes the work is worth reading.
+
+**The medium is the message.** A site about wonders has to be one. Every pixel speaks. Every transition speaks. Every spacing decision speaks. Mediocre craft would weaken the premise.
 
 ## Commands
 
@@ -34,215 +45,300 @@ npm run preview  # Preview production build locally
 This is an Astro 5 static site with MDX support and LaTeX math rendering.
 
 **Key integrations:**
-- MDX (`@astrojs/mdx`) - Write content in MDX format
-- Math rendering - `remark-math` + `rehype-katex` for LaTeX equations in markdown/MDX
-- RSS feed (`@astrojs/rss`) - Auto-generated RSS feed at `/rss.xml`
+
+- MDX (`@astrojs/mdx`) for essay content
+- Math rendering with `remark-math` and `rehype-katex`
+- RSS feed via `@astrojs/rss` at `/rss.xml`
 
 **Structure:**
-- `src/pages/` - File-based routing (`.astro` and `.mdx` files become pages)
-- `src/content/` - Content collections for essays (MDX files with frontmatter validation)
-- `src/layouts/` - Page layout wrappers
-- `src/components/` - Reusable Astro components
-- `src/assets/` - Images and static assets processed by Astro
-- `src/styles/` - Global CSS styles
-- `public/` - Static files served as-is
+
+- `src/pages/` — file-based routes. `.astro` and `.mdx` files become pages.
+- `src/content/` — content collections for essays.
+- `src/layouts/` — page layout wrappers.
+- `src/components/` — reusable Astro components.
+- `src/assets/` — images and assets processed by Astro.
+- `src/styles/` — global CSS.
+- `public/` — static files served as-is.
 
 **TypeScript:** Uses Astro's strict config (`astro/tsconfigs/strict`).
 
 ## Content Collections
 
-Essays are managed using Astro's content collections:
+Essays live in Astro content collections.
 
 - **Location:** `src/content/essays/`
-- **Format:** MDX files with frontmatter
-- **Template:** See `src/content/essays/_template.mdx` for a starting point
+- **Format:** MDX with frontmatter
+- **Template:** `src/content/essays/_template.mdx`
 - **Schema:** Defined in `src/content/config.ts`
-  - `title`: string (required)
-  - `description`: string (optional)
-  - `date`: date (required, format: YYYY-MM-DD)
-  - `draft`: boolean (optional, defaults to false)
+  - `title`: string, required
+  - `description`: string, optional
+  - `date`: date, required, format `YYYY-MM-DD`
+  - `draft`: boolean, optional, defaults to `false`
 
-**Important:** The date field uses `z.coerce.date()` to automatically convert string dates to Date objects. When displaying dates, use `.toLocaleDateString()` or similar formatting methods.
+**Important:** The date field uses `z.coerce.date()`. String dates become Date objects. When displaying dates, use `.toLocaleDateString()` or equivalent formatting.
 
 ### Adding a New Essay
 
-1. Create a new `.mdx` file in `src/content/essays/` (use `_template.mdx` as a starting point)
-2. Add frontmatter with title, description, and date
-3. Write your content using Markdown/MDX
-4. Set `draft: false` when ready to publish
+1. Create a new `.mdx` file in `src/content/essays/`.
+2. Use `_template.mdx` as the starting point.
+3. Add frontmatter with title, description, and date.
+4. Write the essay in Markdown or MDX.
+5. Set `draft: false` when ready to publish.
 
 Essays support:
-- Standard Markdown formatting
+
+- Standard Markdown
 - Math equations with KaTeX (`$inline$` and `$$block$$`)
-- MDX components (can be extended)
+- MDX components
 
 ## Deployment
 
-The site is deployed via Vercel with automatic deployments from GitHub:
+The site deploys through Vercel.
+
 - **URL:** www.ageofwonders.org
-- **Auto-deploy:** Any push to main automatically deploys to production
-- **Critical:** Always run `npm run build` and verify it succeeds before pushing
+- **Auto-deploy:** Any push to `main` deploys to production.
+- **Critical:** Always run `npm run build` before pushing.
+
+Broken builds do not stay local. They ship.
 
 ## Development Workflow
 
 ### Before Committing
-1. Run `npm run build` to verify the build succeeds
-2. Check `npm run preview` if testing visual changes
-3. Never push broken builds - they auto-deploy to production
+
+1. Run `npm run build`.
+2. Use `npm run preview` for visual changes.
+3. Never push a broken build.
 
 ### Commit Message Style
-Follow these patterns based on commit history:
 
-**For features/improvements:** Detailed messages with rationale
-```
+Use this structure for features and refinements:
+
+```text
 Add feature name
 
 **Rationale:** Why this change matters
 
 **What changed:**
-- Bullet points for each change
-- Technical details where helpful
+- Specific change
+- Technical detail where useful
 
-**Result:** What the user experiences
+**Result:** What the reader or operator experiences
 ```
 
-**For bug fixes:** Concise but explanatory
-```
+Use this structure for fixes:
+
+```text
 Fix issue: Brief description
 
-Explanation of what caused it and why this fix is correct.
+What caused the problem, and why this fix is correct.
 ```
+
+Commit messages should be clear enough to reconstruct the decision later.
 
 ## Performance & UX Priorities
 
-**This site is optimized for lightning-fast, instant-feel navigation.** Do not degrade this UX.
+The site should feel instant.
 
 **Performance targets:**
-- First load: <200ms perceived
-- Subsequent navigation: <50ms (instant feel)
+
+- First load: under 200ms perceived
+- Subsequent navigation: under 50ms perceived
 
 **How it works:**
-- **Service Worker** (`public/sw.js`): Stale-while-revalidate for everything
-  - All requests: Instant from cache, background fetch updates for next visit
-  - First visit to any page: Network fetch + cache
-  - Subsequent visits: Instant from cache (~5-10ms), fresh content ready for next navigation
-  - Cache version bumped on deploy clears old stale content
-- **Astro ViewTransitions**: SPA-like instant navigation between pages without full reloads
-- **Aggressive prefetching**: Viewport-based + mousedown/touchstart prefetch for instant clicks
-- **Lazy-loaded images**: Progressive loading for optimal initial paint
 
-**Critical rules when making changes:**
-1. **Bump `CACHE_VERSION` in sw.js when making significant changes** - this clears old caches
-2. **Never remove ViewTransitions** - they enable instant navigation
-3. **Use `astro:page-load` event for client-side initialization** - ViewTransitions don't re-execute module scripts, so use this event to reinitialize on every navigation
-4. **Pass server data via data attributes, not `define:vars`** - `define:vars` scripts don't work well with ViewTransitions; use data attributes on hidden elements instead
-5. **Persist user preferences with localStorage** - state doesn't persist across ViewTransitions navigations
-6. **Server-side render the default state** - ensure initial HTML matches what JavaScript will show to prevent content flashing
-7. **Test navigation patterns** - visit page → navigate away → return to verify state persists
+- **Service Worker** (`public/sw.js`): stale-while-revalidate for all requests.
+  - First visit: fetch from network and cache.
+  - Return visit: serve from cache, then update in background.
+  - Deploys should bump the cache version when stale content matters.
+- **Astro ViewTransitions:** navigation feels like an app without losing static-site reliability.
+- **Aggressive prefetching:** viewport, mousedown, and touchstart prefetch make links feel immediate.
+- **Lazy-loaded images:** preserve the first paint.
+
+**Critical rules:**
+
+1. **Bump `CACHE_VERSION` in `sw.js` after significant changes.** Old pages may otherwise persist.
+2. **Never remove ViewTransitions.** They carry the instant-navigation feel.
+3. **Use `astro:page-load` for client-side initialisation.** ViewTransitions do not re-run module scripts on every navigation.
+4. **Pass server data through data attributes, not `define:vars`.** Data attributes survive the navigation model more reliably.
+5. **Persist user preferences with `localStorage`.** State does not automatically persist across ViewTransitions.
+6. **Server-render the default state.** The initial HTML should match the JavaScript state. Avoid flashing.
+7. **Test real navigation.** Visit a page. Leave it. Return to it. Confirm state, hover, and layout still work.
 
 ## Essay Ordering
 
-**Canonical Order:** Essays have a deliberate narrative order defined in `CANONICAL_ORDER` arrays (see `src/pages/index.astro`). This tells a coherent story from vision → evidence → principles → resources → systems → examples.
+**Canonical Order:** Essays have a deliberate narrative order defined in `CANONICAL_ORDER` arrays, especially in `src/pages/index.astro`.
 
-**Date Sorting:** When sorting by date, always use `.getTime()` for proper Date object comparison:
+The order tells a story: vision, evidence, principles, resources, systems, examples.
+
+Do not replace canonical order with date order unless the page explicitly asks for chronology.
+
+**Date sorting:** Always use `.getTime()` when sorting Date objects.
+
 ```javascript
 .sort((a, b) => b.data.date.getTime() - a.data.date.getTime()) // newest first
 ```
 
-**Client-side sorting:** When adding client-side sorting, ensure the server-side initial render matches the default sort option to prevent content flashing.
+**Client-side sorting:** The server-rendered initial order must match the default client-side option. Otherwise the page flashes into a new order after load.
 
 ## Visual Design Principles
 
-The site aesthetic is elegant, minimal, and restrained. The goal is a feeling of calm virtuosity — smoothness that soothes the brain. When making UI changes, follow these principles:
+The site should feel calm, precise, and alive.
 
-**Subtlety over boldness:**
-- Decorative elements (numbers, borders, accents) should whisper, not shout
-- Use very light grays (#d0d0d0 or lighter) for subtle numbering or secondary elements
-- Accent colors (blue) are reserved for interactive states (hover) — and even then, use soft variants (#a8c8e8) rather than bold primary accent
+The goal is not decoration. The goal is trust.
 
-**Smoothness eliminates cognitive dissonance:**
-- Avoid sharp edges — use soft border-radius (3-4px) on all corners, not just some
-- Gradients should have multiple stops and fade gradually (e.g., 35%, 60%) — never abrupt cutoffs
-- Transitions should be gentle (0.25-0.3s ease) — fast enough to feel responsive, slow enough to feel smooth
-- Hover states should be subtle shifts, not dramatic changes
+### Subtlety over boldness
 
-**Visual variety across pages:**
-- Different pages should have distinct but cohesive aesthetics
-- Homepage "Creative Works" uses soft gray gradients emanating from left borders, creating a sense of curated collection
-- Essays list page uses a quieter approach: simple divider lines, no backgrounds, more whitespace
-- This variety keeps the site from feeling monotonous while maintaining brand coherence
+- Decorative elements should whisper.
+- Use light greys (`#d0d0d0` or lighter) for numbers, dividers, and secondary marks.
+- Reserve blue for interaction.
+- Even interactive blue should be soft (`#a8c8e8`), never loud.
 
-**Typography hierarchy:**
-- Use Cormorant Garamond for display/decorative text (titles, numbers, elegant controls)
-- Use Inter for functional UI elements (dates, navigation)
-- Font weights should be light (300) for decorative elements, medium (500) for emphasis
+### Smoothness eliminates cognitive dissonance
 
-**Spacing and breathing room:**
-- Generous padding inside cards/containers (24-32px)
-- Consistent vertical rhythm between list items
-- Mobile should have slightly tighter spacing but never feel cramped
+- Avoid sharp edges. Use soft radius values (`3-4px`) unless a pill shape is intended.
+- Gradients should fade gradually. Use multiple stops.
+- Transitions should feel responsive, not jumpy. `0.25s` to `0.3s ease` is the range.
+- Hover states should shift. They should not shout.
 
-**Responsive considerations:**
-- Scale font sizes down proportionally on mobile (roughly 85-90% of desktop)
-- Reduce spacing slightly but maintain proportions
-- Stack horizontal layouts vertically on mobile when needed
+### Visual variety across pages
 
-**Form controls (dropdowns, selects, buttons):**
-- Avoid default browser styling — it looks dated and harsh
-- Use pill shapes (border-radius: 18px+) with subtle fills (#f8f8f8) and soft borders (#e2e2e2)
-- Cormorant Garamond works beautifully for elegant dropdowns
-- Muted text (#888) that gently darkens on hover (#666)
-- Center text for balanced feel when options vary in length
-- Controls should feel integrated with the typography, not bolted-on widgets
+Pages should belong to the same world without becoming copies.
 
-**Simplicity as the ultimate sophistication:**
-- When struggling to perfect an element's spacing or positioning, consider removing it entirely
-- Every element must earn its place — if it doesn't add clear value, delete it
-- A clean, sparse page with perfect proportions beats a cluttered page with "helpful" additions
-- Subscribe page example: headline + one line intro + form. Nothing else needed.
-- The "Low frequency, high quality" aside seemed helpful but created spacing complexity — removing it improved the whole
+- Homepage Creative Works cards use soft grey gradients from the left edge.
+- Essays list pages use quieter dividers and more whitespace.
+- Subscribe is almost empty by design.
 
-**Iterative refinement:**
-- Visual perfection often requires many iterations (5-10+ rounds is normal)
-- "90 to 100" is where most of the work happens — broad strokes are easy, details are hard
-- Cognitive dissonance is a signal: if something feels "off" but you can't articulate why, keep iterating
-- Sometimes the best solution is subtraction, not addition
-- The owner iterates by negation: "not that, not that either, nearly there" — trust the process
-- When feedback says "doesn't work at all," investigate thoroughly before making changes
+Variety keeps the site alive. Restraint keeps it coherent.
 
-**Let the words carry themselves:**
-- Strong statements don't need `<strong>` tags — the content provides the weight
-- Avoid "selling" language ("three simple ideas" → "three ideas")
-- Gray borders (#e0e0e0) as default state; accent colors only on hover
-- The homepage intro can be slightly larger than interior pages (it's the main landing) but should still feel restrained
+### Typography hierarchy
 
-**Page-specific calibration:**
-- Homepage: slightly more prominent sizing (23-25px) since it's sparse and sets the tone
-- Interior pages (About, Essays): standard body sizing to let content breathe
-- Subscribe: minimal — just the essentials with elegant form controls
-- Each page earns its proportions based on content density
+- Use Cormorant Garamond for titles, numbers, display text, and elegant controls.
+- Use Inter for functional UI: dates, navigation, labels, metadata.
+- Use light weights for decorative text.
+- Use medium weights only when the interface needs clarity.
 
-**Interactive elements need visible feedback:**
-- Every clickable element must have a noticeable hover state
-- "Noticeable" means: #f8f8f8 → #eee background, #e2e2e2 → #ccc border, #888 → #333 text
-- Too subtle (#f8f8f8 → #f0f0f0) is effectively invisible — users won't register the change
-- Test hover states yourself — actually use the site and interact with every element
+### Spacing and breathing room
 
-**CSS specificity matters:**
-- Inline styles override class selectors, including hover pseudo-classes
-- If hover isn't working, check for inline styles on the element
-- Move styles to stylesheet when hover/focus/active states are needed
-- Keep interactive element styles in CSS, not inline, to allow state changes
+- Cards and containers usually need `24-32px` of internal padding.
+- Lists need stable vertical rhythm.
+- Mobile can tighten spacing, but it should never feel cramped.
 
-**Custom form validation:**
-- Browser default validation tooltips are harsh and don't match refined aesthetics
-- Use `novalidate` on forms and implement custom JavaScript validation
-- Error states should be soft: dusty rose borders (#d4a5a5), muted coral text (#b88)
-- Clear errors on input to provide immediate feedback
+Whitespace is not absence. It is tempo.
+
+### Responsive considerations
+
+- Scale mobile type to roughly 85-90% of desktop.
+- Reduce spacing slightly on small screens.
+- Preserve proportions.
+- Stack horizontal layouts when they begin to compress.
+
+### Form controls
+
+Default browser controls look too harsh for this site.
+
+- Use pill shapes (`18px+` radius).
+- Use subtle fills (`#f8f8f8`) and soft borders (`#e2e2e2`).
+- Use Cormorant Garamond for elegant dropdowns.
+- Use muted text (`#888`) that darkens on hover (`#666`).
+- Centre text when option widths vary.
+- Controls should feel integrated with the page, not bolted on.
+
+### Simplicity as the ultimate sophistication
+
+When an element is hard to tune, consider deleting it.
+
+Every element must earn its place. If it does not add value, remove it.
+
+A sparse page with perfect proportions beats a cluttered page with helpful extras.
+
+The Subscribe page is the model: headline, one-line intro, form. Nothing else.
+
+### Iterative refinement
+
+Visual perfection arrives late.
+
+The first 90% is broad strokes. The last 10% is where the work is.
+
+Cognitive dissonance is a signal. If something feels off, keep looking. The problem is usually spacing, hierarchy, edge shape, or contrast.
+
+The owner iterates by negation: "not that, not that either, nearly there." Trust that process.
+
+When feedback says "doesn't work at all," investigate before changing. The wrong fix can preserve the underlying mistake.
+
+### Let the words carry themselves
+
+Strong lines do not need `<strong>` tags.
+
+Do not sell the work. Let it stand.
+
+- Avoid phrases like "three simple ideas". Use "three ideas".
+- Use grey borders as the default state.
+- Use accent colour only on interaction.
+- Let the homepage be slightly larger than interior pages, but still restrained.
+
+### Page-specific calibration
+
+- Homepage: slightly more prominent type, around `23-25px`, because it sets the tone.
+- Interior pages: quieter body scale.
+- Essays page: more rhythm, fewer surfaces.
+- Subscribe page: minimal.
+
+Each page earns its proportions from its density.
+
+### Interactive feedback
+
+Every clickable element needs visible feedback.
+
+Visible means noticeable:
+
+- Background: `#f8f8f8` to `#eee`
+- Border: `#e2e2e2` to `#ccc`
+- Text: `#888` to `#333`
+
+Too subtle is invisible. Test with your own cursor.
+
+### CSS specificity
+
+Inline styles override class selectors and pseudo-classes.
+
+If hover does not work, check for inline styles first.
+
+Move interactive styles into CSS. Hover, focus, and active states belong in stylesheets, not inline attributes.
+
+### Custom form validation
+
+Browser validation bubbles are too harsh for the aesthetic.
+
+- Use `novalidate`.
+- Implement custom JavaScript validation.
+- Error borders should be soft dusty rose (`#d4a5a5`).
+- Error text should be muted coral (`#b88`).
+- Clear errors on input.
 
 ## Prose Writing Guide
 
-This guide covers two layers: the **argumentative layer** (what to claim and how to structure it) and the **prose layer** (how to write the sentences). Both matter. A well-constructed argument in weak prose is forgettable. Clean prose around a weak argument is polished nothing.
+This guide protects the standard of the canon.
+
+It covers two layers:
+
+1. **The argumentative layer:** what to claim, what to prove, and how to structure the movement.
+2. **The prose layer:** how to write sentences that carry complex ideas without strain.
+
+Both matter.
+
+A strong argument in weak prose is forgettable. Clean prose around a weak argument is polished nothing.
+
+The reference essays are **Create an Age of Wonders** and **Perceptual Abundance**.
+
+They solve different problems.
+
+**Create an Age of Wonders** is the manifesto reference. It names the belief system. It turns physics, energy, materials, computation, and biology into a claim about moral possibility. Its danger is generic futurism. Its solution is mechanism, number, physical example, and agency.
+
+**Perceptual Abundance** is the perceptual reference. It does not argue by declaration. It leads the reader through thresholds: Earthrise, exoplanets, LIGO, the black hole image, Webb, Gaia, and daily planetary observation. Its danger is becoming a timeline. Its solution is sequence, sensory conversion, and section endings that change what the evidence means.
+
+Together they define the method:
+
+The world is already larger than our inherited systems admit. The essay gives the reader access to that fact.
 
 ---
 
@@ -250,524 +346,1048 @@ This guide covers two layers: the **argumentative layer** (what to claim and how
 
 ### The canonical argument pattern
 
-The defining quality of this canon — what distinguishes it from adjacent future-optimism writing — is a refusal to argue from possibility alone. The move is always:
+The canon does not argue from possibility alone.
 
-1. **Name what is already true.** Physics, observed data, running mechanism. Not what could happen. What is.
-2. **Name the access constraint.** What prevents the world from using what is already there.
-3. **Name the mechanism of change.** How that constraint is shifting. Not that it will shift — how it is shifting, now.
-4. **Let the implication follow without stating it.** The reader draws the conclusion. You supply the evidence.
+The move is always:
 
-"This could happen" is not a claim. "This is happening, via this mechanism" is.
+1. **Name what is already true.** Physics. Observed data. Running systems. Existing instruments. Current cost curves.
+2. **Name the access constraint.** What prevents the world from using what is already there?
+3. **Name the mechanism of change.** What is changing the constraint now?
+4. **Let the implication follow.** The reader draws the conclusion. The essay supplies the evidence.
 
-Every essay in the canon has a named mechanism: the cascade and plateau crossover (Computational Abundance), the Pythagorean Dividend (Bridge to Infinity), retrieval replacing inference (Perceptual Abundance), logistics as the real limiter and fuel autonomy as the solution (The Free Starship), gravitational lensing as the pre-existing instrument (The Solar Gravitational Lens). If you cannot name the mechanism, the argument is not finished.
+"This could happen" is not enough.
+
+"This is already true, and access is changing" is the canonical claim.
+
+Every major essay has a mechanism:
+
+- **Perceptual Abundance:** retrieval replaces inference.
+- **Create an Age of Wonders:** intelligence, simulation, biotech, and energy infrastructure raise the creative ceiling.
+- **Computational Abundance:** the cascade and plateau crossover move intelligence into the economy.
+- **Bridge to Infinity:** the Pythagorean Dividend changes launch economics.
+- **The Free Starship:** fuel autonomy turns a probe into a vessel.
+- **The Solar Gravitational Lens:** the physics is already the instrument; computation becomes the camera.
+
+If the mechanism cannot be named, the argument is not finished.
 
 ---
 
 ### The access frame
 
-The connective thread of the canon: **the universe is abundant; access is the constraint**. Every essay should be able to answer: what is abundant but inaccessible here, and what mechanism is changing that?
+The connective thread of the canon is simple:
 
-This doesn't need to be stated explicitly. But if an essay has no answer, it probably doesn't belong in the canon. The frame is the filter.
+**The universe is abundant. Access is the constraint.**
 
-**The master vocabulary problem.** The canon's structural terms — abundance, access, infrastructure, bottleneck, substrate, frontier, plateau — recur because they are load-bearing, not decorative. Repetition is correct. But there is a failure mode: invoking the word instead of demonstrating the concept. Using "access" as a premise rather than arriving at it as a conclusion.
+Every essay should answer two questions:
 
-Perceptual Abundance almost never uses the canonical vocabulary. The reader reaches "access" by the end because the essay showed them retrieval replacing inference. The word is earned. When you find yourself reaching for a canonical term early in a paragraph, ask: could the paragraph show the concept instead? If yes, show it and let the term arrive at the end, or not at all.
+1. What is abundant but inaccessible here?
+2. What mechanism is changing access?
+
+The essay does not always need to say the word "access". Often it is stronger if the reader arrives there alone.
+
+Perceptual Abundance is the model. It almost never leans on canonical vocabulary. It shows instruments turning the universe from guesswork into retrieval. By the time access is named, the reader already understands it.
+
+The danger is premature vocabulary.
+
+Do not write:
+
+> This is an access problem.
+
+Show it:
+
+> The Sun already delivers the power. The ocean already contains the fuel. The stars already emit the light. The bottleneck is capture, conversion, and distribution.
+
+The word is earned when the paragraph has made it unavoidable.
+
+---
+
+### The two reference modes
+
+#### Manifesto mode: Create an Age of Wonders
+
+Manifesto mode states the belief system.
+
+The movement is:
+
+1. Name the civilisational moment.
+2. Name the tools now entering the world.
+3. Show that each tool already works in bounded form.
+4. Convert possibility into access.
+5. Convert access into moral obligation.
+6. Return agency to the reader.
+
+This mode is allowed to be grand. It is not allowed to be vague.
+
+Every large claim needs a mechanism, a number, or an example within three sentences.
+
+Weak:
+
+> We are entering a revolutionary future.
+
+Strong:
+
+> We can design intelligence, simulate nature, and reprogram life.
+
+The second line works because it names capacities, not mood.
+
+#### Discovery mode: Perceptual Abundance
+
+Discovery mode does not announce the thesis first. It stages revelation.
+
+The movement is:
+
+1. Begin with a human limit.
+2. Introduce the instrument or event.
+3. Show what became perceptible.
+4. State the change in plain language.
+5. End with a line that alters the reader's sense of reality.
+
+Discovery mode is cumulative. Each section is simple. Together they become civilisational.
+
+The sequence should feel like a widening aperture:
+
+First, we saw Earth.
+
+Next, we found other worlds.
+
+Then, we felt spacetime.
+
+We even made absence visible.
+
+Finally, measurement became systematic.
+
+And then perception became abundant.
+
+Do not explain the thesis before the reader has experienced the evidence.
 
 ---
 
 ### Falsifiability
 
-Each essay's central claim should be capable of being wrong. If it cannot be disproven, it is not a claim — it is a mood.
+Every central claim should be capable of being wrong.
 
-The test: name one observable that, if it came in differently, would falsify the argument. Computational Abundance does this explicitly (two named predictions in the appendix with dates). The other essays do it implicitly (SGL: the physics would have to be wrong; Free Starship: fusion would have to be fundamentally unscalable; Perceptual Abundance: access would have to have remained stable). If you cannot name the falsifier, you are writing a feeling, not an argument.
+If a claim cannot be disproven, it is not a claim. It is a mood.
 
-The optimism in this canon is load-bearing. That is what separates it from motivational writing.
+The test is simple:
+
+Name one observable that would weaken or falsify the argument.
+
+Computational Abundance does this explicitly through dated predictions. Other essays do it implicitly. The Solar Gravitational Lens depends on the physics. The Free Starship depends on fuel autonomy. Perceptual Abundance depends on measurement becoming more available, not less.
+
+The optimism is load-bearing.
+
+That is what separates the canon from motivational writing.
 
 ---
 
 ### Essay openings
 
-The prose principles cover section openers. Essay openers have a different job: drop the reader into something that exists in the world before any argument appears.
+Essay openings have one job: put the reader in contact with something real before the thesis arrives.
 
-The Free Starship opens on Saturn without explaining why. Perceptual Abundance opens with a claim about history ("For most of history, we looked at the stars and guessed") — concrete and temporal before it is abstract. Bridge to Infinity opens with the sensation of launch. Building Coherence opens with a physical state (can't run, can't think clearly).
+Open with:
 
-**The rule:** open with something that exists — a place, a moment, a physical fact — before you open with your thesis. The thesis earns its place by arriving after evidence, not before it.
+- a place
+- a moment
+- a physical fact
+- an instrument
+- a number
+- a constraint
+- an image
+
+Perceptual Abundance opens with history and human limitation: we looked at the stars and guessed.
+
+Create an Age of Wonders opens with a civilisational moment, then names the tools that make the claim concrete.
+
+The Free Starship opens on Saturn.
+
+Bridge to Infinity opens with the sensation of launch.
+
+The rule:
+
+**Open with something that exists. Let the thesis arrive after contact.**
 
 ---
 
 ### The appendix as structural feature
 
-Technical essays carry quantitative claims. Those claims need to be checkable without interrupting the argument. The solution is the appendix: the body makes the claim and traces the logic; the appendix provides the arithmetic for anyone who wants to verify it.
+Technical essays carry quantitative claims.
 
-If an essay has numerical claims, the calculations belong in an appendix. This keeps the body readable while maintaining rigour. Bridge to Infinity and Computational Abundance do this correctly: a reader who does not follow the maths can follow the argument; a reader who wants the maths can find it.
+The body should remain readable. The maths should remain checkable.
+
+Use the appendix for:
+
+- arithmetic
+- derivations
+- assumptions
+- sensitivity tables
+- source calculations
+- prediction registers
+
+The body carries the argument. The appendix carries verification.
+
+A reader who skips the appendix should still understand the essay. A reader who checks the appendix should respect the rigour.
 
 ---
 
 ### The canon's register: engineering scripture
 
-The canon's prose operates in a specific register that has no standard name: **engineering scripture**. Liturgical cadence. Technical content. The revelation that the real world is larger, richer, and more accessible than our inherited systems admit.
+The canon's register is best described as **engineering scripture**.
 
-The best sentences in the canon are engineering scripture: "The physics is the instrument. Computation is the camera." "The galaxy is not far. It's just not supplied." "Hardware depreciates. Algorithms compound." They are not poetic decoration on an engineering argument, nor engineering explanation tacked onto a poetic claim. They are the same thing at the same time.
+It has three parts:
 
-When prose is failing, this is the test: is the technical and the mythic meaning converging on the same sentence, or pulling away from each other? Convergence is the target.
+- technical content
+- liturgical cadence
+- the revelation that reality is richer than our inherited systems admit
+
+The best lines join the technical and the mythic in one sentence:
+
+> The physics is the instrument. Computation is the camera.
+
+> The galaxy is not far. It is just not supplied.
+
+> Hardware depreciates. Algorithms compound.
+
+These are not poetic decorations placed over engineering claims. They are engineering claims written at mythic scale.
+
+When prose is failing, ask:
+
+Do the technical meaning and the mythic meaning converge?
+
+If they pull apart, fix the sentence or fix the argument.
 
 ---
 
 ### Canon coherence
 
-New essays should connect explicitly to existing ones where the argument builds on them. The SGL–Free Starship connection is the model: the SGL provides the map; the Free Starship provides the vessel. Each essay cites the one whose work it depends on.
+New essays should connect to the existing canon where the argument builds on prior work.
 
-Before publishing a new essay: does it use the access frame? Does it name its mechanism? Does it connect to at least one prior essay where the argument continues?
+The Solar Gravitational Lens and The Free Starship are the model. One gives the map. The other gives the vessel.
 
-**Building Coherence has a specific structural role in the canon: it provides human scale.** Without it, the argument runs from civilisation to infrastructure to mechanism, all above the level of a single life. Building Coherence anchors it at ground level. "A text file and a watch" does more for the canon's credibility than any technical appendix, because it proves the author inhabits the same world the canon describes. New essays benefit from a Building Coherence equivalent — a moment where the civilisational argument comes down to one person trying to think clearly on a Tuesday morning.
+Before publishing, ask:
 
----
+1. Does the essay use the access frame?
+2. Does it name its mechanism?
+3. Does it connect to a prior essay where the argument continues?
+4. Does it add a new tool, threshold, or inversion to the canon?
 
-### The manifesto trap
-
-Create an Age of Wonders operates in the manifesto register. This is the correct register for an entry point. But the manifesto register is also the most conventional — it is how most adjacent writing in the abundant-future genre sounds.
-
-When in doubt, move from manifesto toward mechanism. The more specific the mechanism, the less the essay resembles other writing. "Abundance is possible" is a manifesto sentence. "Solar costs have fallen 90% in a decade; the infrastructure constraint is now political, not physical" is a mechanism sentence. The second is harder to dismiss and harder to replicate.
-
-A related failure: the mythic register doing work to cover gaps in the argument rather than illuminate it. The Free Starship has moments where the prose is reaching further than the underlying claim is ready to support. In the other essays, the poetic and technical meanings converge on the same sentence. When they diverge — when the lyrical register is more confident than the argument beneath it — the fix is argumentative, not tonal. Close the gap in the mechanism and the prose finds its level.
+If it only repeats the worldview, it is not ready.
 
 ---
 
 ### The Model: What Perceptual Abundance Does
 
-Perceptual Abundance is the prose benchmark for this body of work. Its defining characteristics:
+Perceptual Abundance is the clarity benchmark.
 
-- **Short declarative sentences.** One idea per sentence. Subject, verb, object. Done.
-- **One idea per paragraph.** A paragraph makes a single move. If it's making two moves, split it.
-- **No hedges.** The essay does not say "seems to" or "might be" or "in significant part." It asserts.
-- **Strong section closings.** Every section ends on a line that lands without needing explanation.
-- **The reader is trusted.** No hand-holding, no recaps, no "as we've seen."
+Its defining traits:
+
+- **Graduate concept. Elementary syntax.** The subject matter is advanced. The sentence structure is simple.
+- **Short declarative sentences.** One idea. One sentence. Stop.
+- **One movement per paragraph.** If the paragraph makes two moves, split it.
+- **Few hedges.** The essay asserts what the evidence supports.
+- **Strong section closings.** Each section ends with a line that lands.
+- **Sensory conversion.** Instruments become senses: we saw, felt, photographed, measured, kept.
+- **Scale compression.** A grain of sand holds thousands of galaxies. A flower petal holds a material lighter than air.
+- **Reader trust.** The essay does not recap what the reader can infer.
+
+The lesson is not to make every essay sound like Perceptual Abundance.
+
+The lesson is to make every essay that clear.
 
 ---
 
+### The Model: What Create an Age of Wonders Does
+
+Create an Age of Wonders is the manifesto benchmark.
+
+Its defining traits:
+
+- **Grand claims grounded quickly.** Every large claim is followed by a tool, number, example, or mechanism.
+- **Catalogues with purpose.** AI, quantum computing, biotech, solar, fusion, aerogels, levitation, relativity, black holes. Each expands the boundary of the possible.
+- **Access pivots.** The resource exists. The bottleneck is capture, conversion, distribution, cost, or infrastructure.
+- **Moral infrastructure.** The moral argument comes after the physical constraint.
+- **Agency after awe.** The essay enlarges the world, then returns responsibility to the reader.
+
+The manifesto mode fails when it becomes aspiration.
+
+It succeeds when it says:
+
+This is real. This is measured. This is waiting for someone with vision and will.
+
+---
+
+## Prose Principles
+
 ### Principle 1: Lead with the positive assertion
 
-The most common prose weakness in this canon: **negative framing before the real claim**.
+The most common weakness is negative framing before the real claim.
 
-> ❌ "The slot hierarchy is not a forecast. It is the current state of the world."  
+> ❌ "The slot hierarchy is not a forecast. It is the current state of the world."
+>
 > ✅ "The slot hierarchy is already in motion."
 
-> ❌ "That mistake is not an indictment of AI. It is the recurring error of every infrastructure cycle..."  
-> ✅ "That mistake is the recurring error of every infrastructure cycle..."
+> ❌ "That mistake is not an indictment of AI. It is the recurring error of every infrastructure cycle."
+>
+> ✅ "That mistake is the recurring error of every infrastructure cycle."
 
-> ❌ "An intelligence layer is not a product. It is a property of the substrate."  
+> ❌ "An intelligence layer is not a product. It is a property of the substrate."
+>
 > ✅ "An intelligence layer is a property of the substrate."
 
-**Rule:** Every "X is not Y. It is Z." sentence should be tested as "X is Z." If the Z form stands, cut the preamble. The defensive setup drains authority from the assertion it's defending.
+Every "X is not Y. It is Z." sentence should be tested as "X is Z."
 
-The exception: when the contrast is the point and earns its own line — "A bridge delayed by two years is still a bridge. A GPU delayed by two years has crossed an architectural boundary." Here both halves are necessary. The test: does the negation add information, or just protect the claim?
+If the positive version stands, cut the defensive setup.
+
+Keep the contrast only when the contrast is the information.
+
+> ✅ "A bridge delayed by two years is still a bridge. A GPU delayed by two years has crossed an architectural boundary."
+
+Both halves matter there. The contrast carries the claim.
 
 ---
 
 ### Principle 2: Split compound sentences at natural beats
 
-When a sentence joins two independent thoughts with "and" or a comma, ask whether they're stronger apart.
+When a sentence joins two independent thoughts, test the split.
 
-> ❌ "Compute is in the middle of that transition right now, and intelligence is following it."  
+> ❌ "Compute is in the middle of that transition right now, and intelligence is following it."
+>
 > ✅ "Compute is in the middle of that transition right now. Intelligence is following it."
 
-> ❌ "The bounded engineered system outperforms the raw neural network. That is the shape of plateau intelligence and the preview of how agentic workflows will mature across the economy."  
+> ❌ "The bounded engineered system outperforms the raw neural network. That is the shape of plateau intelligence and the preview of how agentic workflows will mature across the economy."
+>
 > ✅ "The bounded engineered system outperforms the raw neural network. That is the shape of plateau intelligence."
 
-The closing sentence carries the most weight in any paragraph. Don't dilute it with trailing commentary. When the line lands, stop.
+The closing sentence carries the most weight.
+
+Do not dilute it with trailing commentary.
+
+When the line lands, stop.
 
 ---
 
-### Principle 3: Break prose walls — especially data paragraphs
+### Principle 3: Break prose walls, especially data paragraphs
 
-A paragraph over 100 words with no natural hinge is a wall. Find the logical joint and split.
+A paragraph over 100 words is usually a wall.
 
-**Data paragraphs need their own structure.** When presenting figures on multiple comparable subjects (three labs, four projects, five generations), give each subject its own paragraph.
+Find the hinge. Split it.
 
-> ❌ One 150-word paragraph with OpenAI, xAI, and Anthropic financials concatenated together.  
-> ✅ "The Q1 2026 financials make the asymmetry impossible to miss." [paragraph break] OpenAI paragraph. [break] xAI paragraph. [break] Anthropic paragraph. [break] Conclusion sentence.
+Data paragraphs need extra structure. When presenting several comparable subjects, give each subject its own paragraph.
 
-The conclusion sentence then stands alone and hits harder precisely because the evidence preceded it clearly.
+> ❌ One 150-word paragraph covering OpenAI, xAI, and Anthropic financials.
+>
+> ✅ One setup sentence. One OpenAI paragraph. One xAI paragraph. One Anthropic paragraph. One conclusion.
+
+The conclusion lands harder because the evidence is ordered.
 
 ---
 
-### Principle 4: Section openers state the rule, not the mechanism
+### Principle 4: Section openers state the rule or stage the moment
 
-The first sentence of a section should stake a claim. Not describe the process — claim it.
+The first sentence of a section should make a claim or create contact.
 
-> ❌ "The hyperscaler preference stack does the rest of the work."  
+> ❌ "The hyperscaler preference stack does the rest of the work."
+>
 > ✅ "Premium power goes to premium silicon."
 
-> ❌ "The mechanism by which the reset propagates..."  
+> ❌ "The mechanism by which the reset propagates..."
+>
 > ✅ "The important event is migration."
 
-The section body explains and evidences the claim. The opener makes it.
+> ✅ "In April 2019, we made the Earth itself into a telescope."
+
+A section opener does not need to explain. It needs to open the door.
 
 ---
 
-### Principle 5: Cut hedges entirely — don't soften them
+### Principle 5: Cut hedges entirely
 
-Hedges weaken assertions without adding accuracy. The instinct is to soften a bold claim; the effect is to undermine it.
+Hedges weaken claims without adding precision.
 
-Phrases to delete on sight:
-- "in significant part" / "in large part" → delete or assert fully
-- "somewhat" / "relatively" / "fairly" → delete
-- "it is worth noting" / "notably" → delete; the fact speaks for itself
-- "also already" → pick one; "already" is usually enough
-- "in many ways" / "in some sense" → delete
+Delete on sight:
 
-> ❌ "What has been priced as a vertical demand curve for compute is, in significant part, a vertical demand curve for optionality."  
+- "in significant part"
+- "in large part"
+- "somewhat"
+- "relatively"
+- "fairly"
+- "it is worth noting"
+- "notably"
+- "in many ways"
+- "in some sense"
+- "may well"
+- "arguably"
+
+> ❌ "What has been priced as a vertical demand curve for compute is, in significant part, a vertical demand curve for optionality."
+>
 > ✅ "What has been priced as a vertical demand curve for compute is a vertical demand curve for optionality."
 
-If the claim feels too bold without the hedge, the issue is the claim, not the hedge. Either commit or cut.
+If the sentence feels too strong without the hedge, the claim is not ready.
+
+Revise the claim. Do not hide behind the hedge.
 
 ---
 
 ### Principle 6: Keep anaphora rhythmically consistent
 
-Parallel structures ("Each one cheap. Each one bounded. Each one verifiable.") create momentum. That momentum breaks if the last item is longer than the others.
+Parallel structures create momentum.
 
-> ❌ "Each one cheap. Each one bounded. Each one verifiable. Each one operating on a substrate of compute that, at the margin, costs almost nothing."  
+They break when one item is much longer than the others.
+
+> ❌ "Each one cheap. Each one bounded. Each one verifiable. Each one operating on a substrate of compute that, at the margin, costs almost nothing."
+>
 > ✅ "Each one cheap. Each one bounded. Each one verifiable. Each one running on a substrate that, at the margin, costs almost nothing."
 
-When writing a list in anaphora: read it aloud. If one item takes longer to say than the others, trim it to match the beat.
+Read anaphora aloud.
+
+If one item takes longer to say, trim it or move it out of the sequence.
 
 ---
 
 ### Principle 7: Section closers land without explanation
 
-The last sentence of a section is the one readers carry with them. Write it as a statement that needs nothing after it.
+The last sentence of a section is the line the reader carries.
 
-Strong closers from this canon:
-- "Liquidation makes headlines. Redistribution is what changes the world."
-- "The first buyer takes the loss. The second buyer takes the asset."
+Strong closers from the canon:
+
+- "LIGO detected it."
+- "Something evolution never equipped us to perceive."
+- "The deep past became retrievable."
+- "We didn't just find the universe. We kept it."
 - "Hardware depreciates. Algorithms compound."
 - "The frontier is the laboratory. The plateau is the economy."
-- "The arrival is what mattered."
+- "The Age of Wonders is something we can create, today."
+- "Courage is."
 
-What makes them work: they are complete, they do not hedge, they do not explain themselves, and they trust the reader to have followed the argument. The moment you add "which shows that..." or "this is why..." after a strong closing line, you've killed it.
+A closer should not explain itself.
+
+Do not add:
+
+- "which shows that..."
+- "this is why..."
+- "as we have seen..."
+- "in the next section..."
+
+The section has done the work. The closer names the arrival.
 
 ---
 
-### Principle 8: DataInsight components crystallise, not paraphrase
+### Principle 8: DataInsight components crystallise
 
-The `<DataInsight>` component has two fields: insight and context. Both should be **more specific than the surrounding prose**, not less.
+`<DataInsight>` has two fields: `insight` and `context`.
 
-> ❌ insight="A GPU goes out of fashion quickly." context="Time changes how we value it."  
-> ✅ insight="A GPU delayed by two years has crossed an architectural boundary." context="A bridge delayed by two years is still a bridge."
+Both should be sharper than the prose around them.
 
-The component should be the sharpest version of the idea — the sentence a reader would screenshot. If it's vaguer than the body text, it's not doing its job.
+> ❌ `insight="A GPU goes out of fashion quickly." context="Time changes how we value it."`
+>
+> ✅ `insight="A GPU delayed by two years has crossed an architectural boundary." context="A bridge delayed by two years is still a bridge."`
+
+The component should hold the sentence a reader would screenshot.
+
+If it is vaguer than the body text, remove it or rewrite it.
 
 ---
 
-### Principle 9: Subject consistency within sentences
+### Principle 9: Keep subjects consistent within sentences
 
-When a sentence implies a subject and then shifts mid-clause, the reader stumbles.
+A sentence that changes subject mid-clause makes the reader stumble.
 
-> ❌ "Run the same model on the older silicon and the run takes longer, costs more in energy..."  
+> ❌ "Run the same model on the older silicon and the run takes longer, costs more in energy..."
+>
 > ✅ "Running the same model on older silicon takes longer, costs more in energy..."
 
-The fix is usually: convert the imperative opener to a gerund, or introduce an explicit subject.
+The fix is usually simple:
+
+- make the implied subject explicit
+- convert an imperative into a gerund
+- split the sentence
+
+Clarity often comes from restoring the actor.
 
 ---
 
-### Principle 10: Trailing commentary dilutes closing sentences
+### Principle 10: Cut trailing commentary after a strong line
 
-After a strong close, resist the urge to add a "this means that..." clause.
+After a sentence lands, stop.
 
-> ❌ "The Stockfish architecture is what deployable AI already looks like — and a preview of how agentic workflows will mature across the economy."  
+> ❌ "The Stockfish architecture is what deployable AI already looks like, and a preview of how agentic workflows will mature across the economy."
+>
 > ✅ "The Stockfish architecture is what deployable AI already looks like."
 
-The body of the section already argued what it means. The close just needs to name it and stop.
+The body should carry the implications.
+
+The closing line should not carry luggage.
 
 ---
 
-### Principle 11: Replace em-dashes with full stops or commas
+### Principle 11: Replace em dashes with full stops or commas
 
-Em-dashes are the default connector for complex thoughts. They should be the exception, not the habit.
+Em dashes are useful. They are also addictive.
 
-**The test for every em-dash:**
-1. Could this be two sentences? → Make it two sentences.
-2. Is the second clause brief and subordinate? → Use a comma.
-3. Is the dash creating a parenthetical aside that interrupts? → Use commas around it, or cut it.
+Test every one:
 
-> ❌ "Compute is silicon in racks in halls connected to substations — the kind of infrastructure that takes years to permit."  
+1. Could this be two sentences? Use two sentences.
+2. Is the second clause brief and subordinate? Use a comma.
+3. Is it introducing a list? Use a colon.
+4. Is it a true reveal, interruption, or necessary parenthetical? Keep the dash.
+
+> ❌ "Compute is silicon in racks in halls connected to substations — the kind of infrastructure that takes years to permit."
+>
 > ✅ "Compute is silicon in racks in halls connected to substations. It takes years to permit."
 
-> ❌ "The distribution layer — verification, observability, permissions, rollback — is being built."  
-> ✅ "The distribution layer, including verification, observability, permissions, and rollback, is being built."  
-> ✅ Or restructure: "The distribution layer is being built: verification, observability, permissions, rollback."
-
-When em-dashes are acceptable:
-- **Appositive definitions** where the dash names something: "the NNUE evaluation — a small neural network — is wrapped inside search code." The aside is essential, not decorative.
-- **Name/concept reveal at end of clause**: "A vertical electromagnetic launcher, rooted in a mountain, reaching through the stratosphere — Meridian." The em-dash introduces the name at the moment of reveal, like a punchline. Converting to a comma or colon kills the beat.
-- **Parenthetical lists**: when the parenthetical itself contains a list, commas create ambiguity. "Every prior collapse in compute price — mainframe to minicomputer, minicomputer to PC, PC to cloud — has produced…" Use em-dashes here. Replacing them with commas makes the list unreadable.
-- **Sharp contrasts** where the dash creates a deliberate beat: "A bridge delayed by two years is still a bridge. A GPU delayed by two years — three generations behind." But test whether a full stop is still cleaner.
-
-**Colon as the preferred em-dash substitute when introducing a list or elaboration:**
-> ❌ "The distribution layer is being built — verification, observability, permissions, rollback."  
+> ❌ "The distribution layer — verification, observability, permissions, rollback — is being built."
+>
 > ✅ "The distribution layer is being built: verification, observability, permissions, rollback."
 
-The signal that an em-dash is hiding a structural problem: if removing it forces you to split the sentence, the sentence needed splitting.
+Keep em dashes for:
+
+- appositive definitions where commas would blur the sentence
+- name or concept reveals
+- parenthetical lists with internal commas
+- sharp rhythmic contrast
+
+The signal is structural.
+
+If removing the dash forces a split, the sentence probably needed splitting.
 
 ---
 
 ### Principle 12: Minimise compound and complex sentence structures
 
-Compound sentences (two independent clauses joined by a conjunction) and complex sentences (main clause + subordinate clause) are not wrong. But they accumulate, and accumulated complexity reads as effort.
+Compound and complex sentences are not wrong.
 
-**Compound sentences:** usually split at the conjunction.
+Accumulated complexity is the problem.
 
-> ❌ "The frontier labs will keep training larger models on the newest hardware, and the labs are correct to do this."  
+> ❌ "The frontier labs will keep training larger models on the newest hardware, and the labs are correct to do this."
+>
 > ✅ "The frontier labs will keep training larger models on the newest hardware. They are correct to do this."
 
-**Complex sentences with embedded subordinate clauses:** break into sequence.
-
-> ❌ "The mechanism by which the reset propagates may be quieter than the fibre crash, because hyperscaler balance sheets are larger than the telecom carriers' were, and internal cascading absorbs more of the inventory before it ever reaches an external market."  
+> ❌ "The mechanism by which the reset propagates may be quieter than the fibre crash, because hyperscaler balance sheets are larger than the telecom carriers' were, and internal cascading absorbs more of the inventory before it ever reaches an external market."
+>
 > ✅ "The reset may be quieter than the fibre crash. Hyperscaler balance sheets are larger than the telecom carriers' were. Internal cascading absorbs more inventory before it reaches an external market."
 
-**Relative clauses that can be separate sentences:** break them out.
+Long sentences are allowed when rhythm demands them.
 
-> ❌ "A frontier training run produces an input that must then be turned into intelligence the economy can apply."  
-> ✅ "A frontier training run produces an input. Turning that input into intelligence the economy can apply is the distribution problem."
-
-The goal is not to write like a telegram. Long sentences are sometimes exactly right — for rhythm, for listing, for effect. The goal is that every sentence's complexity is earned, not accidental.
+They should be earned, not accidental.
 
 ---
 
 ### Principle 13: Replace vague quantifiers with exact figures
 
-One of the defining strengths of this canon is the willingness to name the actual number. Vague quantifiers are a form of hedging.
+Vague scale weakens wonder.
 
-Replace on sight:
-- "many" → how many?
-- "large", "substantial", "significant" → what figure?
-- "heavy losses" → what operating margin?
-- "rapid growth" → what multiple?
-- "most" → what percentage?
+Exact scale creates it.
 
-> ❌ "OpenAI reported heavy losses and stalling user growth."  
+Replace:
+
+- "many" with a number
+- "large" with a figure
+- "substantial" with a figure
+- "significant" with a figure
+- "rapid" with a rate
+- "most" with a percentage
+
+> ❌ "OpenAI reported heavy losses and stalling user growth."
+>
 > ✅ "OpenAI reported a -122% operating margin. Weekly active users stalled at 905 million."
 
-> ❌ "Hyperscalers have issued substantial corporate debt."  
+> ❌ "Hyperscalers have issued substantial corporate debt."
+>
 > ✅ "Hyperscalers issued $121 billion in corporate bonds in 2025."
 
-When the exact figure is unknown, use a range or an order of magnitude — still more specific than an adjective. "Hundreds of millions" beats "many users." "Roughly $100 million" beats "a significant cost."
+When the exact number is unknown, use a range or an order of magnitude.
 
-The exception: when the quantity is genuinely unknowable and the vagueness is the point. "A thousand other narrow tasks" is intentional approximation; "significant adoption" is lazy quantification.
+"Roughly $100 million" is stronger than "significant cost".
 
 ---
 
 ### Principle 14: End sections with a close, not a bridge
 
-A common writing reflex: close a section by previewing the next one. "Having established that the backbone is overbuilt, we can now examine how compute migrates." This is hand-holding. It treats the reader as someone who might not follow without directions.
+Do not end a section by previewing the next one.
 
-The alternative: end with a definitive close and let the heading do the bridging work.
+> ❌ "The backbone is built. Now the question is how the cascade begins."
+>
+> ✅ "Liquidation makes headlines. Redistribution is what changes the world."
+>
+> [Next heading: **V. The Repricing Mechanism**]
 
-> ❌ "The backbone is built. Now the question is how the cascade begins."  
-> ✅ "Liquidation makes headlines. Redistribution is what changes the world."  
-> [heading: **V. The Repricing Mechanism**]
+The heading can bridge.
 
-The heading announces the next move. The previous section's final sentence just needs to land cleanly. Readers follow the argument; they don't need a tour guide between sections.
+The closer should land.
 
-The same principle applies within paragraphs. Don't close a paragraph by summarising what it just said ("This is why the timetable is wrong") when the paragraph already showed it. Trust the argument to have done its work.
+Readers do not need a tour guide between sections. They need momentum.
 
 ---
 
 ### Principle 15: Avoid rhetorical questions
 
-Rhetorical questions delay the answer. They are a form of hand-holding: "But what does this mean for deployment?" is a weaker version of just answering it.
+Rhetorical questions usually delay the answer.
 
-> ❌ "So what happens when the frontier hardware gets evicted? The cascade begins."  
+> ❌ "So what happens when frontier hardware gets evicted? The cascade begins."
+>
 > ✅ "The cascade begins when frontier hardware gets evicted."
 
-> ❌ "Why does coding dominate AI revenue? Because it already had the scaffolding."  
+> ❌ "Why does coding dominate AI revenue? Because it already had the scaffolding."
+>
 > ✅ "Coding dominates AI revenue because it already had the scaffolding."
 
-The one exception: a rhetorical question used for deliberate rhetorical effect in an intro or transition, where the pause itself is part of the rhythm. Use once per essay at most.
+Use a rhetorical question only when the pause is the effect.
+
+Once per essay is usually enough.
 
 ---
 
-### Principle 16: Name the actor — avoid passive voice
+### Principle 16: Name the actor
 
-Passive voice hides the actor. Often that hiding is the point: it lets a writer make a claim without committing to who did it.
+Passive voice hides agency.
 
-> ❌ "Level 4 was demonstrated around 2016."  
+> ❌ "Level 4 was demonstrated around 2016."
+>
 > ✅ "Google and Waymo demonstrated Level 4 around 2016."
 
-> ❌ "The expansion was collapsed by a mix of financing complexity and demand revisions."  
+> ❌ "The expansion was collapsed by a mix of financing complexity and demand revisions."
+>
 > ✅ "OpenAI revised its demand forecasts. The financing complexity did the rest."
 
-The test: can the actor be named? If yes, name them. The sentence becomes more specific, more accountable, and more alive.
+Name the actor when the actor matters.
 
-Passive is acceptable when the actor is genuinely unknown, genuinely irrelevant, or when the passive construction is the natural form (e.g. "the chip was manufactured by TSMC" in a context where TSMC is already established).
+Passive voice is fine when the actor is unknown, irrelevant, or naturally subordinate to the object.
 
 ---
 
 ### Principle 17: Cut filler intensifiers
 
-Intensifiers weaken the words they're attached to. They signal that the writer didn't trust the noun or verb to carry its own weight.
+Intensifiers usually weaken the words they modify.
 
-Delete on sight: "very", "really", "quite", "truly", "deeply", "highly", "quite simply", "extremely."
+Delete:
 
-> ❌ "A very scarce resource."  
+- very
+- really
+- quite
+- truly
+- deeply
+- highly
+- extremely
+- quite simply
+
+> ❌ "A very scarce resource."
+>
 > ✅ "A scarce resource."
 
-> ❌ "This is a truly counterintuitive result."  
+> ❌ "This is a truly counterintuitive result."
+>
 > ✅ "This is counterintuitive."
 
-> ❌ "The first AI capital cycle is quite clearly overbuilding."  
-> ✅ "The first AI capital cycle is overbuilding."
+If the sentence feels weak without the intensifier, replace the noun or verb.
 
-If the sentence feels weak without the intensifier, the issue is the noun or verb. Replace those, not by amplifying the modifier.
+Do not inflate the modifier.
 
 ---
 
 ### Principle 18: Fragment sentences are intentional
 
-Very short sentences — including fragments — are a deliberate rhetorical device in this canon. They create rhythm breaks and let a claim land alone.
+Fragments are allowed when they create a beat.
 
-> "Courage is the bottleneck."  
-> "Not before."  
-> "The magic is in the assembly."  
-> "A probe collects data and dies. Arcadia can live."
+> "The magic is in the assembly."
+>
+> "LIGO detected it."
+>
+> "Not before."
+>
+> "Courage is."
 
-Do not pad these to full sentences. Do not add subject-verb structure when a fragment is clearly working. The test: read it aloud. If the brevity creates a beat, it's right.
+Do not pad a working fragment into a full sentence.
 
-This also applies to single-sentence paragraphs. A short standalone paragraph is not an orphan; it is a rest beat. Merging it into the preceding paragraph destroys the pacing.
+A short standalone paragraph is not an orphan. It is a rest beat.
+
+Merging it into the previous paragraph destroys the rhythm.
 
 ---
 
-### Principle 19: Preserve register — different essays speak differently
+### Principle 19: Preserve register
 
-The corpus spans distinct registers:
-- **Personal narrative** (Building Coherence): present-tense vignettes, direct first-person, emotional specificity
-- **Technical exposition** (Bridge to Infinity, The Free Starship, The Solar Gravitational Lens): precise vocabulary, quantified claims, appendices
-- **Analytical** (Computational Abundance): argument-driven, data-anchored, formal reasoning with named mechanisms
-- **Visionary-accessible** (Create an Age of Wonders, Perceptual Abundance): declarative optimism, broad readership
+Different essays speak differently.
 
-Style principles apply *within* each register — they do not flatten all essays to the same voice. "Felt productive. Was actually self-soothing." is correct for Building Coherence. The same fragment pair would be wrong in a technical appendix. When editing, ask: what is the register of this essay? Then apply the principles within it.
+The canon has four main registers:
 
-The manifesto register (Create an Age of Wonders) carries the highest risk of sounding generic. The correction is always the same: replace a possibility claim with a mechanism claim. See the Argumentative Guide.
+- **Personal narrative:** embodied, direct, emotionally specific.
+- **Technical exposition:** precise, quantified, patient.
+- **Analytical:** mechanism-led, data-anchored, formally reasoned.
+- **Visionary-accessible:** declarative, physical, generous, broad.
+
+Apply the principles within the register.
+
+Do not flatten every essay into the same voice.
+
+Create an Age of Wonders carries the highest risk of generic language. The fix is always mechanism.
+
+Replace mood with matter.
 
 ---
 
 ### Principle 20: Concept capitalisation is deliberate
 
-When the canon treats an abstract word as a proper noun — "Abundance" in *Create an Age of Wonders*, "the Slot" in *Computational Abundance* — the capitalisation signals that the word is doing the work of a name. It marks the central concept of the essay, the thing the whole argument is oriented around.
+When the canon treats an abstract word as a named concept, capitalisation can be correct.
 
-Do not lowercase these automatically. The test: is this word acting as a concept name — something the essay defines and builds on — or as an ordinary adjective? If it is the concept, preserve the capital.
+Examples:
 
-Conversely, do not capitalise abstract nouns that are not doing this work. "Energy abundance" in a passing clause stays lowercase. "Abundance changes the equation" — where Abundance is the thesis — takes a capital.
+- **Abundance** in Create an Age of Wonders
+- **Slot** in Computational Abundance
+
+Capitalisation signals that the word is doing the work of a proper noun. It marks the concept the essay defines and builds around.
+
+Do not lowercase these automatically.
+
+But do not capitalise ordinary nouns.
+
+"Energy abundance" stays lowercase when it is descriptive.
+
+"Abundance changes the equation" can take a capital when Abundance is the thesis.
+
+The test:
+
+Is the word acting as a name?
+
+If yes, preserve it.
 
 ---
 
 ### Principle 21: One inversion at a time
 
-The engine of the canon's prose is the conceptual inversion — reversing a received assumption about scarcity, cost, distance, or possibility. The trap is compounding inversions. When two or three appear in the same paragraph, they cancel each other out: the reader cannot hold all the turns at once, and the momentum of each individual inversion dissipates.
+The canon runs on inversion.
 
-The rule: **one inversion per paragraph**. Earn the turn. Hold it long enough for it to register. Then move.
+Scarcity becomes access.
 
-This is why the handle sentences work — "The frontier is the laboratory. The plateau is the economy." "Reality stopped being inference. It became retrieval." Each is a single turn, presented alone, surrounded by enough room to land. Crowding the turn undermines it.
+Distance becomes supply.
 
-When reviewing a paragraph, count the inversions. If there are two, split the paragraph. If there are three, the argument has been compressed past the point of legibility — expand before condensing.
+Observation becomes retrieval.
+
+Intelligence becomes infrastructure.
+
+Waste becomes asset.
+
+Impossibility becomes engineering.
+
+Do not stack several inversions in one paragraph. The reader cannot hold them all.
+
+Give each turn room.
+
+> ✅ "Reality stopped being inference. It became retrieval."
+
+That works because it is one turn, alone.
+
+If a paragraph contains two inversions, split it.
+
+If it contains three, expand before condensing.
 
 ---
 
-### Principle 22: Connective tissue between aphorisms
+### Principle 22: Use connective tissue between aphorisms
 
-A sequence of strong sentences without connective tissue between them becomes a sequence of hammer blows. The reader stops receiving them as argument and starts receiving them as percussion. This is most visible in the manifesto and analytical pieces.
+Too many strong sentences in a row become percussion.
 
-The fix is not to remove the aphorisms. It is to write **movement sentences** around the best ones: sentences whose job is purely to carry the reader from the last landed thing to the next. They don't try to mean anything beyond "and from there—." They give the aphorism room to resonate before the next one arrives.
+Keep the best aphorisms. Add movement around them.
 
-A movement sentence is not padding. It is pacing. Pacing is what separates a list of strong sentences from an argument.
+Movement sentences carry the reader from one landed claim to the next.
 
-> Movement sentence: "That shift happened slowly, and then quickly, and then the question changed entirely."  
-> Movement sentence: "The infrastructure preceded the demand, as it always does."  
-> Movement sentence: "The mechanism is not new. Only the scale is."
+They do not need to dazzle.
 
-These sentences carry weight in proportion to what they're between. Placed before a strong aphorism, they create the beat the aphorism needs.
+Examples:
+
+> "The shift happened slowly, then quickly."
+
+> "The infrastructure arrived before the culture knew what to call it."
+
+> "The mechanism is not new. Only the scale is."
+
+A movement sentence is not padding.
+
+It is pacing.
 
 ---
 
 ### Principle 23: Spelling and hyphenation consistency
 
-This canon uses British conventions. Check:
-- "datacentre" (one word) — not "data-center" or "data centre"
-- "optimisations" / "organisation" / "recognised" — not American -ize forms
-- "aluminium" / "defence" / "licence" (noun)
-- No trailing spaces at end of paragraphs (these accumulate invisibly)
+Use British conventions.
+
+Check:
+
+- `datacentre`, not `data center`
+- `optimisation`, `organisation`, `recognised`
+- `aluminium`
+- `defence`
+- `licence` as noun, `license` as verb only when needed
+- `metre`, not `meter`
+
+Also check for trailing spaces. They accumulate invisibly.
 
 ---
 
-### Prose editing checklist before shipping
+### Principle 24: High conceptual density through elementary syntax
 
-Before any essay goes live, run through:
+Heavy concepts need simple syntax.
 
-1. **Scan for "not X, it is Y" constructions** — test each as "is Y" alone; also scan for "Y, not X" constructions — test each as "Y" alone. Exception: keep when the contrast IS the information (e.g. "architectural, not physical" where both terms carry distinct meaning). Default is to cut.
-2. **Find every sentence over 40 words** — check for natural split points
-3. **Find every paragraph over 80 words with data** — consider per-subject breaks
-4. **Read section openers** — do they stake a claim or describe a mechanism?
-5. **Read section closers** — do they land alone, or trail off with explanation?
-6. **Search for hedges:** "in significant part", "somewhat", "notably,", "also already", "is not a forecast", "in many ways"
-7. **Search for intensifiers:** "very", "really", "quite", "truly", "deeply", "quite simply"
-8. **Check anaphora lists** — read aloud; all items should take similar time to say
-9. **Check DataInsight fields** — are they sharper than the surrounding prose?
-10. **Check every em-dash** — could it be a full stop? A comma? If yes, change it
-11. **Check compound sentences** — every ", and" or ", but" between independent clauses is a candidate for a full stop
-12. **Replace vague quantifiers** — scan for "many", "large", "significant", "substantial", "rapid"; replace with figures
-13. **Check passive voice** — can the actor be named? If yes, name them
-14. **Check section-end sentences** — do any bridge to the next section? Cut the bridge, trust the heading
-15. **Check trailing spaces** — run a search for `" \n"` or `"  "` in the file
-16. **British spelling pass** — "datacentre", "-ise" endings, no stray Americanisms
-17. **Check concept capitalisation** — "Abundance", "Slot", etc.: are they capitalised where they function as a concept name? Are they not capitalised where they're just nouns?
-18. **Check fragment sentences** — are very short sentences or paragraphs intact? Don't pad them; they are beats
-19. **Register check** — is the prose consistent with the essay's register (personal narrative / technical / analytical / visionary)? Apply principles within the register, not against it
-20. **Mechanism check** — can you name the essay's access-change mechanism in one sentence? If not, the argument is unfinished
-21. **Access frame check** — what is abundant but inaccessible here? What is changing that? Both halves should be answerable
-22. **Essay opener check** — does the essay open with something that exists in the world (a place, moment, physical fact) before the thesis arrives? Or does it open with the thesis?
-23. **Falsifier check** — what observable, if different, would falsify the central claim? If there is none, it is a mood, not an argument
-24. **Inversion count per paragraph** — if a paragraph contains two or more conceptual inversions, split it
-25. **Vocabulary as earned vs handed** — for each canonical term (abundance, access, substrate, frontier), ask: did the reader arrive at this word through the argument, or was it handed to them? If handed, consider showing the concept and letting the term arrive later
-26. **Technical/mythic convergence check** — for lyrical sentences, ask: do the technical and mythic meanings converge on the same sentence? If the prose is reaching further than the argument, fix the argument
-27. **Connective tissue check** — read the three sentences before each aphorism. Is there a movement sentence? If every sentence in a section is trying to land, add a carrier sentence before the best one
+Do not make the sentence imitate the complexity of the idea.
+
+The harder the concept, the cleaner the sentence.
+
+> ❌ "By utilising an interferometer to track spatial distortions smaller than one ten-thousandth the width of a proton, LIGO successfully detected the binary black hole merger."
+>
+> ✅ "LIGO measured a distortion smaller than a proton. It detected the merger."
+
+> ❌ "When high-field diamagnetic levitation is amplified to sufficient Tesla output, counteracting the gravitational force on living tissue effectively renders gravity optional."
+>
+> ✅ "Amplify that field enough, and gravity becomes optional."
+
+The test:
+
+Could a ten-year-old parse the sentence structure on first reading?
+
+The idea can be advanced. The syntax should be clear.
+
+---
+
+### Principle 25: Use tactile anchors for impossible scale
+
+Astronomical and microscopic numbers need physical anchors.
+
+The reader cannot feel "13 billion years" or "0.16 milligrams per cubic centimetre" without help.
+
+Give the scale a body.
+
+Use:
+
+- a grain of sand
+- a flower petal
+- a gallon of seawater
+- a proton's width
+- a city block
+- a human lifetime
+- a map anyone can open
+
+> ❌ "Webb imaged a small patch of sky containing thousands of distant galaxies."
+>
+> ✅ "Hold a grain of sand at arm's length. That is the patch of sky. Inside it: thousands of galaxies."
+
+> ❌ "Graphene aerogel has extremely low density."
+>
+> ✅ "Graphene aerogel is frozen air with a carbon skeleton. You can balance it on a flower petal without bending the stem."
+
+Scale without touch is abstraction.
+
+Scale with touch becomes wonder.
+
+---
+
+### Principle 26: Build the moral bridge from infrastructure
+
+Do not jump from technology to virtue.
+
+Build the bridge.
+
+The movement is:
+
+1. Physical resource.
+2. Access constraint.
+3. Social pressure.
+4. Moral expansion.
+
+Weak:
+
+> "Energy abundance will make humanity better."
+
+Strong:
+
+> "When energy is scarce, every choice means sacrifice. When energy becomes cheap, whole categories of forced trade-off disappear."
+
+Best:
+
+> "Abundance does not guarantee good choices. It removes the false excuse that cruelty is necessary."
+
+The canon's moral claims work because they are downstream of physics.
+
+---
+
+### Principle 27: Use the pre-existence rule
+
+Do not frame the future as conjuring abundance from nothing.
+
+Frame it as gaining access to what was already there.
+
+Weak:
+
+> "Technology will create abundance."
+
+Strong:
+
+> "Abundance was already present. Technology changed our access to it."
+
+This produces humility.
+
+The universe is not waiting for humanity to become impressive. It is waiting for us to build the bridge.
+
+---
+
+### Principle 28: Erase the intermediary when the instrument can witness directly
+
+Bureaucratic prose weakens wonder.
+
+When the instrument is the point, let it meet reality directly.
+
+Weak:
+
+> "Scientists analysed data from interferometers that confirmed gravitational waves."
+
+Strong:
+
+> "LIGO detected it."
+
+Weak:
+
+> "Researchers used global radio observatories to produce an imaging model of a black hole."
+
+Strong:
+
+> "In April 2019, we made the Earth itself into a telescope."
+
+Use sensory verbs when the instrument earns them:
+
+- saw
+- felt
+- heard
+- photographed
+- measured
+- mapped
+- kept
+- retrieved
+
+Do not fake the sense. Earn it with the mechanism.
+
+---
+
+### Principle 29: First-time sentences create historical voltage
+
+Perceptual Abundance uses first-time sentences because it is about thresholds.
+
+Use them only when the threshold is real.
+
+> "This was the first time we saw Earth as a whole."
+
+> "This was the first time we felt gravitational waves."
+
+> "The result was the first photograph of a black hole."
+
+The test:
+
+Could the sentence sit on a museum wall?
+
+If yes, it may belong.
+
+If not, remove the false historicity.
+
+---
+
+### Principle 30: Agency must follow awe
+
+Do not leave the reader small.
+
+Awe opens the world. Agency brings the reader back into it.
+
+Create an Age of Wonders closes by returning responsibility to the builder.
+
+The movement is:
+
+1. The tools exist.
+2. The facts are real.
+3. The infrastructure is buildable.
+4. Permission is unnecessary.
+5. Courage is the bottleneck.
+
+Never end only in wonder.
+
+End with the work.
+
+---
+
+## Prose editing checklist before shipping
+
+Before any essay goes live, run this pass.
+
+1. **Mechanism check:** Can the essay's access-change mechanism be named in one sentence?
+2. **Access check:** What is abundant but inaccessible? What changes access?
+3. **Falsifier check:** What observable would weaken or falsify the claim?
+4. **Opening check:** Does the essay open with something real before the thesis arrives?
+5. **Positive assertion check:** Search for "not X, it is Y" and test "X is Y".
+6. **Sentence length check:** Split sentences over 40 words unless the rhythm earns them.
+7. **Paragraph wall check:** Split paragraphs over 100 words, especially data paragraphs.
+8. **Section opener check:** Does each section open with a rule, moment, or claim?
+9. **Section closer check:** Does each section end with a line that lands?
+10. **Bridge removal:** Cut section endings that preview the next section.
+11. **Hedge purge:** Remove "somewhat", "relatively", "notably", "in significant part", "in many ways", "arguably".
+12. **Intensifier purge:** Remove "very", "really", "quite", "truly", "deeply", "highly", "extremely".
+13. **Em dash check:** Replace with full stops, commas, or colons unless the dash is structural.
+14. **Compound sentence check:** Test every ", and" and ", but" between independent clauses.
+15. **Passive voice check:** Name the actor when the actor matters.
+16. **Vague quantity check:** Replace "many", "large", "substantial", "significant", "rapid", "most" with figures or ranges.
+17. **Anaphora check:** Read parallel lists aloud. Trim the item that breaks the beat.
+18. **Aphorism spacing:** Add movement sentences around strong lines if the section becomes percussion.
+19. **Inversion count:** One conceptual inversion per paragraph.
+20. **Canonical vocabulary check:** Are words like abundance, access, substrate, frontier, and infrastructure earned?
+21. **Concept capitalisation check:** Preserve capitals only when the word acts as a named concept.
+22. **Register check:** Is the piece personal, technical, analytical, or visionary-accessible?
+23. **Scale anchor check:** Does every impossible scale have a tactile anchor?
+24. **Moral bridge check:** Does the moral claim follow from physical constraint and infrastructure?
+25. **Sensory verb check:** Do instruments witness directly where the mechanism supports it?
+26. **DataInsight check:** Is every component sharper than the prose around it?
+27. **Image and caption check:** Does the visual advance the argument, not just decorate it?
+28. **Semicolon purge:** Replace semicolons with full stops unless the sentence truly needs one.
+29. **Transitional adverb purge:** Replace "However", "Furthermore", "Consequently", and "Therefore" with "But", "And", "So", or a direct assertion.
+30. **British spelling pass:** Check metre, organisation, optimisation, defence, aluminium, and datacentre.
+31. **Whitespace pass:** Remove trailing spaces.
+32. **Read-aloud pass:** Mark every stumble. A stumble usually means a fused sentence, early abstraction, or broken rhythm.
+33. **Title circuit:** Read the title, subtitle, and final sentence together. They should form a circuit.
 
 ---
 
 ### Component usage
 
-- `<Callout type="highlight">` — example outputs, quotes, rule summaries
-- `<Callout type="info">` — definitions, lists, structured reference information
-- `<DataInsight>` — metrics or contrasts; must be sharper than body prose
-- `<PullQuote>` — the one line per section a reader would quote; place at the climax, not the setup
-- `<SummaryBox>` — actionable takeaways at the end of long essays
+- `<Callout type="highlight">` — examples, quotes, rule summaries, and major conceptual handles.
+- `<Callout type="info">` — definitions, structured reference material, and compact lists.
+- `<DataInsight>` — metrics, contrasts, scale inversions, and screenshot-worthy claims.
+- `<PullQuote>` — the one line per section a reader would quote. Place it at the climax, not the setup.
+- `<SummaryBox>` — actionable takeaways at the end of long essays.
+
+Components are not decoration.
+
+They are crystallisation.
+
+If a component is weaker than the prose around it, rewrite it or remove it.
 
 ## Recent Fixes Applied
 
-1. **Date Schema Fix:** Changed date field from `z.string()` to `z.coerce.date()` in content config to properly handle date parsing
-2. **Date Sorting:** Updated all date sorting to use `.getTime()` for proper Date object comparison
-3. **Date Display:** Added proper date formatting using `toLocaleDateString()` in essay pages
-4. **Dynamic Routes:** Fixed `[...slug].astro` to use `getEntry()` with proper `getStaticPaths()` export
-5. **RSS Feed:** Updated to pass Date objects directly to `pubDate` (no need for `new Date()` conversion)
-6. **Essays Page Sort:** Added server-side sort to match default client-side "newest first" option, preventing content flash on page load
-7. **Sort Preference Persistence:** Added localStorage to persist essay sort preference across cached navigation (ViewTransitions re-run scripts, so state must be stored externally)
-8. **ViewTransitions Script Fix:** Refactored essays sorting to use `astro:page-load` event instead of `define:vars`, ensuring scripts reinitialize on every navigation
-9. **Service Worker Cache Strategy:** Changed from pure stale-while-revalidate to smart routing: network-first for HTML (fresh content), cache-first for assets (instant feel). Bumped to v3.
-10. **Stale-While-Revalidate Everywhere:** Simplified SW to use stale-while-revalidate for all requests. Cached pages load instantly (~5-10ms), background fetch updates cache for next visit. Perfect for static essay site. Bumped to v5.
-11. **Creative Works Cards Refinement:** Replaced sharp borders/hover effects with smooth multi-stop gradients (`rgba(245,245,245,0.8) → rgba(250,250,250,0.3) 35% → transparent 60%`), soft border-radius on all corners, and gentle blue tint on hover.
-12. **Essays Sort Dropdown:** Restyled from default browser select to elegant pill-shaped control with Cormorant Garamond, centered text, and subtle hover states.
-13. **Subscribe Page Simplification:** Stripped to essentials (headline, one-line intro, form) after multiple iterations showed extra elements created more problems than they solved.
-14. **Homepage Intro Refinement:** Removed bold tags, toned down warm accent to gray border, found middle-ground sizing (25px/23px) that's prominent without being loud. Words carry themselves.
-15. **Custom Form Validation:** Replaced harsh browser validation tooltips with soft, on-brand error states using `novalidate` and custom JavaScript.
-16. **Share Component Restyle:** Converted boxy buttons with brand-colored hovers to pill-shaped buttons with uniform subtle gray hovers.
-17. **Hover State Consistency:** Increased hover contrast across all interactive elements (#f8f8f8 → #eee) so feedback is visible.
-18. **Sort Dropdown Styling:** Essays sort uses smaller pill (14px font, 7px padding) with `appearance: none` to hide native arrow — the pill shape provides sufficient affordance.
-19. **CSS Specificity Fix:** Moved inline styles to stylesheet for essay CTA button so hover pseudo-class could work.
-20. **Essays Page Double Line Fix:** Removed border-bottom from last essay item to prevent double line with footer's border-top.
-21. **Dropdown Arrow Removal:** Custom SVG arrows on select elements felt jarring — cleaner to use `appearance: none` with no arrow at all. The pill shape itself signals interactivity.
-22. **Text Centering in Pills:** Use `text-align: center` for select elements to center text within the pill, especially important when option text varies in length.
-23. **Page Spacing Balance:** Top and bottom spacing should feel symmetrical. On essays page: header margin-bottom (56px) balances with last item padding-bottom (16px) + footer margin-top (80px).
-24. **Background Property Gotcha:** `background` is a shorthand — setting `background-color` on hover overrides `background-image`. Use separate properties (`background-color`, `background-image`, `background-position`) when you need hover to change only one aspect.
+1. **Date Schema Fix:** Changed the date field from `z.string()` to `z.coerce.date()` in the content config. Dates now parse correctly.
+2. **Date Sorting:** Updated date sorting to use `.getTime()` for proper Date object comparison.
+3. **Date Display:** Added proper formatting with `toLocaleDateString()` in essay pages.
+4. **Dynamic Routes:** Fixed `[...slug].astro` to use `getEntry()` with a proper `getStaticPaths()` export.
+5. **RSS Feed:** Updated RSS generation to pass Date objects directly to `pubDate`.
+6. **Essays Page Sort:** Added server-side sorting to match the default client-side "newest first" option. This prevents content flash.
+7. **Sort Preference Persistence:** Added `localStorage` so essay sort preference survives cached navigation.
+8. **ViewTransitions Script Fix:** Refactored essay sorting to use `astro:page-load` instead of `define:vars`. Scripts now reinitialise on every navigation.
+9. **Service Worker Cache Strategy:** Changed from pure stale-while-revalidate to smart routing: network-first for HTML, cache-first for assets. Bumped to v3.
+10. **Stale-While-Revalidate Everywhere:** Simplified the service worker to stale-while-revalidate for all requests. Cached pages load instantly. Background fetch updates the cache for the next visit. Bumped to v5.
+11. **Creative Works Cards Refinement:** Replaced sharp borders and heavy hover effects with smooth multi-stop gradients, soft radius, and a gentle blue hover tint.
+12. **Essays Sort Dropdown:** Restyled the native select into an elegant pill with Cormorant Garamond, centred text, and subtle hover states.
+13. **Subscribe Page Simplification:** Reduced the page to the essentials: headline, one-line intro, form.
+14. **Homepage Intro Refinement:** Removed bold tags, toned the accent to grey, and settled on a prominent but restrained size.
+15. **Custom Form Validation:** Replaced browser validation bubbles with soft custom error states using `novalidate` and JavaScript.
+16. **Share Component Restyle:** Converted boxy buttons with brand-coloured hovers into pill buttons with uniform grey hover states.
+17. **Hover State Consistency:** Increased hover contrast across interactive elements so feedback is visible.
+18. **Sort Dropdown Styling:** Essays sort uses a smaller pill with `appearance: none`. The pill shape supplies the affordance.
+19. **CSS Specificity Fix:** Moved inline styles into the stylesheet for the essay CTA button so hover states could work.
+20. **Essays Page Double Line Fix:** Removed the final item border to prevent a double line against the footer.
+21. **Dropdown Arrow Removal:** Removed custom SVG arrows from selects. The pill is cleaner without them.
+22. **Text Centring in Pills:** Added `text-align: center` for select elements so variable option text stays balanced.
+23. **Page Spacing Balance:** Tuned top and bottom spacing on the essays page so header, list, and footer feel symmetrical.
+24. **Background Property Gotcha:** `background` is shorthand. Use separate `background-color`, `background-image`, and `background-position` when hover should change only one part.
 
 ## Social Media & Distribution
 
@@ -775,66 +1395,70 @@ Before any essay goes live, run through:
 
 **Command:** "Run the daily social loop"
 
-This command executes the daily engagement workflow:
+This runs the daily engagement workflow.
 
-1. **Select content** from `private/content/one-liners.md` (1-2 unused items)
-2. **Post value tweets** via Typefully (social set 277101)
-   - No links in daily posts — pure insight
-   - Mark posted items as `[x]` in one-liners.md
-3. **Suggest reply targets** — scan for relevant conversations to engage with
-4. **Log everything** to `private/content/posting-log.md`
+1. **Select content** from `private/content/one-liners.md`.
+   - Choose one or two unused items.
+2. **Post value tweets** through Typefully.
+   - Social set: `277101`
+   - X account: `@BJeremijenko`
+   - No links in daily posts.
+   - Pure insight.
+   - Mark posted items as `[x]` in `one-liners.md`.
+3. **Suggest reply targets.**
+   - Look for relevant conversations worth joining.
+4. **Log everything** in `private/content/posting-log.md`.
 
 ### Essay Launch Protocol
 
 **Command:** "Launch [essay name]"
 
-1. **Newsletter** (Buttondown): Subject + hook + key points + link
-2. **X launch post**: Single substantive post with arrows/bullets, link at end (not a thread)
-3. **LinkedIn launch post**: Longer narrative version with more context, link at end
-4. **Daily value posts**: 5-7 posts extracted from essay for the week
-   - X: Mix of punchy one-liners and structured posts with arrows
-   - LinkedIn: Longer versions with professional framing and context
-   - Create as separate Typefully drafts, some "Both" with platform-specific content
-5. **Update tracker** with links
-
-**Social content style (from prior posts):**
-- X uses `→` arrows for lists, single substantive posts (not threads for daily content)
-- LinkedIn expands on X versions with more narrative and professional context
-- Avoid "thread" format for daily content — save threads for deep dives
-- Reference prior Typefully posts for tone calibration
+1. **Newsletter:** Buttondown subject, hook, key points, and link.
+2. **X launch post:** One substantive post. Use arrows or bullets where useful. Put the link at the end. Do not make a thread by default.
+3. **LinkedIn launch post:** Longer narrative version with more context. Link at the end.
+4. **Daily value posts:** Create five to seven posts extracted from the essay for the following week.
+   - X: punchy one-liners and structured posts.
+   - LinkedIn: longer versions with professional framing.
+   - Create separate Typefully drafts.
+   - Use platform-specific content where needed.
+5. **Update tracker** with draft links and posting links.
 
 ### Content Structure
 
-```
+```text
 private/
-├── .env                    # API keys (Typefully, Buttondown)
+├── .env                    # API keys: Typefully, Buttondown
 ├── social-strategy.md      # Full strategy documentation
 └── content/
-    ├── one-liners.md       # Content bank (checkbox = posted)
-    └── posting-log.md      # What was posted, engagement metrics
+    ├── one-liners.md       # Content bank. Checkbox means posted.
+    └── posting-log.md      # Posts, dates, and engagement metrics.
 ```
 
 ### API Access
 
-**Typefully** (X, LinkedIn when connected):
-- Social set 277101: @BJeremijenko (X)
-- Creates drafts, schedules, publishes
-- Use `publish_at: "now"` for immediate posting
+**Typefully**
 
-**Buttondown** (Newsletter):
-- API key in `private/.env`
-- Create as draft, then set `status: "about_to_send"`
+- Used for X and LinkedIn when connected.
+- Social set `277101`: `@BJeremijenko` on X.
+- Creates drafts, schedules posts, and publishes.
+- Use `publish_at: "now"` for immediate posting.
+
+**Buttondown**
+
+- API key lives in `private/.env`.
+- Create the email as a draft first.
+- Set `status: "about_to_send"` only when ready.
 
 ### Engagement Philosophy
 
-- **Links get derated** — algorithms penalise off-platform links
-- **Value-first posting** — build authority through insight, not asks
-- **Premium reply boost** — quality replies get algorithmic lift
-- **Consistency > virality** — daily presence compounds
+- **Links get derated.** Platforms penalise off-platform links.
+- **Value-first posting compounds.** Build authority through insight before asking for attention.
+- **Premium replies get lift.** Strong replies can outperform standalone posts.
+- **Consistency beats virality.** Daily presence compounds.
 
 ### Open Technical Items
 
-- [ ] Create `public/og-default.png` for social sharing previews
-- [ ] Add per-essay OG images
-- [ ] Reconnect LinkedIn to Typefully social set 277101
-- [ ] Configure Buttondown favicon in dashboard
+- [ ] Create `public/og-default.png` for social sharing previews.
+- [ ] Add per-essay OG images.
+- [ ] Reconnect LinkedIn to Typefully social set `277101`.
+- [ ] Configure Buttondown favicon in the dashboard.
