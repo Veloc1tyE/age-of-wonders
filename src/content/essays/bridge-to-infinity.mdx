@@ -80,11 +80,11 @@ The architecture has three elements.
 
 <Callout type="info">
 
-**The tunnel.** An evacuated electromagnetic acceleration track, roughly 30 km long, bored through mountain bedrock. Cargo and human flights use the same bore: the same coils, the same vacuum, the same mountain. The difference is the acceleration program. Human flights accelerate at 3 g through a ~12 km linear section to ~850 m/s, then navigate a ~18 km curvilinear transition toward vertical where centripetal forces build from three g to seven at the tightest arc, about twenty seconds of roller-coaster geometry. In the curve, the coils maintain velocity against gravity only. Cargo runs the same tunnel harder: 20+ g sustained, accelerating through both the linear and curvilinear sections, reaching up to 3 km/s at the summit. The curve that gives humans a roller-coaster gives cargo 30–50 g centripetal. The vehicle rides inside a cylindrical electromagnetic cradle that distributes centripetal force omnidirectionally around the hull — uniform compression, like hydrostatic pressure, not a point load on a chassis. Composite shells handle that geometry easily. The mountain absorbs the bending moment. The cradle distributes the pressure. The vehicle just absorbs a uniform squeeze. One tunnel. Two programs.
+**The tunnel.** An evacuated electromagnetic track, roughly 30 km long, bored through mountain bedrock. Cargo and human flights share the same bore; only the acceleration program differs — a gentle 3 g climb for people, 20+ g for cargo. The vehicle rides in a cradle that spreads the load around the hull, so the mountain takes the bending moment and the hull feels only a uniform squeeze (Appendix E). One tunnel. Two programs.
 
-**The terminal.** A near-vertical pylon extending 10–15 km above a high-altitude summit, a tension-stabilised mast of carbon nanotube composite held rigid by guy cables anchored into bedrock. CNT-class materials are strongest in tension, with demonstrated macro-scale fibres reaching 4–14 GPa.<sup><a href="#ref-4">[4]</a></sup> The pylon contains no accelerating coils. By the time the payload reaches the summit, it is already at exit velocity and simply coasts through the evacuated tube. The pylon carries only its own weight, vacuum containment, and wind loading. The mountain carries compression. The cables carry tension.
+**The terminal.** A near-vertical pylon rising 10–15 km above a high-altitude summit: a tension-stabilised carbon-nanotube mast held rigid by guy cables anchored in bedrock.<sup><a href="#ref-4">[4]</a></sup> It carries no coils. The payload reaches exit velocity below and coasts through. The mountain carries compression. The cables carry tension.
 
-**The exit.** Cargo leaves the terminal at roughly 3 km/s, aimed nearly vertically, from a typical altitude of 20 km. The exit altitude is deliberately moderate: high enough to clear the densest atmosphere, low enough that the residual air is still a resource. At 3 km/s, seven percent of sea-level density gives a lifting body enormous aerodynamic authority. The cargo vehicle banks aggressively, harvesting ~500 m/s of free delta-v at 20 g peak for under three seconds (Appendix C2). Because velocity components add in quadrature, converting 500 m/s of surplus vertical into horizontal costs only 42 m/s of apogee — a 1.4% tax on energy that was going to be wasted anyway. Human flights exit at ~700 m/s, space-plane speed. At that velocity, exit dynamic pressure is ~22 kPa, gentler than a rocket's Max Q. The lifting body banks at full authority, ~100 m/s of free delta-v at about one g, and the engine takes over for a long, efficient burn in near-vacuum. The pylon, the exit geometry, the altitude are identical. The systems diverge in tunnel velocity and bank program. Same bridge, different software.
+**The exit.** Cargo leaves at roughly 3 km/s, human flights at ~700 m/s, aimed nearly vertically from about 20 km — high enough to clear the densest air, low enough that the thin remaining air is still a resource. The lifting body banks, harvesting up to ~500 m/s of free horizontal velocity at almost no cost in altitude (Appendix C2). At 700 m/s the exit pressure is gentler than a rocket's Max Q. Same bridge, different software.
 </Callout>
 
 Meridian solves atmosphere, not orbit.
@@ -117,23 +117,15 @@ Hydrolox at 465 s is 28% better than the best vacuum methalox. That 28% hits the
 
 Hydrogen is bulky. That bulk is an asset. Halcyon needs a large planform for the aerodynamic bank and for runway landing. Hydrogen fills that planform with useful propellant instead of dead structure. The tanks *are* the wing. The same planform that earns the free turn holds the fuel that powers the burn.
 
-The propellant savings cascade. For 100 tonnes of post-burn mass (payload + dry vehicle) delivered to low Earth orbit (so 90 t net payload, 10 t vehicle structure):
+The propellant savings cascade. For 100 tonnes delivered to low Earth orbit, the launcher-plus-hydrolox path cuts propellant by about 64% against an all-rocket baseline (Appendix D).
 
-| Architecture | Stage Δv | Isp | Propellant | Savings vs baseline |
-|---|---|---|---|---|
-| All-rocket kerolox baseline | 9.2 km/s | 380 s | 1,081 t | — |
-| Launcher + aero turn + hydrolox (human, 700 m/s) | 7.8 km/s | 465 s | 453 t | 58% |
-| Launcher only + hydrolox | 7.7 km/s | 465 s | 441 t | 59% |
-| Launcher + aero turn + hydrolox (cargo, 3 km/s) | 7.2 km/s | 465 s | 385 t | 64% |
-| Launcher + aero turn + NTP (cargo, 3 km/s) | 7.2 km/s | 900 s | 126 t | 88% |
-
-Hydrolox is the near-term workhorse. Nuclear thermal propulsion (roughly 900 s specific impulse<sup><a href="#ref-6">[6]</a></sup>) halves the mass ratio and the lane count but not the electricity bill: the propellant is still hydrogen, still produced by electrolysis (Appendix M). The centurial upgrade.
+Hydrolox is the near-term workhorse. Nuclear thermal propulsion, at roughly 900 s specific impulse,<sup><a href="#ref-6">[6]</a></sup> cuts propellant by 88% against the same baseline. It halves the mass ratio and the lane count, but not the electricity bill: the propellant is still hydrogen, still produced by electrolysis (Appendix M). The centurial upgrade.
 
 This closes the spaceplane design aerospace engineers have pursued since the 1960s and never delivered. Ground-launched SSTO fails for fundamental mass-budget reasons; the X-33 and VentureStar died here (Appendix Q). Meridian moves the starting line to 20 km in vacuum. The same SSTO closes from altitude. The mountain does the part the vehicle was never built for.
 
 <PullQuote>
 
-Meridian gives you vacuum. Everything downstream changes.
+Meridian gives you vacuum.
 
 </PullQuote>
 
@@ -155,17 +147,7 @@ The human-rated Halcyon glides home to a runway. Passengers walk off down stairs
 
 <Callout type="highlight">
 
-**The g-force profile.** Eight minutes, tunnel to orbit.
-
-| Phase | Duration | Peak load |
-|---|---|---|
-| Tunnel | ~29 s | 3 g steady |
-| Curve | ~21 s | 7 g (< 3 s) |
-| Pylon coast | ~16 s | ~0 g |
-| Aero bank | ~11 s | ~1 g |
-| Engine burn | ~7 min | 5 g final |
-
-One brief peak in the curve. Everything else sits below three g. Seats articulate throughout, keeping passengers in the transverse +G<sub>x</sub> orientation, forcing spread across the body, not head-to-toe. Consistent with NASA human-systems guidance.<sup><a href="#ref-38">[38]</a></sup> Gentler than a rocket's Max Q. (Appendix E: phase-by-phase seat mechanics.)
+**The g-force profile.** Eight minutes, tunnel to orbit. Three g in the tunnel, one brief touch of seven in the curve, weightless up the pylon, then a long burn that reaches five g only as the tanks run dry. One peak, under three seconds.
 
 </Callout>
 
@@ -173,15 +155,7 @@ One brief peak in the curve. Everything else sits below three g. Seats articulat
 
 **The tug.** Reusable orbital transfer vehicles that stay in space, never reenter, and refuel at depots. High specific impulse, low thrust: solar electric or nuclear electric propulsion.<sup><a href="#ref-7">[7]</a></sup> Barges of the orbital economy. One job: moving mass cheaply between orbits, over and over, for years.
 
-The throughput changes the entire conversation.
-
-| Cadence | Yearly upmass | Multiple of 2024 world total<sup><a href="#ref-8">[8]</a></sup> |
-|---|---|---|
-| 1 shot / day (100 t) | 36,500 t | ~17× |
-| 1 shot / 6 hours | 146,000 t | ~67× |
-| 1 shot / hour | 876,000 t | ~403× |
-
-In 2024, all of humanity put roughly 2,171 tonnes into orbit.<sup><a href="#ref-8">[8]</a></sup> One launcher at daily cadence already exceeds that by an order of magnitude.
+The throughput changes the entire conversation. In 2024, all of humanity put roughly 2,171 tonnes into orbit.<sup><a href="#ref-8">[8]</a></sup> One launcher at daily cadence delivers more than ten times that. Faster cadences scale toward 400× the world's annual upmass at a shot an hour (Appendix G).
 
 <DataInsight
   insight="One launcher at daily cadence delivers 17× the entire world's 2024 orbital upmass. Average launcher draw: ~50 MW."
@@ -207,7 +181,7 @@ That pairing resolves into a single asymmetry.
 
 <PullQuote>
 
-The Moon exports mass at the cost of electricity. Earth exports complexity that took four billion years to develop.
+The Moon exports mass at the cost of electricity.
 
 </PullQuote>
 
@@ -282,17 +256,17 @@ The sequence has a logic. It admits no shortcuts.
 
 <Callout type="info">
 
-**Phase 1: 2020s–2040s — Bootstrap.** Rockets bring costs low enough to seed lunar robotics, polar power, and the first industrial demonstrations. Off-world population: construction crews, not settlers. The goal is proving that useful mass can be processed and exported from the Moon.
+**Phase 1: 2020s–2040s - Bootstrap.** Rockets bring costs low enough to seed lunar robotics, polar power, and the first industrial demonstrations. Off-world population: construction crews, not settlers. The goal is proving that useful mass can be processed and exported from the Moon.
 
-**Phase 2: 2040s–2060s — Lunar freight.** The first lunar mass driver exports bulk material. Orbital assembly yards receive their first non-Earth-made shipments. The terrestrial launcher enters construction, justified by demand. Not before.
+**Phase 2: 2040s–2060s - Lunar freight.** The first lunar mass driver exports bulk material. Orbital assembly yards receive their first non-Earth-made shipments. The terrestrial launcher enters construction, justified by demand. Not before.
 
-**Phase 3: 2060s–2090s — Earth cargo assist.** The terrestrial launcher begins freight operations. Early bulk freight — raw materials, propellant feedstock, structural mass — could use a simpler angled exit directly from the mountainside with ruggedised or expendable probes, no pylon required (Appendix F2). The pylon unlocks the full architecture: lower g-loading and max-q for all cargo classes, and eventually human transit. Lunar export scales toward millions of tonnes per year. The first rotating habitats are assembled. The infrastructure compounds.
+**Phase 3: 2060s–2090s - Earth cargo assist.** The terrestrial launcher begins freight operations. The pylon unlocks the full architecture: lower g-loading and max-q for all cargo classes, and eventually human transit.
 
-**Phase 4: 2090s–2130s — The orbital industrial mantle.** Multiple launcher sites and tens of megatonnes of lunar export support habitat construction at scale. Off-world natural growth begins to exceed net migration. The civilisation in space grows because people are already there.
+**Phase 4: 2090s–2130s - The orbital industrial mantle.** Multiple launcher sites and tens of mega-tonnes of lunar export support habitat construction at scale. Off-world natural growth begins to exceed net migration. 
 
-**Phase 5: 2130s–2180s — The long transition.** New heavy industrial construction defaults to orbit. Terrestrial smelters close. Forests return. Rivers clear. The pull of opportunity does what no treaty ever could.
+**Phase 5: 2130s–2180s - The long transition.** New heavy industrial construction defaults to orbit. Terrestrial smelters close. Forests return. Rivers clear.
 
-**Phase 6: Late 22nd century — Earth as garden.** Off-world population approaches Earth's. Most heavy industry operates in cis-lunar space, fed by lunar mass at the cost of electricity. Earth remains home to billions — but as a protected world, not a factory floor.
+**Phase 6: Late 22nd century - Earth as garden.** Off-world population approaches Earth's. Most heavy industry operates in cis-lunar space, fed by lunar mass at the cost of electricity. Earth remains home to billions as a protected nature reserve.
 
 </Callout>
 
