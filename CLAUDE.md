@@ -612,7 +612,7 @@ The canon claims the universe is organised in favour of life across eight domain
 
 The ninth essay would make it: a universe that produces observers is necessarily a universe rich enough to support their emergence and persistence. Therefore it is a universe in which engineering works, in which access can be extended, in which the gap between what exists and what is accessible can be closed. The access frame is not an observation about technology. It is an observation about what kind of universe produces beings who can observe anything at all.
 
-The closing line is already written: *If you can ask whether the universe is in your favour, it already answered the question.*
+The closing line is already written: *If you can ask whether the universe is with you, you are already the answer.*
 
 ---
 
