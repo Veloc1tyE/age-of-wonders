@@ -165,7 +165,7 @@ The frontier is running out of land. The ocean has been there the whole time.
 
 *A first-principles engineering analysis of the system, subsystem by subsystem. The numbers are concept-study estimates, not a final design package; ranges are shown where the inputs are uncertain. Each section states its assumptions, derives a result, and where possible checks it against a known engineering system. The weakest links are flagged explicitly rather than buried.*
 
-### A. The Demand — Power Per Frontier Run
+### <span id="appendix-a" class="appendix-anchor"></span>A. The Demand — Power Per Frontier Run
 
 The power a single training run draws is its compute divided by the efficiency of the hardware and the duration of the run:
 
@@ -191,7 +191,7 @@ The aggressive column breaks before 2035, which is the point: scaling cannot hol
 
 For scale, total United States generating capacity is ~1,280 GW,<sup><a href="#ref-6">[6]</a></sup> and data-centre load was ~35 GW in 2024, projected to ~80–130 GW by 2030.<sup><a href="#ref-36">[36]</a></sup><sup><a href="#ref-7">[7]</a></sup> A single frontier run of tens of gigawatts is a national-scale load behind one fence, which is why it cannot sit on ordinary land near existing transmission. The efficiency denominator is also weakening: with Dennard scaling ended and precision approaching a floor of a few bits, FLOP/W gains increasingly come from packaging rather than transistor physics, so the historical ~1.4×/yr that partly offset compute growth is fading.<sup><a href="#ref-3">[3]</a></sup><sup><a href="#ref-4">[4]</a></sup><sup><a href="#ref-5">[5]</a></sup>
 
-### B. The Pod — Compute, Power Density, Volume
+### <span id="appendix-b" class="appendix-anchor"></span>B. The Pod — Compute, Power Density, Volume
 
 A current frontier rack integrates about 72 top-end accelerators with their CPUs, high-bandwidth memory, liquid cooling, and a short coherent network, at roughly 140 kW per rack:<sup><a href="#ref-8">[8]</a></sup><sup><a href="#ref-37">[37]</a></sup>
 
@@ -203,9 +203,9 @@ Allowing for power electronics, switching, CPUs, and circulation overhead, the c
 
 $$V = \pi r^2 L \approx \pi (2.25)^2 (15) \approx 240\,\text{m}^3$$
 
-Power density is then $10\,\text{MW} / 240\,\text{m}^3 \approx 42\,\text{kW/m}^3$ at the vessel envelope, rising to 100–150 kW/m³ at the populated-board level. A conventional air-cooled hall runs 1–2 kW/m³ all-in. The pod is one to two orders of magnitude denser, which is the physical basis for the lattice compaction in §D — and is only possible because the heat leaves through fluid, not air.<sup><a href="#ref-38">[38]</a></sup><sup><a href="#ref-39">[39]</a></sup>
+Power density is then $10\,\text{MW} / 240\,\text{m}^3 \approx 42\,\text{kW/m}^3$ at the vessel envelope, rising to 100–150 kW/m³ at the populated-board level. A conventional air-cooled hall runs 1–2 kW/m³ all-in. The pod is one to two orders of magnitude denser, which is the physical basis for the lattice compaction in <a class="xref" href="#appendix-d">§D</a> — and is only possible because the heat leaves through fluid, not air.<sup><a href="#ref-38">[38]</a></sup><sup><a href="#ref-39">[39]</a></sup>
 
-### C. Coherence — The All-Reduce and What Actually Binds
+### <span id="appendix-c" class="appendix-anchor"></span>C. Coherence — The All-Reduce and What Actually Binds
 
 This is the load-bearing question for the topology claim, so it gets the most careful treatment. Synchronous training repeats a collective operation — the all-reduce — on every step.<sup><a href="#ref-23">[23]</a></sup><sup><a href="#ref-24">[24]</a></sup><sup><a href="#ref-40">[40]</a></sup> For a ring all-reduce of a gradient of size $S$ across $N$ endpoints, each with link bandwidth $B$ and per-hop latency $\alpha$:
 
@@ -238,22 +238,22 @@ This is also why the architecture survives a shift to loosely-coupled distribute
 
 **Mixture-of-experts sharpens this.** Routing each token to a few of many experts is an all-to-all exchange across the devices holding them — the most topology-sensitive collective there is.<sup><a href="#ref-26">[26]</a></sup> On training batches it is bandwidth-bound and the lattice helps little. At decode, one token at a time, the messages are small and it turns latency-bound. A master that is both enormous and recursive pays that latency on every expert hop of every step — the workload that binds hardest to a short-path lattice.
 
-### D. Geometry — The Three-Dimensional Lattice
+### <span id="appendix-d" class="appendix-anchor"></span>D. Geometry — The Three-Dimensional Lattice
 
 A flat campus packs modules across a plane, so its diameter scales as $D \propto \sqrt{N}$. A dense subsea lattice packs them through a volume, so $D \propto N^{1/3}$. The geometric advantage:
 
 $$\boxed{\,\frac{D_\text{2D}}{D_\text{3D}} = \frac{\sqrt{N}}{N^{1/3}} = N^{1/6}\,}$$
 
-At $N = 10{,}000$ pods, $N^{1/6} \approx 4.6$. This is the *packing* advantage before overhead. Add the aisle, electrical-room, and service volume a land campus must carry (the pod has none of it; see §B), and the practical path-length advantage runs from roughly 5× to 20×.
+At $N = 10{,}000$ pods, $N^{1/6} \approx 4.6$. This is the *packing* advantage before overhead. Add the aisle, electrical-room, and service volume a land campus must carry (the pod has none of it; see <a class="xref" href="#appendix-b">§B</a>), and the practical path-length advantage runs from roughly 5× to 20×.
 
 | Scale | Pods | Lattice edge (≈ $V^{1/3}$) | Worst-case span | One-way $t_\text{prop}$ |
 |---|---|---|---|---|
 | 1 GW | 100 | ~30 m | 70–90 m | 0.35–0.45 µs |
 | 10 GW | 1,000 | ~65 m | 140–180 m | 0.7–0.9 µs |
 
-The lattice edge assumes ~240 m³ per pod (§B) plus an equal allowance for backplanes, structure, and flow channels, i.e. ~500 m³ per pod gross. A 1 GW block is then ~50,000 m³ of compute, a cube ~37 m on a side — the footprint of a single large building, holding a hundred times the compute of one such cluster. That single sentence is the whole geometric argument, and §B and §D are where it is earned.<sup><a href="#ref-41">[41]</a></sup>
+The lattice edge assumes ~240 m³ per pod (<a class="xref" href="#appendix-b">§B</a>) plus an equal allowance for backplanes, structure, and flow channels, i.e. ~500 m³ per pod gross. A 1 GW block is then ~50,000 m³ of compute, a cube ~37 m on a side — the footprint of a single large building, holding a hundred times the compute of one such cluster. That single sentence is the whole geometric argument, and <a class="xref" href="#appendix-b">§B</a> and <a class="xref" href="#appendix-d">§D</a> are where it is earned.<sup><a href="#ref-41">[41]</a></sup>
 
-### E. The Internal Thermal Loop and Pump Power
+### <span id="appendix-e" class="appendix-anchor"></span>E. The Internal Thermal Loop and Pump Power
 
 For a single-phase dielectric fluid (specific heat $c_p \approx 2{,}274\,\mathrm{J\,kg^{-1}\,K^{-1}}$, density $\rho_f \approx 800\,\text{kg/m}^3$, a synthetic-hydrocarbon proxy) rejecting facility heat $Q \approx 10.5\,\text{MW}$ at a 10 K loop rise:<sup><a href="#ref-9">[9]</a></sup><sup><a href="#ref-16">[16]</a></sup>
 
@@ -266,9 +266,9 @@ $$\dot{m} = \frac{Q}{c_p\,\Delta T} = \frac{10.5\times10^6}{2{,}274\times10} \ap
 | Full immersion | 1.5 bar | 87 kW | 133 kW | 1.3% |
 | Cold-plate | 3.5 bar | 203 kW | 312 kW | 3.1% |
 
-The seawater side adds its own pumping. Sizing the seawater flow for a 5 K rise gives $\dot m_\text{sw} = Q/(c_{p,\text{sw}}\Delta T) \approx 526\,\text{kg/s}$ ($\dot V \approx 0.51\,\text{m}^3/\text{s}$); at ~0.75 bar through the exchanger, ~59 kW, or 0.6%. Total pumping is therefore ~2–4% of IT load — and this is the dominant contributor to the facility-overhead budget in §L.<sup><a href="#ref-42">[42]</a></sup>
+The seawater side adds its own pumping. Sizing the seawater flow for a 5 K rise gives $\dot m_\text{sw} = Q/(c_{p,\text{sw}}\Delta T) \approx 526\,\text{kg/s}$ ($\dot V \approx 0.51\,\text{m}^3/\text{s}$); at ~0.75 bar through the exchanger, ~59 kW, or 0.6%. Total pumping is therefore ~2–4% of IT load — and this is the dominant contributor to the facility-overhead budget in <a class="xref" href="#appendix-l">§L</a>.<sup><a href="#ref-42">[42]</a></sup>
 
-### F. The Hull Heat Exchanger — The Thermal Crux
+### <span id="appendix-f" class="appendix-anchor"></span>F. The Hull Heat Exchanger — The Thermal Crux
 
 Rejecting 10.5 MW into 20–22 °C water is the hardest steady-state problem in the design. The exchanger obeys<sup><a href="#ref-16">[16]</a></sup><sup><a href="#ref-43">[43]</a></sup>
 
@@ -286,7 +286,7 @@ For a clean seawater-to-fluid exchanger, using $U \approx 800\text{–}1{,}100,\
 | 55 °C hot-loop case   |                            ~34 K |                                                               ~340 m² |
 | 60 °C aggressive case |                            ~39 K |                                                               ~300 m² |
 
-The cylindrical hull of §B has an external area of roughly
+The cylindrical hull of <a class="xref" href="#appendix-b">§B</a> has an external area of roughly
 
 $$A_\mathrm{hull} \sim \pi D L \approx \pi(4.5)(15) \approx 210\mathrm{m^2}.$$
 
@@ -305,11 +305,11 @@ Using a 50 °C loop case with $\Delta T_\mathrm{lm} \approx 29,\mathrm{K}$, foul
 | 0.0004                    | moderate   |                  764 |       ~474 m² |    +44% |
 | 0.0008                    | heavy      |                  579 |       ~626 m² |    +90% |
 
-At 200 m, reduced light suppresses photosynthetic growth, but microbial films and sessile marine organisms can still colonise surfaces. The design must therefore oversize the exchanger for end-of-cycle fouling, favour smooth high-flow geometries that shed growth, and tie the retrieval interval (§K) to fouling as much as to silicon refresh.
+At 200 m, reduced light suppresses photosynthetic growth, but microbial films and sessile marine organisms can still colonise surfaces. The design must therefore oversize the exchanger for end-of-cycle fouling, favour smooth high-flow geometries that shed growth, and tie the retrieval interval (<a class="xref" href="#appendix-k">§K</a>) to fouling as much as to silicon refresh.
 
 **Check against known systems.** The duty is not exotic by marine standards. Ships and power stations reject tens of megawatts to gigawatts into seawater through engineered exchangers and condensers. The pod's exchanger is smaller than a power-station condenser and comparable in thermal duty to marine machinery. The hard part is not the heat-transfer equation. It is doing it sealed, fouled, retrievable, and reliable for years around frontier AI hardware.
 
-### G. The Thermal Plume and the Federation Limit
+### <span id="appendix-g" class="appendix-anchor"></span>G. The Thermal Plume and the Federation Limit
 
 The far-field temperature rise of a heated discharge into a current of speed $U$, mixing thickness $H$, and plume width $W$ is, to first order,<sup><a href="#ref-45">[45]</a></sup>
 
@@ -323,9 +323,9 @@ With seawater $\rho c_p \approx 4.1\times10^6\,\text{J/m}^3\text{K}$, $U \approx
 | 10 GW compact | ~10.3 GW | ~1,000 m | 0.5–0.8 °C |
 | 100 GW compact | ~103 GW | ~3,000 m | ~2–4 °C |
 
-This is a deliberately first-order model — enough to answer the only question that matters at concept stage: does the system scale as one heat source or as a federation? International-finance environmental guidance commonly limits a discharge to a **3 °C rise at the edge of a defined mixing zone**.<sup><a href="#ref-17">[17]</a></sup> A 1 GW and a 10 GW campus clear that with spacing and current. A single compact 100 GW field crosses it. The conclusion is structural, not marginal: 100 GW must be built as ~ten 10 GW campuses spread along the coast, routed through higher-current sectors, and instrumented continuously. The ocean sets the size of the organ; the network (§C, §D) joins the organs into one mind.
+This is a deliberately first-order model — enough to answer the only question that matters at concept stage: does the system scale as one heat source or as a federation? International-finance environmental guidance commonly limits a discharge to a **3 °C rise at the edge of a defined mixing zone**.<sup><a href="#ref-17">[17]</a></sup> A 1 GW and a 10 GW campus clear that with spacing and current. A single compact 100 GW field crosses it. The conclusion is structural, not marginal: 100 GW must be built as ~ten 10 GW campuses spread along the coast, routed through higher-current sectors, and instrumented continuously. The ocean sets the size of the organ; the network (<a class="xref" href="#appendix-c">§C</a>, <a class="xref" href="#appendix-d">§D</a>) joins the organs into one mind.
 
-### H. Power Delivery — Solar Field, HVDC, and Tiered Firming
+### <span id="appendix-h" class="appendix-anchor"></span>H. Power Delivery — Solar Field, HVDC, and Tiered Firming
 
 **Solar sizing.** Active module area for nameplate $P_\text{PV}$ at module efficiency $\eta_m$ and $I_\text{STC} = 1{,}000\,\text{W/m}^2$:
 
@@ -362,7 +362,7 @@ By the time Leviathan reaches bankable scale, the relevant battery cost is not t
 
 The station does not choose between solar-following and round-the-clock operation. It allocates firmness by value. The newest pods get the night. Older pods follow the sun.
 
-### I. Duty Cycle, Scaling, and Effective Work
+### <span id="appendix-i" class="appendix-anchor"></span>I. Duty Cycle, Scaling, and Effective Work
 
 Daily delivered work scales the peak-compute multiple by duty cycle and realised programme efficiency. For a 1 GW campus at ~110× the reference cluster's peak, 37.5% duty (9 h/24 h), and 70% efficiency after scheduling, checkpointing, and networking losses:
 
@@ -393,13 +393,13 @@ These are projected operating envelopes. The correct dispatch depends on hardwar
 **Honest distinction: strong vs weak scaling.** The peak multiples are near-trivial — a hundred clusters have a hundred clusters' compute. The interesting and contested quantity is the **70% efficiency factor**, and it means two different things:
 
 - *Weak scaling* (many independent runs in parallel, or sparse/asynchronous workloads — MoE, self-play, synthetic-data generation, RL): the 70% is easy, the multiple approaches the raw peak, and the work does **not** depend on the subsea topology at all. You could run these anywhere.
-- *Strong scaling* (one model trained faster across the whole field): the 70% is doing enormous work, and sustaining it across ~500,000 GPUs is an extraordinary claim that lives or dies on the fabric of §C. This is the regime where the architecture's coherence advantage matters — and where it must be proven, not assumed.
+- *Strong scaling* (one model trained faster across the whole field): the 70% is doing enormous work, and sustaining it across ~500,000 GPUs is an extraordinary claim that lives or dies on the fabric of <a class="xref" href="#appendix-c">§C</a>. This is the regime where the architecture's coherence advantage matters — and where it must be proven, not assumed.
 
 The body's multiple is defensible for the mixed workload most labs actually run. The headline multiples at 10 GW and 100 GW are weak-scaling figures; read them as throughput, not as single-run speed-up.<sup><a href="#ref-41">[41]</a></sup>
 
 **The second multiplier: software.** Hardware throughput is one axis. Computational Abundance documents a second running in parallel: the compute needed to reach a fixed capability falls as the software improves, roughly threefold a year in pretraining and faster still in inference.<sup><a href="#ref-31">[31]</a></sup> Over the five-year build of a station, that axis compounds into one to two further orders of magnitude of effective capability per delivered FLOP. The two multipliers are independent and they multiply. A station finishing a thousandfold more throughput, running software that extracts a hundredfold more capability per operation, is the arithmetic behind the body's claim that 100 GW enters a range with no precedent to measure it against.
 
-### J. Marine Survivability — Pressure, Corrosion, Connectors, Retrieval
+### <span id="appendix-j" class="appendix-anchor"></span>J. Marine Survivability — Pressure, Corrosion, Connectors, Retrieval
 
 *The pod must survive years sealed at 200 m. The question is whether the marine environment imposes anything novel. It mostly does not — the pressure regime is benign by subsea standards — but the connector and retrieval problems are real.*
 
@@ -409,7 +409,7 @@ $$P = \rho g h = 1{,}025 \times 9.81 \times 200 \approx 2.01\times10^6\,\text{Pa
 
 Twenty bar is modest. A recreational scuba diver reaches ~6 bar at 50 m. Subsea oil-and-gas hardware routinely operates at 100–300 bar (1,000–3,000 m). The pod is best built **pressure-compensated**: the dielectric fluid is held at ambient pressure, so the hull sees almost no differential and merely contains the fluid, while the (nearly incompressible) fluid transmits 20 bar uniformly to the boards — which, with no air gaps, tolerate it. This is exactly the oil-filled-housing approach used for ROV electronics and proven by Microsoft's Project Natick, which sealed servers in an inert atmosphere on the seabed and recorded roughly one-eighth the failure rate of an identical land deployment.<sup><a href="#ref-53">[53]</a></sup><sup><a href="#ref-54">[54]</a></sup>
 
-**2. Corrosion.** Seawater plus dissimilar metals drives galvanic attack. Mitigations are standard marine practice: copper-nickel or titanium for wetted heat-exchanger surfaces, cathodic protection by sacrificial anodes, dielectric isolation of dissimilar metals, and anti-fouling coatings on smooth exterior geometry.<sup><a href="#ref-55">[55]</a></sup><sup><a href="#ref-56">[56]</a></sup> The hull refit interval (~8–10 years) is set by corrosion and fouling, decoupled from the faster IT-refresh interval (§K).
+**2. Corrosion.** Seawater plus dissimilar metals drives galvanic attack. Mitigations are standard marine practice: copper-nickel or titanium for wetted heat-exchanger surfaces, cathodic protection by sacrificial anodes, dielectric isolation of dissimilar metals, and anti-fouling coatings on smooth exterior geometry.<sup><a href="#ref-55">[55]</a></sup><sup><a href="#ref-56">[56]</a></sup> The hull refit interval (~8–10 years) is set by corrosion and fouling, decoupled from the faster IT-refresh interval (<a class="xref" href="#appendix-k">§K</a>).
 
 **3. Wet-mate connectors.** Each pod needs subsea power-in and fibre, mated and de-mated underwater by ROV. Subsea wet-mate connectors exist at the required power and data rates in oil-and-gas and subsea-power practice.<sup><a href="#ref-57">[57]</a></sup><sup><a href="#ref-58">[58]</a></sup> The gap is reliability expectation: subsea energy tolerates downtime that synchronous training does not. This is one of the two genuinely unproven subsystems and belongs on the gate list.
 
@@ -417,7 +417,7 @@ Twenty bar is modest. A recreational scuba diver reaches ~6 bar at 50 m. Subsea 
 
 **5. The single-point catastrophe land has no analogue for.** A hull breach floods the pod and destroys ~5,000 GPUs at once — a failure mode no land datacentre carries. Mitigation is compartmentalisation, continuous leak and pressure monitoring, and conservative seal/penetrator design. It cannot be eliminated, only bounded, and it must be priced into the reliability model.
 
-### K. Reliability and the Refresh Cascade
+### <span id="appendix-k" class="appendix-anchor"></span>K. Reliability and the Refresh Cascade
 
 A subsea pod should not be treated as a static asset. It is a modular compute organ with a lifecycle.
 
@@ -446,14 +446,14 @@ The remaining risk is reliability. Large accelerator fleets fail.<sup><a href="#
 
 But the lifecycle answer is clear.
 
-### L. Facility Efficiency (PUE), Built Up From the Parts
+### <span id="appendix-l" class="appendix-anchor"></span>L. Facility Efficiency (PUE), Built Up From the Parts
 
 PUE is total facility energy divided by IT energy.<sup><a href="#ref-61">[61]</a></sup> Unlike the body's comparison table, this figure can be *constructed* from the loss terms derived above:
 
 | Loss term | Source | Fraction of IT load |
 |---|---|---|
-| Internal + seawater pumping | §E | 2.0–4.0% |
-| HVDC export (sea side share) | §H | ~0.5–1.0% |
+| Internal + seawater pumping | <a class="xref" href="#appendix-e">§E</a> | 2.0–4.0% |
+| HVDC export (sea side share) | <a class="xref" href="#appendix-h">§H</a> | ~0.5–1.0% |
 | Power conversion / distribution in pod | est. | 1.0–1.5% |
 | Monitoring, controls, auxiliaries | est. | ~0.3% |
 | **Total overhead** | | **~3.8–6.8%** |
@@ -470,7 +470,7 @@ So the 1.03–1.05 target is achievable but sits at the optimistic edge. 1.05 is
 
 The honest baseline is land *immersion*, which already reaches ~1.05–1.10.<sup><a href="#ref-39">[39]</a></sup><sup><a href="#ref-64">[64]</a></sup> Against that, the efficiency edge is small. The durable wins are the ones efficiency tables do not show: zero water consumption and a heat sink of effectively unlimited capacity.<sup><a href="#ref-12">[12]</a></sup>
 
-### M. Energy and Capital Floor — Silicon Still Dominates
+### <span id="appendix-m" class="appendix-anchor"></span>M. Energy and Capital Floor — Silicon Still Dominates
 
 Per gigawatt, the bill of materials is dominated by the accelerators, not the marine infrastructure. A 1 GW field is 100 pods × ~5,000 GPUs = ~500,000 accelerators:
 
@@ -480,18 +480,18 @@ Per gigawatt, the bill of materials is dominated by the accelerators, not the ma
 | Solar field | scaled utility PV, 1.5× | ~\$1.0–1.5B |
 | HVDC + converters + collector | short route | ~\$0.5–1.0B |
 | Pods, frames, deployment, wet plant (ex-IT) | parametric | ~\$0.8–1.5B |
-| 15-min BESS (§H) | IRENA ~\$192/kWh | ~\$0.05B |
+| 15-min BESS (<a class="xref" href="#appendix-h">§H</a>) | IRENA ~\$192/kWh | ~\$0.05B |
 | **Total ex-silicon** | | **~\$2.4–4.0B** |
 
 Silicon is therefore ~79–86% of capital.<sup><a href="#ref-51">[51]</a></sup><sup><a href="#ref-41">[41]</a></sup> The marginal **energy** cost is smaller still: one pod consumes $10\,\text{MW}\times 9\,\text{h}\times 365 \approx 33\,\text{GWh/yr}$, ~\$1.0M/yr at \$0.03/kWh solar — under 1% per year of the ~\$150M of silicon it contains. The conclusion mirrors <a href="/essays/bridge-to-infinity">*Bridge to Infinity*</a>'s lunar arithmetic in reverse:<sup><a href="#ref-65">[65]</a></sup> the architecture does not make intelligence cheap. It changes *where* the most expensive machine in the world can physically exist. The solar-and-sea system removes the grid, water, and land constraints.
 
 We're basing this on a 2026 concept snapshot. The dollar cost of one electrical gigawatt of silicon may not fall quickly, because each new generation of accelerator is both more powerful and more expensive. But the effective cost of computation per gigawatt should fall sharply. The relevant denominator is not only dollars per installed watt. It is training work per dollar, per watt, and per year. On that basis the architecture improves with time: denser racks, better FLOP/W, cheaper solar, cheaper short-duration storage, and compounding software efficiency all make each future gigawatt more productive than the one before it.
 
-### N. Siting
+### <span id="appendix-n" class="appendix-anchor"></span>N. Siting
 
-The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar reaches 200 m only ~25 km offshore, lengthening the power cable and weakening the case. The narrow shelf at Sur / Ra's al Hadd reaches 200 m within ~5 km — the strongest candidate for short export runs and compact fields.<sup><a href="#ref-13">[13]</a></sup> Intermediate-depth water along the slope carries the warm, saline Arabian Gulf outflow (~20–22 °C, the §F design point),<sup><a href="#ref-14">[14]</a></sup><sup><a href="#ref-66">[66]</a></sup><sup><a href="#ref-67">[67]</a></sup><sup><a href="#ref-15">[15]</a></sup> and sits within an oxygen-sensitive regime that makes continuous local thermal and ecological monitoring non-negotiable.<sup><a href="#ref-68">[68]</a></sup><sup><a href="#ref-18">[18]</a></sup>
+The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar reaches 200 m only ~25 km offshore, lengthening the power cable and weakening the case. The narrow shelf at Sur / Ra's al Hadd reaches 200 m within ~5 km — the strongest candidate for short export runs and compact fields.<sup><a href="#ref-13">[13]</a></sup> Intermediate-depth water along the slope carries the warm, saline Arabian Gulf outflow (~20–22 °C, the <a class="xref" href="#appendix-f">§F</a> design point),<sup><a href="#ref-14">[14]</a></sup><sup><a href="#ref-66">[66]</a></sup><sup><a href="#ref-67">[67]</a></sup><sup><a href="#ref-15">[15]</a></sup> and sits within an oxygen-sensitive regime that makes continuous local thermal and ecological monitoring non-negotiable.<sup><a href="#ref-68">[68]</a></sup><sup><a href="#ref-18">[18]</a></sup>
 
-**The gate list.** Pulling the weak links together, an honest programme proves these in order before scaling, and no gate assumes the one above it: continuous 10 MW rejection into 20 °C water with managed fouling (§F); safe plume behaviour (§G); wet-mate connector reliability at training-uptime expectations (§J.3); measured in-pod failure rate and graceful degradation (§K); clean retrieve-and-refit (§J.4); and a resolved answer to the frontier-versus-plateau positioning (§K). The physics works at concept level. The programme is what turns it into a machine.
+**The gate list.** Pulling the weak links together, an honest programme proves these in order before scaling, and no gate assumes the one above it: continuous 10 MW rejection into 20 °C water with managed fouling (<a class="xref" href="#appendix-f">§F</a>); safe plume behaviour (<a class="xref" href="#appendix-g">§G</a>); wet-mate connector reliability at training-uptime expectations (<a class="xref" href="#appendix-j">§J.3</a>); measured in-pod failure rate and graceful degradation (<a class="xref" href="#appendix-k">§K</a>); clean retrieve-and-refit (<a class="xref" href="#appendix-j">§J.4</a>); and a resolved answer to the frontier-versus-plateau positioning (<a class="xref" href="#appendix-k">§K</a>). The physics works at concept level. The programme is what turns it into a machine.
 
 </CollapsibleAppendix>
 
@@ -500,16 +500,16 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 <CollapsibleAppendix title="References">
 
 <span id="ref-1">[1]</span> Pilz, K.F., Sanders, J., Rahman, R. & Heim, L. (2025). <a href="https://arxiv.org/abs/2504.16026" target="_blank" rel="noopener noreferrer">"Trends in AI Supercomputers."</a> <em>arXiv:2504.16026</em>.
-(500-system dataset, 2019–2025. Finds AI-supercomputer performance doubled every nine months while hardware cost and power doubled annually; extrapolates a leading 2030 system requiring ~9 GW. Load-bearing source for the power-per-frontier-run model in §A.)
+(500-system dataset, 2019–2025. Finds AI-supercomputer performance doubled every nine months while hardware cost and power doubled annually; extrapolates a leading 2030 system requiring ~9 GW. Load-bearing source for the power-per-frontier-run model in <a class="xref" href="#appendix-a">§A</a>.)
 
 <span id="ref-2">[2]</span> Sevilla, J., Heim, L., Ho, A., Besiroglu, T., Hobbhahn, M. & Villalobos, P. (2022). <a href="https://arxiv.org/abs/2202.05924" target="_blank" rel="noopener noreferrer">"Compute Trends Across Three Eras of Machine Learning."</a> <em>arXiv:2202.05924</em>.
 (Finds that in the large-scale era, training compute doubled roughly every six months. Supports the claim that frontier compute has grown far faster than hardware efficiency.)
 
 <span id="ref-3">[3]</span> Shankar, S. & Reuther, A. (2022). <a href="https://arxiv.org/abs/2210.17331" target="_blank" rel="noopener noreferrer">"Trends in Energy Estimates for Computing in AI/Machine Learning Accelerators, Supercomputers, and Compute-Intensive Applications."</a> <em>arXiv:2210.17331</em>.
-(Reviews slowing energy-efficiency gains from geometric scaling. Supports the §A claim that efficiency gains cannot indefinitely rescue frontier compute growth.)
+(Reviews slowing energy-efficiency gains from geometric scaling. Supports the <a class="xref" href="#appendix-a">§A</a> claim that efficiency gains cannot indefinitely rescue frontier compute growth.)
 
 <span id="ref-4">[4]</span> Koomey, J., Berard, S., Sanchez, M. & Wong, H. (2011). <a href="https://doi.org/10.1109/MAHC.2010.28" target="_blank" rel="noopener noreferrer">"Implications of Historical Trends in the Electrical Efficiency of Computing."</a> <em>IEEE Annals of the History of Computing</em> 33(3), 46–54.
-(Foundational source for long-run computations-per-joule improvement. Background for the efficiency denominator in §A.)
+(Foundational source for long-run computations-per-joule improvement. Background for the efficiency denominator in <a class="xref" href="#appendix-a">§A</a>.)
 
 <span id="ref-5">[5]</span> Dennard, R.H. et al. (1974). <a href="https://doi.org/10.1109/JSSC.1974.1050511" target="_blank" rel="noopener noreferrer">"Design of Ion-Implanted MOSFET's with Very Small Physical Dimensions."</a> <em>IEEE Journal of Solid-State Circuits</em> 9(5), 256–268.
 (Original Dennard-scaling paper. Background for the claim that historical voltage/power-density scaling has ended.)
@@ -545,7 +545,7 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 (Supports the claim that the Persian/Arabian Gulf is highly evaporative and exports warm, saline water through Hormuz, relevant to Oman intermediate-water assumptions.)
 
 <span id="ref-16">[16]</span> Incropera, F.P., DeWitt, D.P., Bergman, T.L. & Lavine, A.S. <a href="https://www.wiley.com/en-us/Fundamentals+of+Heat+and+Mass+Transfer%2C+8th+Edition-p-9781119353881" target="_blank" rel="noopener noreferrer">"Fundamentals of Heat and Mass Transfer."</a> Wiley.
-(Standard heat-transfer reference for $Q = UA\,\Delta T_\text{lm}$, convection coefficients, and thermal-resistance networks. Supports the thermal-loop and heat-exchanger modelling in §E–§F.)
+(Standard heat-transfer reference for $Q = UA\,\Delta T_\text{lm}$, convection coefficients, and thermal-resistance networks. Supports the thermal-loop and heat-exchanger modelling in <a class="xref" href="#appendix-e">§E</a>–<a class="xref" href="#appendix-f">§F</a>.)
 
 <span id="ref-17">[17]</span> World Bank Group / IFC (2007). <a href="https://www.ifc.org/content/dam/ifc/doc/2000/2007-general-ehs-guidelines-en.pdf" target="_blank" rel="noopener noreferrer">"Environmental, Health, and Safety Guidelines: General EHS Guidelines."</a>
 (International-finance environmental guidance for the regulatory constraint — thermal-discharge and mixing-zone limits — as distinct from the modelling method in [45]. Use with site-specific local regulation; not a substitute for Omani permitting.)
@@ -566,13 +566,13 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 (Industrial checkpointing system reporting up to 54× reductions in checkpoint stalls. Supports the claim that checkpointing is a real system concern, not a rhetorical convenience.)
 
 <span id="ref-23">[23]</span> Li, S. et al. (2020). <a href="https://arxiv.org/abs/2006.15704" target="_blank" rel="noopener noreferrer">"PyTorch Distributed: Experiences on Accelerating Data Parallel Training."</a> <em>arXiv:2006.15704</em>.
-(Explains distributed data-parallel training, gradient communication, bucketing, and overlap of communication with computation. Supports the synchronous-training and all-reduce discussion in §C.)
+(Explains distributed data-parallel training, gradient communication, bucketing, and overlap of communication with computation. Supports the synchronous-training and all-reduce discussion in <a class="xref" href="#appendix-c">§C</a>.)
 
 <span id="ref-24">[24]</span> Sergeev, A. & Del Balso, M. (2018). <a href="https://arxiv.org/abs/1802.05799" target="_blank" rel="noopener noreferrer">"Horovod: fast and easy distributed deep learning in TensorFlow."</a> <em>arXiv:1802.05799</em>.
 (Describes ring-allreduce distributed deep learning and the communication overheads of scaling from one GPU to many. Supports the all-reduce model and the latency/bandwidth distinction.)
 
 <span id="ref-25">[25]</span> Wang, G. et al. (2023). <a href="https://arxiv.org/abs/2306.10209" target="_blank" rel="noopener noreferrer">"ZeRO++: Extremely Efficient Collective Communication for Giant Model Training."</a> <em>arXiv:2306.10209</em>.
-(Shows that communication volume from weight-gathering, the backward pass, and gradient averaging limits throughput at scale. Supports the §C caution that bandwidth fabric remains load-bearing.)
+(Shows that communication volume from weight-gathering, the backward pass, and gradient averaging limits throughput at scale. Supports the <a class="xref" href="#appendix-c">§C</a> caution that bandwidth fabric remains load-bearing.)
 
 <span id="ref-26">[26]</span> Fedus, W., Zoph, B. & Shazeer, N. (2022). <a href="https://arxiv.org/abs/2101.03961" target="_blank" rel="noopener noreferrer">"Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity."</a> <em>arXiv:2101.03961</em>.
 (Sparsely-activated mixture-of-experts model selecting different parameters per input at roughly constant compute, with up to 7× pretraining speed-ups. Sources the §VII claim that the newest models are sparse, with the total network growing while active computation stays small.)
@@ -584,7 +584,7 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 (Bootstraps instruction data from a model's own generations, then finetunes on it. Sources the §VII claim that synthetic data produced in bulk is now a standard part of the frontier's second economy.)
 
 <span id="ref-29">[29]</span> Geiping, J. et al. (2025). <a href="https://arxiv.org/abs/2502.05171" target="_blank" rel="noopener noreferrer">"Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach."</a> <em>arXiv:2502.05171</em>.
-(A model that iterates a recurrent block, unrolling to arbitrary depth at test time. Sources the §VII description of reasoning that loops a small block through depth, and the serial, latency-bound character of recursive inference in §C.)
+(A model that iterates a recurrent block, unrolling to arbitrary depth at test time. Sources the §VII description of reasoning that loops a small block through depth, and the serial, latency-bound character of recursive inference in <a class="xref" href="#appendix-c">§C</a>.)
 
 <span id="ref-30">[30]</span> Snell, C., Lee, J., Xu, K. & Kumar, A. (2024). <a href="https://arxiv.org/abs/2408.03314" target="_blank" rel="noopener noreferrer">"Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters."</a> <em>arXiv:2408.03314</em>.
 (Shows that allocating compute at inference can outperform a much larger model, establishing test-time reasoning as a scaling axis distinct from parameter and pretraining scale. Sources the §VII claim that the frontier is learning to scale the depth of reasoning before answering.)
@@ -623,16 +623,16 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 (The 2D-versus-3D geometry model, $D_{2D}/D_{3D} = N^{1/6}$, the 10 MW pod-to-1 GW/10 GW scaling tables, the solar-adjusted frontier-cluster-day calculations, the first-order plume model, and the facility economics are original modelling assumptions. They are derived estimates, not sourced facts. The sources above support the inputs; they do not independently validate the full Leviathan architecture.)
 
 <span id="ref-42">[42]</span> Jadhav, S. & Liu, Z. (2026). <a href="https://arxiv.org/abs/2603.01198" target="_blank" rel="noopener noreferrer">"Digital Twin-Based Cooling System Optimization for Data Center."</a> <em>arXiv:2603.01198</em>.
-(Uses operational data from the liquid-cooled Frontier supercomputer cooling system to model and optimise pumping and supply-temperature control. Supports the §E and §L pump-power and facility-overhead reasoning.)
+(Uses operational data from the liquid-cooled Frontier supercomputer cooling system to model and optimise pumping and supply-temperature control. Supports the <a class="xref" href="#appendix-e">§E</a> and <a class="xref" href="#appendix-l">§L</a> pump-power and facility-overhead reasoning.)
 
 <span id="ref-43">[43]</span> Shah, R.K. & Sekulić, D.P. (2003). <a href="https://www.wiley.com/en-us/Fundamentals+of+Heat+Exchanger+Design-p-9780471321712" target="_blank" rel="noopener noreferrer">"Fundamentals of Heat Exchanger Design."</a> Wiley.
 (Reference for sizing, log-mean temperature difference, fouling resistance, overall heat-transfer coefficients, and compact exchanger design.)
 
 <span id="ref-44">[44]</span> Bott, T.R. (1995). <a href="https://www.sciencedirect.com/book/9780444821867/fouling-of-heat-exchangers" target="_blank" rel="noopener noreferrer">"Fouling of Heat Exchangers."</a> Elsevier.
-(Reference on fouling mechanisms and fouling resistance. Supports the §F treatment of biofouling as the long-term thermal-performance risk.)
+(Reference on fouling mechanisms and fouling resistance. Supports the <a class="xref" href="#appendix-f">§F</a> treatment of biofouling as the long-term thermal-performance risk.)
 
 <span id="ref-45">[45]</span> U.S. Environmental Protection Agency (2024). <a href="https://www.epa.gov/hydrowq/PLUMES2" target="_blank" rel="noopener noreferrer">"PLUMES2.0 — Dilution Model."</a> See also the <a href="https://www.epa.gov/system/files/documents/2025-02/epa_ssmc-plumes2.0_usermanual.pdf" target="_blank" rel="noopener noreferrer">PLUMES2.0 Model Theory and User Manual</a> and the legacy <a href="https://www.epa.gov/hydrowq/dilution-models-effluent-discharges-visual-plumes-4th-edition" target="_blank" rel="noopener noreferrer">Visual Plumes (4th edition)</a>.
-(EPA's current public plume/dilution model for surface-water effluent discharges. It computes near-field dilution governed by source buoyancy, momentum, and ambient currents, then Brooks far-field dilution as the plume is carried by turbulence and currents — and is used to set NPDES mixing zones. Confirms that the §G estimates are concept-stage screening calculations, not permit-grade modelling, where real dilution depends on discharge flow, density, diffuser geometry, depth, stratification, and currents.)
+(EPA's current public plume/dilution model for surface-water effluent discharges. It computes near-field dilution governed by source buoyancy, momentum, and ambient currents, then Brooks far-field dilution as the plume is carried by turbulence and currents — and is used to set NPDES mixing zones. Confirms that the <a class="xref" href="#appendix-g">§G</a> estimates are concept-stage screening calculations, not permit-grade modelling, where real dilution depends on discharge flow, density, diffuser geometry, depth, stratification, and currents.)
 
 <span id="ref-46">[46]</span> ESMAP / World Bank (2019). <a href="https://documents.worldbank.org/en/publication/documents-reports/documentdetail/529431592893043403/global-solar-atlas-2-0-technical-report" target="_blank" rel="noopener noreferrer">"Global Solar Atlas 2.0: Technical Report."</a>
 (Methodology for Global Solar Atlas irradiance and PVOUT data. Supports the use of GSA for concept-stage solar modelling.)
@@ -647,13 +647,13 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 (Standards reference for HVDC cable systems. For later engineering diligence, not headline claims.)
 
 <span id="ref-50">[50]</span> Reuters (2026). <a href="https://www.reuters.com/sustainability/climate-energy/how-falling-battery-costs-are-igniting-race-round-the-clock-solar-power--ecmii-2026-03-10/" target="_blank" rel="noopener noreferrer">"How falling battery costs are igniting race for round-the-clock solar power."</a>
-(Reports Masdar's UAE project using ~5.2 GW of solar and ~19 GWh of batteries to deliver 1 GW of round-the-clock power. Benchmark for firmed-solar sizing and the night-storage-versus-ride-through comparison in §H.)
+(Reports Masdar's UAE project using ~5.2 GW of solar and ~19 GWh of batteries to deliver 1 GW of round-the-clock power. Benchmark for firmed-solar sizing and the night-storage-versus-ride-through comparison in <a class="xref" href="#appendix-h">§H</a>.)
 
 <span id="ref-51">[51]</span> International Renewable Energy Agency (2025). <a href="https://www.irena.org/Publications/2025/Jul/Renewable-Power-Generation-Costs-in-2024" target="_blank" rel="noopener noreferrer">"Renewable Power Generation Costs in 2024."</a>
-(Source for solar-PV and battery-cost trends. Supports solar-field and BESS cost assumptions in §H and §M.)
+(Source for solar-PV and battery-cost trends. Supports solar-field and BESS cost assumptions in <a class="xref" href="#appendix-h">§H</a> and <a class="xref" href="#appendix-m">§M</a>.)
 
 <span id="ref-52">[52]</span> International Energy Agency (2024). <a href="https://www.iea.org/reports/batteries-and-secure-energy-transitions" target="_blank" rel="noopener noreferrer">"Batteries and Secure Energy Transitions."</a>
-(Battery storage costs are projected to fall substantially by 2030 as stationary storage becomes a larger share of global battery demand. Supports the §H/§M case for modelling 2031–2036 storage economics, not only 2026 costs.)
+(Battery storage costs are projected to fall substantially by 2030 as stationary storage becomes a larger share of global battery demand. Supports the <a class="xref" href="#appendix-h">§H</a>/<a class="xref" href="#appendix-m">§M</a> case for modelling 2031–2036 storage economics, not only 2026 costs.)
 
 <span id="ref-53">[53]</span> Microsoft Research. <a href="https://natick.research.microsoft.com/" target="_blank" rel="noopener noreferrer">"Project Natick."</a>
 (Primary Microsoft Research site for subsea data-centre experiments. Use carefully: Natick supports subsea feasibility at hundreds of kilowatts, not 10 MW AI pods.)
@@ -665,7 +665,7 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 (DNV standards ecosystem for offshore and subsea reliability, corrosion, qualification, and inspection. A diligence pointer rather than a single-claim source.)
 
 <span id="ref-56">[56]</span> AMPP (formerly NACE). <a href="https://www.ampp.org/resources/standards" target="_blank" rel="noopener noreferrer">"Standards for corrosion control."</a>
-(Standards source for marine corrosion, cathodic protection, and materials selection. Supports the §J corrosion-control gate.)
+(Standards source for marine corrosion, cathodic protection, and materials selection. Supports the <a class="xref" href="#appendix-j">§J</a> corrosion-control gate.)
 
 <span id="ref-57">[57]</span> Teledyne Marine. <a href="https://www.teledynemarine.com/en-us/products/Pages/subsea-connectors.aspx" target="_blank" rel="noopener noreferrer">"Subsea Connectors."</a>
 (Commercial reference for wet-mate and subsea connector families. Shows subsea power/data connectors exist, without proving Leviathan-level reliability.)
@@ -680,7 +680,7 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 (Reference for conventional data-centre reliability and outage context. Frames the difference between data-centre uptime and sealed subsea pod reliability.)
 
 <span id="ref-61">[61]</span> The Green Grid. <a href="https://www.thegreengrid.org/en/resources/library-and-tools/238-PUE%3A-A-Comprehensive-Examination-of-the-Metric" target="_blank" rel="noopener noreferrer">"PUE: A Comprehensive Examination of the Metric."</a>
-(Defines and contextualises Power Usage Effectiveness. For comparing land PUE, immersion PUE, and the constructed facility-overhead model in §L.)
+(Defines and contextualises Power Usage Effectiveness. For comparing land PUE, immersion PUE, and the constructed facility-overhead model in <a class="xref" href="#appendix-l">§L</a>.)
 
 <span id="ref-62">[62]</span> Green500 / TOP500. <a href="https://www.top500.org/lists/green500/" target="_blank" rel="noopener noreferrer">"Green500 List."</a>
 (Tracks measured energy efficiency of high-performance computing systems. Background for FLOP/W and system-efficiency comparisons, with care for AI accelerators and training workloads.)
@@ -692,7 +692,7 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 (Reference point for liquid-cooled exascale HPC facility design and high-density compute operations. Analogue for facility cooling, not AI-specific cluster topology.)
 
 <span id="ref-65">[65]</span> Age of Wonders. <a href="/essays/bridge-to-infinity" target="_blank" rel="noopener noreferrer">"Bridge to Infinity."</a>
-(Internal cross-reference for the launch-economics arithmetic mirrored in reverse in §M: the architecture changes where the most expensive machine can exist, not what it costs to build.)
+(Internal cross-reference for the launch-economics arithmetic mirrored in reverse in <a class="xref" href="#appendix-m">§M</a>: the architecture changes where the most expensive machine can exist, not what it costs to build.)
 
 <span id="ref-66">[66]</span> Copernicus Marine Service. <a href="https://marine.copernicus.eu/" target="_blank" rel="noopener noreferrer">"Copernicus Marine Data Store."</a>
 (Operational and reanalysis ocean datasets for temperature, salinity, and currents. For site-specific Oman thermal-plume, current, and seasonal-variability modelling.)
