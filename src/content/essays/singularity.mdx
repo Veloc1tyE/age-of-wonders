@@ -44,7 +44,7 @@ Hans Bremermann fixed the speed in 1962. The rate at which anything can process 
 
 Jacob Bekenstein fixed the storage in 1972. The maximum information that fits in a region of space is bounded by the energy inside it and the radius around it, not by the volume. The object that saturates the bound, the most information-dense thing physics permits at a given mass, is a black hole.<sup><a href="#ref-6">[6]</a></sup> Pack matter densely enough to hold the most information, and it collapses into the very object the bound describes.
 
-Seth Lloyd closed the circuit in 2000. He followed the physical limits to their conclusion. The fastest possible processor for a given mass is a black hole of that mass. A one-kilogram black hole would perform on the order of $10^{51}$ operations per second.<sup><a href="#ref-7">[7]</a></sup> The ultimate rate, not a standing machine (Appendix C).
+Seth Lloyd closed the circuit in 2000. He followed the physical limits to their conclusion. The fastest possible processor for a given mass is a black hole of that mass. A one-kilogram black hole would perform on the order of $10^{51}$ operations per second.<sup><a href="#ref-7">[7]</a></sup> The ultimate rate, not a standing machine (<a class="xref" href="#appendix-c">Appendix C</a>).
 
 Hold that against the world. Every datacentre, every phone, every chip humanity has ever powered runs at something near $10^{21}$ operations per second combined.
 
@@ -201,7 +201,7 @@ Love is why you walk it.
 
 *Derivations and bounds supporting the essay's quantitative claims. Inline citations map to the reference section below. Sections A–D ground the established physics; E–F formalise the selection and typicality arguments; G is explicitly heuristic; H records what would falsify the picture.*
 
-### A. The Inevitability of Singularities
+### <span id="appendix-a" class="appendix-anchor"></span>A. The Inevitability of Singularities
 
 The claim that "the geometry leaves no other option" is the content of the Penrose–Hawking singularity theorems.<sup><a href="#ref-4">[4]</a></sup><sup><a href="#ref-12">[12]</a></sup> The mechanism is the focusing of light, governed by the Raychaudhuri equation. For a congruence of null geodesics with tangent $k^a$, expansion $\theta$, shear $\sigma_{ab}$, and vanishing rotation:
 
@@ -213,7 +213,7 @@ $$\frac{d\theta}{d\lambda} \leq -\frac{1}{2}\theta^2 \quad\Longrightarrow\quad \
 
 If the congruence is anywhere converging, $\theta_0 < 0$ — the defining property of a *trapped surface* — then $\theta \to -\infty$ within affine length $\lambda \leq 2/|\theta_0|$. That divergence is a caustic: neighbouring light rays cross. Penrose (1965) globalised this: given a non-compact Cauchy surface, the null energy condition, and one closed trapped surface, the spacetime is null-geodesically incomplete.<sup><a href="#ref-4">[4]</a></sup> Incompleteness is the invariant definition of a singularity. Oppenheimer and Snyder had exhibited the explicit collapse in 1939;<sup><a href="#ref-3">[3]</a></sup> Penrose proved it was generic. Collapse past the trapped-surface threshold is forced, not contingent.
 
-### B. The Speed Limit of Computation
+### <span id="appendix-b" class="appendix-anchor"></span>B. The Speed Limit of Computation
 
 A logical operation is a transition between distinguishable states. The Margolus–Levitin theorem bounds its rate: a system with mean energy $E$ above its ground state passes between orthogonal states no faster than<sup><a href="#ref-22">[22]</a></sup>
 
@@ -229,7 +229,7 @@ $$\frac{\nu_{\max}(1\,\text{kg})}{10^{21}} \approx \frac{5\times10^{50}}{10^{21}
 
 — the thirty orders of magnitude in the body. The bound is on rate per unit mass, independent of architecture, algorithm, and temperature.
 
-### C. The Memory Limit and the Black-Hole Computer
+### <span id="appendix-c" class="appendix-anchor"></span>C. The Memory Limit and the Black-Hole Computer
 
 Speed is bounded by energy; memory is bounded by energy and size together. The Bekenstein bound caps the entropy of a region of radius $R$ enclosing energy $E$:<sup><a href="#ref-6">[6]</a></sup>
 
@@ -243,15 +243,15 @@ so a one-kilogram black hole stores
 
 $$I = \frac{4\pi G M^2}{\hbar c\,\ln 2} \approx 3.8\times 10^{16}\ \text{bits.}$$
 
-Combined with the rate of §B, this is Lloyd's ultimate computer:<sup><a href="#ref-7">[7]</a></sup> ~$10^{51}$ operations per second over ~$10^{16}$ bits.
+Combined with the rate of <a class="xref" href="#appendix-b">§B</a>, this is Lloyd's ultimate computer:<sup><a href="#ref-7">[7]</a></sup> ~$10^{51}$ operations per second over ~$10^{16}$ bits.
 
 **The persistence caveat.** A one-kilogram black hole is not a device. Its Hawking temperature and lifetime are<sup><a href="#ref-24">[24]</a></sup>
 
 $$T_H = \frac{\hbar c^3}{8\pi G M k} \approx 1.2\times10^{23}\ \text{K}, \qquad t_{\text{ev}} = \frac{5120\,\pi G^2 M^3}{\hbar c^4} \approx 8\times10^{-17}\ \text{s.}$$
 
-It evaporates almost instantly. The small black hole is the ultimate *rate*, not a standing machine. Persistence scales as $M^3$: a $10^9\,M_\odot$ hole has $t_{\text{ev}} \sim 10^{94}$ years, eighty-four orders of magnitude past the present age of the universe. The computational frontier and the deep-time substrate are one object at two masses — small holes saturate the rate, large holes supply the persistence and the energy of §D.
+It evaporates almost instantly. The small black hole is the ultimate *rate*, not a standing machine. Persistence scales as $M^3$: a $10^9\,M_\odot$ hole has $t_{\text{ev}} \sim 10^{94}$ years, eighty-four orders of magnitude past the present age of the universe. The computational frontier and the deep-time substrate are one object at two masses — small holes saturate the rate, large holes supply the persistence and the energy of <a class="xref" href="#appendix-d">§D</a>.
 
-### D. Energy Extraction from Rotating Black Holes
+### <span id="appendix-d" class="appendix-anchor"></span>D. Energy Extraction from Rotating Black Holes
 
 A Kerr black hole carries angular momentum $J$, written through the dimensionless spin $a_* = cJ/GM^2 \in [0,1]$. Its mass splits into an irreducible part, fixed by the horizon area, and an extractable rotational part. In geometrised units ($G=c=1$) the Christodoulou–Ruffini relation is<sup><a href="#ref-10">[10]</a></sup><sup><a href="#ref-25">[25]</a></sup>
 
@@ -275,7 +275,7 @@ with $\kappa \approx 0.05$ and $\Omega_H$ the horizon angular velocity, giving $
 
 **Reservoir size.** The extractable energy of a maximal hole, $0.29\,Mc^2$, is $5\times10^{47}$ J for $10\,M_\odot$ and $5\times10^{55}$ J for $10^9\,M_\odot$. Against global primary energy use (~$6\times10^{20}$ J yr⁻¹) these are ~$10^{27}$ and ~$10^{35}$ years of supply — the second far exceeding the stelliferous era.<sup><a href="#ref-8">[8]</a></sup>
 
-### E. Cosmological Natural Selection as a Replicator Process
+### <span id="appendix-e" class="appendix-anchor"></span>E. Cosmological Natural Selection as a Replicator Process
 
 Smolin's mechanism is selection on a heritable, mutating, differentially reproducing population, and takes the standard form.<sup><a href="#ref-14">[14]</a></sup> Let a universe's low-energy constants be $p \in \mathbb{R}^d$, with fitness $W(p)$ = the expected number of black holes it forms, each seeding one offspring with constants $p' = p + \epsilon$ drawn from a narrow mutation kernel $K(\epsilon)$, $\langle\epsilon\rangle = 0$, $\langle\epsilon^2\rangle = \eta^2$ small. The cross-generation density evolves as
 
@@ -293,7 +293,7 @@ $$\|\nabla W_{\text{civ}}\| \gtrsim \|\nabla W_\star\| \quad \text{on } L,$$
 
 whose truth turns on whether engineered black holes are numerous enough to bend the landscape. That is unknown — the essay's weakest beam, made quantitative. The same extension has been proposed independently.<sup><a href="#ref-27">[27]</a></sup>
 
-### F. Typicality, Self-Sampling, and the Measure Problem
+### <span id="appendix-f" class="appendix-anchor"></span>F. Typicality, Self-Sampling, and the Measure Problem
 
 The body argues the empty sky is the prediction. Formally, the lineage is a branching process with mean reproductive ratio $R = \langle W\rangle > 1$ per generation; after $n$ generations the count is $N_n \sim R^n$. A self-sampling observer reasons as a random draw from the observer-measure $\mu$ over the whole ensemble. Weighting by reproductive recency — each generation $R\times$ more numerous than the last —
 
@@ -303,7 +303,7 @@ so $\mu$ is dominated by the most recent generations. Those are, by construction
 
 **The measure problem.** The argument is conditional. $\sum_n R^n$ diverges; the ensemble is not finitely normalisable, so $\mu$ requires a regulator (a proper-time, scale-factor, or stopping cutoff). Different regulators select different "typical" observers, and some produce pathologies — the youngness paradox, Boltzmann-brain domination.<sup><a href="#ref-20">[20]</a></sup> No canonical measure is known. The qualitative conclusion ("early, alone") is robust across the class of measures that weight by reproductive proximity; it is not derivable without committing to that class. This is the precise sense of "rigorous in spirit, not in arithmetic."
 
-### G. Quantum-Gravity Computation: The Ladder and the Counting
+### <span id="appendix-g" class="appendix-anchor"></span>G. Quantum-Gravity Computation: The Ladder and the Counting
 
 §V is the frontier, drawn in lighter ink. The speculation is not a single leap but a ladder, and most of its rungs are already standing. This appendix separates them: what is established, what is seriously theorised, and what remains conjecture.
 
@@ -329,7 +329,7 @@ so the space of causal structures has size $\sim 2^{N^2/4}$ against the $2^N$ st
 
 **The boundary of the claim.** Rungs 1–2 are established, in theory and in the laboratory. Rungs 3–4 are serious theoretical frameworks. Rung 5, and the essay's further step — that a computation at the singularity boundary could range over the law-space itself — is conjecture. §V climbs the ladder the literature has built, then names the last rung as speculation. That honesty is the section's licence to reach.
 
-### H. What Is Falsifiable, and What Is Not
+### <span id="appendix-h" class="appendix-anchor"></span>H. What Is Falsifiable, and What Is Not
 
 The essay depends on its optimism, so its limits should be stated honestly. The essay makes three claims of decreasing security, and they should not be confused.
 
@@ -337,9 +337,9 @@ The essay depends on its optimism, so its limits should be stated honestly. The 
 
 **Cosmological natural selection is the proposed explanation, and it makes testable predictions.** Smolin argued that if our universe is near-optimal for black hole production, small changes to the constants should reduce that production. The most discussed test concerns the maximum mass of neutron stars, since a higher limit would open an additional formation channel and imply our universe is not at an optimum. The prediction is contested. Observations of massive neutron stars have been used against it, and critics argue that black hole production could be raised, not lowered, by changing other parameters such as the cosmological constant, which would undercut the claim that our universe sits at an optimum.<sup><a href="#ref-14">[14]</a></sup><sup><a href="#ref-26">[26]</a></sup> The status is open, not settled.
 
-**The civilisation extension is the frontier, and the weakest beam.** That civilisations can engineer black holes whose parameters seed offspring universes lies far beyond any experiment. The move is not unique to this essay: the proposal that cosmological selection might favour technology, not only stellar collapse, has been raised independently.<sup><a href="#ref-27">[27]</a></sup> It carries one observational consequence: by typicality, a randomly placed observer should find themselves early and alone in a fine-tuned universe rather than late in a crowded one, which is what we find. But this rests on the cosmological measure problem (§F), the unsolved question of how to count observers across a possibly-infinite ensemble. Until that is solved, "more likely" is rigorous in spirit, not in arithmetic. Section V is further out still: a direction the physics suggests, not a result it has reached.
+**The civilisation extension is the frontier, and the weakest beam.** That civilisations can engineer black holes whose parameters seed offspring universes lies far beyond any experiment. The move is not unique to this essay: the proposal that cosmological selection might favour technology, not only stellar collapse, has been raised independently.<sup><a href="#ref-27">[27]</a></sup> It carries one observational consequence: by typicality, a randomly placed observer should find themselves early and alone in a fine-tuned universe rather than late in a crowded one, which is what we find. But this rests on the cosmological measure problem (<a class="xref" href="#appendix-f">§F</a>), the unsolved question of how to count observers across a possibly-infinite ensemble. Until that is solved, "more likely" is rigorous in spirit, not in arithmetic. Section V is further out still: a direction the physics suggests, not a result it has reached.
 
-What would weaken the whole picture: domains where the access gap proves uncloseable, a demonstration that black holes do not produce offspring universes, that the physical constants cannot vary across them, or that the information and energy limits derived in §B–§D have been miscalculated. The argument is built to be wrong if the physics is wrong. That is the point.
+What would weaken the whole picture: domains where the access gap proves uncloseable, a demonstration that black holes do not produce offspring universes, that the physical constants cannot vary across them, or that the information and energy limits derived in <a class="xref" href="#appendix-b">§B</a>–<a class="xref" href="#appendix-d">§D</a> have been miscalculated. The argument is built to be wrong if the physics is wrong. That is the point.
 
 </CollapsibleAppendix>
 

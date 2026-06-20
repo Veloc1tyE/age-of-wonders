@@ -215,7 +215,7 @@ Build a ship that can refuel. Build a ship that can repair. Build a ship that ca
 
 *Key calculations supporting quantitative claims in the essay body. Inline citations [1]–[27] and [SGL] map to the reference section below.*
 
-### A. Kinetic Energy Budget
+### <span id="appendix-a" class="appendix-anchor"></span>A. Kinetic Energy Budget
 
 For a 200,000-tonne spacecraft ($m = 2 \times 10^8$ kg), translational kinetic energy $E_k = \tfrac{1}{2}mv^2$ scales quadratically with cruise speed:
 
@@ -227,7 +227,7 @@ For a 200,000-tonne spacecraft ($m = 2 \times 10^8$ kg), translational kinetic e
 
 Global electricity is ~$10^{20}$ J/year.<sup><a href="#ref-15">[15]</a></sup> A 10× reduction in dry mass reduces energy 10×; a 2× increase in cruise speed increases energy 4×. Chemical propulsion cannot approach this energy regime.<sup><a href="#ref-16">[16]</a></sup> Fusion is the minimum viable propulsion class for this mission.<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-17">[17]</a></sup>
 
-### B. Deuterium Inventory
+### <span id="appendix-b" class="appendix-anchor"></span>B. Deuterium Inventory
 
 The Galileo probe measured Jupiter's D/H ratio directly: $D/H = (2.6 \pm 0.7) \times 10^{-5}$.<sup><a href="#ref-2">[2]</a></sup> The ±27% measurement uncertainty linearly scales deuterium yield estimates for any given processed mass flow. D/H varies by planet and depth; Jupiter is used here as a measured anchor for order-of-magnitude inventory. Jupiter's mass is $1.9 \times 10^{27}$ kg, roughly 75% hydrogen by mass. Total deuterium:
 
@@ -237,7 +237,7 @@ Catalysed D-D fusion yield — where secondary products (tritium, He-3) are burn
 
 $$E_{total} \approx 3.7 \times 10^{22} \times 3.6 \times 10^{14} \approx 1.3 \times 10^{37} \text{ J}$$
 
-### C. Rocket Equation — Mass Ratio Analysis
+### <span id="appendix-c" class="appendix-anchor"></span>C. Rocket Equation — Mass Ratio Analysis
 
 The Tsiolkovsky equation: $\Delta v = v_e \ln(m_0/m_f)$
 
@@ -263,9 +263,9 @@ The essay body uses 0.05c as cruise velocity. At $\Delta v = 0.05c$ (15,000 km/s
 | 10,000 km/s | 77.7% | 95.0% | 3,820,000 t |
 | 15,000 km/s | 63.2% | 86.5% | 1,280,000 t |
 
-At 0.05c with $v_e = 10{,}000$ km/s the ship must carry 19× its dry mass in propellant for a round trip — demanding, but achievable with fleet-supported loading (Appendix H). D-He3 exhaust at $v_e \approx 15{,}000$ km/s reduces the ratio to ~6.4×, making the mission substantially more tractable. Current fusion-electric drives (~100 km/s class) are excellent for Solar System logistics but cannot reach interstellar velocities without astronomical mass ratios. The two-tier architecture (Tier A fusion-electric for Solar System, Tier B direct fusion product for interstellar) reflects this constraint.
+At 0.05c with $v_e = 10{,}000$ km/s the ship must carry 19× its dry mass in propellant for a round trip — demanding, but achievable with fleet-supported loading (<a class="xref" href="#appendix-h">Appendix H</a>). D-He3 exhaust at $v_e \approx 15{,}000$ km/s reduces the ratio to ~6.4×, making the mission substantially more tractable. Current fusion-electric drives (~100 km/s class) are excellent for Solar System logistics but cannot reach interstellar velocities without astronomical mass ratios. The two-tier architecture (Tier A fusion-electric for Solar System, Tier B direct fusion product for interstellar) reflects this constraint.
 
-Deceleration at the destination is a drive burn against the direction of travel, not aerocapture. The pre-departure fueling campaign at the outer planets must load propellant for both the acceleration and deceleration legs. See Appendix H for loading timelines.
+Deceleration at the destination is a drive burn against the direction of travel, not aerocapture. The pre-departure fueling campaign at the outer planets must load propellant for both the acceleration and deceleration legs. See <a class="xref" href="#appendix-h">Appendix H</a> for loading timelines.
 
 **The power-thrust-time constraint.** For any rocket where exhaust kinetic energy dominates: $P_{thrust} \approx \frac{1}{2}Tv_e$, where $T$ is thrust and $v_e$ is exhaust velocity. This creates a hard trade:
 
@@ -285,7 +285,7 @@ Current quantified DFD-class designs report ~40 N thrust, $v_e$ ~56.5 km/s, and 
 
 Near-term fission demonstrators (Kilopower-class) operate at single-digit W/kg. A "system-level ≥1,000 W/kg" target (≤1 kg/kW$_e$) represents a leap of 1–2 orders of magnitude beyond current NEP design points. The architecture's Tier A / Tier B split acknowledges this: Tier A is an engineering programme; Tier B is a physics programme that inherits Tier A infrastructure.
 
-### D. Atmospheric Intake and Throughput
+### <span id="appendix-d" class="appendix-anchor"></span>D. Atmospheric Intake and Throughput
 
 The gross mass flow through the intake is $\dot{m} = \rho A v$, and the dynamic pressure is $q = \frac{1}{2}\rho v^2$. These two relations define the feasible skimming envelope — throughput requires high $\rho A v$, but structural survival limits $q$:
 
@@ -307,7 +307,7 @@ The key insight: *hypersonic skimming is not a design preference — it is force
 
 Saturn is the first practical refueling stop. Its escape velocity is substantially lower than Jupiter's, its radiation environment far milder, and repeated sortie cycles therefore cost less energy per kilogram of propellant recovered.<sup><a href="#ref-27">[27]</a></sup>
 
-### E. Thermal Management
+### <span id="appendix-e" class="appendix-anchor"></span>E. Thermal Management
 
 Radiator area from Stefan-Boltzmann:<sup><a href="#ref-20">[20]</a></sup> $A \approx P / (\sigma T^4)$
 
@@ -315,9 +315,9 @@ For 10 GW waste heat at 800 K (ideal blackbody): $A \approx 430{,}000$ m². Real
 
 Radiator design is the primary structural fact of the spacecraft — not a peripheral subsystem. At GW scale, two effects that are secondary at MW scale become first-order: micrometeoroid and dust damage to km²-class surfaces over decades, and integration of heat rejection geometry with propulsion exhaust and shielding. Liquid droplet radiators offer mass reduction at very large areas but introduce containment/recapture complexity.<sup><a href="#ref-22">[22]</a></sup>
 
-**Tier B coupling.** If interstellar acceleration requires fusion power in the tens of terawatts (Appendix C, Mode 3), then either the vast majority of that power must leave as directed exhaust energy with minimal waste heat fraction, or radiator area becomes implausibly large. Mode 3's direct fusion product exhaust is intrinsically efficient in this regard — the charged products carry the energy out of the system. The waste heat fraction is the residual: neutron losses, Bremsstrahlung, incomplete product confinement. Keeping that fraction below ~1% at TW scale is the radiator design constraint that makes Tier B architecturally coherent with km²-class panels rather than requiring continent-scale surfaces.
+**Tier B coupling.** If interstellar acceleration requires fusion power in the tens of terawatts (<a class="xref" href="#appendix-c">Appendix C</a>, Mode 3), then either the vast majority of that power must leave as directed exhaust energy with minimal waste heat fraction, or radiator area becomes implausibly large. Mode 3's direct fusion product exhaust is intrinsically efficient in this regard — the charged products carry the energy out of the system. The waste heat fraction is the residual: neutron losses, Bremsstrahlung, incomplete product confinement. Keeping that fraction below ~1% at TW scale is the radiator design constraint that makes Tier B architecturally coherent with km²-class panels rather than requiring continent-scale surfaces.
 
-### F. Life Support Mass Balance
+### <span id="appendix-f" class="appendix-anchor"></span>F. Life Support Mass Balance
 
 For a crew of 100, basic consumable throughput before recycling is approximately 215 tonnes per year (water ~110 t, oxygen ~33 t, food ~73 t). At 90% recycling efficiency: ~22 tonnes per year must be resupplied — manageable with Earth logistics, not without. At 99%: ~2.2 tonnes per year, compensable from in-situ water harvesting during gas giant refueling visits. At 99.9%: ~220 kg per year — achievable from atmospheric collection alone. ISS has demonstrated ~98% water recovery with current ECLSS upgrades (Brine Processor Assembly).<sup><a href="#ref-12">[12]</a></sup><sup><a href="#ref-23">[23]</a></sup><sup><a href="#ref-13">[13]</a></sup>
 
@@ -325,17 +325,17 @@ Oxygen closure is a harder bottleneck. NASA's current state-of-the-art recovers 
 
 The water gap to mission requirements is narrow. The oxygen gap is wider but tractable — engineering, not discovery.
 
-### G. Transit Times
+### <span id="appendix-g" class="appendix-anchor"></span>G. Transit Times
 
-At 0.05c, Alpha Centauri (4.37 ly): $t_{cruise} \approx 87$ years. At 0.02c: 218 years. These are cruise-phase durations only. Acceleration and deceleration time depends on the assumed thrust: at Mode 3 conditions (~0.02 m/s², or ~0.002 g — derived from Appendix C: $F = ma$ for $m \sim 5 \times 10^8$ kg average burn mass, reflecting propellant carried during acceleration/deceleration; $a \sim 0.02$ m/s²; $F \sim 10^7$ N), reaching 0.05c takes:
+At 0.05c, Alpha Centauri (4.37 ly): $t_{cruise} \approx 87$ years. At 0.02c: 218 years. These are cruise-phase durations only. Acceleration and deceleration time depends on the assumed thrust: at Mode 3 conditions (~0.02 m/s², or ~0.002 g — derived from <a class="xref" href="#appendix-c">Appendix C</a>: $F = ma$ for $m \sim 5 \times 10^8$ kg average burn mass, reflecting propellant carried during acceleration/deceleration; $a \sim 0.02$ m/s²; $F \sim 10^7$ N), reaching 0.05c takes:
 
 $$t_{burn} = \frac{v}{a} = \frac{1.5 \times 10^7}{0.02} = 7.5 \times 10^8 \text{ s} \approx 24 \text{ years}$$
 
 Symmetric deceleration adds another ~24 years. Total mission duration at 0.05c: roughly 87 + 48 ≈ 135 years. At 0.02c the burn phases shorten to ~10 years each, giving ~238 years total. Both are within a single extended human lifetime with torpor,<sup><a href="#ref-7">[7]</a></sup> though the 0.05c case is tighter. The factor-of-2.5 velocity difference separates single-generation from multi-generational transit, and trades directly against thrust power and propellant requirements (Appendices C, H).
 
-### H. Propellant Loading Timelines
+### <span id="appendix-h" class="appendix-anchor"></span>H. Propellant Loading Timelines
 
-The propellant masses from Appendix C determine how long refueling takes — and why the essay distinguishes Solar System mining (fleet architecture, parallelisable) from destination mining (single ship, sequential).
+The propellant masses from <a class="xref" href="#appendix-c">Appendix C</a> determine how long refueling takes — and why the essay distinguishes Solar System mining (fleet architecture, parallelisable) from destination mining (single ship, sequential).
 
 **Pre-departure loading (Solar System, fleet-supported):**
 
@@ -377,7 +377,7 @@ Saturn's atmospheric helium is depleted by H/He phase separation ("helium rain")
 
 This is the single biggest architectural fork in the system. D-He3 buys performance at the cost of industrial complexity; D-D buys simplicity at the cost of propellant mass and neutron management. A practical architecture may use both: D-He3 where He-3 is available from fleet-supported Solar System mining, D-D as the fallback at destination systems where only the ship itself is mining.
 
-### I. Radiation Environment and Interstellar Cruise Hazards
+### <span id="appendix-i" class="appendix-anchor"></span>I. Radiation Environment and Interstellar Cruise Hazards
 
 **Galactic cosmic ray dose.** MSL/RAD measurements during Mars cruise provide the best empirical deep-space analogue: dose equivalent rate of 1.84 ± 0.3 mSv/day (~0.67 Sv/year).<sup><a href="#ref-24">[24]</a></sup> NASA-STD-3001 Vol 1 Rev B sets a universal career effective dose limit of 600 mSv.<sup><a href="#ref-25">[25]</a></sup> An indefinite mission exceeds this limit within the first year at unshielded cruise conditions, making radiation management structurally load-bearing.
 
