@@ -101,6 +101,21 @@ The site deploys through Vercel.
 
 Broken builds do not stay local. They ship.
 
+### Pushing from a restricted network
+
+SSH to GitHub is blocked here. Both `github.com:22` and the `ssh.github.com:443`
+fallback time out, so the default `origin` (an `git@github.com:` SSH URL) cannot
+push. HTTPS (port 443) works.
+
+Do not waste time retrying SSH. Push over HTTPS using the authenticated `gh`
+token, without changing the `origin` remote:
+
+```bash
+git push "https://x-access-token:$(gh auth token)@github.com/Veloc1tyE/age-of-wonders.git" main
+```
+
+This needs `gh auth status` to show a logged-in account with `repo` scope (it does).
+
 ## Development Workflow
 
 ### Before Committing
@@ -1060,9 +1075,11 @@ Apply the principles within the register.
 
 Do not flatten every essay into the same voice.
 
-Create an Age of Wonders carries the highest risk of generic language. The fix is always mechanism.
+Create an Age of Wonders carries the highest risk of generic language. The fix is usually mechanism.
 
-Replace mood with matter.
+But the manifesto register is also the one where grand mood statements have a legitimate role. "We're standing at the edge of a civilisational phase transition..." is not vague — it is a civilisational claim that earns its place by being followed immediately by "For the first time in history, we have the tools to design intelligence, simulate nature, and reprogram life." The two belong together. The mood statement needs the grounding. The grounding statement needs the opening altitude.
+
+Replace mood with matter. Do not replace mood with *only* matter.
 
 ---
 
@@ -1350,6 +1367,68 @@ End with the work.
 
 ---
 
+### Principle 31: When in doubt, delete
+
+The first instinct when something doesn't flow is to rework it: add a transition, build a staircase, introduce a cross-reference, clarify the logic. The better instinct is usually subtraction.
+
+If a section is hard to fix, ask what it would look like without it. If a sentence is hard to land, ask whether the paragraph needs it. If an anaphora prefix ("Once the Moon supplies the mass") feels decorative, make it declarative ("The Moon supplies the mass."). If a coda after the compression drop feels like a grace note, cut it.
+
+The ending of an essay is where this matters most. Every element added after the final line dilutes it. Every component placed between the prose and the close fragments the landing.
+
+The test: remove the element. Does the surrounding prose become stronger or weaker?
+
+If stronger, the element was in the way.
+
+Complexity that resists revision usually resists reading too. Dense technical content belongs in appendices. Structural scaffolding that helps the writer often hinders the reader.
+
+The best revision is often the shortest one.
+
+---
+
+### Principle 32: Synthesis over displacement
+
+The principles in this guide are read at a desk. Essays are felt in the body.
+
+Some prose improvements that read as correct on the page create distance when spoken aloud. Contractions, informal phrasings, even grammatically suboptimal constructions can generate warmth, rhythm, and visceral impact that formally correct alternatives cannot.
+
+Before cutting an informal construction, read the original and the revision aloud. If the revision is more correct but less alive, the revision may cost more than it gains.
+
+Specific cases where the original may be the right call:
+
+- **Contractions** ("we've", "you've", "isn't", "we're") belong in manifesto, personal narrative, and visionary-accessible registers. Strip them only in technical or analytical essays where they feel genuinely out of place. Never strip them wholesale across a whole essay.
+- **Literary similes** in manifesto mode are not precision claims. They convey relationship, not mechanism. Evaluate them for emotional accuracy, not factual accuracy. "As birds fly with instinct... so planes fly higher, farther, and faster — along the routes we build for them" is a claim about the relationship between intelligence and human intent. The slight imprecision is the metaphor, not the error.
+- **Informal address** ("If you've worked in software, you've felt this") creates contact. The formal equivalent loses it.
+- **Sentence fragments** that create a beat often look wrong and sound right.
+
+The test: does this sound like a human being speaking to another human being?
+
+If the revision sounds like a document, reconsider.
+
+---
+
+### Principle 32: Synthesis over displacement
+
+When revising for precision, the first instinct is often displacement: remove the evocative to make room for the exact.
+
+The better instinct is synthesis: keep both, in sequence.
+
+The manifesto essay often needs two opening paragraphs — the civilisational vision and the concrete grounding. Together they work. Separately, each is weaker.
+
+The test: does the revision make the original unnecessary, or does the original still earn its place alongside the revision?
+
+If the original still earns its place, keep both.
+
+Common cases where synthesis beats replacement:
+
+- An evocative opening paragraph + a grounding paragraph that follows immediately
+- A literary simile + a precise mechanism statement that follows it
+- A wonder-building sentence ("This unlocks new possibilities—") + the specific list that follows
+- A grand mood claim + the number or example that substantiates it
+
+Precision without vision is technical. Vision without precision is aspiration. Together they are the manifesto.
+
+---
+
 ## The Five Magic Patterns
 
 The 30 prose principles keep the writing clean. These five patterns are what make it unforgettable.
@@ -1517,6 +1596,12 @@ Before any essay goes live, run this pass.
 37. **Threshold sentence:** If the essay marks a genuine first-time crossing, is it named as such — stated with the weight of something that can never unhappen?
 38. **Access inversion:** Does the essay name the exact moment the constraint dissolved — not what exists, but what changed about access to it? This is usually the best candidate for the staircase close.
 39. **Five-pattern audit:** When prose is technically clean but flat, check which of the five magic patterns is absent from the weakest section. Add it. That is usually the repair.
+40. **Speakability check:** Read every revised passage aloud. If it stumbles less but sounds less human, the revision may have sacrificed voice for correctness. The essay should feel like a person speaking, not a document being read.
+41. **Contraction check by register:** In technical and analytical essays, contractions can feel misplaced. In manifesto, personal narrative, and visionary-accessible essays, contractions carry warmth and should be preserved. Never strip them wholesale across a whole essay — check each one against the essay's register.
+42. **Synthesis check:** Where precision has displaced beauty, ask whether both can coexist in sequence. If the original still earns its place alongside the revision, restore it. An evocative opening paragraph followed by a grounding paragraph is not redundancy — it is the manifesto form.
+43. **Literary device check (manifesto mode only):** Similes and analogies in CAOW-register essays are evaluated for emotional accuracy, not factual accuracy. They convey relationship and scale, not mechanism. An analogy that feels slightly imprecise may still be exactly right.
+44. **Deletion test:** For any section or element that resists revision, remove it entirely and read what remains. If the surrounding prose is stronger, the element was in the way. Apply especially to: codas after compression drops, transitions between sections, anaphora prefixes that can become declarative statements, and components placed between the prose and the close.
+45. **Density audit:** Essays with heavy technical content should have most of that content in appendices, not the body. If a section is hard to read, ask whether it belongs in the appendix. The body carries the argument. The appendix carries the verification.
 
 ---
 
