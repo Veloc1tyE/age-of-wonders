@@ -48,8 +48,6 @@ A machine this large needs a part small enough to build, finance, and replace. F
 
 The pod takes a frontier-class training cluster and renders it as a single brick. The value is in what a brick allows. You can set another beside it, and another, without the machine spreading across the ground. A hundred pods make a gigawatt. A thousand make ten. Ten thousand make a hundred, the same sealed organ repeated until a single learning system reaches a scale no land campus could hold in one piece.
 
-This is the move the whole concept turns on. Today a frontier cluster is among the largest coherent machines built. Leviathan makes it the unit, not the limit.
-
 ## III. The Geometry
 
 Land builds in two dimensions. The sea offers a third. A datacentre is a floor, racks in rows, the machine growing by setting buildings beside one another until it sprawls like a suburb and its far edges drift apart. Submerged, the floor disappears. Pods hang in a lattice, stacked through a volume and joined by short runs of fibre that travel up and across as well as out. The machine fills space rather than covering ground. The difference shows up directly in distance.
@@ -83,16 +81,20 @@ That changes the measure of the machine. It does not sell megawatts. It sells co
 
 ## VI. What It Unlocks
 
-The honest version is the stronger claim. Leviathan does not make a single processor faster. The chip is the chip. Its cooling returns roughly <a class="xref" href="#appendix-l">a tenth of what land would spend on fans and heat</a>.
+A chip is still a chip. Cooling returns <a class="xref" href="#appendix-l">a tenth of what land would spend on fans and heat</a>.
 
-The point is what becomes possible once the machine can do tens of times more work within the same latency profile. A hundred pods approach a hundred times the peak compute of a frontier cluster without scaling beyond its span. In the solar-following case, after sunlight hours and operating losses, that gigawatt does on the order of <a class="xref" href="#appendix-i">thirty times the daily training</a> of the best land machine running flat out. If the newest pods are firmed for round-the-clock operation, the same physical gigawatt moves toward the full hundred-cluster-day regime. Ten gigawatts does hundreds of times more. A hundred gigawatts enters a range where precedent runs out.
+The point is what becomes possible once the machine can do tens of times more work within the same latency profile—
+
+A hundred pods approach a hundred times the peak compute of a frontier cluster without scaling beyond its span. In the solar-following case, after sunlight hours and operating losses, that gigawatt does on the order of <a class="xref" href="#appendix-i">thirty times the daily training</a> of the best land machine running flat out. 
+
+If the newest pods are firmed for round-the-clock operation, one gigawatt moves toward the full hundred-cluster-day regime. Ten gigawatts does hundreds of times more. A hundred gigawatts enters a range where precedent runs out.
 
 <DataInsight
   insight="One pod is comparable to a modern AI supercomputer. A gigawatt holds a hundred of them in the span of a building."
   context="Leviathan assembles simple modules for multiples more daily training than a land machine."
 />
 
-That compute resolves into two different promises, and keeping them apart is what makes the claim honest. Most of it is throughput: the runs finished, the rollouts explored, the data generated, the students distilled, the architectures tried and discarded. Not one machine, but thousands of loosely-joined ones. The lattice delivers, asking nothing the sun and the sea cannot give. The frontier advances by finishing attempts. A field of pods finishes more than any campus on land.
+That compute resolves into two different promises, and keeping them apart is what makes the claim honest. Most of it is throughput: the runs finished, the rollouts explored, the data generated, the students distilled, the architectures tried and discarded. The lattice delivers, asking nothing the sun and the sea cannot give.
 
 ## VII. The Shape of the Work
 
@@ -102,13 +104,13 @@ The first is the limit already described. The frontier is outgrowing the land th
 
 The early frontier was one dense run, a single model trained end to end, every processor holding a slice of the same weights and trading them on every step. It is the most tightly synchronised computation the field has produced. It is the hardest case for any distributed machine. What binds it is <a class="xref" href="#appendix-c">the width of the network, not the length of its wires</a>.<sup><a href="#ref-23">[23]</a></sup><sup><a href="#ref-24">[24]</a></sup><sup><a href="#ref-25">[25]</a></sup> A subsea lattice has least advantage here. Shortening the wires does nothing for a machine whose limit is bandwidth.
 
-That run is becoming a smaller part of what the frontier does. The newest models are sparse: a mixture of experts in which only a fraction of the network fires for any token. The total brain compounds while the active computation stays small.<sup><a href="#ref-26">[26]</a></sup><sup><a href="#ref-27">[27]</a></sup> Around that core a second economy has grown. Distillation from a master model is now standard practice. Reinforcement learning runs across millions of parallel rollouts. Synthetic data is produced in bulk. Simulation and world models run as vast independent ensembles. Reasoning loops a small block through depth instead of stacking ever-larger layers.<sup><a href="#ref-28">[28]</a></sup><sup><a href="#ref-29">[29]</a></sup>
+That run is becoming a smaller part of what the frontier does. The newest models are sparse: a mixture of experts in which only a fraction of the network fires for any token. The total brain compounds while the active computation stays small.<sup><a href="#ref-26">[26]</a></sup><sup><a href="#ref-27">[27]</a></sup> Around that core a second economy has grown. Distillation from a master model is now standard practice. Reinforcement learning runs across millions of parallel rollouts. Synthetic data in bulk. Simulation and world models run as vast independent ensembles. Reasoning loops a small block through depth instead of stacking ever-larger layers.<sup><a href="#ref-28">[28]</a></sup><sup><a href="#ref-29">[29]</a></sup>
 
-These workloads share a property. They are parallel where the old run was synchronous, and tolerant of delay where it was not. Some scarcely communicate across the machine at all. The rest are bound by the length of their wires, not the width of their network. That is the one constraint a dense, short-path lattice was built to relieve.
+These workloads are parallel where the old run was synchronous, and tolerant of delay where it was not. Some scarcely communicate across the machine at all. The rest are bound by the length of their wires, not the width of their network. That is the one constraint a dense, short-path lattice was built to relieve.
 
 One item on that list runs against the grain of the others. It is rising fastest. As the returns from ever-larger pretraining runs flatten, the frontier is learning to scale a different axis: the depth of reasoning a model performs before it answers.<sup><a href="#ref-30">[30]</a></sup> A run that loops through long chains of sequential steps is neither parallel nor tolerant of delay. Each step waits on the one before it. Each pays the machine's latency in full. Stretch the chain far enough and latency, not bandwidth, becomes the wall. The model doing the reasoning is not small. It is a sparse master that spreads its experts across the machine, so every step of the chain is a wide exchange across it. Depth and width compound.
 
-This is the axis land cannot follow. A campus kilometres across pays its latency on every link of the chain. The deeper the recursion, the more of the run is lost to waiting. The dense lattice clears that floor. The sea makes compute no cheaper than the desert beside it. What it changes is which dimension binds: from power, which any desert can supply, to serial latency at scale, which only a machine this close to itself can reach.
+A campus kilometres across pays its latency on every link of the chain. The deeper the recursion, the more of the run is lost to waiting. The dense lattice clears that floor. The sea makes compute no cheaper than the desert beside it. What it changes is which dimension binds: from power, which any desert can supply, to serial latency at scale, which only a machine this close to itself can reach.
 
 So the frontier is not only running out of land. It is turning into the kind of work an ocean-cooled lattice runs best. The apex training run remains the exception: bandwidth-bound, and as hard underwater as anywhere. It is a shrinking share of a budget increasingly spent on parallel, checkpointable, latency-bound computation, exactly the work a field of sealed pods on intermittent sun is suited to.
 
@@ -118,7 +120,7 @@ The topology the frontier is migrating toward is the one the sea already prefers
 
 <a href="/essays/computational-abundance">Computational Abundance</a> described how intelligence spreads through the economy: how frontier hardware, written down and repriced after the buildout overbuilds, carries cheap intelligence into every corner of ordinary work.<sup><a href="#ref-31">[31]</a></sup> That is the story of diffusion. Leviathan is the story of the source.
 
-It is where the frontier is made, the place that trains the largest models, generates the synthetic data, and distils the lessons that smaller machines will carry outward for years. The two essays describe one cycle. The forge trains a teacher. The teacher is distilled into students. The students run cheaply on older silicon everywhere. The value they create funds the next teacher. The frontier concentrates, the plateau diffuses, and the source has to sit somewhere.
+It is where the frontier is made, the place that trains the largest models, generates the synthetic data, and distils the lessons that smaller machines will carry outward for years. The forge trains a teacher. The teacher distils into students. The students run cheaply on older silicon everywhere. The value they create funds the next teacher. The frontier concentrates, the plateau diffuses, and the source has to sit somewhere.
 
 <Callout type="info">
 
@@ -132,7 +134,7 @@ It is where the frontier is made, the place that trains the largest models, gene
 
 </Callout>
 
-That earlier essay named the scarce thing precisely. Compute is abundant. The slot is scarce: the permitted, powered, cooled place where electricity turns into thought. Leviathan names the scarcest slot of all: gigawatts of cool power in a location a frontier machine can actually occupy. The slot binds however the work is arranged. Spread a run across a dozen sites, as the labs increasingly do, and the constraint is not escaped but multiplied: every one of those sites still needs its own gigawatts of cool power on permitted ground. One coherent machine or a federation of them, the ocean supplies what each node requires.
+Compute is abundant. The slot is scarce: the permitted, powered, cooled place where electricity turns into thought. Leviathan names the scarcest slot of all: gigawatts of cool power in a location a frontier machine can actually occupy. The slot binds however the work is arranged. Spread a run across a dozen sites, as the labs increasingly do, and the constraint multiplies: every one of those sites still needs its own gigawatts of cool power on permitted ground. One coherent machine or a federation of them, the ocean supplies what each node requires.
 
 That cycle runs in one direction. The ocean steepens it. Computational Abundance argued that intelligence already arrives faster than the institutions meant to verify, regulate, and trust it can take it in.<sup><a href="#ref-31">[31]</a></sup> In practice, the supply is inexhaustible. A forge in the sea makes it more so. It raises the output of frontier capability and cheap synthetic data by a hundredfold. The work of turning that capability into medicine, law, and industry still moves at the speed of human institutions.
 
@@ -500,7 +502,7 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 <CollapsibleAppendix title="References">
 
 <span id="ref-1">[1]</span> Pilz, K.F., Sanders, J., Rahman, R. & Heim, L. (2025). <a href="https://arxiv.org/abs/2504.16026" target="_blank" rel="noopener noreferrer">"Trends in AI Supercomputers."</a> <em>arXiv:2504.16026</em>.
-(500-system dataset, 2019–2025. Finds AI-supercomputer performance doubled every nine months while hardware cost and power doubled annually; extrapolates a leading 2030 system requiring ~9 GW. Load-bearing source for the power-per-frontier-run model in <a class="xref" href="#appendix-a">§A</a>.)
+(500-system dataset, 2019–2025. Finds AI-supercomputer performance doubled every nine months while hardware cost and power doubled annually; extrapolates a leading 2030 system requiring ~9 GW. Source for the power-per-frontier-run model in <a class="xref" href="#appendix-a">§A</a>.)
 
 <span id="ref-2">[2]</span> Sevilla, J., Heim, L., Ho, A., Besiroglu, T., Hobbhahn, M. & Villalobos, P. (2022). <a href="https://arxiv.org/abs/2202.05924" target="_blank" rel="noopener noreferrer">"Compute Trends Across Three Eras of Machine Learning."</a> <em>arXiv:2202.05924</em>.
 (Finds that in the large-scale era, training compute doubled roughly every six months. Supports the claim that frontier compute has grown far faster than hardware efficiency.)
@@ -521,7 +523,7 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 (Global report on electricity demand from data centres and AI. Sources broad claims about data-centre electricity growth, grid pressure, and the concentration of AI loads.)
 
 <span id="ref-8">[8]</span> NVIDIA. <a href="https://www.nvidia.com/en-us/data-center/gb300-nvl72/" target="_blank" rel="noopener noreferrer">"NVIDIA GB300 NVL72."</a>
-(Official product page for the liquid-cooled GB300 NVL72 rack-scale architecture: 72 Blackwell Ultra GPUs, 36 Grace CPUs, 130 TB/s NVLink, 37 TB fast memory, 1,440 PFLOPS FP4. Load-bearing source for the 72-GPU rack-class unit.)
+(Official product page for the liquid-cooled GB300 NVL72 rack-scale architecture: 72 Blackwell Ultra GPUs, 36 Grace CPUs, 130 TB/s NVLink, 37 TB fast memory, 1,440 PFLOPS FP4. Source for the 72-GPU rack-class unit.)
 
 <span id="ref-9">[9]</span> Pambudi, N.A. et al. (2022). <a href="https://doi.org/10.1016/j.aej.2022.06.052" target="_blank" rel="noopener noreferrer">"The immersion cooling technology: Current and future development in energy saving."</a> <em>Alexandria Engineering Journal</em> 61(12), 9509–9527.
 (Review of single-phase and two-phase immersion cooling, dielectric liquids, and heat rejection. Sources the dielectric-fluid concept.)
@@ -572,7 +574,7 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 (Describes ring-allreduce distributed deep learning and the communication overheads of scaling from one GPU to many. Supports the all-reduce model and the latency/bandwidth distinction.)
 
 <span id="ref-25">[25]</span> Wang, G. et al. (2023). <a href="https://arxiv.org/abs/2306.10209" target="_blank" rel="noopener noreferrer">"ZeRO++: Extremely Efficient Collective Communication for Giant Model Training."</a> <em>arXiv:2306.10209</em>.
-(Shows that communication volume from weight-gathering, the backward pass, and gradient averaging limits throughput at scale. Supports the <a class="xref" href="#appendix-c">§C</a> caution that bandwidth fabric remains load-bearing.)
+(Shows that communication volume from weight-gathering, the backward pass, and gradient averaging limits throughput at scale. Supports the <a class="xref" href="#appendix-c">§C</a> caution that bandwidth fabric remains important.)
 
 <span id="ref-26">[26]</span> Fedus, W., Zoph, B. & Shazeer, N. (2022). <a href="https://arxiv.org/abs/2101.03961" target="_blank" rel="noopener noreferrer">"Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity."</a> <em>arXiv:2101.03961</em>.
 (Sparsely-activated mixture-of-experts model selecting different parameters per input at roughly constant compute, with up to 7× pretraining speed-ups. Sources the §VII claim that the newest models are sparse, with the total network growing while active computation stays small.)
