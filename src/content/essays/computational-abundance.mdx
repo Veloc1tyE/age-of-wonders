@@ -32,7 +32,7 @@ The hyperscalers expect to spend over **\$700 billion** on AI and cloud infrastr
 None of it ships intelligence to a customer. It ships steel, copper, silicon, and concrete to a power easement that does not yet exist.<sup><a href="#ref-7">[7]</a></sup>
 
 <DataInsight
-  insight="Amazon now says European grid interconnections can take up to seven years. A data centre takes about two years to build."
+  insight="Amazon now says European grid interconnections can take up to seven years. A datacentre takes about two years to build."
   context="The model trains in months. The transformer arrives in years."
 />
 
@@ -61,7 +61,7 @@ And the scarce asset works out as the **slot**: permitted power, cooling, land, 
 
 Every order book is a claim on a future slot. Every "X gigawatts" announcement is a claim on a slot. The order book equals demand only if the slots arrive on time.
 
-In January 2026, AWS raised H200 Capacity Block pricing by **15%** — the clearest material price increase in current-generation cloud compute after two decades of mostly declining headline cloud pricing because of slot scarcity<sup><a href="#ref-10">[10]</a></sup>.
+In January 2026, AWS raised H200 Capacity Block pricing by **15%**<sup><a href="#ref-10">[10]</a></sup>. For the first time in two decades, cloud compute got more expensive. Slot scarcity did that.
 
 ## II. The Order Book Is Not Demand
 
@@ -129,13 +129,13 @@ The depreciation clock has three hands.
 
 **Software stack alignment.** Frontier kernels, compiler optimisations, library support, and reference implementations migrate to current silicon.
 
-**Power contract.** A 100 MW interconnection built in 2027 will not be filled with the GPUs ordered for it in 2024 if the GPUs ordered in 2026 do much more work per watt on the workloads that pay for them. 
+**Power contract.** A 100 MW interconnection built in 2027 will not be filled with the GPUs ordered for it in 2024 if the GPUs ordered in 2026 do much more work per watt on the workloads that pay for them.
 
-The three hands rotate together. 
+The three hands rotate together.
 
 And yet the chip does not stop being useful when it stops being frontier.
 
-In an earlier era, the chip you bought in 1996 was useless in 2000. That era is over. Moore's law slowdown has changed the depreciation profile of compute. Per-transistor cost has plateaued. 
+In an earlier era, the chip you bought in 1996 was useless in 2000. That era is over. Moore's law slowdown has changed the depreciation profile of compute. Per-transistor cost has plateaued.
 
 Per-watt performance still improves, but in narrower bands and on specific workloads. A 7 nm chip from 2019 still does floating-point arithmetic perfectly well. A Hopper-class accelerator from 2023 still performs trillions of multiplications per second per device.
 
@@ -219,7 +219,7 @@ In May 2026, <a class="xref" href="#appendix-i">Anthropic took over the entire *
 
 All while the planned expansion of the Oracle/OpenAI Stargate campus in Abilene from **1.2 GW** to **2.0 GW** collapsed in early 2026 against financing complexity, revised OpenAI demand forecasts, and a winter weather event that took the liquid-cooling loop offline for several days. Microsoft took over the adjacent expansion with Crusoe, adding two buildings and an on-site **900 MW** gas plant alongside Oracle's existing **350 MW** backup.<sup><a href="#ref-21">[21]</a></sup>
 
-Beyond the hyperscaler tier, the **institutional layer** absorbs another wave: tier-2 colocation, regional clouds, sovereign clusters, enterprise on-premise, university research, industrial sites with cheap local power, and crypto-era data centres rebuilt for a different workload. The frontier is concentrated. The plateau is distributed. Old hyperscaler racks find new homes in lower-priority slots — never the scarcest watts, but the second-scarcest, the third, the tenth, the thousandth.
+Beyond the hyperscaler tier, the **institutional layer** absorbs another wave: tier-2 colocation, regional clouds, sovereign clusters, enterprise on-premise, university research, industrial sites with cheap local power, and crypto-era datacentres rebuilt for a different workload. The frontier is concentrated. The plateau is distributed. Old hyperscaler racks find new homes in lower-priority slots — never the scarcest watts, but the second-scarcest, the third, the tenth, the thousandth.
 
 Underneath the institutional layer is the **edge**: a workstation in a research lab, a server in a small business, a single accelerator in a household. The slow-Moore cushion plus algorithmic deflation means a last-generation accelerator running a distilled, quantised model is a capable assistant on a personal machine. The edge will not replace hyperscaler inference for latency-critical, regulated, or high-reliability workloads. It does not need to. Its role is to absorb cheap, distributed computation where price matters more than perfect uptime and the marginal alternative is no compute at all.
 
@@ -243,7 +243,7 @@ That premium is durable for one class of customer and a tax for another. The boo
 
 Hyperscalers may retain revenue share while losing workload share. The cloud keeps the frontier. The plateau escapes the cloud.
 
-So the new chip wins wherever the slot is scarce. And the migration is <a class="xref" href="#appendix-g">the old chip discovers a different slot</a>. Frontier scarcity is contiguous high-density power: hundreds of megawatts to gigawatts behind a single substation, with the cooling and operator depth for synchronous training. Plateau abundance is fragmented low-density power: regional colocation, sovereign and university clusters, industrial behind-the-meter capacity, commercial buildings, household nodes. At full chip price, a new accelerator cannot justify those slots. Written down, an older one can.
+So the new chip wins wherever the slot is scarce. And in the migration, <a class="xref" href="#appendix-g">the old chip discovers a different slot</a>. Frontier scarcity is contiguous high-density power: hundreds of megawatts to gigawatts behind a single substation, with the cooling and operator depth for synchronous training. Plateau abundance is fragmented low-density power: regional colocation, sovereign and university clusters, industrial behind-the-meter capacity, commercial buildings, household nodes. At full chip price, a new accelerator cannot justify those slots. Written down, an older one can.
 
 The financial damage of the bust is real but secondary. Some neocloud operators levered against five-year PPAs and six-month customer books do not survive. Some equity gets wiped. Some debt gets restructured. The losses fall hardest on the investors who underwrote the cycle at its peak. The structural event, underneath, is migration. The silicon does not disappear. It changes hands, changes facility, changes country, and changes *scale* — from concentrated frontier campuses to distributed plateau and edge slots that did not previously have access to compute at this price.
 
@@ -259,7 +259,7 @@ Liquidation makes headlines. Redistribution changes the world.
 
 ## VI. Stockfish for Everything
 
-The maximalist version of the AI story imagines one enormous model doing everything. A country of geniuses in a data centre. A digital workforce replacing labour wholesale.
+The maximalist version of the AI story imagines one enormous model doing everything. A country of geniuses in a datacentre. A digital workforce replacing labour wholesale.
 
 Stockfish is the strongest chess engine in human history. It wins because thirty years of engineering have produced a system in which a small neural network sits inside ruthlessly optimised search code, transposition tables, opening books, endgame tablebases, move-ordering heuristics, pruning techniques, and a testing harness so disciplined that no patch lands without statistical proof of improvement.
 
@@ -329,7 +329,7 @@ Project that forward against a glut of Hopper-class and Blackwell-class accelera
 
 The frontier remains expensive. The plateau gets cheaper. The same silicon does more work each year it sits there.
 
-Abundance is what happens when repriced compute meets three other layers: a software stack that lets smaller models do bigger work, engineered scaffolding that constrains those models to verifiable envelopes, and institutional verification frameworks such as evals, audit, rollback and regulatory acceptance. 
+Abundance is what happens when repriced compute meets three other layers: a software stack that lets smaller models do bigger work, engineered scaffolding that constrains those models to verifiable envelopes, and institutional verification frameworks such as evals, audit, rollback and regulatory acceptance.
 
 The deployment timeline implied by this architecture is wave-shaped rather than terminal. Each economically distinct workload crosses its own reliability bar at a different point on the base-capability curve, lifted by the Stockfish multiplier of the scaffolding wrapped around it. <a class="xref" href="#appendix-l">Appendix L</a> quantifies the lattice, the multiplier identity, and the resulting diffusion cadence across 2026–2040.
 
@@ -385,7 +385,7 @@ Compute is in the middle of that transition. Intelligence is following it.
 
 <Figure
   src={caDataCenter}
-  alt="Rows of server racks in a data centre lit in deep blue, receding into the dark"
+  alt="Rows of server racks in a datacentre lit in deep blue, receding into the dark"
   caption="Compute cheap enough to diffuse through everything."
   wide={true}
 />
@@ -413,7 +413,9 @@ The AI bubble will not decide whether intelligence matters. It will decide who b
 
 The first financiers inherit the loss.
 
-**Civilisation inherits computation cheap enough to diffuse through everything.**
+Civilisation inherits the grid.
+
+Intelligence gets cheap.
 
 <Share
   title="Computational Abundance"
@@ -433,7 +435,7 @@ The first financiers inherit the loss.
 | Hyperscaler AI/cloud capex guidance (Microsoft, Alphabet, Meta, Amazon, Oracle, CoreWeave) | >\$700B aggregate | FY2026 plans | Industry sum from Reuters aggregation across hyperscaler guidance; Moody's projects ~\$820B in FY2027.<sup><a href="#ref-3">[3]</a></sup> |
 | Hyperscaler corporate bond issuance | \$121B (2025) → \$175B projected (2026) | Annual | Top-five U.S. hyperscalers; ~4× historical annual average. Amazon's \$54B March 2026 issuance was the company's largest ever debt transaction. Bank of America projection for 2026.<sup><a href="#ref-4">[4]</a></sup> |
 | AI venture funding | ~\$255B | Single quarter (Q1 2026) | PitchBook tracked quarterly deployment, exceeding the full 2025 total. Dominated by OpenAI (\$122B), Anthropic (\$30B), and xAI (\$20B) financings; excluding the top-five transactions, broader quarterly deal value contracts by 73%.<sup><a href="#ref-5">[5]</a></sup> |
-| U.S. data centre investment | \$45.7B PE | FY2025 | S&P Global Market Intelligence; PE deployment represented 72% of \$63.35B total sector investment.<sup><a href="#ref-6">[6]</a></sup> |
+| U.S. datacentre investment | \$45.7B PE | FY2025 | S&P Global Market Intelligence; PE deployment represented 72% of \$63.35B total sector investment.<sup><a href="#ref-6">[6]</a></sup> |
 
 The figures are not comparable line items (capex, debt issuance, venture funding, and private-equity deployment are different cash flows), but together they describe the scale and structural mutation of finance directed at the AI infrastructure stack. The bond-issuance line in particular signals a regime change: historically self-funding technology platforms have shifted to external debt markets as organic free cash flow has compressed under physical buildout. Amazon's trailing-twelve-month free cash flow fell roughly 95% to \$1.2 billion in the same window it issued \$54 billion in bonds. Meta issued \$30 billion in October 2025; Alphabet issued \$32 billion in February 2026 including a rare 100-year bond; Oracle planned \$25 billion for 2026 against an upward-revised \$50 billion FY2026 capex guide.
 
@@ -486,7 +488,7 @@ The training side carries the opposite economic profile. Trillion-parameter mixt
 
 ### <span id="appendix-f" class="appendix-anchor"></span>F. The Grid-Avoidance Tax
 
-The seven-year European grid interconnection queue<sup><a href="#ref-7">[7]</a></sup> and similar U.S. backlogs have driven hyperscalers and developers toward behind-the-meter generation: modular, on-site, gas-fired power deployed directly alongside data centres. The canonical 2026 instance is the \$1 billion strategic investment by Blackstone Tactical Opportunities and Halliburton into VoltaGrid, supporting a 7.5 GW forward order book of modular natural-gas systems through 2030 and manufacturing capacity sized for up to 300 MW per month of reciprocating engines and turbines.<sup><a href="#ref-24">[24]</a></sup> The pitch: skip the queue, install power in months rather than years, operate under simplified minor-source air permits.
+The seven-year European grid interconnection queue<sup><a href="#ref-7">[7]</a></sup> and similar U.S. backlogs have driven hyperscalers and developers toward behind-the-meter generation: modular, on-site, gas-fired power deployed directly alongside datacentres. The canonical 2026 instance is the \$1 billion strategic investment by Blackstone Tactical Opportunities and Halliburton into VoltaGrid, supporting a 7.5 GW forward order book of modular natural-gas systems through 2030 and manufacturing capacity sized for up to 300 MW per month of reciprocating engines and turbines.<sup><a href="#ref-24">[24]</a></sup> The pitch: skip the queue, install power in months rather than years, operate under simplified minor-source air permits.
 
 The pitch is real. So is the thermodynamic cost.
 
@@ -651,7 +653,7 @@ For slots that rely on behind-the-meter generation (the grid-avoidance pattern o
 
 $$R_{\text{token}} \;<\; \frac{\theta \cdot \mathrm{PUE} \cdot \mathrm{TDP}_{\mathrm{kW}} \cdot P_{\text{elec}}}{3600 \cdot \mathrm{TPS}}$$
 
-with $R_{\text{token}}$ in \$/token, $\theta$ the dimensionless thermodynamic multiplier from <a class="xref" href="#appendix-f">Appendix F</a> (~1.0 for utility-supplied combined-cycle power, ~1.45 for behind-the-meter simple-cycle generation), $\mathrm{PUE}$ the facility power-usage-effectiveness multiplier (typically 1.1–1.4 for modern data centres), $\mathrm{TDP}_{\mathrm{kW}}$ the thermal design power in kilowatts, $P_{\text{elec}}$ the unit cost of utility power in \$/kWh, and $\mathrm{TPS}$ the active token throughput in tokens per second. The factor of 3600 converts hours to seconds.
+with $R_{\text{token}}$ in \$/token, $\theta$ the dimensionless thermodynamic multiplier from <a class="xref" href="#appendix-f">Appendix F</a> (~1.0 for utility-supplied combined-cycle power, ~1.45 for behind-the-meter simple-cycle generation), $\mathrm{PUE}$ the facility power-usage-effectiveness multiplier (typically 1.1–1.4 for modern datacentres), $\mathrm{TDP}_{\mathrm{kW}}$ the thermal design power in kilowatts, $P_{\text{elec}}$ the unit cost of utility power in \$/kWh, and $\mathrm{TPS}$ the active token throughput in tokens per second. The factor of 3600 converts hours to seconds.
 
 *Sanity check.* A 1 kW chip at $\mathrm{PUE} = 1.2$, $\theta = 1.0$, \$0.10/kWh power, and 100 TPS yields:
 
@@ -659,7 +661,7 @@ $$\frac{(1.0)(1.2)(1)(0.10)}{3600 \cdot 100} \;\approx\; 3.3 \times 10^{-7} \; \
 
 — or roughly \$0.33 per million tokens, within the empirical range for production inference.
 
-Behind-the-meter slots compress the operating margin by the factor $\theta$. This is the mathematical link between <a class="xref" href="#appendix-f">Appendix F</a> (the grid-avoidance tax) and <a class="xref" href="#appendix-h">Appendix H</a> (the plateau migration): older hardware migrates to slots where $\theta$ is small — grid-supplied utility power, university clusters, enterprise data centres on bulk power contracts, sovereign facilities, and the colocation tier — and not to slots where $\theta$ is large (the behind-the-substation reciprocating-engine deployments most useful for frontier training when the grid will not connect in time).
+Behind-the-meter slots compress the operating margin by the factor $\theta$. This is the mathematical link between <a class="xref" href="#appendix-f">Appendix F</a> (the grid-avoidance tax) and <a class="xref" href="#appendix-h">Appendix H</a> (the plateau migration): older hardware migrates to slots where $\theta$ is small — grid-supplied utility power, university clusters, enterprise datacentres on bulk power contracts, sovereign facilities, and the colocation tier — and not to slots where $\theta$ is large (the behind-the-substation reciprocating-engine deployments most useful for frontier training when the grid will not connect in time).
 
 **H.6 — The workflow-discovery recursion.** The CapEx and OpEx framework above treats $E(t)$ as exogenous. The fourth structural rate is that $E(t)$ is itself accelerated by AI-assisted engineering labour. **The predictive claim is the weak one: $\beta > 0$.** AI-assisted engineering improves the rate at which the software layer adapts to whatever compute is cheapest and available. The CapEx Crossover Identity holds for any $E(t)$ trajectory satisfying this condition.
 
@@ -923,7 +925,7 @@ See also PitchBook coverage: <a href="https://pitchbook.com/news/articles/q1-202
 (First-quarter AI venture funding of approximately USD 255 billion, dominated by mega-financings.)
 
 <span id="ref-6">[6]</span> S&P Global Market Intelligence (2026). <a href="https://www.spglobal.com/market-intelligence/en/news-insights/articles/2026/5/private-equity-investment-surge-sends-us-data-center-deals-to-5-year-high-100947405" target="_blank" rel="noopener noreferrer">"Private equity investment surge sends US data center deals to 5-year high."</a>
-(Private equity deployment into U.S. data centres during 2025.)
+(Private equity deployment into U.S. datacentres during 2025.)
 
 <span id="ref-7">[7]</span> Reuters (2026). <a href="https://www.reuters.com/sustainability/boards-policy-regulation/power-grid-delays-challenge-amazons-data-center-expansion-europe-2026-02-03/" target="_blank" rel="noopener noreferrer">"Power grid delays challenge Amazon's data center expansion in Europe."</a>
 (Amazon European infrastructure briefing on grid interconnection timelines, citing seven-year horizons against roughly two-year data-centre construction cycles.)

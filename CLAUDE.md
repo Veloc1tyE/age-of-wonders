@@ -15,8 +15,8 @@ Age of Wonders is a body of work about abundance, access, and the future humanit
 Age of Wonders is a body of writing and creative work built on three ideas:
 
 1. **The universe is abundant beyond our wildest dreams.**
-2. **Scarcity is never necessary.**
-3. **Access is the limiter.**
+2. **We can create a future of wonders.**
+3. **Access is everything.**
 
 The canon explores:
 
@@ -171,7 +171,7 @@ The site should feel instant.
 
 **Critical rules:**
 
-1. **Bump `CACHE_VERSION` in `sw.js` after significant changes.** Old pages may otherwise persist.
+1. **Bump `CACHE_VERSION` in `sw.js` when stale content matters.** Old pages persist otherwise.
 2. **Never remove ViewTransitions.** They carry the instant-navigation feel.
 3. **Use `astro:page-load` for client-side initialisation.** ViewTransitions do not re-run module scripts on every navigation.
 4. **Pass server data through data attributes, not `define:vars`.** Data attributes survive the navigation model more reliably.
@@ -183,7 +183,7 @@ The site should feel instant.
 
 **Canonical Order:** Essays have a deliberate narrative order defined in `CANONICAL_ORDER` arrays, especially in `src/pages/index.astro`.
 
-The order tells a story: vision, evidence, principles, resources, systems, examples.
+The order tells a story: vision, evidence, infrastructure, bridge, reach, foundation, cosmology, coda.
 
 Do not replace canonical order with date order unless the page explicitly asks for chronology.
 
@@ -251,7 +251,7 @@ Whitespace is not absence. It is tempo.
 
 Default browser controls look too harsh for this site.
 
-- Use pill shapes (`18px+` radius).
+- Use pill shapes (`18px+` radius). The pill shape supplies the affordance; selects need no arrows.
 - Use subtle fills (`#f8f8f8`) and soft borders (`#e2e2e2`).
 - Use Cormorant Garamond for elegant dropdowns.
 - Use muted text (`#888`) that darkens on hover (`#666`).
@@ -320,6 +320,8 @@ If hover does not work, check for inline styles first.
 
 Move interactive styles into CSS. Hover, focus, and active states belong in stylesheets, not inline attributes.
 
+`background` is shorthand. Use separate `background-color`, `background-image`, and `background-position` when hover should change only one part.
+
 ### Custom form validation
 
 Browser validation bubbles are too harsh for the aesthetic.
@@ -382,6 +384,10 @@ Every major essay has a mechanism:
 - **Bridge to Infinity:** the Pythagorean Dividend changes launch economics.
 - **The Free Starship:** fuel autonomy turns a probe into a vessel.
 - **The Solar Gravitational Lens:** the physics is already the instrument; computation becomes the camera.
+- **Leviathan:** ocean cooling and desert solar relocate the frontier when land runs out.
+- **Love is the Foundation:** non-reciprocal love produces the foundations markets consume but cannot make.
+- **Singularity:** cosmological natural selection explains why the path keeps existing.
+- **The Last Bottleneck:** demonstration converts visibility into will.
 
 If the mechanism cannot be named, the argument is not finished.
 
@@ -400,7 +406,7 @@ Every essay should answer two questions:
 
 The essay does not always need to say the word "access". Often it is stronger if the reader arrives there alone.
 
-Perceptual Abundance is the model. It almost never leans on canonical vocabulary. It shows instruments turning the universe from guesswork into retrieval. By the time access is named, the reader already understands it.
+Perceptual Abundance is the model. It states the inversion once, as a promise, in a short overture — "What changed wasn't the universe. It was our access to it." — then spends the whole essay re-earning it, section by section, before restating it as arrival. The frame-then-earn overture is legitimate in discovery mode: the thesis may appear early as promise, provided every section proves it independently and the close restates it in earned form.
 
 The danger is premature vocabulary.
 
@@ -447,7 +453,7 @@ The second line works because it names capacities, not mood.
 
 #### Discovery mode: Perceptual Abundance
 
-Discovery mode does not announce the thesis first. It stages revelation.
+Discovery mode argues by revelation. It may state the thesis as a promise in a short overture, but it never explains it — the evidence does that, section by section.
 
 The movement is:
 
@@ -488,6 +494,10 @@ The test is simple:
 Name one observable that would weaken or falsify the argument.
 
 Computational Abundance does this explicitly through dated predictions. Other essays do it implicitly. The Solar Gravitational Lens depends on the physics. The Free Starship depends on fuel autonomy. Perceptual Abundance depends on measurement becoming more available, not less.
+
+The mature form is the **falsifier register**: an appendix section listing each major claim's falsifier with a date and a failure mode ("if Blackwell holds above $35K into 2028, the framework is wrong"). Computational Abundance, Leviathan, and Bridge to Infinity all carry one. The strongest appendices go further and argue *against* the essay where they can — naming the honest caveat, grading their own evidence, declaring which numbers are original modelling. The appendix is where the essay tries to kill itself and fails.
+
+Speculation gets its own register. Singularity declares it before reaching: "This section is speculation, and drawn in lighter ink." Declared speculation buys reach; undeclared speculation is a mood. For claims that are metaphysical rather than empirical, state the fence as faith — "Read as physics, it is a conjecture. Read as scripture, it is the oldest instruction there is." — once, and do not double-fence.
 
 The optimism is load-bearing.
 
@@ -593,15 +603,17 @@ If it only repeats the worldview, it is not ready.
 
 ### The canon's structural tiers
 
-The canon moves through three nested scales:
+The canon moves through five nested scales:
 
 - **Foundation** (LitF, CAOW): the moral and intellectual ground — why abundance matters and what tools make it possible.
 - **Infrastructure** (CA, Leviathan, BtI): the material systems that build and distribute access.
 - **Reach** (SGL, TFS, PA): what becomes possible once those conditions are met.
+- **Cosmology** (Singularity): the meta-argument — why the universe keeps being organised in favour of life.
+- **Coda** (The Last Bottleneck): the one limit the canon cannot engineer away — us.
 
 The structure is recursive, not linear. PA is also the epistemological engine of the whole canon — the claim that the universe became *retrievable* (not just observable) is the underlying logic of every other essay. SGL retrieves coastlines. CA retrieves intelligence at ambient cost. BtI retrieves orbital access by removing the atmospheric constraint. The perceptual revolution PA describes is the canon's method, not only one of its subjects.
 
-LitF, placed last, is structurally the deepest foundation. The canon earns it by building the superstructure first. By the time the reader arrives at "the scarcity is only ever local," they have seen it proven eight ways.
+LitF is structurally the deepest foundation, placed late so the canon earns it. By the time the reader arrives at "the scarcity is only ever local," they have seen it proven eight ways. Singularity then widens the frame to cosmology and returns to LitF's claim at maximum scale. The Last Bottleneck closes by handing the work to the reader.
 
 ---
 
@@ -616,18 +628,22 @@ The essays hand off to each other:
 - **Leviathan trains the frontier models that distil into CA's plateau.** The forge is upstream of the diffusion.
 - **LitF provides the moral claim that makes all of it matter.** Without love as foundation, abundance is accumulation.
 - **CAOW is the thesis. PA is the proof that the thesis is already partly true.**
+- **Singularity takes the whole graph as its evidence.** The eight essays before it are its fossil record; LitF gives it its survival filter — love as a selection criterion.
+- **The Last Bottleneck is the coda.** It cites the whole graph and names the remaining constraint: us.
 
 A new essay should add a node to this graph — a new domain, mechanism, or inversion. If it only restates the worldview without connecting to the existing dependencies, it is not ready.
 
 ---
 
-### The unwritten argument
+### The meta-argument (Singularity)
 
-The canon claims the universe is organised in favour of life across eight domains without ever arguing *why* this keeps being true. Each essay names a specific instance — the Sun bends light, hydrogen fuses, silicon computes, love founds — but no essay makes the meta-argument.
+For eight essays the canon claimed the universe is organised in favour of life without arguing *why* this keeps being true. Each essay named a specific instance — the Sun bends light, hydrogen fuses, silicon computes, love founds — but none made the meta-argument.
 
-The ninth essay would make it: a universe that produces observers is necessarily a universe rich enough to support their emergence and persistence. Therefore it is a universe in which engineering works, in which access can be extended, in which the gap between what exists and what is accessible can be closed. The access frame is not an observation about technology. It is an observation about what kind of universe produces beings who can observe anything at all.
+Singularity (published 2026-06-18) makes it, and improves on the spec this guide once held for it. The planned version was bare anthropic necessity: a universe that produces observers must be rich enough to support them. The essay rejects that framing as ungrounded ("True, but it explains the fact without grounding it") and substitutes a causal mechanism — cosmological natural selection extended to civilisations. The access frame stops being an observation about technology and becomes an observation about what kind of universe survives its own selection.
 
-The closing line is already written: *If you can ask whether the universe is with you, you are already the answer.*
+The essay's falsifiers are registered in its Appendix H. The closing line was delivered exactly as written: *If you can ask whether the universe is with you, you are already the answer.*
+
+The lesson for future essays: even the canon's own specifications are subject to the mechanism rule. The ninth essay was not ready until its mechanism was named.
 
 ---
 
@@ -699,6 +715,11 @@ Keep the contrast only when the contrast is the information.
 > ✅ "A bridge delayed by two years is still a bridge. A GPU delayed by two years has crossed an architectural boundary."
 
 Both halves matter there. The contrast carries the claim.
+
+Two further exceptions, both earned by the canon:
+
+- **Corrective anaphora.** When the essay's thesis is that the world has mistaken X for Y, parallel negations are the argument, not throat-clearing: "The order book is not demand… Capex is not revenue." Four negations in liturgical parallel correct four live errors.
+- **The via negativa build.** Eliminating the reader's candidate answers in ascending order before naming the real one: "It is not physics… It is not, in the end, even institutions… It is the will." The negations dramatise elimination. They must be the reader's actual objections, dismissed in order of strength.
 
 ---
 
@@ -809,7 +830,7 @@ Strong closers from the canon:
 - "LIGO detected it."
 - "Something evolution never equipped us to perceive."
 - "The deep past became retrievable."
-- "We didn't just find the universe. We kept it."
+- "We found the universe. We kept it."
 - "Hardware depreciates. Algorithms compound."
 - "The frontier is the laboratory. The plateau is the economy."
 - "The Age of Wonders is something we can create, today."
@@ -991,6 +1012,8 @@ Use a rhetorical question only when the pause is the effect.
 
 Once per essay is usually enough.
 
+Exception: the **enumerated dilemma**. "Clean water or electricity? Food production or manufacturing? Healthcare or heating?" Those questions do not delay an answer. They *are* the zero-sum trade-off, enacted. Questions that dramatise a forced choice are content, not throat-clearing.
+
 ---
 
 ### Principle 16: Name the actor
@@ -1137,6 +1160,8 @@ That works because it is one turn, alone.
 If a paragraph contains two inversions, split it.
 
 If it contains three, expand before condensing.
+
+One sanctioned repeat: the same inversion may appear twice in an essay if the second occurrence is the earned form. Perceptual Abundance drops "Reality stopped being inference. It became retrieval." at the top of its final section as claim, proves it with the flood data, then restates it in the staircase as arrival. State, prove, restate. The repetition is the structure.
 
 ---
 
@@ -1385,7 +1410,7 @@ The best revision is often the shortest one.
 
 ---
 
-### Principle 32: Synthesis over displacement
+### Principle 32: Voice survives revision
 
 The principles in this guide are read at a desk. Essays are felt in the body.
 
@@ -1406,7 +1431,7 @@ If the revision sounds like a document, reconsider.
 
 ---
 
-### Principle 32: Synthesis over displacement
+### Principle 33: Synthesis over displacement
 
 When revising for precision, the first instinct is often displacement: remove the evocative to make room for the exact.
 
@@ -1431,7 +1456,7 @@ Precision without vision is technical. Vision without precision is aspiration. T
 
 ## The Five Magic Patterns
 
-The 30 prose principles keep the writing clean. These five patterns are what make it unforgettable.
+The prose principles keep the writing clean. These five patterns are what make it unforgettable.
 
 They are derived from the two canon benchmarks: **Create an Age of Wonders** and **Perceptual Abundance**. Every passage in those essays that makes a reader stop, re-read, or carry a line away uses one of these five moves.
 
@@ -1481,6 +1506,8 @@ The anchor must be specific enough to feel. "A large area" does not work. "A cit
 
 This is Principle 25 at its most distilled: the number or physical object is doing the work that "enormous" cannot.
 
+For scales no body can feel, use the **comparative benchmark**: ground the exotic number against a familiar cosmic baseline instead. "Stellar fusion releases 0.7% of a star's mass. Spin extraction is forty times richer, per kilogram, than the process that powers the Sun." The reader cannot touch either number, but the Sun is a known quantity, and "forty times richer than the Sun's own engine" lands.
+
 ---
 
 ### Pattern 3: The Staircase Close
@@ -1520,6 +1547,13 @@ The threshold sentence is not a claim about potential. It is a claim about somet
 **The test:** could this sentence sit on a museum wall without the essay around it? If yes, it may belong. If not, remove the false historicity. The threshold sentence must name a real crossing.
 
 Use sparingly. One or two per essay. Perceptual Abundance uses them as its structural spine, which is why they work there — each section marks a genuine threshold. In other essays, they appear once, at the essay's pivot.
+
+**The prospective threshold.** Essays about unbuilt things cannot use threshold sentences — nothing has crossed, and first-time voltage would be false historicity. Two substitutes are canonical:
+
+- **The naming threshold.** The crossing is intellectual, and it already happened: "In 1979, physicist V.R. Eshleman named what it had always been: a telescope." The threshold fuses with the pre-existence rule in one line.
+- **The future threshold.** A deadline stated as fact: "That exemption is ending. The exponential says when." No false historicity — the voltage comes from inevitability, not memory.
+
+Foundation-tier essays may have no threshold at all, correctly: they name what was always true. There is no crossing to mark.
 
 ---
 
@@ -1618,33 +1652,6 @@ Components are not decoration.
 They are crystallisation.
 
 If a component is weaker than the prose around it, rewrite it or remove it.
-
-## Recent Fixes Applied
-
-1. **Date Schema Fix:** Changed the date field from `z.string()` to `z.coerce.date()` in the content config. Dates now parse correctly.
-2. **Date Sorting:** Updated date sorting to use `.getTime()` for proper Date object comparison.
-3. **Date Display:** Added proper formatting with `toLocaleDateString()` in essay pages.
-4. **Dynamic Routes:** Fixed `[...slug].astro` to use `getEntry()` with a proper `getStaticPaths()` export.
-5. **RSS Feed:** Updated RSS generation to pass Date objects directly to `pubDate`.
-6. **Essays Page Sort:** Added server-side sorting to match the default client-side "newest first" option. This prevents content flash.
-7. **Sort Preference Persistence:** Added `localStorage` so essay sort preference survives cached navigation.
-8. **ViewTransitions Script Fix:** Refactored essay sorting to use `astro:page-load` instead of `define:vars`. Scripts now reinitialise on every navigation.
-9. **Service Worker Cache Strategy:** Changed from pure stale-while-revalidate to smart routing: network-first for HTML, cache-first for assets. Bumped to v3.
-10. **Stale-While-Revalidate Everywhere:** Simplified the service worker to stale-while-revalidate for all requests. Cached pages load instantly. Background fetch updates the cache for the next visit. Bumped to v5.
-11. **Creative Works Cards Refinement:** Replaced sharp borders and heavy hover effects with smooth multi-stop gradients, soft radius, and a gentle blue hover tint.
-12. **Essays Sort Dropdown:** Restyled the native select into an elegant pill with Cormorant Garamond, centred text, and subtle hover states.
-13. **Subscribe Page Simplification:** Reduced the page to the essentials: headline, one-line intro, form.
-14. **Homepage Intro Refinement:** Removed bold tags, toned the accent to grey, and settled on a prominent but restrained size.
-15. **Custom Form Validation:** Replaced browser validation bubbles with soft custom error states using `novalidate` and JavaScript.
-16. **Share Component Restyle:** Converted boxy buttons with brand-coloured hovers into pill buttons with uniform grey hover states.
-17. **Hover State Consistency:** Increased hover contrast across interactive elements so feedback is visible.
-18. **Sort Dropdown Styling:** Essays sort uses a smaller pill with `appearance: none`. The pill shape supplies the affordance.
-19. **CSS Specificity Fix:** Moved inline styles into the stylesheet for the essay CTA button so hover states could work.
-20. **Essays Page Double Line Fix:** Removed the final item border to prevent a double line against the footer.
-21. **Dropdown Arrow Removal:** Removed custom SVG arrows from selects. The pill is cleaner without them.
-22. **Text Centring in Pills:** Added `text-align: center` for select elements so variable option text stays balanced.
-23. **Page Spacing Balance:** Tuned top and bottom spacing on the essays page so header, list, and footer feel symmetrical.
-24. **Background Property Gotcha:** `background` is shorthand. Use separate `background-color`, `background-image`, and `background-position` when hover should change only one part.
 
 ## Social Media & Distribution
 
