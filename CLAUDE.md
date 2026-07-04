@@ -286,6 +286,8 @@ Strong lines do not need `<strong>` tags.
 
 Do not sell the work. Let it stand.
 
+Two sanctioned exceptions: the essay's irreducible final line is bolded (the canon's signature chord, consistent across all essays), and bold may serve as structural navigation — Perceptual Abundance bolds its opener/closer spine, Bridge to Infinity bolds its name-reveal drops. Bold marks structure, never emphasis.
+
 - Avoid phrases like "three simple ideas". Use "three ideas".
 - Use grey borders as the default state.
 - Use accent colour only on interaction.
@@ -552,6 +554,8 @@ The body carries the argument. The appendix carries verification.
 
 A reader who skips the appendix should still understand the essay. A reader who checks the appendix should respect the rigour.
 
+**The appendix epigraph.** An appendix section may open with its single canon-grade sentence — the one line in it a reader would carry away. Appendices tend to hoard good prose ("made of bedrock and electricity instead of aluminium and kerosene"); the epigraph is the bridge between the reader who skips and the reader who checks. One line. Then the arithmetic.
+
 ---
 
 ### The canon's register: engineering scripture
@@ -614,6 +618,8 @@ The canon moves through five nested scales:
 The structure is recursive, not linear. PA is also the epistemological engine of the whole canon — the claim that the universe became *retrievable* (not just observable) is the underlying logic of every other essay. SGL retrieves coastlines. CA retrieves intelligence at ambient cost. BtI retrieves orbital access by removing the atmospheric constraint. The perceptual revolution PA describes is the canon's method, not only one of its subjects.
 
 LitF is structurally the deepest foundation, placed late so the canon earns it. By the time the reader arrives at "the scarcity is only ever local," they have seen it proven eight ways. Singularity then widens the frame to cosmology and returns to LitF's claim at maximum scale. The Last Bottleneck closes by handing the work to the reader.
+
+**The chord progression.** The canon ends three times, and the three endings are one chord resolved at widening scale: "only love founds" (economics), "Love is why you walk it" (cosmology), "So overflow" (a single life). Every closing tier returns to love and access at a wider scale than the last. A future essay's ending is not only its own — the canon ends *through* it. Before writing a new close, read the three existing resolutions and decide where the new one sits in the progression.
 
 ---
 
@@ -1431,7 +1437,23 @@ If the revision sounds like a document, reconsider.
 
 ---
 
-### Principle 33: Synthesis over displacement
+### Principle 33: The accretion rule
+
+The canon claims ten-year truths. Its evidence must live that long.
+
+Body prose may carry only facts that accrete — thresholds, completed events, physical constants, mechanisms. A threshold can never unhappen. A completed event only becomes history. These age into authority.
+
+Facts that decay — prices, run rates, adoption percentages, quarterly results, market rankings — belong in dated appendix registers, where ageing is falsifiability rather than staleness.
+
+The test: **can this sentence stop being true?**
+
+If yes, it goes in the register, dated, with the falsifier it supports.
+
+This is why Perceptual Abundance feels timeless: every fact in it is a crossing. An essay body written against a quarter's news reads as journalism inside scripture within two years.
+
+---
+
+### Principle 34: Synthesis over displacement
 
 When revising for precision, the first instinct is often displacement: remove the evocative to make room for the exact.
 
@@ -1636,6 +1658,8 @@ Before any essay goes live, run this pass.
 43. **Literary device check (manifesto mode only):** Similes and analogies in CAOW-register essays are evaluated for emotional accuracy, not factual accuracy. They convey relationship and scale, not mechanism. An analogy that feels slightly imprecise may still be exactly right.
 44. **Deletion test:** For any section or element that resists revision, remove it entirely and read what remains. If the surrounding prose is stronger, the element was in the way. Apply especially to: codas after compression drops, transitions between sections, anaphora prefixes that can become declarative statements, and components placed between the prose and the close.
 45. **Density audit:** Essays with heavy technical content should have most of that content in appendices, not the body. If a section is hard to read, ask whether it belongs in the appendix. The body carries the argument. The appendix carries the verification.
+46. **Accretion check:** For every dated or numerical fact in the body, ask: can this sentence stop being true? Thresholds, completed events, and physical constants stay. Prices, run rates, adoption percentages, and quarterly results move to a dated appendix register with the falsifier they support.
+47. **Final-line bold:** The essay's irreducible last sentence is bolded — the canon's signature chord. No other line is bolded for emphasis. (Bold as structural navigation — PA's spine, name-reveal drops like "**Meridian.**" — is the only other sanctioned use.)
 
 ---
 
