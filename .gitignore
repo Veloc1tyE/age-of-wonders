@@ -30,3 +30,7 @@ pdfs/
 # private content (social drafts, strategy docs)
 /content/
 /private/
+
+# sensitive local packages — never commit
+board-package/
+dossier-energy-package/

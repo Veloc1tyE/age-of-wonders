@@ -390,7 +390,7 @@ Every major essay has a mechanism:
 - **Love is the Foundation:** non-reciprocal love produces the foundations markets consume but cannot make.
 - **Singularity:** cosmological natural selection explains why the path keeps existing.
 - **It's All Energy:** energy moves from extraction to manufacture — Wright's law reaches the watt, and delivery stops scaling with distance.
-- **The Last Bottleneck:** demonstration converts visibility into will.
+- **The Last Bottleneck:** demonstration converts visibility into will; the filter argument explains why the conversion is survival-grade — the tools of abundance dissolve the chokepoints enforcement needs, so only foundation-based coordination survives receiving them.
 
 If the mechanism cannot be named, the argument is not finished.
 
@@ -637,6 +637,7 @@ The essays hand off to each other:
 - **CAOW is the thesis. PA is the proof that the thesis is already partly true.**
 - **Singularity takes the whole graph as its evidence.** The eight essays before it are its fossil record; LitF gives it its survival filter — love as a selection criterion.
 - **It's All Energy is where the canon touches the ground.** CA and Leviathan run on the watts it promises. LitF's tailor and mother are its opening witnesses. Every scarcity in the canon decomposes into the watt it names.
+- **IAE and TLB are a deliberate two-branch structure.** IAE's falsifier 5 (access fails to follow the collapsing price) is TLB's thesis: if the economic mechanism stalls, the operative constraint is institutional — the organised veto TLB's Section III names. One register, two essays: the keystone names the mechanism, the coda names the veto. IAE's falsifier 7 states the handoff explicitly.
 - **The Last Bottleneck is the coda.** It cites the whole graph and names the remaining constraint: us.
 
 When It's All Energy publishes, it takes position three in the canonical order — after Perceptual Abundance, before Computational Abundance. The keystone doubles as the altitude bridge: PA ends in wonder, CA begins in analysis, and the energy essay carries the reader between them. Repoint LitF's and The Last Bottleneck's "energy to lift every life" links to it at the same time.
