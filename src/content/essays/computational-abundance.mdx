@@ -45,13 +45,13 @@ None of it ships intelligence to a customer. It ships steel, copper, silicon, an
 
 The market priced AI as if compute and intelligence were the same thing. They are not. Compute is silicon in racks connected to substations connected to fuel that has to be physically delivered. The chip is the easy part.
 
-Geography entered the argument in 2026. The same natural gas cost six to seven times as much in Europe and Asia as on the U.S. Gulf Coast.<sup><a href="#ref-8">[8]</a></sup> For a continuously loaded 100 MW campus, the fuel spread alone runs roughly **\$100 million** a year (<a class="xref" href="#appendix-b">Appendix B</a>). Compute is now a geography.
+Geography entered the argument in 2026. The same natural gas cost six to seven times as much in Europe and Asia as on the U.S. Gulf Coast.<sup><a href="#ref-8">[8]</a></sup> For a continuously loaded 100 MW campus, the fuel spread alone runs roughly **\$100 million** a year (<a class="xref" href="#appendix-b">Appendix B</a>). 
 
 The deeper fact is temporal.
 
 <PullQuote>
 
-The question in AI is whether anyone can plug chips in before they depreciate.
+Can operators plug chips in before they depreciate?
 
 </PullQuote>
 
@@ -77,7 +77,7 @@ Across the broad surface of paid-for capacity, much of the ordered compute is do
 
 **The order book is not demand.** It is the right to access scarce compute if the workloads arrive.
 
-**Capacity announcements are not energised power.** A gigawatt of accelerators is a gigawatt of transformers, substations, gas contracts, water permits, and skilled labour, not a tape-out.
+**Capacity announcements are not energised power.** A gigawatt of accelerators is a gigawatt of transformers, substations, gas contracts, water permits, and skilled labour.
 
 **Reservations are not utilisation.** A reserved instance running idle is a depreciating asset, not a productive one.
 
@@ -93,7 +93,7 @@ The frameworks are arriving: NIST AI RMF, ISO/IEC 42001, sector-specific eval su
 
 Capability arrives before verification, regulation, and integration. It always has — in medicine, in finance, in software itself.<sup><a href="#ref-17">[17]</a></sup>
 
-The revenue data makes the asymmetry precise. Almost all explosive AI demand growth is concentrated in one vertical: software engineering. Cursor, Claude Code, Copilot, Codex, Devin — billion-dollar ARRs in coding. Software engineering spent fifty years building exactly the distribution layer the deployment economy requires: compilers, type systems, linters, version control, test frameworks, CI/CD, sandboxed runtimes, code review, IDEs, and open-source ecosystems with documented APIs. The current revenue is a leading indicator of vertical labour replacement *and* a trailing indicator of half a century of pre-existing tooling.
+And almost all AI demand growth has concentrated in software engineering. Cursor, Claude Code, Copilot, Codex, Devin — billion-dollar ARRs in coding. Software engineering spent fifty years building exactly the distribution layer the deployment economy requires: compilers, type systems, linters, version control, test frameworks, CI/CD, sandboxed runtimes, code review, IDEs, and open-source ecosystems with documented APIs. 
 
 Q1 2026 made the asymmetry impossible to miss.
 
@@ -129,7 +129,7 @@ The three hands rotate together.
 
 And yet the chip does not stop being useful when it stops being frontier.
 
-In an earlier era, the chip you bought in 1996 was useless in 2000. That era is over. Moore's law slowdown has changed the depreciation profile of compute. Per-transistor cost has plateaued.
+In an earlier era, the chip you bought in 1996 was useless in 2000. That era is over. With Moore's law slowing, per-transistor cost has plateau'd.
 
 Per-watt performance still improves, but in narrower bands and on specific workloads. A 7 nm chip from 2019 still does floating-point arithmetic perfectly well. A Hopper-class accelerator from 2023 still performs trillions of multiplications per second per device.
 
@@ -137,7 +137,7 @@ What has changed is the marginal economics of *frontier* training. The newest ac
 
 But most of what the economy asks compute to do is not training a trillion-parameter model from scratch. It is inference, embedding, batch processing, fine-tuning, retrieval, ranking, simulation, rendering, robotics control loops, scientific computing. These workloads care about price per useful operation, latency per query, throughput per dollar, and reliability over time.
 
-A Hopper-era, or plateau, GPU, repriced below the cost basis its first owner needed to recover, is a fantastic inference engine, a fantastic fine-tuning platform, a fantastic simulator. It loses only one contest: the next billion-dollar frontier training run.
+A Hopper-era, or plateau, GPU—repriced below the cost basis its first owner needed to recover—is a fantastic inference engine, a fantastic fine-tuning platform, a fantastic simulator. It loses only one contest: the next billion-dollar frontier training run.
 
 And the same AI boom that paid for the order book is bidding up the inputs that make new silicon. Memory and advanced packaging now dominate the cost of an accelerator, with HBM undersupplied through 2027 (<a class="xref" href="#appendix-h">Appendix H</a>).
 
@@ -221,11 +221,11 @@ Underneath the institutional layer is the **edge**: a workstation in a research 
 
 **The Slot Hierarchy**
 
-**Frontier slot** — newest accelerators, premium permitted power, largest training runs. Few sites. Enormous capex. Capability discovery.
+**Frontier slot** - newest accelerators, premium permitted power, largest training runs. Few sites. Enormous capex. Capability discovery.
 
-**Plateau slot** — previous-generation accelerators, cheaper power, inference, fine-tuning, simulation. Many sites. Modest capex per site. Capability diffusion.
+**Plateau slot** - previous-generation accelerators, cheaper power, inference, fine-tuning, simulation. Many sites. Modest capex per site. Capability diffusion.
 
-**Edge slot** — laptops, phones, embedded GPUs, local agents. Near-zero marginal cost. Ubiquitous. Capability access.
+**Edge slot** - laptops, phones, embedded GPUs, local agents. Near-zero marginal cost. Ubiquitous. Capability access.
 
 </Callout>
 
@@ -301,7 +301,7 @@ The frontier labs will keep training larger models on the newest hardware. They 
 
 The recipe is standard. A frontier model — a trillion-parameter mixture-of-experts whose total brain compounds while only a fraction of its parameters activate per token — serves as the teacher, generating millions of synthetic reasoning traces and logit distributions for a target workflow. A smaller dense student, single-GPU class, is fine-tuned to match those traces, then aligned with reinforcement learning against an automated validator: a compiler, a schema check, a domain-specific scorer. The result is a deterministic specialist that operates at the bulk of the teacher's accuracy on the bounded workflow at a small fraction of the inference cost. The frontier becomes the data factory for the plateau.
 
-An allocation principle follows. Frontier cognition is the scarcest cognitive resource humanity has produced. Spending it on tasks that do not require it is the cognitive equivalent of running a supercomputer to keep a calculator app on screen. Frontier intelligence discovers, judges, and creates. Plateau intelligence executes, repeats, monitors, and verifies.
+An allocation principle follows. Frontier cognition is the scarcest cognitive resource humanity has produced. Spending it on tasks that do not require it is the cognitive equivalent of running a supercomputer to run a calculator app on screen. Frontier intelligence discovers, judges, and creates. Plateau intelligence executes, repeats, monitors, and verifies.
 
 The second law of this dynamic is just as important as the first.
 
@@ -461,7 +461,7 @@ Summed across the three projects with disclosed status (Colossus ~1.3 GW + Abile
 
 ### <span id="appendix-d" class="appendix-anchor"></span>D. Bounding Cases — Energisation and Utilisation
 
-The roughly 21% energised share and the Cast AI 5% utilisation share are *not* multiplied together in the body. They describe different stages of the compute pipeline:
+The roughly one-fifth energised share and the Cast AI 5% utilisation share are *not* multiplied together in the body. They describe different stages of the compute pipeline:
 
 - **Energisation share** describes ordered facility load that has been turned on. Source: public sample of named hyperscaler and sovereign projects in <a class="xref" href="#appendix-c">Appendix C</a>. Roughly a fifth of disclosed ordered load in the sample is plugged in.
 - **Utilisation share** describes the time-fraction of an active GPU spent on productive work. Source: Cast AI 2026 Kubernetes survey across AWS, Azure, and GCP enterprise clusters.<sup><a href="#ref-14">[14]</a></sup> Approximately 5% mean sustained.
@@ -643,7 +643,7 @@ $$\tilde{C}_{\text{econ}}(\tau, t, s, w) = \frac{Q_0 \cdot E(t) \cdot M_w(t, \ta
 
 where $M_w$ is the workload-compatibility factor (capability threshold met, VRAM fits, software stack supported). The CapEx Crossover Identity governs the numerator-side condition; the OpEx term determines where the comparison breaks operationally.
 
-For slots that rely on behind-the-meter generation (the grid-avoidance pattern of [<a class="xref" href="#appendix-f">Appendix F</a>](#f-the-grid-avoidance-tax)), the electricity cost carries a thermodynamic multiplier $\theta \geq 1.45$ relative to grid-supplied combined-cycle power. The economic obsolescence boundary is reached when marginal revenue per token falls below the energy cost per token:
+For slots that rely on behind-the-meter generation (the grid-avoidance pattern of <a class="xref" href="#appendix-f">Appendix F</a>), the electricity cost carries a thermodynamic multiplier $\theta \geq 1.45$ relative to grid-supplied combined-cycle power. The economic obsolescence boundary is reached when marginal revenue per token falls below the energy cost per token:
 
 $$R_{\text{token}} \;<\; \frac{\theta \cdot \mathrm{PUE} \cdot \mathrm{TDP}_{\mathrm{kW}} \cdot P_{\text{elec}}}{3600 \cdot \mathrm{TPS}}$$
 
@@ -760,7 +760,7 @@ The spread between hyperscaler on-demand and marketplace supply for the *same ch
 
 ### <span id="appendix-k" class="appendix-anchor"></span>K. Macroeconomic Absorption and the Deployment-Phase Drag
 
-The cascade described across §III–§V predicts that civilisational intelligence diffuses through depreciated silicon on fragmented power slots over a multi-year horizon, not a multi-quarter one. This appendix audits the contemporaneous macroeconomic data confirming that horizon — the wedge between localized firm-level efficiency gains and aggregate macro-level productivity growth — and locates the cascade inside the canonical Brynjolfsson Productivity J-Curve and Carlota Perez installation-to-deployment framework. The headline finding: the deployment window holds at a 5–10 year primary phase with continued macroeconomic absorption through 2035+, and the cascade mechanism is structurally anti-fragile to which point in the macro projection band turns out right.
+The cascade described across §III–§V predicts that civilisational intelligence diffuses through depreciated silicon on fragmented power slots over a multi-year horizon, not a multi-quarter one. This appendix audits the contemporaneous macroeconomic data confirming that horizon — the wedge between localised firm-level efficiency gains and aggregate macro-level productivity growth — and locates the cascade inside the canonical Brynjolfsson Productivity J-Curve and Carlota Perez installation-to-deployment framework. The headline finding: the deployment window holds at a 5–10 year primary phase with continued macroeconomic absorption through 2035+, and the cascade mechanism is structurally anti-fragile to which point in the macro projection band turns out right.
 
 #### <span id="appendix-k-1" class="appendix-anchor"></span>K.1. The Brynjolfsson J-Curve and intangible capital accumulation
 
@@ -792,7 +792,7 @@ Three structural facts follow. First, the deployment window is calibrated as a *
 
 #### <span id="appendix-k-6" class="appendix-anchor"></span>K.6. A note on method
 
-The thesis stated across §I–§VIII was specified before the empirical surfaces that have since verified it: the slot hierarchy, the depreciation cascade and its cost-side widening, the workflow-ownership endpoint, the revenue-share/workload-share decoupling, the Plateau Crossover identity, the J-Curve absorption phase, the convergence-of-capital modification to Perez. Each was named as a structural prediction before its data arrived, and none of the surfaces that have resolved has falsified it. The forward predictions named throughout this appendix remain observable on known timetables. The framework updates if any falsifies.
+The forward predictions in this appendix are dated and observable on known timetables; the framework updates if any falsifies.
 
 ### <span id="appendix-l" class="appendix-anchor"></span>L. Domain-Specific Diffusion and the Stockfish Multiplier
 
@@ -898,7 +898,7 @@ The body carries only facts that cannot stop being true. These can. They are rec
 
 - **OpenAI:** Q1 revenue ≈ \$5.7 billion against an operating loss ≈ \$6.95 billion (−122% margin), tracking toward a \$36.6 billion annual loss. ChatGPT weekly active users stalled at 905 million against a 1 billion target. Sora shut down. The Disney partnership ended. The Walmart pilot shuttered.
 - **xAI:** \$2.47 billion Q1 loss on \$818 million of revenue — roughly \$1 billion a month of burn. Grok absent from the top-25 App Store downloads.
-- **Anthropic:** \$30 billion annualised revenue run rate by April — 80× Q1 growth against a 10× target. Claude Code past \$1 billion ARR, on track for ≈ \$11 billion of Q2 revenue at ≈ \$600 million operating profit.
+- **Anthropic:** \$30 billion annualised revenue run rate by April — 80× annualised Q1 growth against a 10× target, most plausibly a short-run anomaly of coding-adoption scaling rather than a rate that holds the full year. Claude Code past \$1 billion ARR, on track for ≈ \$11 billion of Q2 revenue at ≈ \$600 million operating profit.
 
 **Falsifier.** The §II claim these figures support is that profitability follows the distribution layer, not the capability gradient. If, by 2028, the lab ranking by operating margin does not track the lab ranking by deployment-scaffolding maturity, the deployment-rails argument is wrong.
 
@@ -922,7 +922,7 @@ See also Reuters market commentary: <a href="https://www.reuters.com/commentary/
 
 <span id="ref-4">[4]</span> Bank of America Global Research / Moody's Ratings / Reuters-linked market reporting (2026). <a href="https://qz.com/amazon-bond-sale-ai-infrastructure-data-centers-1851770767" target="_blank" rel="noopener noreferrer">"Amazon's record USD 54 billion bond sale shows AI's staggering costs."</a>
 See also Reuters commentary on AI infrastructure funding: <a href="https://www.reuters.com/commentary/reuters-open-interest/investors-stay-calm-ai-capex-boom-eclipses-dotcom-mania-2026-05-27/" target="_blank" rel="noopener noreferrer">"Investors stay calm as AI capex boom eclipses dotcom mania."</a>
-(Top-five U.S. hyperscaler bond issuance, 2026 issuance projections, and Amazon's record debt transaction. This is a composite market-data reference; use the original Moody's / BofA notes where available.)
+(Top-five U.S. hyperscaler bond issuance, 2026 issuance projections, and Amazon's record debt transaction; a composite market-data reference standing in for the original Moody's / BofA notes.)
 
 <span id="ref-5">[5]</span> PitchBook (2026). <a href="https://pitchbook.com/news/reports/q1-2026-ai-vc-trends" target="_blank" rel="noopener noreferrer">"Q1 2026 AI VC Trends."</a>
 See also PitchBook coverage: <a href="https://pitchbook.com/news/articles/q1-2026-ai-funding-blows-past-2025-total-with-three-deals-accounting-for-67-of-capital" target="_blank" rel="noopener noreferrer">"Q1 2026 AI funding blows past 2025 total with three deals accounting for 67% of capital."</a>
@@ -935,7 +935,7 @@ See also PitchBook coverage: <a href="https://pitchbook.com/news/articles/q1-202
 (Amazon European infrastructure briefing on grid interconnection timelines, citing seven-year horizons against roughly two-year data-centre construction cycles.)
 
 <span id="ref-8">[8]</span> CME Group / ECB / market quote pages (2026 snapshot). <a href="https://www.cmegroup.com/markets/energy/natural-gas/natural-gas.quotes.html" target="_blank" rel="noopener noreferrer">CME Henry Hub Natural Gas futures quotes.</a> <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer">ECB euro foreign-exchange reference rates.</a> <a href="https://www.bancaditalia.it/compiti/operazioni-cambi/cambio/cambi_rif_20260515?com.dotmarketing.htmlpage.language=1" target="_blank" rel="noopener noreferrer">ECB reference-rate archive for 15 May 2026.</a>
-(Commodity and FX prices are dynamic; archive or screenshot the exact Henry Hub, TTF, JKM, and EUR/USD observations used for the essay's arithmetic.)
+(Commodity and FX prices are dynamic; the essay's arithmetic uses the May 2026 Henry Hub, TTF, and JKM observations recorded in Appendix B.)
 
 <span id="ref-9">[9]</span> U.S. Energy Information Administration (2024). <a href="https://www.eia.gov/electricity/annual/html/epa_08_01.html" target="_blank" rel="noopener noreferrer">"Average operating heat rate for selected energy sources."</a>
 (7,754 Btu/kWh used as the conversion basis for fuel-only generation cost.)
@@ -966,16 +966,16 @@ See also Cast AI summary: <a href="https://cast.ai/blog/2026-state-of-kubernetes
 (Model-risk governance as a deployment gate for banking, capital-markets, and credit-decision systems.)
 
 <span id="ref-18">[18]</span> The Information / Reuters / Axios / Wired / Anthropic (2026). <a href="https://www.theinformation.com/articles/openai-held-1-billion-revenue-lead-anthropic-first-quarter" target="_blank" rel="noopener noreferrer">The Information reporting on OpenAI and Anthropic Q1 2026 revenue.</a> <a href="https://www.axios.com/2026/04/13/anthropic-revenue-growth-ai" target="_blank" rel="noopener noreferrer">Axios: "Anthropic's unprecedented revenue growth."</a> <a href="https://www.wired.com/story/openai-shuts-down-sora-ipo-ai-superapp/" target="_blank" rel="noopener noreferrer">Wired: "OpenAI shuts down Sora."</a> <a href="https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation" target="_blank" rel="noopener noreferrer">Anthropic Series G funding announcement.</a>
-(Composite Q1–Q2 2026 reference for private-company revenue, loss, ARR, and product-status claims. Some source material is paywalled and should be checked against the original articles before publication.)
+(Composite Q1–Q2 2026 reference for private-company revenue, loss, ARR, and product-status claims; some source material is paywalled.)
 
 <span id="ref-19">[19]</span> Stack Overflow / JetBrains / GitHub (2025). <a href="https://survey.stackoverflow.co/2025/ai" target="_blank" rel="noopener noreferrer">"Stack Overflow Developer Survey 2025: AI."</a> <a href="https://blog.jetbrains.com/research/2025/10/state-of-developer-ecosystem-2025/" target="_blank" rel="noopener noreferrer">"JetBrains State of Developer Ecosystem 2025."</a> <a href="https://octoverse.github.com/" target="_blank" rel="noopener noreferrer">"GitHub Octoverse 2025."</a>
 (Professional-developer AI-tool adoption across independent industry surveys.)
 
 <span id="ref-20">[20]</span> xAI / Reuters (2026). <a href="https://x.ai/news/anthropic-compute-partnership" target="_blank" rel="noopener noreferrer">xAI: "New Compute Partnership with Anthropic."</a> <a href="https://www.reuters.com/business/media-telecom/spacex-signs-cloud-deal-with-google-2026-06-05/" target="_blank" rel="noopener noreferrer">Reuters reporting on Colossus 1 and Anthropic compute access.</a>
-(Anthropic access to Colossus 1; xAI / SpaceXAI compute reallocation. Where available, use the original SpaceX S-1 for precise financial terms.)
+(Anthropic access to Colossus 1 and xAI / SpaceXAI compute reallocation; precise financial terms per the SpaceX S-1.)
 
 <span id="ref-21">[21]</span> Data Center Dynamics / OpenAI / Reuters-linked reporting (2026). <a href="https://www.datacenterdynamics.com/en/news/oracleopenai-drop-plans-to-expand-flagship-abilene-stargate-site-meta-in-talks-to-pick-up-crusoe-capacity-with-nvidias-help/" target="_blank" rel="noopener noreferrer">"Oracle/OpenAI drop plans to expand flagship Abilene Stargate site."</a> <a href="https://openai.com/index/five-new-stargate-sites/" target="_blank" rel="noopener noreferrer">OpenAI: "Five new Stargate sites."</a>
-(Abilene expansion, tenant reallocation, financing complexity, and Microsoft / Crusoe / Nvidia-related reporting. Treat as composite reporting unless citing a single transaction document.)
+(Abilene expansion, tenant reallocation, financing complexity, and Microsoft / Crusoe / Nvidia-related reporting; composite reporting rather than a single transaction document.)
 
 <span id="ref-22">[22]</span> Stanford HAI / Epoch AI / Artificial Analysis (2026). <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener noreferrer">"Stanford HAI AI Index Report 2026."</a> <a href="https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf" target="_blank" rel="noopener noreferrer">"AI Index Report 2026: Economy Chapter."</a> <a href="https://arxiv.org/abs/2511.23455" target="_blank" rel="noopener noreferrer">"The Price of Progress: Price Performance and the Future of AI."</a>
 (Inference cost and fixed-capability cost declines over the 2022–2026 window.)

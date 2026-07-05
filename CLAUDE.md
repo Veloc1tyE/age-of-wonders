@@ -199,7 +199,7 @@ Do not replace canonical order with date order unless the page explicitly asks f
 
 The site should feel calm, precise, and alive.
 
-The goal is not decoration. The goal is trust.
+The goal is trust.
 
 ### Subtlety over boldness
 
@@ -665,7 +665,7 @@ Its defining traits:
 - **Few hedges.** The essay asserts what the evidence supports.
 - **Strong section closings.** Each section ends with a line that lands.
 - **Sensory conversion.** Instruments become senses: we saw, felt, photographed, measured, kept.
-- **Scale compression.** A grain of sand holds thousands of galaxies. A flower petal holds a material lighter than air.
+- **Scale compression.** A grain of sand holds thousands of galaxies.
 - **Reader trust.** The essay does not recap what the reader can infer.
 
 The lesson is not to make every essay sound like Perceptual Abundance.
@@ -1492,7 +1492,7 @@ Build up. Then drop short.
 
 A long sentence or paragraph charges the reader with scale, consequence, or mechanism. Then a very short sentence — under eight words — inherits all that weight without explaining it. The short sentence does not summarise. It witnesses.
 
-> *Build:* Two black holes, each dozens of times more massive than the Sun, had spiralled into each other 1.3 billion light-years away. The collision sent ripples through spacetime. Those waves stretched and squeezed space by less than one ten-thousandth the width of a proton.
+> *Build:* Two black holes, each dozens of times more massive than the Sun, had spiralled into each other 1.3 billion light-years away. The collision sent ripples through spacetime. Those waves stretched and squeezed space by roughly one four-hundredth the width of a proton.
 >
 > *Drop:* **"LIGO detected it."**
 

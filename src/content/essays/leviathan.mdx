@@ -248,8 +248,8 @@ At $N = 10{,}000$ pods, $N^{1/6} \approx 4.6$. This is the *packing* advantage b
 
 | Scale | Pods | Lattice edge (≈ $V^{1/3}$) | Worst-case span | One-way $t_\text{prop}$ |
 |---|---|---|---|---|
-| 1 GW | 100 | ~30 m | 70–90 m | 0.35–0.45 µs |
-| 10 GW | 1,000 | ~65 m | 140–180 m | 0.7–0.9 µs |
+| 1 GW | 100 | ~37 m | 70–90 m | 0.35–0.45 µs |
+| 10 GW | 1,000 | ~80 m | 140–180 m | 0.7–0.9 µs |
 
 The lattice edge assumes ~240 m³ per pod (<a class="xref" href="#appendix-b">§B</a>) plus an equal allowance for backplanes, structure, and flow channels, i.e. ~500 m³ per pod gross. A 1 GW block is then ~50,000 m³ of compute, a cube ~37 m on a side — the footprint of a single large building, holding a hundred times the compute of one such cluster. That single sentence is the whole geometric argument, and <a class="xref" href="#appendix-b">§B</a> and <a class="xref" href="#appendix-d">§D</a> are where it is earned.<sup><a href="#ref-41">[41]</a></sup>
 
@@ -274,11 +274,11 @@ Rejecting 10.5 MW into 20–22 °C water is the hardest steady-state problem in 
 
 $$\boxed{Q = U A \Delta T_\mathrm{lm} \quad\Rightarrow\quad A = \frac{Q}{U \Delta T_\mathrm{lm}}}$$
 
-The first-order design question is the temperature difference between the pod's internal cooling loop and the surrounding seawater. A 35 °C bulk loop against ~20 °C seawater gives $\Delta T_\mathrm{lm} \approx 12\text{–}15,\mathrm{K}$, which is a conservative cold-loop case. Liquid-cooled compute can run warmer than this if the processors, memory, seals, connectors, dielectric fluid and reliability model are qualified for it. A more realistic concept range is a 45–55 °C hot loop, with 60 °C as an aggressive case.
+The first-order design question is the temperature difference between the pod's internal cooling loop and the surrounding seawater. A 35 °C bulk loop against ~20 °C seawater gives $\Delta T_\mathrm{lm} \approx 12\text{–}15\,\mathrm{K}$, which is a conservative cold-loop case. Liquid-cooled compute can run warmer than this if the processors, memory, seals, connectors, dielectric fluid and reliability model are qualified for it. A more realistic concept range is a 45–55 °C hot loop, with 60 °C as an aggressive case.
 
-For a clean seawater-to-fluid exchanger, using $U \approx 800\text{–}1{,}100,\mathrm{W,m^{-2},K^{-1}}$, the required wetted area falls sharply as loop temperature rises:
+For a clean seawater-to-fluid exchanger, using $U \approx 800\text{–}1{,}100\,\mathrm{W\,m^{-2}\,K^{-1}}$, the required wetted area falls sharply as loop temperature rises:
 
-| Loop case             | Effective $\Delta T_\mathrm{lm}$ | Area at $Q = 10.5,\mathrm{MW}$ and $U = 900,\mathrm{W,m^{-2},K^{-1}}$ |
+| Loop case             | Effective $\Delta T_\mathrm{lm}$ | Area at $Q = 10.5\,\mathrm{MW}$ and $U = 900\,\mathrm{W\,m^{-2}\,K^{-1}}$ |
 | --------------------- | -------------------------------: | --------------------------------------------------------------------: |
 | 35 °C cold-loop case  |                            ~14 K |                                                               ~830 m² |
 | 45 °C design case     |                            ~24 K |                                                               ~490 m² |
@@ -288,7 +288,7 @@ For a clean seawater-to-fluid exchanger, using $U \approx 800\text{–}1{,}100,\
 
 The cylindrical hull of <a class="xref" href="#appendix-b">§B</a> has an external area of roughly
 
-$$A_\mathrm{hull} \sim \pi D L \approx \pi(4.5)(15) \approx 210\mathrm{m^2}.$$
+$$A_\mathrm{hull} \sim \pi D L \approx \pi(4.5)(15) \approx 210\,\mathrm{m^2}.$$
 
 So the pod still cannot reject 10 MW through a bare hull. But the exchanger penalty is less severe than the cold-loop case implies. With a qualified hot loop, the design needs roughly 1.5–4× the hull area in wetted, corrosion-resistant exchanger surface, rather than necessarily 3–5×. That surface can be folded into fins, keels, external exchanger panels, or a jacketed flow path around the capsule.
 
@@ -296,14 +296,14 @@ So the pod still cannot reject 10 MW through a bare hull. But the exchanger pena
 
 $$\frac{1}{U_\mathrm{dirty}} = \frac{1}{U_\mathrm{clean}} + R_f$$
 
-Using a 50 °C loop case with $\Delta T_\mathrm{lm} \approx 29,\mathrm{K}$, fouling changes the exchanger area as follows:
+Using a 50 °C loop case with $\Delta T_\mathrm{lm} \approx 29\,\mathrm{K}$, fouling changes the exchanger area as follows:
 
 | $R_f$ ($\mathrm{m^2K/W}$) | Condition  | $U$ from 1,100 clean | Required area | Penalty |
 | ------------------------- | ---------- | -------------------: | ------------: | ------: |
 | 0                         | pristine   |                1,100 |       ~329 m² |       — |
 | 0.0002                    | light film |                  902 |       ~401 m² |    +22% |
 | 0.0004                    | moderate   |                  764 |       ~474 m² |    +44% |
-| 0.0008                    | heavy      |                  579 |       ~626 m² |    +90% |
+| 0.0008                    | heavy      |                  585 |       ~619 m² |    +88% |
 
 At 200 m, reduced light suppresses photosynthetic growth, but microbial films and sessile marine organisms can still colonise surfaces. The design must therefore oversize the exchanger for end-of-cycle fouling, favour smooth high-flow geometries that shed growth, and tie the retrieval interval (<a class="xref" href="#appendix-k">§K</a>) to fouling as much as to silicon refresh.
 
@@ -323,7 +323,7 @@ With seawater $\rho c_p \approx 4.1\times10^6\,\text{J/m}^3\text{K}$, $U \approx
 | 10 GW compact | ~10.3 GW | ~1,000 m | 0.5–0.8 °C |
 | 100 GW compact | ~103 GW | ~3,000 m | ~2–4 °C |
 
-This is a deliberately first-order model — enough to answer the only question that matters at concept stage: does the system scale as one heat source or as a federation? International-finance environmental guidance commonly limits a discharge to a **3 °C rise at the edge of a defined mixing zone**.<sup><a href="#ref-17">[17]</a></sup> A 1 GW and a 10 GW campus clear that with spacing and current. A single compact 100 GW field crosses it. The conclusion is structural, not marginal: 100 GW must be built as ~ten 10 GW campuses spread along the coast, routed through higher-current sectors, and instrumented continuously. The ocean sets the size of the organ; the network (<a class="xref" href="#appendix-c">§C</a>, <a class="xref" href="#appendix-d">§D</a>) joins the organs into one mind.
+This is a deliberately first-order model — enough to answer the only question that matters at concept stage: does the system scale as one heat source or as a federation? The ranges carry the parameter uncertainty: at the nominal current and mixing values the 100 GW point estimate is ~1.7 °C, and the upper end belongs to the weaker-current, thinner-mixing sectors a three-kilometre field cannot fully avoid. International-finance environmental guidance commonly limits a discharge to a **3 °C rise at the edge of a defined mixing zone**.<sup><a href="#ref-17">[17]</a></sup> A 1 GW and a 10 GW campus clear that with spacing and current. A single compact 100 GW field crosses it. The conclusion is structural, not marginal: 100 GW must be built as ~ten 10 GW campuses spread along the coast, routed through higher-current sectors, and instrumented continuously. The ocean sets the size of the organ; the network (<a class="xref" href="#appendix-c">§C</a>, <a class="xref" href="#appendix-d">§D</a>) joins the organs into one mind.
 
 ### <span id="appendix-h" class="appendix-anchor"></span>H. Power Delivery — Solar Field, HVDC, and Tiered Firming
 
@@ -331,7 +331,7 @@ This is a deliberately first-order model — enough to answer the only question 
 
 $$A_\text{active} = \frac{P_\text{PV}}{\eta_m\,I_\text{STC}}$$
 
-At $\eta_m = 0.25$, every 1 GWp needs ~4 km² of module before spacing; a ~1.5× land factor covers tilt, rows, and access. Oman PV yield is ~1,900–2,000 kWh/kWp/year (~22% capacity factor).<sup><a href="#ref-19">[19]</a></sup><sup><a href="#ref-46">[46]</a></sup> Sizing the field at ~1.5× facility peak gives ~9 effective full-load hours per training day.
+At $\eta_m = 0.25$, every 1 GWp needs ~4 km² of module before spacing; a ~1.5× land factor covers tilt, rows, and access. Oman PV yield is ~1,900–2,000 kWh/kWp/year (~22% capacity factor).<sup><a href="#ref-19">[19]</a></sup><sup><a href="#ref-46">[46]</a></sup> Sizing the field at ~1.5× facility peak gives ~8–9 effective full-load hours per training day.
 
 | IT peak | Facility peak (PUE 1.03) | PV nameplate (1.5×) | Active area | Land (1.5×) |
 |---|---|---|---|---|
@@ -350,7 +350,7 @@ $$E_\mathrm{BESS} = 1.03\,\mathrm{GW} \times 0.25\,\mathrm{h} \approx 0.26\,\mat
 
 That is the proof-machine case. It minimises capital and demonstrates the pod, the thermal system, the subsea power interface, and the station scheduler.
 
-The frontier case is different. If the pod contains current-generation or next-generation frontier silicon, night becomes expensive. A 1 GW field with roughly $15B of accelerators should not sit idle for fifteen hours if storage is cheaper than the lost productive time. A public round-the-clock solar benchmark is approximately 5.2 GW of PV and 19 GWh of batteries to deliver 1 GW continuously.<sup><a href="#ref-50">[50]</a></sup> That is a useful current anchor, not the final Leviathan design.
+The frontier case is different. If the pod contains current-generation or next-generation frontier silicon, night becomes expensive. A 1 GW field with roughly \$15B of accelerators should not sit idle for fifteen hours if storage is cheaper than the lost productive time. A public round-the-clock solar benchmark is approximately 5.2 GW of PV and 19 GWh of batteries to deliver 1 GW continuously.<sup><a href="#ref-50">[50]</a></sup> That is a useful current anchor, not the final Leviathan design.
 
 By the time Leviathan reaches bankable scale, the relevant battery cost is not the 2026 cost. It is the 2031–2036 cost. Battery storage costs have already fallen sharply, and further reductions are expected as stationary storage becomes a larger share of global battery demand.<sup><a href="#ref-51">[51]</a></sup><sup><a href="#ref-52">[52]</a></sup> The architecture should therefore be designed around tiered firmness:
 
@@ -595,10 +595,10 @@ The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar rea
 <span id="ref-32">[32]</span> OpenAI (2025). <a href="https://openai.com/index/announcing-the-stargate-project/" target="_blank" rel="noopener noreferrer">"Announcing The Stargate Project."</a>
 (Primary announcement for the planned USD 500 billion AI-infrastructure programme. Sources the claim that AI infrastructure is moving from ordinary cloud capacity toward national-scale compute buildouts.)
 
-<span id="ref-33">[33]</span> Reuters (2025). <a href="https://www.reuters.com/business/media-telecom/openai-oracle-softbank-plan-five-new-ai-data-centers-500-billion-stargate-2025-09-23/" target="_blank" rel="noopener noreferrer">"OpenAI, Oracle, SoftBank plan five new AI data centers for $500 billion Stargate project."</a>
+<span id="ref-33">[33]</span> Reuters (2025). <a href="https://www.reuters.com/business/media-telecom/openai-oracle-softbank-plan-five-new-ai-data-centers-500-billion-stargate-2025-09-23/" target="_blank" rel="noopener noreferrer">"OpenAI, Oracle, SoftBank plan five new AI data centers for \$500 billion Stargate project."</a>
 (Reports Stargate's 10 GW target and nearly 7 GW / over USD 400 billion of announced site commitments. Supports the claim that frontier AI infrastructure is already discussed in gigawatt units.)
 
-<span id="ref-34">[34]</span> Reuters (2025). <a href="https://www.reuters.com/business/vantage-data-centers-plans-25-billion-ai-campus-texas-2025-08-19/" target="_blank" rel="noopener noreferrer">"Vantage Data Centers plans $25 billion AI campus in Texas."</a>
+<span id="ref-34">[34]</span> Reuters (2025). <a href="https://www.reuters.com/business/vantage-data-centers-plans-25-billion-ai-campus-texas-2025-08-19/" target="_blank" rel="noopener noreferrer">"Vantage Data Centers plans \$25 billion AI campus in Texas."</a>
 (Reports Vantage's 1.4 GW, 1,200-acre Frontier campus in Texas with ten datacentres. Land-campus comparator for the city-scale/sprawl argument.)
 
 <span id="ref-35">[35]</span> Cottier, B., Rahman, R., Fattorini, L., Maslej, N., Besiroglu, T. & Owen, D. (2024). <a href="https://arxiv.org/abs/2405.21015" target="_blank" rel="noopener noreferrer">"The rising costs of training frontier AI models."</a> <em>arXiv:2405.21015</em>.

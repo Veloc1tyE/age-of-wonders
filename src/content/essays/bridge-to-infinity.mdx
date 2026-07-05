@@ -84,7 +84,7 @@ Twenty kilometres is where three conditions coincide. Thick enough for a lifting
 
 At that altitude, atmospheric pressure is under **2%** of sea level. The engine fires in effectively true vacuum from ignition, at **99%+** of its theoretical efficiency. No other exit altitude satisfies all three as cleanly.
 
-The bank itself is nearly free. Velocity components add in quadrature: convert a vertical vector into a horizontal one at speed, and the total barely changes. Call it the Pythagorean Dividend (<a class="xref" href="#appendix-c2">Appendix C2</a>). It is why the thin air above the exit is not a nuisance to be escaped but a resource to be harvested. The stratosphere is a gearbox. It turns the launcher's vertical throw into orbital velocity, and charges almost nothing for the exchange.
+The bank itself is nearly free. Velocity components add in quadrature: convert a vertical vector into a horizontal one at speed, and the total barely changes. Call it the Pythagorean Dividend (<a class="xref" href="#appendix-c2">Appendix C2</a>). The thin air above becomes a harvestable resource. The stratosphere transforms into a gearbox. It turns the launcher's vertical throw into orbital velocity, and charges almost nothing for the exchange.
 
 <DataInsight
   insight="At 20 km: enough air to bank, sparse enough to exit cleanly, high enough for vacuum ignition from the first second."
@@ -105,7 +105,7 @@ Halcyon is rugged, built for repeated use. Its structural mass earns its place: 
 
 And it can use hydrogen.
 
-Ground vehicles default to dense propellants that survive Max Q. Hydrogen offers far higher exhaust velocity, but its bulk punishes sea-level flight. Meridian removes that constraint. Halcyon never sees sea level. The engine fires a pure vacuum nozzle at full expansion ratio. It is the second stage of a two-stage rocket, without needing the first stage.<sup><a href="#ref-5">[5]</a></sup>
+Ground vehicles default to dense propellants that survive Max Q. Hydrogen offers far higher exhaust velocity, but its bulk punishes sea-level flight. Meridian removes that constraint. The engine fires a pure vacuum nozzle at full expansion ratio. It is like the second stage of a two-stage rocket.<sup><a href="#ref-5">[5]</a></sup>
 
 | Propellant | Vacuum Isp (s) | Propellant saving vs all-rocket baseline |
 |---|---|---|
@@ -116,9 +116,7 @@ Ground vehicles default to dense propellants that survive Max Q. Hydrogen offers
 
 *100 t cargo to LEO, 20 km exit altitude. Human-rated launch runs a few points lower. The full per-altitude table is in <a class="xref" href="#appendix-d">Appendix D</a>.*
 
-Hydrogen is bulky. That bulk is an asset. Halcyon needs a large planform for the aerodynamic bank and runway landing. Hydrogen fills that planform with useful propellant instead of dead structure. The tanks *are* the wing.
-
-Hydrolox is the near-term workhorse. Nuclear thermal propulsion is the centurial upgrade (<a class="xref" href="#appendix-m">Appendix M</a>).<sup><a href="#ref-6">[6]</a></sup>
+Halcyon needs a large planform for the aerodynamic bank and runway landing. Hydrogen can fill that planform with useful propellant instead of dead structure. Hydrolox is the near-term workhorse. Nuclear thermal propulsion is the upgrade (<a class="xref" href="#appendix-m">Appendix M</a>).<sup><a href="#ref-6">[6]</a></sup>
 
 Halcyon closes the spaceplane design aerospace engineers have pursued since the 1960s and never delivered. Ground-launched SSTO fails for fundamental mass-budget reasons. The X-33 and VentureStar died here (<a class="xref" href="#appendix-q">Appendix Q</a>). Meridian moves the starting line to 20 km in vacuum. The same SSTO closes from altitude.
 
@@ -135,7 +133,7 @@ The difference between a space programme and a space economy is cadence.
 
 Cadence requires infrastructure built like transport. So a mature orbital economy looks more like ports, rail, and container shipping.
 
-**The port.** Meridian is fixed infrastructure, used constantly, maintained on schedules, amortised over decades. It never moves. Its marginal cost per launch is dominated by electricity and upper-stage propellant.
+**The port.** Meridian is fixed infrastructure, used constantly, maintained on schedules, amortised over decades. It never moves. Its marginal cost per launch is electricity and upper-stage propellant.
 
 **The locomotive.** Halcyon: a reusable lifting body, optionally crewed, that mates with Meridian, completes orbital insertion in near-vacuum, glides back to a runway, and turns around for the next flight.
 
@@ -274,7 +272,7 @@ Using the U.S. Standard Atmosphere (1976),<sup><a href="#ref-3">[3]</a></sup> ai
 | 25 | 0.039 | 3.2% | ~2.5% |
 | 30 | 0.018 | 1.5% | ~1.2% |
 
-Atmospheric pressure at altitude $h$ approximates the weight of the overlying air column: $P(h) = P_0 \, e^{-h/H}$, where $H \approx 8.5$ km is the scale height. Since pressure is proportional to the mass of air above, ~93% of atmospheric mass lies below 20 km, ~95% below 25 km, and ~99% below 30 km.
+Atmospheric pressure at altitude $h$ approximates the weight of the overlying air column: $P(h) = P_0 \, e^{-h/H}$, where $H \approx 8.5$ km is the scale height. Since pressure is proportional to the mass of air above, ~94% of atmospheric mass lies below 20 km, ~97% below 25 km, and ~99% below 30 km (the body's "95% below 25 km" is the conservative round).
 
 Dynamic pressure at launcher exit: $q = \tfrac{1}{2}\rho v^2$
 
@@ -356,7 +354,7 @@ $$\boxed{\Delta v_{\text{aero}} = \frac{\rho_0 \, v_0 \, H \, S \, C_L}{2m}}$$
 
 This is exact in the limit of constant climb speed (a good approximation: the vehicle loses only ~2–3% of its 3 km/s to gravity during the ~3 s of significant aero authority). The result is elegant: aero delta-v scales linearly with exit density $\rho_0$, exit speed $v_0$, scale height $H$, and the vehicle's lift parameter $S C_L / m$.
 
-Since $\rho_0 = \rho_{\text{SL}} \, e^{-h_0/H}$, **every 7.5 km lower in exit altitude doubles the free delta-v.** This is why exit altitude matters so much.
+Since $\rho_0 = \rho_{\text{SL}} \, e^{-h_0/H}$, **every $H\ln 2 \approx 5$ km lower in exit altitude doubles the free delta-v** (each 7.5 km multiplies it by $e$). This is why exit altitude matters so much.
 
 **Wing loading governs the result.** A concern: $m$ in the formula is the *full vehicle mass at exit* — cargo, dry stage, and all propellant. A 50 t payload with hydrolox propellant for a 7.2 km/s burn masses roughly 484 t at exit. Does the formula collapse?
 
@@ -455,18 +453,18 @@ For NTP ($I_{sp}$ = 900 s):
 
 All five classes use the same tunnel, the same pylon, the same exit altitude, the same vacuum. The ~30 km bore (12 km linear + 18 km curvilinear toward vertical) serves every vehicle class. The coils run a different acceleration programme for each manifest — the software decides how hard to push based on what is in the cradle. The curve that gives humans a roller-coaster (7 g) gives bulk cargo 50 g and hardened freight 100 g. One tunnel, one pylon, *N* programmes.
 
-**The Pythagorean Dividend.** The aerodynamic turn is nearly free because velocity components add in quadrature: $v_{\text{total}}^2 = v_v^2 + v_h^2$. Converting a vertical vector into a horizontal one at high speed costs almost nothing in total speed — because the horizontal component you gain is squared before it contributes, and the vertical component you surrender is subtracted from a much larger squared number.
+**The Pythagorean Dividend.** The aerodynamic turn is nearly free because velocity components add in quadrature: $v_{\text{total}}^2 = v_v^2 + v_h^2$. Converting a vertical vector into a horizontal one at high speed costs almost nothing in total speed because the horizontal component you gain is squared before it contributes, and the vertical component you surrender is subtracted from a much larger squared number.
 
 | Case | Initial vertical | Aero Δv gained | Vertical after bank | Apogee tax | Tax (%) |
 |---|---|---|---|---|---|
 | Cargo (3 km/s exit) | 3,000 m/s | 500 m/s | $\sqrt{3000^2 - 500^2} \approx 2{,}958$ m/s | 42 m/s | 1.4% |
 | Human (700 m/s exit) | 700 m/s | 100 m/s | $\sqrt{700^2 - 100^2} \approx 693$ m/s | 7 m/s | 1.0% |
 
-Meridian deliberately oversupplies vertical velocity so the bank can exploit this asymmetry. The 3 km/s throw is far more than Halcyon needs to reach apogee — the surplus exists precisely to be traded. Stealing 500 m/s horizontal for 42 m/s vertical is not a compromise; it is the point. The stratosphere at 20 km is not an obstacle to be cleared but a transmission medium — a gearbox that converts excess vertical kinetic energy into the horizontal momentum orbit actually requires, at essentially zero thermodynamic cost.
+Meridian deliberately oversupplies vertical velocity so the bank can exploit this asymmetry. The 3 km/s throw is far more than Halcyon needs to reach apogee. Halcyon can trade the surplus. Stealing 500 m/s horizontal for 42 m/s vertical is the point.
 
 **Why 700 m/s for humans.** The curvilinear section's turn radius scales as $v^2/a$. At human summit velocity (852 m/s) and 5 g centripetal, the radius is 15 km — the same curve that gives humans a roller-coaster (5–7 g) gives cargo at 3 km/s a 30–50 g ride. Both fit through the same bore. The lower exit speed means gentler dynamic pressure (22 kPa vs 401 kPa) and a propellant penalty of 68 t: 453 t vs 385 t per 100 t delivered, or 58% vs 64% savings. The 58% comes not from the aerodynamic turn but from loss elimination — the vertical climb is electromagnetic and the exit is above 93% of the atmosphere regardless of exit speed.
 
-**The deeper point.** The optimisation reveals something about the architecture's logic. The ideal exit altitude is not "as high as possible to escape the atmosphere." It is as *low* as the pylon can reach — because the residual atmosphere is not a nuisance to be escaped. It is a resource to be harvested. Every additional metre of air the vehicle flies through is free horizontal momentum the engine does not have to provide. The launcher oversupplies vertical velocity *on purpose*. That surplus buys altitude (atmosphere bypass), time (vacuum burn window), and — via the lifting body — free orbital velocity. Electricity provides the kinetic energy. Thin air provides the turn. Vacuum provides the burn. Nothing is wasted.
+**The deeper point.** The optimisation reveals something about the architecture's logic. The ideal exit altitude is not "as high as possible to escape the atmosphere." It is as *low* as the pylon can reach because the residual atmosphere is a resource to be harvested. Every additional metre of air the vehicle flies through is free horizontal momentum the engine does not have to provide. The launcher oversupplies vertical velocity *on purpose*. That surplus buys altitude (atmosphere bypass), time (vacuum burn window), and — via the lifting body — free orbital velocity. Electricity provides the kinetic energy. Thin air provides the turn. Vacuum provides the burn. Nothing is wasted.
 
 
 ### <span id="appendix-c3" class="appendix-anchor"></span>C3. Cargo Structural and Thermal Survivability at Exit
@@ -540,7 +538,7 @@ $$A_{\text{struct}} \approx 16 \times 1.12 \times 0.25 \approx 4.5 \text{ m}^2, 
 
 CFRP allowable in bending: **800–1,500 MPa**. Margin: **10–19×**. Even at 100 g for hardened cargo, bending stress remains below 380 MPa — still within standard CFRP allowable with margin.
 
-**Acoustic environment.** Turbulent boundary layer at Mach 10 generates surface pressure fluctuations of ~1–3% of dynamic pressure (RMS). At $q = 401$ kPa, RMS fluctuation ~4–12 kPa → **~160–165 dB OASPL** for ~3 seconds. This matches the acoustic environment at rocket Max Q (Falcon 9: ~160 dB; Shuttle: ~162 dB) and is within the qualification envelope of military-rated avionics. Duration is 3 seconds vs a rocket's sustained Max Q. Fatigue cycles are negligible.
+**Acoustic environment.** An attached turbulent boundary layer at Mach 10 generates surface pressure fluctuations of ~0.5–1% of dynamic pressure (RMS). At $q = 401$ kPa, RMS fluctuation ~2–4 kPa → **~160–166 dB OASPL** for ~3 seconds. This matches the acoustic environment at rocket Max Q (Falcon 9: ~160 dB; Shuttle: ~162 dB) and is within the qualification envelope of military-rated avionics. Duration is 3 seconds vs a rocket's sustained Max Q. Fatigue cycles are negligible.
 
 #### 4. Integrated Stress Comparison: Exit vs Re-entry
 
@@ -549,13 +547,13 @@ The cargo vehicle's full exit+bank event is structurally less severe than a rout
 | Load | Cargo exit (3 km/s, 20 km) | Dragon orbital re-entry | Ratio |
 |---|---|---|---|
 | Peak g | ~23 g | ~4–6 g sustained (longer) | — |
-| Total aero impulse | ~845 m/s equivalent | ~7,800 m/s equivalent | **9× less** |
+| Total aero impulse | ~570 m/s equivalent | ~7,800 m/s equivalent | **~14× less** |
 | Peak heat flux | 1.47 MW/m² | 3–5 MW/m² | 2–3× less |
 | Total heat load (stag) | 7.4 MJ/m² | ~1,500 MJ/m² | **200× less** |
 | Acoustic duration at ~160 dB | ~3 s | ~0 s (no acoustic pulse on re-entry) | — |
 | Wing root bending stress | ~78 MPa | Governed by landing | CFRP margin 10× |
 
-The cargo exit has higher *peak g* than a capsule re-entry — but the total impulse is nine times smaller, the heat load is two hundred times smaller, and the duration is seconds rather than minutes. The vehicle faces a brief intense pulse, not a prolonged ordeal.
+The cargo exit has higher *peak g* than a capsule re-entry — but the total impulse is fourteen times smaller, the heat load is two hundred times smaller, and the duration is seconds rather than minutes. The vehicle faces a brief intense pulse, not a prolonged ordeal.
 
 #### 5. Design Requirements Summary
 
@@ -664,7 +662,7 @@ Both vehicle classes use the same ~30 km bore: 12 km linear + 18 km curvilinear 
 
 **Terminal pylon.** The terminal structure above the summit adds 10–15 km of vertical height and carries zero acceleration load. Both cargo and human vehicles exit the same bore and coast through the same pylon, but the gravity loss during transit differs markedly. Cargo at ~3 km/s loses ~39 m/s over ~4 seconds — negligible. The human vehicle at ~852 m/s loses ~152 m/s over ~16 seconds, arriving at the top at ~700 m/s. This is why the tunnel accelerates humans to ~850 m/s rather than 700 m/s: it pre-loads the gravity tax. The pylon is purely a vacuum-containment and altitude-extension structure. All acceleration is done inside the mountain, where bedrock absorbs the reaction forces. This is the key structural insight: the pylon never has to resist the forces of launching a vehicle. It only has to stand up and hold vacuum.
 
-**Passenger seat orientation — phase-by-phase.** The human body's tolerance to acceleration is strongly axis-dependent. Longitudinal Gs acting head-to-toe (+G$_z$) drain blood from the brain; the onset of G-induced loss of consciousness (G-LOC) occurs around 5–6 g. Transverse Gs acting chest-to-back (+G$_x$, "eyeballs-in") keep blood at the same hydrostatic level as the heart and brain; humans remain conscious and functional up to 10–15 g in this orientation. Every crewed vehicle design — from Mercury to Dragon — exploits this by seating astronauts supine relative to the thrust axis, turning what would be a blackout into a heavy but survivable sensation. The Bridge vehicle faces a complication standard rockets do not: the dominant force vector rotates through roughly 70° over the first two minutes, from longitudinal (linear bore) to centripetal (curvilinear section) and back. The solution is fully articulating seats that track the shifting vector continuously.
+**Passenger seat orientation — phase-by-phase.** The human body's tolerance to acceleration is strongly axis-dependent. Longitudinal Gs acting head-to-toe (+G$_z$) drain blood from the brain; the onset of G-induced loss of consciousness (G-LOC) occurs around 5–6 g. Transverse Gs acting chest-to-back (+G$_x$, "eyeballs-in") keep blood at the same hydrostatic level as the heart and brain; humans remain conscious and functional up to 10–15 g in this orientation.<sup><a href="#ref-38">[38]</a></sup> Every crewed vehicle design — from Mercury to Dragon — exploits this by seating astronauts supine relative to the thrust axis, turning what would be a blackout into a heavy but survivable sensation. The Bridge vehicle faces a complication standard rockets do not: the dominant force vector rotates through roughly 70° over the first two minutes, from longitudinal (linear bore) to centripetal (curvilinear section) and back. The solution is fully articulating seats that track the shifting vector continuously.
 
 | Phase | Duration | Peak g | Force axis | Seat position |
 |---|---|---|---|---|
@@ -856,7 +854,7 @@ At 70% launcher efficiency (conservative), wall-plug energy ~1.12 kWh/kg. At ind
 | \$0.03/kWh (cheap solar/nuclear) | \$0.034/kg | \$34/t |
 | \$0.01/kWh (future lunar solar) | \$0.011/kg | \$11/t |
 
-These costs are for the energy alone. Infrastructure amortization, operations, and payload processing add more — but at high throughput (millions of tonnes per year), infrastructure amortization falls rapidly. The marginal operating cost of a mature lunar mass driver is dominated by power, which from polar crater-rim solar installations approaches near-zero after capital recovery.
+These costs are for the energy alone. Infrastructure amortisation, operations, and payload processing add more — but at high throughput (millions of tonnes per year), infrastructure amortisation falls rapidly. The marginal operating cost of a mature lunar mass driver is dominated by power, which from polar crater-rim solar installations approaches near-zero after capital recovery.
 
 **Track length for lunar mass driver.**
 
@@ -909,14 +907,14 @@ The human-rated variant pays a steep mass penalty. That is why the architecture 
 
 Energy is less than 10% of the total delivered cost. The physics floor is not the constraint.
 
-**Infrastructure amortization.** Using StarTram-class capex as an anchor (~\$20–50B for a cargo-only facility):<sup><a href="#ref-15">[15]</a></sup>
+**Infrastructure amortisation.** Using StarTram-class capex as an anchor (~\$20–50B for a cargo-only facility):<sup><a href="#ref-15">[15]</a></sup>
 
 | Annual throughput | \$20B facility (30-yr) | \$50B facility (30-yr) |
 |---|---|---|
 | 100,000 t/yr | \$6.7/kg | \$16.7/kg |
 | 300,000 t/yr | \$2.2/kg | \$5.6/kg |
 
-At high throughput, launcher amortization becomes a small fraction of total cost.
+At high throughput, launcher amortisation becomes a small fraction of total cost.
 
 **Dominant cost: the bridge vehicle.** Vehicle capital recovery, TPS inspection and replacement, engine overhaul, ground handling, cryogenic loading, range operations, and labour dominate the mature cost structure. This is the layer where industrial process engineering — not physics — determines the final number.
 
@@ -935,7 +933,7 @@ The editorial instinct — standard exterior, modular internals, fast turnaround
 | Component | Estimated range (\$/kg) |
 |---|---|
 | Energy (electricity + propellant) | \$5–15 |
-| Launcher amortization | \$5–30 |
+| Launcher amortisation | \$5–30 |
 | Bridge vehicle + operations | \$50–250 |
 | **Total to LEO (first generation)** | **\$100–300** |
 | **Mature operations (500+ reuses)** | **\$20–80** |
@@ -1173,6 +1171,8 @@ The long-term trajectory is clear: launch energy is negligible, and processing e
 
 ### <span id="appendix-q" class="appendix-anchor"></span>Q. Why Ground SSTO Fails and Bridge SSTO Works
 
+*The launcher is the first stage — made of bedrock and electricity instead of aluminium and kerosene, used thousands of times, never discarded.*
+
 *The single-stage-to-orbit spaceplane has been pursued since the 1960s (X-20 Dyna-Soar, X-33/VentureStar, Skylon). It has never closed. The mass budget explains why — and why the Bridge changes the arithmetic.*
 
 **The SSTO mass budget.** For a reusable vehicle with dry fraction $f_d$ (structure as a fraction of gross liftoff mass), the payload fraction is:
@@ -1206,7 +1206,7 @@ The combined effect: the exponent drops from $9.2/3.24 = 2.84$ (ground kerolox) 
 
 **Why previous assisted launch didn't solve this.** Air launch (Virgin Orbit, Pegasus) provides ~250 m/s at ~10 km. The rocket still does 97% of the work, still fires through dense atmosphere, still uses a sea-level engine. The assist is too small to shift the propulsion regime — the Isp stays the same, the losses stay the same, and the mass budget barely moves. SpinLaunch and sea-level railguns provide more speed but at sea level — where dynamic pressure destroys the vehicle before it can bank or burn. These systems add velocity at the wrong altitude. The Bridge adds altitude at moderate velocity, which changes the engine, the propellant, the nozzle, and the structural envelope simultaneously. That is why the savings compound exponentially rather than adding linearly.
 
-**The deeper point.** The SSTO spaceplane simply starts in the wrong place. Move the starting line from sea level to 20 km in vacuum, and the mass budget that was always negative becomes robustly positive. The launcher *is* the first stage — made of bedrock and electricity instead of aluminium and kerosene, used thousands of times, never discarded.
+**The deeper point.** The SSTO spaceplane simply starts in the wrong place. Move the starting line from sea level to 20 km in vacuum, and the mass budget that was always negative becomes robustly positive.
 
 
 </CollapsibleAppendix>
@@ -1221,11 +1221,11 @@ The combined effect: the exponent drops from $9.2/3.24 = 2.84$ (ground kerolox) 
 
 <span id="ref-2">[2]</span> Tsiolkovsky, K.E. (1903). "Exploration of Outer Space by Means of Rocket Devices." *Nauchnoye Obozreniye.* The exponential mass-ratio relation $\Delta v = v_e \ln(m_0/m_f)$.
 
-<span id="ref-3">[3]</span> NOAA/NASA/USAF (1976). *U.S. Standard Atmosphere, 1976.* https://ntrs.nasa.gov/citations/19770009539. Atmospheric density, pressure, and temperature as functions of altitude.
+<span id="ref-3">[3]</span> NOAA/NASA/USAF (1976). <a href="https://ntrs.nasa.gov/citations/19770009539" target="_blank" rel="noopener noreferrer">*U.S. Standard Atmosphere, 1976.*</a> Atmospheric density, pressure, and temperature as functions of altitude.
 
-<span id="ref-4">[4]</span> Peng, B. et al. (2008). "Measurements of Near-Ultimate Strength for Multiwalled Carbon Nanotubes and Irradiation-Induced Crosslinking Improvements." *Nature Nanotechnology* 3, 626–631. https://doi.org/10.1038/nnano.2008.211. See also: Bai, Y. et al. (2018). "Carbon nanotube bundles with tensile strength over 80 GPa." *Nature Nanotechnology* 13, 589–595; Wang, S. et al. (2024). "Dynamic strength of carbon nanotube fibres exceeding 14 GPa." *Science* 383, 185–190.
+<span id="ref-4">[4]</span> Peng, B. et al. (2008). <a href="https://doi.org/10.1038/nnano.2008.211" target="_blank" rel="noopener noreferrer">"Measurements of Near-Ultimate Strength for Multiwalled Carbon Nanotubes and Irradiation-Induced Crosslinking Improvements."</a> *Nature Nanotechnology* 3, 626–631. See also Bai, Y. et al. (2018), "Carbon nanotube bundles with tensile strength over 80 GPa," *Nature Nanotechnology* 13, 589–595; Wang, S. et al. (2024), "Dynamic strength of carbon nanotube fibres exceeding 14 GPa," *Science* 383, 185–190.
 
-<span id="ref-5">[5]</span> ArianeGroup. "Vinci Engine." https://www.ariane.group/en/equipment/vinci-engine/. Restartable cryogenic upper-stage engine, vacuum $I_{sp}$ = 465 s, thrust 180 kN.
+<span id="ref-5">[5]</span> ArianeGroup. <a href="https://www.ariane.group/en/equipment/vinci-engine/" target="_blank" rel="noopener noreferrer">"Vinci Engine."</a> Restartable cryogenic upper-stage engine, vacuum $I_{sp}$ = 465 s, thrust 180 kN.
 
 <span id="ref-6">[6]</span> NASA Technical Reports Server. Houts, M.G., Mitchell, D.P. & Kim, T. (2015). <a href="https://ntrs.nasa.gov/api/citations/20150006879/downloads/20150006879.pdf" target="_blank" rel="noopener noreferrer">"Guidance, Navigation, and Control Considerations for Nuclear Thermal Propulsion."</a>
 First-generation NTP systems can provide high thrust at specific impulse above / on the order of 900 s using hydrogen propellant heated by a fission reactor.
@@ -1233,9 +1233,9 @@ First-generation NTP systems can provide high thrust at specific impulse above /
 <span id="ref-7">[7]</span> NASA Technical Reports Server. Herman, D.A. et al. (2022). <a href="https://ntrs.nasa.gov/citations/20220009251" target="_blank" rel="noopener noreferrer">"Development and Qualification Status of the Electric Propulsion Systems for the NASA PPE Mission and Gateway Program."</a>
 NASA Gateway Power and Propulsion Element: 50 kW-class solar electric propulsion spacecraft for cis-lunar logistics.
 
-<span id="ref-8">[8]</span> BryceTech (2025). *State of the Satellite Industry Report.* https://brycetech.com/reports. Total spacecraft upmass to orbit in 2024: approximately 2,171 tonnes across all global launches.
+<span id="ref-8">[8]</span> BryceTech (2025). <a href="https://brycetech.com/reports" target="_blank" rel="noopener noreferrer">*State of the Satellite Industry Report.*</a> Total spacecraft upmass to orbit in 2024: approximately 2,171 tonnes across all global launches.
 
-<span id="ref-9">[9]</span> International Energy Agency. *World Energy Outlook.* https://www.iea.org/reports/world-energy-outlook-2023. Global electricity production ~$10^{20}$ J/year.
+<span id="ref-9">[9]</span> International Energy Agency. <a href="https://www.iea.org/reports/world-energy-outlook-2023" target="_blank" rel="noopener noreferrer">*World Energy Outlook.*</a> Global electricity production ~$10^{20}$ J/year.
 
 <span id="ref-10">[10]</span> NASA Science. <a href="https://science.nasa.gov/moon/facts/" target="_blank" rel="noopener noreferrer">"Moon Facts."</a>
 See also JPL Solar System Dynamics: <a href="https://ssd.jpl.nasa.gov/sats/phys_par/" target="_blank" rel="noopener noreferrer">"Planetary Satellite Physical Parameters."</a>
@@ -1245,54 +1245,54 @@ Lunar surface gravity ≈ 1.62 m/s²; lunar escape velocity ≈ 2.38 km/s.
 
 <span id="ref-12">[12]</span> Heiken, G.H., Vaniman, D.T. & French, B.M. (1991). *Lunar Sourcebook: A User's Guide to the Moon.* Cambridge University Press. Comprehensive regolith composition data from Apollo and Luna samples.
 
-<span id="ref-13">[13]</span> Lester, D.F. & Thronson, H. (2011). "Human Space Exploration and Human Spaceflight: Latency and the Cognitive Scale of the Universe." *Space Policy* 27(2), 89–93. https://doi.org/10.1016/j.spacepol.2011.02.002. Teleoperation viability as a function of communication latency; Earth-Moon round-trip latency ~2.6 s.
+<span id="ref-13">[13]</span> Lester, D.F. & Thronson, H. (2011). <a href="https://doi.org/10.1016/j.spacepol.2011.02.002" target="_blank" rel="noopener noreferrer">"Human Space Exploration and Human Spaceflight: Latency and the Cognitive Scale of the Universe."</a> *Space Policy* 27(2), 89–93. Teleoperation viability as a function of communication latency; Earth-Moon round-trip latency ~2.6 s.
 
 <span id="ref-14">[14]</span> Crawford, I.A. (2015). "Lunar Resources: A Review." *Progress in Physical Geography* 39(2), 137–167. Overview of cis-lunar economic geography and resource accessibility.
 
-<span id="ref-15">[15]</span> McNab, I.R. (2003). "Launch to Space with an Electromagnetic Railgun." *IEEE Transactions on Magnetics* 39(1), 295–304. https://doi.org/10.1109/TMAG.2002.805923. Pulsed-power requirements for electromagnetic launch to orbit. See also: Powell, J. et al. (2010). "StarTram: A New Approach for Low-Cost Earth-to-Orbit Transport." *AIAA Space Conference.* https://doi.org/10.2514/6.2010-8764. StarTram Gen-1 reference: ~110 km evacuated tunnel, ~8 km/s exit, ~35 t payloads, projected \$43/kg.
+<span id="ref-15">[15]</span> McNab, I.R. (2003). <a href="https://doi.org/10.1109/TMAG.2002.805923" target="_blank" rel="noopener noreferrer">"Launch to Space with an Electromagnetic Railgun."</a> *IEEE Transactions on Magnetics* 39(1), 295–304. Pulsed-power requirements for electromagnetic launch to orbit. See also Powell, J. et al. (2010). <a href="https://doi.org/10.2514/6.2010-8764" target="_blank" rel="noopener noreferrer">"StarTram: A New Approach for Low-Cost Earth-to-Orbit Transport."</a> *AIAA Space Conference.* Gen-1 reference: ~110 km evacuated tunnel, ~8 km/s exit, ~35 t payloads, projected \$43/kg.
 
 <span id="ref-16">[16]</span> O'Neill, G.K. (1977). *The High Frontier: Human Colonies in Space.* William Morrow. Lunar mass drivers for export of processed materials to L5 construction sites.
 
-<span id="ref-17">[17]</span> Ross, M.N. & Shearer, D. (2022). "Radiative Forcing Caused by Rocket Engine Emissions." *Earth's Future* 10(6). https://doi.org/10.1029/2021EF002612. NOAA-affiliated analysis of stratospheric ozone and climate impacts from scaled launch activity.
+<span id="ref-17">[17]</span> Ross, M.N. & Shearer, D. (2022). <a href="https://doi.org/10.1029/2021EF002612" target="_blank" rel="noopener noreferrer">"Radiative Forcing Caused by Rocket Engine Emissions."</a> *Earth's Future* 10(6). NOAA-affiliated analysis of stratospheric ozone and climate impacts from scaled launch activity.
 
 <span id="ref-18">[18]</span> Sharma, S.P. et al. (2024). NASA Technical Memorandum. <a href="https://ntrs.nasa.gov/api/citations/20240013276/downloads/NASA-TM-20240013276-V6.pdf" target="_blank" rel="noopener noreferrer">"Impact of Spaceflight on Earth's Atmosphere."</a>
 Review of launch and re-entry particulate emissions, including comparison of future launch/re-entry emissions to meteoritic background flux.
 
-<span id="ref-19">[19]</span> Sierra Space. "Dream Chaser." https://www.sierraspace.com/dream-chaser/. Reusable lifting-body orbital vehicle; runway landing at 1.5 g; designed for 15+ missions per system. NASA CRS-2 cargo variant operational; crew variant in development.
+<span id="ref-19">[19]</span> Sierra Space. <a href="https://www.sierraspace.com/dream-chaser/" target="_blank" rel="noopener noreferrer">"Dream Chaser."</a> Reusable lifting-body orbital vehicle; runway landing at 1.5 g; designed for 15+ missions per system.
 
-<span id="ref-20">[20]</span> U.S. Department of Energy (2024). "PEM Electrolysis for Hydrogen Production." DOE Hydrogen Program. Average system electricity consumption ~55–58 kWh/kg H₂. https://www.energy.gov/eere/fuelcells/hydrogen-production-electrolysis
+<span id="ref-20">[20]</span> U.S. Department of Energy (2024). <a href="https://www.energy.gov/eere/fuelcells/hydrogen-production-electrolysis" target="_blank" rel="noopener noreferrer">"PEM Electrolysis for Hydrogen Production."</a> DOE Hydrogen Program. Average system electricity consumption ~55–58 kWh/kg H₂.
 
-<span id="ref-21">[21]</span> U.S. Department of Energy. "Energy Requirements for Hydrogen Gas Compression and Liquefaction." DOE Hydrogen Program Record 9013. Actual liquefaction energy consumption typically 10–13 kWh/kg LH₂, with theoretical minimum 3.3–3.9 kWh/kg. https://www.hydrogen.energy.gov/pdfs/9013_energy_requirements_for_hydrogen_gas_compression.pdf
+<span id="ref-21">[21]</span> U.S. Department of Energy. <a href="https://www.hydrogen.energy.gov/pdfs/9013_energy_requirements_for_hydrogen_gas_compression.pdf" target="_blank" rel="noopener noreferrer">"Energy Requirements for Hydrogen Gas Compression and Liquefaction."</a> DOE Hydrogen Program Record 9013. Liquefaction typically 10–13 kWh/kg LH₂; theoretical minimum 3.3–3.9 kWh/kg.
 
-<span id="ref-22">[22]</span> Lunar mass driver energy cost calculated from kinetic energy relation $E = \tfrac{1}{2}v_{esc}^2$, lunar escape velocity 2.38 km/s (NASA NSSDCA), at 70% launcher efficiency, and IEA/EIA industrial power price ranges. Polar solar illumination data: Noda, H. et al. (2008). "Illumination Conditions at the Lunar Polar Regions by KAGUYA (SELENE) Laser Altimeter." *Geophysical Research Letters* 35(24). https://doi.org/10.1029/2008GL035692.
+<span id="ref-22">[22]</span> Lunar mass driver energy cost is original modelling: kinetic energy $E = \tfrac{1}{2}v_{esc}^2$ at lunar escape velocity 2.38 km/s (NASA NSSDCA), 70% launcher efficiency, IEA/EIA industrial power price ranges. Polar solar illumination data: Noda, H. et al. (2008). <a href="https://doi.org/10.1029/2008GL035692" target="_blank" rel="noopener noreferrer">"Illumination Conditions at the Lunar Polar Regions by KAGUYA (SELENE) Laser Altimeter."</a> *Geophysical Research Letters* 35(24).
 
-<span id="ref-23">[23]</span> Bussey, D.B.J. et al. (2010). "Illumination Conditions of the South Pole of the Moon Derived Using Kaguya Topography." *Icarus* 208(2), 558–564. https://doi.org/10.1016/j.icarus.2010.03.028. South polar crater rims receive illumination for 70–90% of the lunar year.
+<span id="ref-23">[23]</span> Bussey, D.B.J. et al. (2010). <a href="https://doi.org/10.1016/j.icarus.2010.03.028" target="_blank" rel="noopener noreferrer">"Illumination Conditions of the South Pole of the Moon Derived Using Kaguya Topography."</a> *Icarus* 208(2), 558–564. South polar crater rims receive illumination for 70–90% of the lunar year.
 
-<span id="ref-24">[24]</span> United Nations, Department of Economic and Social Affairs, Population Division (2022). *World Population Prospects 2022.* Medium variant: global population peaks in the 2080s at roughly 10.4 billion, then declines. https://population.un.org/wpp/
+<span id="ref-24">[24]</span> United Nations, Department of Economic and Social Affairs, Population Division (2022). <a href="https://population.un.org/wpp/" target="_blank" rel="noopener noreferrer">*World Population Prospects 2022.*</a> Medium variant: global population peaks in the 2080s at roughly 10.4 billion, then declines.
 
-<span id="ref-25">[25]</span> WMO/UNEP (2022). *Scientific Assessment of Ozone Depletion: 2022.* World Meteorological Organization Global Ozone Research and Monitoring Project — Report No. 58. https://csl.noaa.gov/assessments/ozone/2022/ Full recovery of stratospheric ozone to 1980 levels projected globally by approximately 2066; Antarctic ozone hole recovery approximately 2066.
+<span id="ref-25">[25]</span> WMO/UNEP (2022). <a href="https://csl.noaa.gov/assessments/ozone/2022/" target="_blank" rel="noopener noreferrer">*Scientific Assessment of Ozone Depletion: 2022.*</a> WMO Global Ozone Research and Monitoring Project, Report No. 58. Full recovery of stratospheric ozone to 1980 levels projected globally by approximately 2066.
 
-<span id="ref-26">[26]</span> U.S. Department of Energy (2024). "Clean Hydrogen Production Cost — PEM Electrolyzer." DOE Hydrogen Program Record 24005. Beginning-of-life system electricity: ~55.2 kWh/kg H₂; lifetime average: ~57.5 kWh/kg H₂. https://www.hydrogen.energy.gov/docs/hydrogenprogramlibraries/pdfs/24005-clean-hydrogen-production-cost-pem-electrolyzer.pdf
+<span id="ref-26">[26]</span> U.S. Department of Energy (2024). <a href="https://www.hydrogen.energy.gov/docs/hydrogenprogramlibraries/pdfs/24005-clean-hydrogen-production-cost-pem-electrolyzer.pdf" target="_blank" rel="noopener noreferrer">"Clean Hydrogen Production Cost — PEM Electrolyzer."</a> DOE Hydrogen Program Record 24005. Beginning-of-life system electricity ~55.2 kWh/kg H₂; lifetime average ~57.5 kWh/kg H₂.
 
-<span id="ref-27">[27]</span> Ross, M.N. et al. (2009). "Limits on the Space Launch Market Related to Stratospheric Ozone Depletion." *Astropolitics* 7(1), 50–82. https://doi.org/10.1080/14777620902768867. Early quantitative framing of launch-rate ceilings from atmospheric chemistry.
+<span id="ref-27">[27]</span> Ross, M.N. et al. (2009). <a href="https://doi.org/10.1080/14777620902768867" target="_blank" rel="noopener noreferrer">"Limits on the Space Launch Market Related to Stratospheric Ozone Depletion."</a> *Astropolitics* 7(1), 50–82. Early quantitative framing of launch-rate ceilings from atmospheric chemistry.
 
-<span id="ref-28">[28]</span> Murphy, D.M. et al. (2023). "Metals from spacecraft reentry in stratospheric aerosol particles." *Proceedings of the National Academy of Sciences* 120(43), e2313374120. https://pmc.ncbi.nlm.nih.gov/articles/PMC10614211/. Direct measurement of spacecraft-origin metals in stratospheric aerosol; ~10% of particles in sampled size range contained aerospace alloy signatures.
+<span id="ref-28">[28]</span> Murphy, D.M. et al. (2023). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10614211/" target="_blank" rel="noopener noreferrer">"Metals from spacecraft reentry in stratospheric aerosol particles."</a> *Proceedings of the National Academy of Sciences* 120(43), e2313374120. Direct measurement of spacecraft-origin metals in stratospheric aerosol; ~10% of sampled particles carried aerospace alloy signatures.
 
-<span id="ref-29">[29]</span> U.S. Government (2019). *U.S. Government Orbital Debris Mitigation Standard Practices (ODMSP), November 2019 Update.* https://orbitaldebris.jsc.nasa.gov/library/usg_orbital_debris_mitigation_standard_practices_november_2019.pdf. See also: NASA-STD-8719.14, *Process for Limiting Orbital Debris.* https://standards.nasa.gov/standard/NASA/NASA-STD-871914.
+<span id="ref-29">[29]</span> U.S. Government (2019). <a href="https://orbitaldebris.jsc.nasa.gov/library/usg_orbital_debris_mitigation_standard_practices_november_2019.pdf" target="_blank" rel="noopener noreferrer">*U.S. Government Orbital Debris Mitigation Standard Practices (ODMSP), November 2019 Update.*</a> See also <a href="https://standards.nasa.gov/standard/NASA/NASA-STD-871914" target="_blank" rel="noopener noreferrer">NASA-STD-8719.14, *Process for Limiting Orbital Debris.*</a>
 
 <span id="ref-30">[30]</span> NASA Goddard Space Flight Center. <a href="https://earth.gsfc.nasa.gov/climate/projects/solar-irradiance" target="_blank" rel="noopener noreferrer">"Solar Irradiance."</a>
 Total solar irradiance ≈ 1361 W/m²; global average incident solar input ≈ 340 W/m².
 
-<span id="ref-31">[31]</span> NASA Earth Observatory. "Climate and Earth's Energy Budget." https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget. Absorbed solar ~240 W/m² global average; reflected ~100 W/m².
+<span id="ref-31">[31]</span> NASA Earth Observatory. <a href="https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget" target="_blank" rel="noopener noreferrer">"Climate and Earth's Energy Budget."</a> Absorbed solar ~240 W/m² global average; reflected ~100 W/m².
 
-<span id="ref-32">[32]</span> NREL (2024). *Annual Technology Baseline — Utility-Scale PV.* https://atb.nrel.gov/electricity/2024/utility-scale_pv. Capacity factor resource classes: 21.4% (class 10) to 34.0% (class 1).
+<span id="ref-32">[32]</span> NREL (2024). <a href="https://atb.nrel.gov/electricity/2024/utility-scale_pv" target="_blank" rel="noopener noreferrer">*Annual Technology Baseline — Utility-Scale PV.*</a> Capacity factor resource classes: 21.4% (class 10) to 34.0% (class 1).
 
-<span id="ref-33">[33]</span> Larson, W.E. et al. (2019). "ISRU Experiment Requirements and Concepts for Lunar and Mars Exploration." NASA/KSC. https://www.nasa.gov/wp-content/uploads/2019/04/larson_isru_expreq.pdf. Prototype oxygen extraction: ~400 kWh/kg O₂ (annualised system energy).
+<span id="ref-33">[33]</span> Larson, W.E. et al. (2019). <a href="https://www.nasa.gov/wp-content/uploads/2019/04/larson_isru_expreq.pdf" target="_blank" rel="noopener noreferrer">"ISRU Experiment Requirements and Concepts for Lunar and Mars Exploration."</a> NASA/KSC. Prototype oxygen extraction: ~400 kWh/kg O₂ (annualised system energy).
 
 <span id="ref-34">[34]</span> NASA Kennedy Space Center. <a href="https://www.nasa.gov/centers-and-facilities/kennedy/nasa-kennedy-breathes-life-into-moon-soil-testing/" target="_blank" rel="noopener noreferrer">"NASA Kennedy Breathes Life into Moon Soil Testing."</a>
 Technology development for molten regolith electrolysis and oxygen extraction from simulated lunar regolith. See also: Kleinhenz, J.E. et al. (2021). <a href="https://arc.aiaa.org/doi/10.2514/6.2021-4019" target="_blank" rel="noopener noreferrer">"GaLORE: Gaseous Lunar Oxygen from Regolith Electrolysis."</a>
 
-<span id="ref-35">[35]</span> L3Harris Technologies. "RL10 Engine." https://www.l3harris.com/all-capabilities/rl10-engine. RL10C-X vacuum $I_{sp}$ = 460.9 s; O/F ≈ 5.5.
+<span id="ref-35">[35]</span> L3Harris Technologies. <a href="https://www.l3harris.com/all-capabilities/rl10-engine" target="_blank" rel="noopener noreferrer">"RL10 Engine."</a> RL10C-X vacuum $I_{sp}$ = 460.9 s; O/F ≈ 5.5.
 
 <span id="ref-36">[36]</span> NASA Technical Reports Server. <a href="https://ntrs.nasa.gov/citations/20010071139" target="_blank" rel="noopener noreferrer">"Magnetic Launch Assist."</a>
 See also: <a href="https://ntrs.nasa.gov/citations/20000068443" target="_blank" rel="noopener noreferrer">"Magnetic Launch Assist."</a>
@@ -1301,11 +1301,11 @@ NASA studies on electromagnetic launch-assist concepts for reducing vehicle prop
 <span id="ref-37">[37]</span> General Atomics. <a href="https://www.ga.com/alre" target="_blank" rel="noopener noreferrer">"EMALS & AAG."</a>
 Electromagnetic Aircraft Launch System: linear induction motor, adjustable thrust, smooth controlled acceleration, rapid recharge, and operational deployment on Ford-class aircraft carriers. Validates the industrial architecture class: pulsed power → power electronics → linear motor → controlled acceleration of reusable vehicles.
 
-<span id="ref-38">[38]</span> NASA (2024). *NASA Space Flight Human-System Standard Volume 2: Human Factors, Habitability, and Environmental Health.* NASA-STD-3001, Rev. C. https://standards.nasa.gov/standard/NASA/NASA-STD-3001-VOL-2. Sustained translational acceleration limits, vibration exposure envelopes, and human-system integration requirements for crewed spacecraft.
+<span id="ref-38">[38]</span> NASA (2024). <a href="https://standards.nasa.gov/standard/NASA/NASA-STD-3001-VOL-2" target="_blank" rel="noopener noreferrer">*NASA Space Flight Human-System Standard Volume 2: Human Factors, Habitability, and Environmental Health.*</a> NASA-STD-3001, Rev. C. Sustained translational acceleration limits and human-system integration requirements for crewed spacecraft.
 
-<span id="ref-39">[39]</span> IAEA/UNCOPUOS (2009). *Safety Framework for Nuclear Power Source Applications in Outer Space.* International Atomic Energy Agency and UN Committee on the Peaceful Uses of Outer Space. https://www.iaea.org/sites/default/files/safetyframework1009.pdf. International governance baseline for nuclear reactors and radioisotope systems used in space; applicable to NTP launch-approval and end-state disposal requirements.
+<span id="ref-39">[39]</span> IAEA/UNCOPUOS (2009). <a href="https://www.iaea.org/sites/default/files/safetyframework1009.pdf" target="_blank" rel="noopener noreferrer">*Safety Framework for Nuclear Power Source Applications in Outer Space.*</a> International governance baseline for nuclear systems in space, including NTP launch approval and disposal.
 
-<span id="ref-40">[40]</span> Ong, S. et al. (2013). "A Comparison of Ground-Mounted and Rooftop-Mounted Utility-Scale Solar Photovoltaic (PV) System Impacts." NREL/TP-6A20-56290. https://www.osti.gov/biblio/1086349. Empirical land-use data for utility-scale solar: total area and direct area definitions, real-project benchmarks for MW/acre.
+<span id="ref-40">[40]</span> Ong, S. et al. (2013). <a href="https://www.osti.gov/biblio/1086349" target="_blank" rel="noopener noreferrer">"A Comparison of Ground-Mounted and Rooftop-Mounted Utility-Scale Solar Photovoltaic (PV) System Impacts."</a> NREL/TP-6A20-56290. Empirical land-use benchmarks for utility-scale solar.
 
 ### Background References
 
