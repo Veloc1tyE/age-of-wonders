@@ -389,6 +389,7 @@ Every major essay has a mechanism:
 - **Leviathan:** ocean cooling and desert solar relocate the frontier when land runs out.
 - **Love is the Foundation:** non-reciprocal love produces the foundations markets consume but cannot make.
 - **Singularity:** cosmological natural selection explains why the path keeps existing.
+- **It's All Energy:** energy moves from extraction to manufacture — Wright's law reaches the watt, and delivery stops scaling with distance.
 - **The Last Bottleneck:** demonstration converts visibility into will.
 
 If the mechanism cannot be named, the argument is not finished.
@@ -610,7 +611,7 @@ If it only repeats the worldview, it is not ready.
 The canon moves through five nested scales:
 
 - **Foundation** (LitF, CAOW): the moral and intellectual ground — why abundance matters and what tools make it possible.
-- **Infrastructure** (CA, Leviathan, BtI): the material systems that build and distribute access.
+- **Infrastructure** (IAE, CA, Leviathan, BtI): the material systems that build and distribute access. It's All Energy is the tier's keystone — the master resource the other three consume.
 - **Reach** (SGL, TFS, PA): what becomes possible once those conditions are met.
 - **Cosmology** (Singularity): the meta-argument — why the universe keeps being organised in favour of life.
 - **Coda** (The Last Bottleneck): the one limit the canon cannot engineer away — us.
@@ -635,7 +636,10 @@ The essays hand off to each other:
 - **LitF provides the moral claim that makes all of it matter.** Without love as foundation, abundance is accumulation.
 - **CAOW is the thesis. PA is the proof that the thesis is already partly true.**
 - **Singularity takes the whole graph as its evidence.** The eight essays before it are its fossil record; LitF gives it its survival filter — love as a selection criterion.
+- **It's All Energy is where the canon touches the ground.** CA and Leviathan run on the watts it promises. LitF's tailor and mother are its opening witnesses. Every scarcity in the canon decomposes into the watt it names.
 - **The Last Bottleneck is the coda.** It cites the whole graph and names the remaining constraint: us.
+
+When It's All Energy publishes, it takes position three in the canonical order — after Perceptual Abundance, before Computational Abundance. The keystone doubles as the altitude bridge: PA ends in wonder, CA begins in analysis, and the energy essay carries the reader between them. Repoint LitF's and The Last Bottleneck's "energy to lift every life" links to it at the same time.
 
 A new essay should add a node to this graph — a new domain, mechanism, or inversion. If it only restates the worldview without connecting to the existing dependencies, it is not ready.
 
