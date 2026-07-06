@@ -58,12 +58,16 @@ function buildHTML(data, bodyHtml) {
   parts.push('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>');
   parts.push('<link href="' + fontsUrl + '" rel="stylesheet">');
   parts.push('<style>' + getSharedCSS({ register: 'thesis' }) + '</style>');
+  if (data.flow === 'continuous') {
+    // Short client documents: sections flow instead of each opening a fresh page.
+    parts.push('<style>.section-head, article h1 { page-break-before: auto !important; break-before: auto !important; margin-top: 44px; }</style>');
+  }
   parts.push('</head>');
   parts.push('<body>');
 
   // Document header
   parts.push('<div class="doc-header">');
-  parts.push('<div class="company-name">Aquila Space Technologies Pty Ltd</div>');
+  parts.push('<div class="company-name">' + escapeHtml(data.company || 'Aquila Space Technologies Pty Ltd') + '</div>');
   if (data.classification) {
     parts.push('<div class="classification">' + escapeHtml(data.classification) + '</div>');
   }
@@ -101,7 +105,7 @@ function buildHTML(data, bodyHtml) {
   return { html: parts.join('\n'), shortTitle };
 }
 
-async function generatePDF(htmlContent, outputPath, shortTitle) {
+async function generatePDF(htmlContent, outputPath, shortTitle, footerText) {
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
@@ -124,7 +128,7 @@ async function generatePDF(htmlContent, outputPath, shortTitle) {
       font-style: italic;
     ">
       <span style="font-size:7pt;font-family:Inter,sans-serif;font-style:normal;letter-spacing:0.5px;text-transform:uppercase;color:#ccc;">
-        Confidential — Aquila Space Technologies
+        ${footerText}
       </span>
       <span class="pageNumber"></span>
     </div>`;
@@ -165,7 +169,8 @@ async function main() {
   const out = join(OUTPUT_DIR, slug + '.pdf');
 
   process.stdout.write('\n  > ' + slug + ' ... ');
-  await generatePDF(html, out, shortTitle);
+  const footerText = escapeHtml(data.footer || (data.company ? 'Confidential — ' + data.company : 'Confidential — Aquila Space Technologies'));
+  await generatePDF(html, out, shortTitle, footerText);
   console.log('done');
   console.log('  ' + out + '\n');
 }

@@ -390,7 +390,6 @@ Every major essay has a mechanism:
 - **Love is the Foundation:** non-reciprocal love produces the foundations markets consume but cannot make.
 - **Singularity:** cosmological natural selection explains why the path keeps existing.
 - **It's All Energy:** energy moves from extraction to manufacture — Wright's law reaches the watt, and delivery stops scaling with distance.
-- **The Last Bottleneck:** demonstration converts visibility into will; the filter argument explains why the conversion is survival-grade — the tools of abundance dissolve the chokepoints enforcement needs, so only foundation-based coordination survives receiving them.
 
 If the mechanism cannot be named, the argument is not finished.
 
@@ -608,19 +607,18 @@ If it only repeats the worldview, it is not ready.
 
 ### The canon's structural tiers
 
-The canon moves through five nested scales:
+The canon moves through four nested scales:
 
 - **Foundation** (LitF, CAOW): the moral and intellectual ground — why abundance matters and what tools make it possible.
 - **Infrastructure** (IAE, CA, Leviathan, BtI): the material systems that build and distribute access. It's All Energy is the tier's keystone — the master resource the other three consume.
 - **Reach** (SGL, TFS, PA): what becomes possible once those conditions are met.
 - **Cosmology** (Singularity): the meta-argument — why the universe keeps being organised in favour of life.
-- **Coda** (The Last Bottleneck): the one limit the canon cannot engineer away — us.
 
 The structure is recursive, not linear. PA is also the epistemological engine of the whole canon — the claim that the universe became *retrievable* (not just observable) is the underlying logic of every other essay. SGL retrieves coastlines. CA retrieves intelligence at ambient cost. BtI retrieves orbital access by removing the atmospheric constraint. The perceptual revolution PA describes is the canon's method, not only one of its subjects.
 
-LitF is structurally the deepest foundation, placed late so the canon earns it. By the time the reader arrives at "the scarcity is only ever local," they have seen it proven eight ways. Singularity then widens the frame to cosmology and returns to LitF's claim at maximum scale. The Last Bottleneck closes by handing the work to the reader.
+LitF is structurally the deepest foundation, placed late so the canon earns it. By the time the reader arrives at "the scarcity is only ever local," they have seen it proven eight ways. Singularity then widens the frame to cosmology and returns to LitF's claim at maximum scale.
 
-**The chord progression.** The canon ends three times, and the three endings are one chord resolved at widening scale: "only love founds" (economics), "Love is why you walk it" (cosmology), "So overflow" (a single life). Every closing tier returns to love and access at a wider scale than the last. A future essay's ending is not only its own — the canon ends *through* it. Before writing a new close, read the three existing resolutions and decide where the new one sits in the progression.
+**The chord progression.** The canon now ends in two movements, not three: "only love founds" (LitF, economics) and "Love is why you walk it... So keep walking." (Singularity, cosmology). Singularity is the canon's last essay, so its own final beat has to carry the return to agency a coda once supplied — the ending cannot rest in wonder alone, exactly because nothing follows it. Every closing tier still returns to love and access at a wider scale than the last. Before writing a new close, or a new final essay, read both existing resolutions and decide where the new one sits.
 
 ---
 
@@ -637,10 +635,8 @@ The essays hand off to each other:
 - **CAOW is the thesis. PA is the proof that the thesis is already partly true.**
 - **Singularity takes the whole graph as its evidence.** The eight essays before it are its fossil record; LitF gives it its survival filter — love as a selection criterion.
 - **It's All Energy is where the canon touches the ground.** CA and Leviathan run on the watts it promises. LitF's tailor and mother are its opening witnesses. Every scarcity in the canon decomposes into the watt it names.
-- **IAE and TLB are a deliberate two-branch structure.** IAE's falsifier 5 (access fails to follow the collapsing price) is TLB's thesis: if the economic mechanism stalls, the operative constraint is institutional — the organised veto TLB's Section III names. One register, two essays: the keystone names the mechanism, the coda names the veto. IAE's falsifier 7 states the handoff explicitly.
-- **The Last Bottleneck is the coda.** It cites the whole graph and names the remaining constraint: us.
 
-When It's All Energy publishes, it takes position three in the canonical order — after Perceptual Abundance, before Computational Abundance. The keystone doubles as the altitude bridge: PA ends in wonder, CA begins in analysis, and the energy essay carries the reader between them. Repoint LitF's and The Last Bottleneck's "energy to lift every life" links to it at the same time.
+When It's All Energy publishes, it takes position three in the canonical order — after Perceptual Abundance, before Computational Abundance. The keystone doubles as the altitude bridge: PA ends in wonder, CA begins in analysis, and the energy essay carries the reader between them. Repoint LitF's "energy to lift every life" links to it at the same time.
 
 A new essay should add a node to this graph — a new domain, mechanism, or inversion. If it only restates the worldview without connecting to the existing dependencies, it is not ready.
 

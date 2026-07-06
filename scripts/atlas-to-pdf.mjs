@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
 /**
- * Generate beautifully formatted corporate letter/memo PDFs.
+ * Generate PDF from Atlas sprint scope markdown.
+ * Adapted from letter-to-pdf.mjs — replaces Aquila branding with Atlas.
  *
  * Usage:
- *   node scripts/letter-to-pdf.mjs private/letters/project-phoenix.md
+ *   node scripts/atlas-to-pdf.mjs private/letters/atlas-sprint-scope.md
  */
 
 import { readFileSync, mkdirSync } from 'fs';
@@ -62,15 +63,6 @@ body {
   color: #111;
   letter-spacing: -0.3px;
   margin-bottom: 14px;
-}
-
-.classification {
-  font-size: 8.5pt;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.4px;
-  color: #aaa;
-  margin-bottom: 28px;
 }
 
 .meta-table {
@@ -170,10 +162,6 @@ article blockquote {
   font-style: italic;
 }
 
-.signature {
-  margin-top: 8px;
-}
-
 article table {
   width: 100%;
   border-collapse: collapse;
@@ -234,16 +222,10 @@ function buildHTML(data, bodyHtml) {
 
   // Header block
   parts.push('<div class="letter-header">');
-  parts.push('<div class="company-name">' + escapeHtml(data.company || 'Aquila Space Technologies Pty Ltd') + '</div>');
-  if (data.classification) {
-    parts.push('<div class="classification">' + escapeHtml(data.classification) + '</div>');
-  }
+  parts.push('<div class="company-name">Atlas Compute</div>');
   parts.push('<div class="meta-table">');
   if (data.date) {
     parts.push('<div class="meta-row"><span class="label">Date</span> <span class="value">' + escapeHtml(data.date) + '</span></div>');
-  }
-  if (data.to) {
-    parts.push('<div class="meta-row"><span class="label">To</span> <span class="value">' + escapeHtml(data.to) + '</span></div>');
   }
   if (data.from) {
     parts.push('<div class="meta-row"><span class="label">From</span> <span class="value">' + escapeHtml(data.from) + '</span></div>');
@@ -273,8 +255,6 @@ async function generatePDF(htmlContent, outputPath) {
   });
   const page = await browser.newPage();
 
-  // Use setContent instead of file:// temp HTML — Chrome shows <title> briefly then
-  // replaces the tab/document label with the filename for local file URLs.
   await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
   await page.evaluate(() => document.fonts.ready);
 
@@ -295,7 +275,7 @@ async function generatePDF(htmlContent, outputPath) {
 async function main() {
   const filepath = process.argv[2];
   if (!filepath) {
-    console.error('\n  Usage: node scripts/letter-to-pdf.mjs <path-to-markdown>\n');
+    console.error('\n  Usage: node scripts/atlas-to-pdf.mjs <path-to-markdown>\n');
     process.exit(1);
   }
 
