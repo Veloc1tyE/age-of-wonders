@@ -8,8 +8,6 @@ A body of writing and creative work exploring a simple belief system:
 
 More energy from sunlight hits Earth in one hour than humanity uses in a year. The oceans contain fusion fuel for billions of years. Materials exist that are lighter than air yet stronger than steel. The gap between what's possible and what we've built is imposed by infrastructure, imagination, and courage.
 
-The Age of Wonders is about building the infrastructure to access what's already there.
-
 ---
 
 ## 🚀 Getting Started
