@@ -165,7 +165,7 @@ The frontier is running out of land.
 
 <CollapsibleAppendix title="Technical Appendix">
 
-*A first-principles engineering analysis of the system, subsystem by subsystem. The numbers are concept-study estimates, not a final design package; ranges are shown where the inputs are uncertain. Each section states its assumptions, derives a result, and where possible checks it against a known engineering system. The weakest links are flagged explicitly rather than buried.*
+*A first-principles engineering analysis of the system, subsystem by subsystem. The numbers are concept-study estimates; ranges are shown where the inputs are uncertain. Each section states its assumptions, derives a result, and where possible checks it against a known engineering system.*
 
 ### <span id="appendix-a" class="appendix-anchor"></span>A. The Demand — Power Per Frontier Run
 
@@ -191,7 +191,9 @@ Projecting a ~0.3 GW 2025 frontier cluster forward at the two ends of the comput
 
 The aggressive column breaks before 2035, which is the point: scaling cannot hold 4×/yr indefinitely because power runs out first. Across every non-absurd path, a single frontier run reaches gigawatts to tens of gigawatts within 5–10 years.<sup><a href="#ref-35">[35]</a></sup>
 
-For scale, total United States generating capacity is ~1,280 GW,<sup><a href="#ref-6">[6]</a></sup> and datacentre load was ~35 GW in 2024, projected to ~80–130 GW by 2030.<sup><a href="#ref-36">[36]</a></sup><sup><a href="#ref-7">[7]</a></sup> A single frontier run of tens of gigawatts is a national-scale load behind one fence, which is why it cannot sit on ordinary land near existing transmission. The efficiency denominator is also weakening: with Dennard scaling ended and precision approaching a floor of a few bits, FLOP/W gains increasingly come from packaging rather than transistor physics, so the historical ~1.4×/yr that partly offset compute growth is fading.<sup><a href="#ref-3">[3]</a></sup><sup><a href="#ref-4">[4]</a></sup><sup><a href="#ref-5">[5]</a></sup>
+For scale, total United States generating capacity is ~1,280 GW,<sup><a href="#ref-6">[6]</a></sup> and datacentre load was ~35 GW in 2024, projected to ~80–130 GW by 2030.<sup><a href="#ref-36">[36]</a></sup><sup><a href="#ref-7">[7]</a></sup> A single frontier run of tens of gigawatts is a national-scale load behind one fence, which is why it cannot sit on ordinary land near existing transmission. 
+
+The efficiency denominator is also weakening: with Dennard scaling ended and precision approaching a floor of a few bits, FLOP/W gains increasingly come from packaging rather than transistor physics, so the historical ~1.4×/yr that partly offset compute growth is fading.<sup><a href="#ref-3">[3]</a></sup><sup><a href="#ref-4">[4]</a></sup><sup><a href="#ref-5">[5]</a></sup>
 
 ### <span id="appendix-b" class="appendix-anchor"></span>B. The Pod — Compute, Power Density, Volume
 
@@ -205,7 +207,7 @@ Allowing for power electronics, switching, CPUs, and circulation overhead, the c
 
 $$V = \pi r^2 L \approx \pi (2.25)^2 (15) \approx 240\,\text{m}^3$$
 
-Power density is then $10\,\text{MW} / 240\,\text{m}^3 \approx 42\,\text{kW/m}^3$ at the vessel envelope, rising to 100–150 kW/m³ at the populated-board level. A conventional air-cooled hall runs 1–2 kW/m³ all-in. The pod is one to two orders of magnitude denser, which is the physical basis for the lattice compaction in <a class="xref" href="#appendix-d">§D</a> — and is only possible because the heat leaves through fluid, not air.<sup><a href="#ref-38">[38]</a></sup><sup><a href="#ref-39">[39]</a></sup>
+Power density is then $10\,\text{MW} / 240\,\text{m}^3 \approx 42\,\text{kW/m}^3$ at the vessel envelope, rising to 100–150 kW/m³ at the populated-board level. A conventional air-cooled hall runs 1–2 kW/m³ all-in. The pod is one to two orders of magnitude denser, which is the physical basis for the lattice compaction in <a class="xref" href="#appendix-d">§D</a>, and is only possible because the heat leaves through fluid, not air.<sup><a href="#ref-38">[38]</a></sup><sup><a href="#ref-39">[39]</a></sup>
 
 ### <span id="appendix-c" class="appendix-anchor"></span>C. Coherence — The All-Reduce and What Binds
 
@@ -223,7 +225,7 @@ $$
 
 The two terms behave completely differently, and only one of them carries distance.
 
-**The latency term carries distance; the bandwidth term does not.** The per-hop latency decomposes as $\alpha = t_\text{switch} + t_\text{prop}$, where switch-ASIC latency $t_\text{switch} \approx 0.1\text{–}0.3\,\mu\text{s}$ and propagation $t_\text{prop}$ is the distance term: light covers about one metre every 5 ns in fibre. The bandwidth term contains no length at all — it is set by the optical fabric, not by how far apart the endpoints sit.
+**The latency term carries distance; the bandwidth term does not.** The per-hop latency decomposes as $\alpha = t_\text{switch} + t_\text{prop}$, where switch-ASIC latency $t_\text{switch} \approx 0.1\text{–}0.3\,\mu\text{s}$ and propagation $t_\text{prop}$ is the distance term: light covers about one metre every 5 ns in fibre. The bandwidth term contains no length at all; it is set by the optical fabric, not by how far apart the endpoints sit.
 
 | Topology | Span | $t_\text{prop}$/hop | $\alpha$ (incl. ~0.2 µs switch) |
 |---|---|---|---|
@@ -232,7 +234,11 @@ The two terms behave completely differently, and only one of them carries distan
 | 10 GW campus | 140–180 m | 0.7–0.9 µs | ~0.9–1.1 µs |
 | Land multi-building campus | 500–2,000+ m | 2.5–10+ µs | ~2.7–10+ µs |
 
-**The honest conclusion.** Submerging the machine collapses the propagation component of $\alpha$ by 10–100× relative to a sprawling land campus. That is decisive for *latency-bound* collectives — fine-grained tensor-parallel exchanges, small messages, and the long tail of synchronisation barriers where $T_\text{AR}$ is dominated by the latency term. It does **nothing** for *bandwidth-bound* collectives, where the bulk gradient all-reduce is governed by $S/B$ and the binding constraint is fabric bisection bandwidth — a design choice independent of whether the machine is wet or dry.<sup><a href="#ref-25">[25]</a></sup> The subsea advantage is real, but it is an advantage on the latency term specifically. A campaign that wins frontier training on this architecture wins it on thermal density and short-path latency together, not on propagation alone. The bandwidth fabric still has to be built, and it is the same problem underwater as on land.
+**The honest conclusion.** Submerging the machine collapses the propagation component of $\alpha$ by 10–100× relative to a sprawling land campus. That is decisive for *latency-bound* collectives: fine-grained tensor-parallel exchanges, small messages, and the long tail of synchronisation barriers where $T_\text{AR}$ is dominated by the latency term. 
+
+It does **nothing** for *bandwidth-bound* collectives, where the bulk gradient all-reduce is governed by $S/B$ and the binding constraint is fabric bisection bandwidth, a design choice independent of whether the machine is wet or dry.<sup><a href="#ref-25">[25]</a></sup> 
+
+The subsea advantage is an advantage on the latency term specifically. A campaign that wins frontier training on this architecture wins it on thermal density and short-path latency together, not on propagation alone. The bandwidth fabric still has to be built, and it is the same problem underwater as on land.
 
 This is also why the architecture survives a shift to loosely-coupled distributed training: that shift attacks the latency term (by tolerating it), not the power-and-cooling problem each site still faces.<sup><a href="#ref-21">[21]</a></sup><sup><a href="#ref-22">[22]</a></sup>
 
@@ -325,7 +331,11 @@ With seawater $\rho c_p \approx 4.1\times10^6\,\text{J/m}^3\text{K}$, $U \approx
 | 10 GW compact | ~10.3 GW | ~1,000 m | 0.5–0.8 °C |
 | 100 GW compact | ~103 GW | ~3,000 m | ~2–4 °C |
 
-This is a deliberately first-order model — enough to answer the only question that matters at concept stage: does the system scale as one heat source or as a federation? The ranges carry the parameter uncertainty: at the nominal current and mixing values the 100 GW point estimate is ~1.7 °C, and the upper end belongs to the weaker-current, thinner-mixing sectors a three-kilometre field cannot fully avoid. International-finance environmental guidance commonly limits a discharge to a **3 °C rise at the edge of a defined mixing zone**.<sup><a href="#ref-17">[17]</a></sup> A 1 GW and a 10 GW campus clear that with spacing and current. A single compact 100 GW field crosses it. The conclusion is structural, not marginal: 100 GW must be built as ~ten 10 GW campuses spread along the coast, routed through higher-current sectors, and instrumented continuously. The ocean sets the size of the organ; the network (<a class="xref" href="#appendix-c">§C</a>, <a class="xref" href="#appendix-d">§D</a>) joins the organs into one mind.
+This is a deliberately first-order model. It's enough to answer the only question that matters at concept stage: does the system scale as one heat source or as a federation? The ranges carry the parameter uncertainty: at the nominal current and mixing values the 100 GW point estimate is ~1.7 °C, and the upper end belongs to the weaker-current, thinner-mixing sectors a three-kilometre field cannot fully avoid. 
+
+International-finance environmental guidance commonly limits a discharge to a **3 °C rise at the edge of a defined mixing zone**.<sup><a href="#ref-17">[17]</a></sup> A 1 GW and a 10 GW campus clear that with spacing and current. A single compact 100 GW field crosses it. 
+
+The conclusion is structural: 100 GW must be built as ~ten 10 GW campuses spread along the coast, routed through higher-current sectors, and instrumented continuously. The ocean sets the size of the organ; the network (<a class="xref" href="#appendix-c">§C</a>, <a class="xref" href="#appendix-d">§D</a>) joins the organs into one mind.
 
 ### <span id="appendix-h" class="appendix-anchor"></span>H. Power Delivery — Solar Field, HVDC, and Tiered Firming
 
@@ -399,7 +409,9 @@ These are projected operating envelopes. The correct dispatch depends on hardwar
 
 The body's multiple is defensible for the mixed workload most labs actually run. The headline multiples at 10 GW and 100 GW are weak-scaling figures; read them as throughput, not as single-run speed-up.<sup><a href="#ref-41">[41]</a></sup>
 
-**The second multiplier: software.** Hardware throughput is one axis. Computational Abundance documents a second running in parallel: the compute needed to reach a fixed capability falls as the software improves, roughly threefold a year in pretraining and faster still in inference.<sup><a href="#ref-31">[31]</a></sup> Over the five-year build of a station, that axis compounds into one to two further orders of magnitude of effective capability per delivered FLOP. The two multipliers are independent and they multiply. A station finishing a thousandfold more throughput, running software that extracts a hundredfold more capability per operation, is the arithmetic behind the body's claim that 100 GW enters a range with no precedent to measure it against.
+**The second multiplier: software.** Hardware throughput is one axis. Computational Abundance documents a second running in parallel: the compute needed to reach a fixed capability falls as the software improves, roughly threefold a year in pretraining and faster still in inference.<sup><a href="#ref-31">[31]</a></sup> 
+
+Over the five-year build of a station, that axis compounds into one to two further orders of magnitude of effective capability per delivered FLOP. The two multipliers are independent and they multiply. A station finishing a thousandfold more throughput, running software that extracts a hundredfold more capability per operation, is the arithmetic behind the body's claim that 100 GW enters a range with no precedent to measure it against.
 
 ### <span id="appendix-j" class="appendix-anchor"></span>J. Marine Survivability — Pressure, Corrosion, Connectors, Retrieval
 
@@ -409,7 +421,9 @@ The body's multiple is defensible for the mixed workload most labs actually run.
 
 $$P = \rho g h = 1{,}025 \times 9.81 \times 200 \approx 2.01\times10^6\,\text{Pa} \approx 20\,\text{bar}.$$
 
-Twenty bar is modest. A recreational scuba diver reaches ~6 bar at 50 m. Subsea oil-and-gas hardware routinely operates at 100–300 bar (1,000–3,000 m). The pod is best built **pressure-compensated**: the dielectric fluid is held at ambient pressure, so the hull sees almost no differential and merely contains the fluid, while the (nearly incompressible) fluid transmits 20 bar uniformly to the boards — which, with no air gaps, tolerate it. This is exactly the oil-filled-housing approach used for ROV electronics and proven by Microsoft's Project Natick, which sealed servers in an inert atmosphere on the seabed and recorded roughly one-eighth the failure rate of an identical land deployment.<sup><a href="#ref-53">[53]</a></sup><sup><a href="#ref-54">[54]</a></sup>
+Twenty bar is modest. A recreational scuba diver reaches ~6 bar at 50 m. Subsea oil-and-gas hardware routinely operates at 100–300 bar (1,000–3,000 m). The pod is best built **pressure-compensated**: the dielectric fluid is held at ambient pressure, so the hull sees almost no differential and merely contains the fluid, while the (nearly incompressible) fluid transmits 20 bar uniformly to the boards, which, with no air gaps, tolerate it.
+
+This is exactly the oil-filled-housing approach used for ROV electronics and proven by Microsoft's Project Natick, which sealed servers in an inert atmosphere on the seabed and recorded roughly one-eighth the failure rate of an identical land deployment.<sup><a href="#ref-53">[53]</a></sup><sup><a href="#ref-54">[54]</a></sup>
 
 **2. Corrosion.** Seawater plus dissimilar metals drives galvanic attack. Mitigations are standard marine practice: copper-nickel or titanium for wetted heat-exchanger surfaces, cathodic protection by sacrificial anodes, dielectric isolation of dissimilar metals, and anti-fouling coatings on smooth exterior geometry.<sup><a href="#ref-55">[55]</a></sup><sup><a href="#ref-56">[56]</a></sup> The hull refit interval (~8–10 years) is set by corrosion and fouling, decoupled from the faster IT-refresh interval (<a class="xref" href="#appendix-k">§K</a>).
 
