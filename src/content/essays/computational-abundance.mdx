@@ -235,7 +235,7 @@ Underneath the institutional layer is the **edge**: a workstation in a research 
 
 A second axis runs through the slot hierarchy.
 
-Inside the plateau tier, hyperscaler public cloud is the premium access layer. The spread of up to **10×** between hyperscaler on-demand H100 SKUs and specialist clouds delivering the same hardware (<a class="xref" href="#appendix-j">Appendix J</a>) is not a depreciation curve. It is a slot-rent curve. The chip is identical. The premium is for trust, energised slot, procurement, immediate availability, and enterprise support.
+Inside the plateau tier, hyperscaler public cloud is the premium access layer. The spread of up to **10×** between hyperscaler on-demand H100 SKUs and specialist clouds delivering the same hardware (<a class="xref" href="#appendix-j">Appendix J</a>) is not depreciation. The chip is identical. The premium is for trust, energised slot, procurement, immediate availability, and enterprise support.
 
 That premium is durable for one class of customer and a tax for another. The boom phase had one scarce unit: access to any serious GPU capacity. Hyperscalers dominated it. The deployment phase has a different scarce unit: verified intelligence inside a workflow at acceptable cost. That lives wherever regional cloud, sovereign cluster, second-tier colocation, enterprise rack, or industrial site provides verified compute at the lowest fully-burdened cost.
 
@@ -433,7 +433,7 @@ The figures are not comparable line items (capex, debt issuance, venture funding
 
 Amazon's trailing-twelve-month free cash flow fell roughly 95% to \$1.2 billion in the same window it issued \$54 billion in bonds. Meta issued \$30 billion in October 2025; Alphabet issued \$32 billion in February 2026 including a rare 100-year bond; Oracle planned \$25 billion for 2026 against an upward-revised \$50 billion FY2026 capex guide.
 
-### <span id="appendix-b" class="appendix-anchor"></span>B. Energy Arithmetic—Fuel-Only Marginal Cost
+### <span id="appendix-b" class="appendix-anchor"></span>B. Energy Marginal Cost
 
 Using the U.S. Energy Information Administration's 2024 average operating heat rate for natural gas-fired generation (7,754 Btu/kWh)<sup><a href="#ref-19">[19]</a></sup> and front-month gas prices in May 2026:<sup><a href="#ref-5">[5]</a></sup>
 
@@ -461,7 +461,7 @@ The heuristic of ~1.3 kW of all-in facility load per top-end accelerator<sup><a 
 
 Summed across the three projects with disclosed status (Colossus ~1.3 GW + Abilene 1.2 GW + DOE 0.14 GW), the order book implies ~2.6 GW of facility load. The mid-2026 energised share, Colossus 1 (~290 MW) plus Abilene 2-of-8 (~300 MW), totals ~0.6 GW.
 
-### <span id="appendix-d" class="appendix-anchor"></span>D. Bounding Cases—Energisation and Utilisation
+### <span id="appendix-d" class="appendix-anchor"></span>D. Energisation and Utilisation
 
 *The binding constraint is workflow design, not chip capability.*
 
@@ -619,9 +619,9 @@ Predicted plateau advantage: ~12%. Empirical observation (Table H.2): used H100 
 
 The second refinement—capability thresholds rather than capability appetites—formalises the lift to the workload-economic plane.
 
-**H.1—Log capability scaling.** Inference benchmark scores scale approximately as $\beta_K \log_{10}(\text{compute})$. A 4× FLOPS deficit corresponds to a benchmark gap of roughly 3–5 percentage points on MMLU, GPQA, or HumanEval at current scale. Most economically useful workloads have capability *thresholds*, not capability *appetites*: a customer-support router that needs 85% intent-classification accuracy does not benefit from a model scoring 92%. The operative question is not whether plateau capability matches frontier headroom; it is whether plateau capability exceeds the workload's threshold at lower cost. The workload surface where plateau is sufficient grows monotonically with $E(t)$.
+**H.1: Log capability scaling.** Inference benchmark scores scale approximately as $\beta_K \log_{10}(\text{compute})$. A 4× FLOPS deficit corresponds to a benchmark gap of roughly 3–5 percentage points on MMLU, GPQA, or HumanEval at current scale. Most economically useful workloads have capability *thresholds*, not capability *appetites*: a customer-support router that needs 85% intent-classification accuracy does not benefit from a model scoring 92%. The operative question is not whether plateau capability matches frontier headroom; it is whether plateau capability exceeds the workload's threshold at lower cost. The workload surface where plateau is sufficient grows monotonically with $E(t)$.
 
-**H.2—Memory-bound, not compute-bound.** Autoregressive LLM inference is memory-bandwidth-bound, not FLOPS-bound. The relevant cap-per-dollar metric is bandwidth per dollar:
+**H.2: Memory-bound, not compute-bound.** Autoregressive LLM inference is memory-bandwidth-bound, not FLOPS-bound. The relevant cap-per-dollar metric is bandwidth per dollar:
 
 | Hardware | State | Price | HBM bandwidth | GB/s per \$ |
 |---|---|---|---|---|
@@ -631,21 +631,21 @@ The second refinement—capability thresholds rather than capability appetites�
 
 Used H100 delivers ~12% more memory bandwidth per dollar than a new B200 at retail. The B200's structural advantages—192 GB VRAM, 4× FP8 throughput, NVLink 5 at 1.8 TB/s—bind on training workloads with synchronous gradient sync and on models exceeding 80 GB. Most production inference exhibits neither. Plateau hardware does not beat frontier globally. It beats frontier on the dimensions that govern specific deployment workloads.
 
-**An emerging exception—latent recursion.** A research-stage class of architectures reasons by iterating a small weight-tied block through depth rather than stacking unique layers: latent-space reasoning and looped or recurrent-depth models (COCONUT, looped transformers, the HRM/TRM line). On the compounding side this is simply another entry in the $E(t)$ ledger alongside distillation, quantisation, and sparsity. It decouples reasoning depth from parameter count, lowering the model size and therefore the cost and hardware required to clear a given sufficiency threshold (H.1). That widens the workload surface a written-down chip can serve, and strengthens the plateau case.
+**An emerging exception: latent recursion.** A research-stage class of architectures reasons by iterating a small weight-tied block through depth rather than stacking unique layers: latent-space reasoning and looped or recurrent-depth models (COCONUT, looped transformers, the HRM/TRM line). On the compounding side this is simply another entry in the $E(t)$ ledger alongside distillation, quantisation, and sparsity. It decouples reasoning depth from parameter count, lowering the model size and therefore the cost and hardware required to clear a given sufficiency threshold (H.1). That widens the workload surface a written-down chip can serve, and strengthens the plateau case.
 
 **On the binding dimension, recursion bifurcates the market rather than shifting it uniformly.** Pure latent recursion loops a fixed state with a flat KV cache, so in isolation its inference tilts serial-latency and compute-bound rather than memory-bandwidth-bound, toward FP8 throughput and FLOPS-per-watt, where the crossover identity fails and newer silicon keeps its edge. But recursion will most plausibly arrive fused with sparse mixture-of-experts routing, since dense looped blocks suffer representation collapse and sparse routing is the known fix—and that fusion splits the hardware market along tier lines.
 
 A frontier recursive core can be co-designed with the latest silicon to hold a compact working set resident near compute and cycle a latent state through it at speed (the Groq and Cerebras direction); its binding dimension becomes sequential latency, on-chip memory, and FLOPS-per-watt, the axes newest hardware owns. A plateau looped-MoE is the distilled descendant: a sparse weight-streaming engine that still loads its relevant experts from HBM each step, so its binding dimension stays memory-bandwidth-per-dollar, exactly the axis on which written-down silicon already beats new (this section). Recursion therefore does not make old hardware obsolete; it bifurcates the workload. The frontier discovers cognitive depth on resident cores tied to the newest process node; the plateau distributes the compressed descendants of that depth at the lowest memory-bandwidth cost. This is the shape the framework predicts rather than an observation—recursion is not a production scaling vector today—but it follows from the model's one rule: every architectural break is scored by asking which binding dimension it makes scarce, and for whom.
 
-**H.3—Architectural Divergence Penalty.** The cancellation of $E(t)$ in the headline identity assumes today's software gains backport cleanly to older silicon. In practice, some optimisations are tied to physical blocks on the newest chips: FP4 quantisation runs natively on Blackwell's 5th-gen Tensor Cores and emulates with severe penalty on Hopper; the latest speculative-decoding heads assume the memory hierarchies of newer interconnects. Define $\mu(t, \tau) \geq 1$ as the fraction of contemporary software efficiency that *cannot* be ported to plateau hardware. The corrected identity:
+**H.3: Architectural Divergence Penalty.** The cancellation of $E(t)$ in the headline identity assumes today's software gains backport cleanly to older silicon. In practice, some optimisations are tied to physical blocks on the newest chips: FP4 quantisation runs natively on Blackwell's 5th-gen Tensor Cores and emulates with severe penalty on Hopper; the latest speculative-decoding heads assume the memory hierarchies of newer interconnects. Define $\mu(t, \tau) \geq 1$ as the fraction of contemporary software efficiency that *cannot* be ported to plateau hardware. The corrected identity:
 
 $$\frac{\tilde{C}(t, \tau)}{\tilde{C}_F(t)} = \frac{1}{\mu(t, \tau) \cdot [g_q \cdot (1-\delta)]^\tau}$$
 
 $\mu$ partially offsets the depreciation advantage. Empirically, $\mu$ is small for workloads dominated by FP16/BF16/FP8 transformer inference (most production deployment today) and substantial for workloads that lean on the newest precision formats. The migration thesis is robust to modest $\mu > 1$; it fails only if $\mu$ grows faster than $1/[g_q(1-\delta)]$, which would require a sustained pattern of new software locking out previous generations on most economically useful workloads. The reverse is empirically observed: distillation, quantisation, and inference kernels keep finding ways to fit modern models onto older silicon.
 
-**H.4—VRAM step-function.** A 70B-parameter model at FP8 occupies ~70 GB before KV cache. On H100 (80 GB), it fits with little headroom and typically requires two-GPU tensor-parallel configurations, introducing all-reduce communication overhead of 9–23% of end-to-end decoding latency. On H200 (141 GB) or B200 (192 GB), the same model fits single-GPU with concurrent KV caches and no TP penalty. The CapEx identity assumes capability decays smoothly; in reality, model-fit thresholds create non-linear cliffs. Plateau hardware wins inside the cliff and loses outside it. The migration thesis holds because most production workloads fit inside the cliff for previous-generation hardware, even as frontier *training* requires the next cliff.
+**H.4: VRAM step-function.** A 70B-parameter model at FP8 occupies ~70 GB before KV cache. On H100 (80 GB), it fits with little headroom and typically requires two-GPU tensor-parallel configurations, introducing all-reduce communication overhead of 9–23% of end-to-end decoding latency. On H200 (141 GB) or B200 (192 GB), the same model fits single-GPU with concurrent KV caches and no TP penalty. The CapEx identity assumes capability decays smoothly; in reality, model-fit thresholds create non-linear cliffs. Plateau hardware wins inside the cliff and loses outside it. The migration thesis holds because most production workloads fit inside the cliff for previous-generation hardware, even as frontier *training* requires the next cliff.
 
-**H.5—The Economic Crossover (OpEx-extended).** The CapEx identity is a numerator-only model. The full economic comparison requires operating costs. Define amortised capital cost per useful operation as $A(\tau, t)$ and operating cost per useful operation as $O(\tau, t, s, w)$, where $s$ indexes the slot and $w$ the workload. Economic capability per dollar:
+**H.5: The Economic Crossover (OpEx-extended).** The CapEx identity is a numerator-only model. The full economic comparison requires operating costs. Define amortised capital cost per useful operation as $A(\tau, t)$ and operating cost per useful operation as $O(\tau, t, s, w)$, where $s$ indexes the slot and $w$ the workload. Economic capability per dollar:
 
 $$\tilde{C}_{\text{econ}}(\tau, t, s, w) = \frac{Q_0 \cdot E(t) \cdot M_w(t, \tau) \, / \, \mu(t, \tau)}{A(\tau, t) + O(\tau, t, s, w)}$$
 
@@ -665,7 +665,7 @@ $$\frac{(1.0)(1.2)(1)(0.10)}{3600 \cdot 100} \;\approx\; 3.3 \times 10^{-7} \; \
 
 Behind-the-meter slots compress the operating margin by the factor $\theta$. This is the mathematical link between <a class="xref" href="#appendix-f">Appendix F</a> (the grid-avoidance tax) and <a class="xref" href="#appendix-h">Appendix H</a> (the plateau migration): older hardware migrates to slots where $\theta$ is small—grid-supplied utility power, university clusters, enterprise datacentres on bulk power contracts, sovereign facilities, and the colocation tier—and not to slots where $\theta$ is large (the behind-the-substation reciprocating-engine deployments most useful for frontier training when the grid will not connect in time).
 
-**H.6—The workflow-discovery recursion.** The CapEx and OpEx framework above treats $E(t)$ as exogenous. The fourth structural rate is that $E(t)$ is itself accelerated by AI-assisted engineering labour. **The predictive claim is the weak one: $\beta > 0$.** AI-assisted engineering improves the rate at which the software layer adapts to whatever compute is cheapest and available. The CapEx Crossover Identity holds for any $E(t)$ trajectory satisfying this condition.
+**H.6: The workflow-discovery recursion.** The CapEx and OpEx framework above treats $E(t)$ as exogenous. The fourth structural rate is that $E(t)$ is itself accelerated by AI-assisted engineering labour. **The predictive claim is the weak one: $\beta > 0$.** AI-assisted engineering improves the rate at which the software layer adapts to whatever compute is cheapest and available. The CapEx Crossover Identity holds for any $E(t)$ trajectory satisfying this condition.
 
 A stronger illustrative result follows if engineering throughput $L(t)$ scales with deployed plateau intelligence, $L(t) = L_0 \cdot E(t)$. Define the rate of software-efficiency improvement as:
 
@@ -677,13 +677,13 @@ $$E(t) = E_\infty \cdot \exp\!\big(A \, e^{\beta t}\big)$$
 
 A double exponential, bounded above by deployment friction (verification, testing, integration, organisational change-management). **The functional form is an intuition pump for why plateau-fill may run faster than prior infrastructure cycles, not a forecast.** The migration thesis fires on $\beta > 0$ alone.
 
-**H.7—Frontier slowdown.** The $g_q$ values above assume the frontier continues to compound at recent rates. Three constraints suggest the rate may not hold indefinitely.
+**H.7: Frontier slowdown.** The $g_q$ values above assume the frontier continues to compound at recent rates. Three constraints suggest the rate may not hold indefinitely.
 
 Moore's law has stalled at the device level—the frontier still compounds, but through capital intensity, packaging innovation, and system-scale engineering rather than transistor scaling. Hyperscaler AI spending exceeds \$700 billion in 2026;<sup><a href="#ref-1">[1]</a></sup> frontier training compute has grown ~5×/year since 2020, but hardware FLOP/\$ has improved only ~1.37×/year. Capability appears to scale approximately logarithmically with compute on standard benchmarks, so each additional order of magnitude buys a roughly fixed absolute increment, not a proportional one.
 
 **The identity is monotonic in slowdown.** A frontier compounding at $g_q = 2.0$ per architectural release does not fire the CapEx identity. A frontier compounding at $g_q \approx 1.15$ annualised fires it strongly. If scaling continues, plateau hardware runs the compressed descendants of fresh capability. If scaling slows, plateau hardware runs durable capability for longer. The thesis is robust in both directions.
 
-**H.8—Boom-driven input-cost inflation.** The binding inputs to new-generation silicon—HBM, advanced packaging, substrate capacity, networking, power delivery—are in tight supply against the same demand curve driving the order book. The $p_F \approx 1.05$/yr launch-price drift is not a noise term. It is the cost-side channel through which the boom widens the plateau wedge.
+**H.8: Boom-driven input-cost inflation.** The binding inputs to new-generation silicon—HBM, advanced packaging, substrate capacity, networking, power delivery—are in tight supply against the same demand curve driving the order book. The $p_F \approx 1.05$/yr launch-price drift is not a noise term. It is the cost-side channel through which the boom widens the plateau wedge.
 
 Epoch AI's teardown places B200 module production cost at roughly \$5,700–7,300, with HBM and advanced packaging accounting for ~two-thirds of variable unit cost.<sup><a href="#ref-26">[26]</a></sup> SemiAnalysis estimates memory could rise to ~30% of hyperscaler AI data-centre capex in 2026, up from ~8% in 2023–2024, with HBM undersupplied through 2027.<sup><a href="#ref-27">[27]</a></sup> If boom-driven inflation pushes $p_F$ from 1.05 to 1.08 over the next two generations, the threshold on FLOPS/W (currently failing at 0.29 against observed $\delta = 0.25$) drops to ~0.26, on the cusp of firing. The wedge does not need the frontier to slow—only to keep getting more expensive.
 
@@ -834,7 +834,7 @@ The forward predictions in this appendix are dated and observable on known timet
 
 §VI argues that the deployable shape of intelligence is bounded learned components inside engineered scaffolding—Stockfish for everything. This appendix quantifies the implication: the *deployment timeline* under that architecture is wave-shaped across 2026–2040, governed by a workload-specific reliability-bar lattice and a scaffolding multiplier that stacks on top of base-model capability. The shorthand *"AI will reach 99.99% reliability in N years"* is correct on the headline number and misleading on the economic substance, because most addressable value crosses its threshold long before the terminal bar is reached.
 
-**L.1—The reliability-bar lattice.** Autonomous deployment of an AI workflow requires effective system reliability $R_{\text{eff}}(w)$ to exceed a workload-specific bar $R_{\text{bar}}(w)$, set by cost-of-error, recourse availability, and regulatory regime. The bar spans four orders of magnitude across the economy. The values below are approximate, intended as order-of-magnitude thresholds rather than measured universal constants—the strong claim is the spread across workload classes, not the exact decimal assigned to any single task:
+**L.1: The reliability-bar lattice.** Autonomous deployment of an AI workflow requires effective system reliability $R_{\text{eff}}(w)$ to exceed a workload-specific bar $R_{\text{bar}}(w)$, set by cost-of-error, recourse availability, and regulatory regime. The bar spans four orders of magnitude across the economy. The values below are approximate, intended as order-of-magnitude thresholds rather than measured universal constants—the strong claim is the spread across workload classes, not the exact decimal assigned to any single task:
 
 | Task class | $R_{\text{bar}}$ | Rationale |
 |---|---|---|
@@ -858,7 +858,7 @@ The forward predictions in this appendix are dated and observable on known timet
 
 The shape of the diffusion follows from the shape of the bar lattice, not from any single benchmark trajectory.
 
-**L.2—Base capability growth.** Frontier-model headline benchmark improvement, annualised across 2024–2026 releases (Anthropic, OpenAI, Google):
+**L.2: Base capability growth.** Frontier-model headline benchmark improvement, annualised across 2024–2026 releases (Anthropic, OpenAI, Google):
 
 | Benchmark family | Annualised improvement | Notes |
 |---|---|---|
@@ -869,7 +869,7 @@ The shape of the diffusion follows from the shape of the bar lattice, not from a
 
 Capability scales approximately logarithmically in compute (§H.1); benchmark improvement saturates as scores approach 1.0. The naïve linear extrapolation that produces a 2038–2042 estimate for 99.99% across hard agentic tasks treats the base-model rate as the only input. It is not.
 
-**L.3—The Stockfish multiplier.** Each scaffolding layer in the §VI architecture catches an independent fraction of base-model failures. Treat each layer as a Bernoulli catcher with catch probability $c_i$, applied independently to residual failures. Effective system reliability for workload $w$:
+**L.3: The Stockfish multiplier.** Each scaffolding layer in the §VI architecture catches an independent fraction of base-model failures. Treat each layer as a Bernoulli catcher with catch probability $c_i$, applied independently to residual failures. Effective system reliability for workload $w$:
 
 $$R_{\text{eff}}(w, t) \;=\; 1 \,-\, \big(1 - R_{\text{base}}(t)\big) \cdot \prod_{i \in \text{stack}(w)} \big(1 - c_i\big)$$
 
@@ -895,7 +895,7 @@ The independence assumption is an upper-bound simplification. Scaffolding layers
 
 The Stockfish multiplier is not metaphor. It is the architecture of the deployed system, and it is the lever the next decade of effective intelligence runs on.
 
-**L.4—Deployment-phase timeline under the multiplier.** Combining base capability growth (10–15 pp/yr on hard tasks, saturating logarithmically) with empirically achievable Stockfish multipliers, task classes cross their respective bars in the following windows. Each window assumes the relevant scaffolding stack is built and deployed; absent the stack, the crossing slips by years.
+**L.4: Deployment-phase timeline under the multiplier.** Combining base capability growth (10–15 pp/yr on hard tasks, saturating logarithmically) with empirically achievable Stockfish multipliers, task classes cross their respective bars in the following windows. Each window assumes the relevant scaffolding stack is built and deployed; absent the stack, the crossing slips by years.
 
 | Window | Task classes crossing their bar |
 |---|---|
@@ -908,7 +908,7 @@ The Stockfish multiplier is not metaphor. It is the architecture of the deployed
 
 The economically dense windows are 2026–2028 and 2028–2031. The 2031–2040 windows clear the critical-domain autonomy bars but capture a smaller fraction of total economic surface than the earlier waves. Most addressable value reorganises through the access layer during 2026–2031, well before the headline 99.99% bar is cleared on any domain.
 
-**L.5—Wave-shaped inference demand and the lease term.** The diffusion is not concentrated at the terminal date. Each row of the L.4 table represents a new tenant class entering the inference compute market on plateau-tier silicon. The compounding produces monotonically rising inference demand across the 2026–2040 window:
+**L.5: Wave-shaped inference demand and the lease term.** The diffusion is not concentrated at the terminal date. Each row of the L.4 table represents a new tenant class entering the inference compute market on plateau-tier silicon. The compounding produces monotonically rising inference demand across the 2026–2040 window:
 
 - 2026–2028: knowledge-work and customer-facing AI wave. Largest tenant count, lowest per-unit inference, broad geographic distribution.
 - 2028–2031: professional-services and supervised-autonomy wave. Mid tenant count, mid per-unit inference, regulated-vertical concentration.
@@ -918,7 +918,7 @@ The agentic compounding factor of §VI—dynamic workflows, hundreds of parallel
 
 For an access-layer operator, this wave shape supports multi-year underwriting. A position originated in 2027 captures the full 2028–2031 professional-services wave and the early 2031–2035 critical-domain wave inside a 5–10 year horizon. The underwriting does not depend on any single wave materialising on schedule; it depends on enough waves materialising across the horizon to keep utilisation above the underwriting floor. The wave shape converts deployment-timeline uncertainty into portfolio-style diversification across the access-layer position.
 
-**L.6—Three falsifiers.** Risky predictions on observable timetables:
+**L.6: Three falsifiers.** Risky predictions on observable timetables:
 
 The first runs on the early waves: by the end of 2027, the share of customer-support, sales-outreach, document-drafting, and code-completion *work-hours* served by AI scaffolding in autonomous-execution mode should exceed 25% across measured enterprise deployments. *Autonomous-execution mode* means the AI system executes the task without per-action human pre-approval, while preserving human escalation, sampled review, or post-hoc audit—distinguishing it from suggestion mode, where each output requires acceptance before it has effect. If the share remains below 10%—i.e. AI continues to be reviewed suggestion-only and does not transition to autonomous-execution mode at scale—the L.4 2026–2028 crossing window is empirically incorrect and the diffusion is materially slower than the framework predicts.
 

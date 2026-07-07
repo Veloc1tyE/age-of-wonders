@@ -169,7 +169,7 @@ The frontier is running out of land.
 
 *A first-principles engineering analysis of the system, subsystem by subsystem. The numbers are concept-study estimates; ranges are shown where the inputs are uncertain. Each section states its assumptions, derives a result, and where possible checks it against a known engineering system.*
 
-### <span id="appendix-a" class="appendix-anchor"></span>A. The Demand—Power Per Frontier Run
+### <span id="appendix-a" class="appendix-anchor"></span>A. Power Demand Per Frontier Run
 
 The power a single training run draws is its compute divided by the efficiency of the hardware and the duration of the run:
 
@@ -197,7 +197,7 @@ For scale, total United States generating capacity is ~1,280 GW,<sup><a href="#r
 
 The efficiency denominator is also weakening. With Dennard scaling ended and precision approaching a floor of a few bits, FLOP/W gains increasingly come from packaging rather than transistor physics. So the historical ~1.4×/yr that partly offset compute growth is fading.<sup><a href="#ref-3">[3]</a></sup><sup><a href="#ref-4">[4]</a></sup><sup><a href="#ref-5">[5]</a></sup>
 
-### <span id="appendix-b" class="appendix-anchor"></span>B. The Pod—Compute, Power Density, Volume
+### <span id="appendix-b" class="appendix-anchor"></span>B. The Pod: Compute, Power Density, Volume
 
 A current frontier rack integrates about 72 top-end accelerators with their CPUs, high-bandwidth memory, liquid cooling, and a short coherent network, at roughly 140 kW per rack:<sup><a href="#ref-8">[8]</a></sup><sup><a href="#ref-37">[37]</a></sup>
 
@@ -211,7 +211,7 @@ $$V = \pi r^2 L \approx \pi (2.25)^2 (15) \approx 240\,\text{m}^3$$
 
 Power density is then $10\,\text{MW} / 240\,\text{m}^3 \approx 42\,\text{kW/m}^3$ at the vessel envelope, rising to 100–150 kW/m³ at the populated-board level. A conventional air-cooled hall runs 1–2 kW/m³ all-in. The pod is one to two orders of magnitude denser. That density is the physical basis for the lattice compaction in <a class="xref" href="#appendix-d">§D</a>, and it is only possible because the heat leaves through fluid, not air.<sup><a href="#ref-38">[38]</a></sup><sup><a href="#ref-39">[39]</a></sup>
 
-### <span id="appendix-c" class="appendix-anchor"></span>C. Coherence—The All-Reduce and What Binds
+### <span id="appendix-c" class="appendix-anchor"></span>C. The All-Reduce and What Binds Coherence
 
 Synchronous training repeats a collective operation—the all-reduce—on every step.<sup><a href="#ref-23">[23]</a></sup><sup><a href="#ref-24">[24]</a></sup><sup><a href="#ref-40">[40]</a></sup> For a ring all-reduce of a gradient of size $S$ across $N$ endpoints, each with link bandwidth $B$ and per-hop latency $\alpha$:
 
@@ -250,7 +250,7 @@ For the deep recursion the frontier is turning toward, $K$ is large. The 10–10
 
 **Mixture-of-experts sharpens this.** Routing each token to a few of many experts is an all-to-all exchange across the devices holding them—the most topology-sensitive collective there is.<sup><a href="#ref-26">[26]</a></sup> On training batches it is bandwidth-bound and the lattice helps little. At decode, one token at a time, the messages are small and it turns latency-bound. A master that is both enormous and recursive pays that latency on every expert hop of every step—the workload that binds hardest to a short-path lattice.
 
-### <span id="appendix-d" class="appendix-anchor"></span>D. Geometry—The Three-Dimensional Lattice
+### <span id="appendix-d" class="appendix-anchor"></span>D. The Three-Dimensional Lattice
 
 A flat campus packs modules across a plane, so its diameter scales as $D \propto \sqrt{N}$. A dense subsea lattice packs them through a volume, so $D \propto N^{1/3}$. The geometric advantage:
 
@@ -280,7 +280,7 @@ $$\dot{m} = \frac{Q}{c_p\,\Delta T} = \frac{10.5\times10^6}{2{,}274\times10} \ap
 
 The seawater side adds its own pumping. Sizing the seawater flow for a 5 K rise gives $\dot m_\text{sw} = Q/(c_{p,\text{sw}}\Delta T) \approx 526\,\text{kg/s}$ ($\dot V \approx 0.51\,\text{m}^3/\text{s}$); at ~0.75 bar through the exchanger, ~59 kW, or 0.6%. Total pumping is therefore ~2–4% of IT load. This is the dominant contributor to the facility-overhead budget in <a class="xref" href="#appendix-l">§L</a>.<sup><a href="#ref-42">[42]</a></sup>
 
-### <span id="appendix-f" class="appendix-anchor"></span>F. The Hull Heat Exchanger—The Thermal Crux
+### <span id="appendix-f" class="appendix-anchor"></span>F. The Hull Heat Exchanger and the Thermal Crux
 
 Rejecting 10.5 MW into 20–22 °C water is the hardest steady-state problem in the design. The exchanger obeys<sup><a href="#ref-16">[16]</a></sup><sup><a href="#ref-43">[43]</a></sup>
 
@@ -341,7 +341,7 @@ International-finance environmental guidance commonly limits a discharge to a **
 
 The conclusion is structural: 100 GW must be built as ~ten 10 GW campuses spread along the coast, routed through higher-current sectors, and instrumented continuously. The ocean sets the size of the organ. The network (<a class="xref" href="#appendix-c">§C</a>, <a class="xref" href="#appendix-d">§D</a>) joins the organs into one mind.
 
-### <span id="appendix-h" class="appendix-anchor"></span>H. Power Delivery—Solar Field, HVDC, and Tiered Firming
+### <span id="appendix-h" class="appendix-anchor"></span>H. Power Delivery: Solar Field, HVDC, and Tiered Firming
 
 **Solar sizing.** Active module area for nameplate $P_\text{PV}$ at module efficiency $\eta_m$ and $I_\text{STC} = 1{,}000\,\text{W/m}^2$:
 
@@ -417,7 +417,7 @@ The body's multiple is defensible for the mixed workload most labs actually run.
 
 Over the five-year build of a station, that axis compounds into one to two further orders of magnitude of effective capability per delivered FLOP. The two multipliers are independent and they multiply. A station finishing a thousandfold more throughput, running software that extracts a hundredfold more capability per operation, is the arithmetic behind the body's claim that 100 GW enters a range with no precedent to measure it against.
 
-### <span id="appendix-j" class="appendix-anchor"></span>J. Marine Survivability—Pressure, Corrosion, Connectors, Retrieval
+### <span id="appendix-j" class="appendix-anchor"></span>J. Marine Survivability: Pressure, Corrosion, Connectors, Retrieval
 
 *The pod must survive years sealed at 200 m. The question is whether the marine environment imposes anything novel. It mostly does not—the pressure regime is benign by subsea standards—but the connector and retrieval problems are real.*
 
@@ -490,7 +490,7 @@ So the 1.03–1.05 target is achievable but sits at the optimistic edge. 1.05 is
 
 The honest baseline is land *immersion*, which already reaches ~1.05–1.10.<sup><a href="#ref-39">[39]</a></sup><sup><a href="#ref-64">[64]</a></sup> Against that, the efficiency edge is small. The durable wins are the ones efficiency tables do not show: zero water consumption and a heat sink of effectively unlimited capacity.<sup><a href="#ref-12">[12]</a></sup>
 
-### <span id="appendix-m" class="appendix-anchor"></span>M. Energy and Capital Floor—Silicon Still Dominates
+### <span id="appendix-m" class="appendix-anchor"></span>M. Silicon Still Dominates the Energy and Capital Floor
 
 Per gigawatt, the bill of materials is dominated by the accelerators, not the marine infrastructure. A 1 GW field is 100 pods × ~5,000 GPUs = ~500,000 accelerators:
 
