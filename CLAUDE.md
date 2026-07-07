@@ -915,11 +915,11 @@ Test every one:
 3. Is it introducing a list? Use a colon.
 4. Is it a true reveal, interruption, or necessary parenthetical? Keep the dash.
 
-> ❌ "Compute is silicon in racks in halls connected to substations — the kind of infrastructure that takes years to permit."
+> ❌ "Compute is silicon in racks in halls connected to substations—the kind of infrastructure that takes years to permit."
 >
 > ✅ "Compute is silicon in racks in halls connected to substations. It takes years to permit."
 
-> ❌ "The distribution layer — verification, observability, permissions, rollback — is being built."
+> ❌ "The distribution layer—verification, observability, permissions, rollback—is being built."
 >
 > ✅ "The distribution layer is being built: verification, observability, permissions, rollback."
 
@@ -933,6 +933,8 @@ Keep em dashes for:
 The signal is structural.
 
 If removing the dash forces a split, the sentence probably needed splitting.
+
+**Spacing: no spaces, Chicago style.** Every em dash that survives the test above is set closed: `word—word`, never `word — word`. This is a fixed typographic rule, not a judgment call — apply it uniformly across the canon. If a dash needs breathing room to read clearly, that is a signal the sentence should be split or the dash replaced with a comma or colon per the test above, not a reason to space it.
 
 ---
 
@@ -1626,7 +1628,7 @@ Before any essay goes live, run this pass.
 10. **Bridge removal:** Cut section endings that preview the next section.
 11. **Hedge purge:** Remove "somewhat", "relatively", "notably", "in significant part", "in many ways", "arguably".
 12. **Intensifier purge:** Remove "very", "really", "quite", "truly", "deeply", "highly", "extremely".
-13. **Em dash check:** Replace with full stops, commas, or colons unless the dash is structural.
+13. **Em dash check:** Replace with full stops, commas, or colons unless the dash is structural. Any that survive are set closed, no spaces: `word—word`, Chicago style.
 14. **Compound sentence check:** Test every ", and" and ", but" between independent clauses.
 15. **Passive voice check:** Name the actor when the actor matters.
 16. **Vague quantity check:** Replace "many", "large", "substantial", "significant", "rapid", "most" with figures or ranges.
