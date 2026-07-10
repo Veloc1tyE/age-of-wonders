@@ -408,7 +408,7 @@ Every essay should answer two questions:
 
 The essay does not always need to say the word "access". Often it is stronger if the reader arrives there alone.
 
-Perceptual Abundance is the model. It states the inversion once, as a promise, in a short overture — "What changed wasn't the universe. It was our access to it." — then spends the whole essay re-earning it, section by section, before restating it as arrival. The frame-then-earn overture is legitimate in discovery mode: the thesis may appear early as promise, provided every section proves it independently and the close restates it in earned form.
+Perceptual Abundance is the model. It states the inversion once, as a promise, in a short overture — "The universe was always there. … The universe became accessible." — then spends the whole essay re-earning it, section by section, before restating it as arrival. The frame-then-earn overture is legitimate in discovery mode: the thesis may appear early as promise, provided every section proves it independently and the close restates it in earned form.
 
 The danger is premature vocabulary.
 
@@ -467,15 +467,17 @@ The movement is:
 
 Discovery mode is cumulative. Each section is simple. Together they become civilisational.
 
-The sequence should feel like a widening aperture:
+The sequence should feel like a widening aperture. The essay's own bolded section openers are the reference:
 
-First, we saw Earth.
+First, we saw our world from the outside.
 
-Next, we found other worlds.
+Next, we found worlds beyond our own.
 
-Then, we felt spacetime.
+Then, we created a new sense we never had.
 
 We even made absence visible.
+
+We learned to look back in time.
 
 Finally, measurement became systematic.
 
@@ -497,7 +499,7 @@ Name one observable that would weaken or falsify the argument.
 
 Computational Abundance does this explicitly through dated predictions. Other essays do it implicitly. The Solar Gravitational Lens depends on the physics. The Free Starship depends on fuel autonomy. Perceptual Abundance depends on measurement becoming more available, not less.
 
-The mature form is the **falsifier register**: an appendix section listing each major claim's falsifier with a date and a failure mode ("if Blackwell holds above $35K into 2028, the framework is wrong"). Computational Abundance, Leviathan, and Bridge to Infinity all carry one. The strongest appendices go further and argue *against* the essay where they can — naming the honest caveat, grading their own evidence, declaring which numbers are original modelling. The appendix is where the essay tries to kill itself and fails.
+The mature form is the **falsifier register**: an appendix section listing each major claim's falsifier with a date and a failure mode ("if Blackwell holds above $35K into 2028, the framework is wrong"). Computational Abundance, Leviathan (Appendix O), Bridge to Infinity (Appendix R), and Singularity (Appendix H) all carry one. The strongest appendices go further and argue *against* the essay where they can — naming the honest caveat, grading their own evidence, declaring which numbers are original modelling. The appendix is where the essay tries to kill itself and fails.
 
 Speculation gets its own register. Singularity declares it before reaching: "This section is speculation, and drawn in lighter ink." Declared speculation buys reach; undeclared speculation is a mood. For claims that are metaphysical rather than empirical, state the fence as faith — "Read as physics, it is a conjecture. Read as scripture, it is the oldest instruction there is." — once, and do not double-fence.
 
@@ -628,7 +630,7 @@ The essays hand off to each other:
 
 - **SGL gives TFS its destinations.** Without the maps, the starship has no purpose.
 - **TFS makes SGL's maps actionable.** Without vessels, maps are curiosity.
-- **BtI makes TFS possible.** The starship requires the bridge before it can reach Saturn.
+- **BtI and TFS answer the same constraint by different means.** The bridge moves the launch above the atmosphere; the starship's buoyant hull rises through it without thrust. BtI names the handoff itself: the cathedral chain "ends with the free starships: vessels that depend on nothing before them."
 - **CA diffuses the intelligence that operates all of it.** Plateau models run navigation, planning, and analysis across the whole system.
 - **Leviathan trains the frontier models that distil into CA's plateau.** The forge is upstream of the diffusion.
 - **LitF provides the moral claim that makes all of it matter.** Without love as foundation, abundance is accumulation.
@@ -993,7 +995,7 @@ Do not end a section by previewing the next one.
 
 > ❌ "The backbone is built. Now the question is how the cascade begins."
 >
-> ✅ "Liquidation makes headlines. Redistribution is what changes the world."
+> ✅ "Liquidation makes headlines. Redistribution changes the world."
 >
 > [Next heading: **V. The Repricing Mechanism**]
 
@@ -1122,7 +1124,7 @@ When the canon treats an abstract word as a named concept, capitalisation can be
 Examples:
 
 - **Abundance** in Create an Age of Wonders
-- **Slot** in Computational Abundance
+- **Abundance** again in Computational Abundance ("What happens after is where Abundance lives.") — while "slot", the same essay's technical term, deliberately stays lowercase in running prose
 
 Capitalisation signals that the word is doing the work of a proper noun. It marks the concept the essay defines and builds around.
 
@@ -1523,15 +1525,15 @@ Not "enormous" but "a grain of sand at arm's length." Not "extremely light" but 
 
 > "Graphene aerogel, essentially frozen air with a carbon skeleton, has a density of 0.16 milligrams per cubic centimetre. You can balance it on a flower petal without bending the stem."
 
-> "One gallon of seawater, properly harnessed, holds the energy equivalent of hundreds of gallons of gasoline."
+> "One gallon of seawater, properly harnessed, holds the energy equivalent of hundreds of gallons of petrol."
 
-> "A pod is an AI supercomputer sealed at two hundred metres."
+> "In compute terms, one pod is a modern AI supercomputer: the kind a government announces as a national asset. Leviathan lowers it into the dark."
 
 The anchor must be specific enough to feel. "A large area" does not work. "A city block" works. "The width of a proton" works. The rule is: can the reader's body respond to it? If not, the anchor is still abstraction.
 
 This is Principle 25 at its most distilled: the number or physical object is doing the work that "enormous" cannot.
 
-For scales no body can feel, use the **comparative benchmark**: ground the exotic number against a familiar cosmic baseline instead. "Stellar fusion releases 0.7% of a star's mass. Spin extraction is forty times richer, per kilogram, than the process that powers the Sun." The reader cannot touch either number, but the Sun is a known quantity, and "forty times richer than the Sun's own engine" lands.
+For scales no body can feel, use the **comparative benchmark**: ground the exotic number against a familiar cosmic baseline instead. "Stellar fusion converts about 0.7 per cent of the mass it fuses into energy, and a star only ever fuses about a tenth of itself. Per kilogram of fuel, spin extraction is forty times richer. Per kilogram of star, four hundred." The reader cannot touch either number, but the Sun is a known quantity, and "forty times richer than the Sun's own engine" lands. Keep the denominators explicit — 0.7% is of the mass *fused*, not of the star — or the two framings read as a contradiction.
 
 ---
 
@@ -1695,6 +1697,7 @@ This runs the daily engagement workflow.
    - X account: `@BJeremijenko`
    - No links in daily posts.
    - Pure insight.
+   - **The unit is the build-plus-drop, not the bare aphorism.** Two or three sentences that end on the short line. The canon's drops inherit their weight from the builds above them; a drop posted alone is a fortune cookie. When a bank item is a bare one-liner, restore its build from the essay before posting.
    - Mark posted items as `[x]` in `one-liners.md`.
 3. **Suggest reply targets.**
    - Look for relevant conversations worth joining.
@@ -1708,7 +1711,7 @@ This runs the daily engagement workflow.
 2. **X launch post:** One substantive post. Use arrows or bullets where useful. Put the link at the end. Do not make a thread by default.
 3. **LinkedIn launch post:** Longer narrative version with more context. Link at the end.
 4. **Daily value posts:** Create five to seven posts extracted from the essay for the following week.
-   - X: punchy one-liners and structured posts.
+   - X: build-plus-drop excerpts and structured posts (see the daily-loop unit rule).
    - LinkedIn: longer versions with professional framing.
    - Create separate Typefully drafts.
    - Use platform-specific content where needed.
