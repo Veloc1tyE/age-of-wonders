@@ -222,11 +222,13 @@ Global electricity is ~$10^{20}$ J/year.<sup><a href="#ref-15">[15]</a></sup> A 
 
 ### <span id="appendix-b" class="appendix-anchor"></span>B. Deuterium Inventory
 
-The Galileo probe measured Jupiter's D/H ratio directly: $D/H = (2.6 \pm 0.7) \times 10^{-5}$.<sup><a href="#ref-2">[2]</a></sup> The ±27% measurement uncertainty linearly scales deuterium yield estimates for any given processed mass flow. D/H varies by planet and depth. We use Jupiter here as a measured anchor for order-of-magnitude inventory. Jupiter's mass is $1.9 \times 10^{27}$ kg, roughly 75% hydrogen by mass. The deuterium *mass* fraction of that hydrogen is $2 \times D/H \approx 5.2 \times 10^{-5}$, since a deuteron carries twice a proton's mass (the same doubling used in <a class="xref" href="#appendix-d">Appendix D</a>). Total deuterium:
+The Galileo probe measured Jupiter's D/H ratio directly: $D/H = (2.6 \pm 0.7) \times 10^{-5}$.<sup><a href="#ref-2">[2]</a></sup> The ±27% measurement uncertainty linearly scales deuterium yield estimates for any given processed mass flow. D/H varies by planet and depth. We use Jupiter here as a measured anchor for order-of-magnitude inventory.
+
+Jupiter's mass is $1.9 \times 10^{27}$ kg, roughly 75% hydrogen by mass. The deuterium *mass* fraction of that hydrogen is $2 \times D/H \approx 5.2 \times 10^{-5}$, since a deuteron carries twice a proton's mass (the same doubling used in <a class="xref" href="#appendix-d">Appendix D</a>). Total deuterium:
 
 $$M_D \approx 1.9 \times 10^{27} \times 0.75 \times 5.2 \times 10^{-5} \approx 7.4 \times 10^{22} \text{ kg}$$
 
-Catalysed D-D fusion yield, where secondary products (tritium, He-3) are burned with additional deuterium, is approximately $3.5 \times 10^{14}$ J/kg.<sup><a href="#ref-4">[4]</a></sup> Plain D-D without secondary burn is lower (~$9 \times 10^{13}$ J/kg). The catalysed figure is used throughout this essay, as the reactor architecture assumes secondary-product utilisation. Total available fusion energy from Jupiter's deuterium alone:
+Catalysed D-D fusion yield, where secondary products (tritium, He-3) are burned with additional deuterium, is approximately $3.5 \times 10^{14}$ J/kg.<sup><a href="#ref-4">[4]</a></sup> Plain D-D without secondary burn is lower (~$9 \times 10^{13}$ J/kg). This essay uses the catalysed figure throughout: the reactor architecture assumes secondary-product utilisation. Total available fusion energy from Jupiter's deuterium alone:
 
 $$E_{total} \approx 7.4 \times 10^{22} \times 3.5 \times 10^{14} \approx 2.6 \times 10^{37} \text{ J}$$
 
@@ -258,7 +260,7 @@ The essay body uses 0.05c as cruise velocity. At $\Delta v = 0.05c$ (15,000 km/s
 | 10,000 km/s | 77.7% | 95.0% | 3,820,000 t |
 | 15,000 km/s | 63.2% | 86.5% | 1,280,000 t |
 
-At 0.05c with $v_e = 10{,}000$ km/s the ship must carry 19× its dry mass in propellant to accelerate and then decelerate, achievable with fleet-supported loading (<a class="xref" href="#appendix-h">Appendix H</a>). D-He3 exhaust at $v_e \approx 15{,}000$ km/s reduces the ratio to ~6.4×, making the mission substantially more tractable.
+At 0.05c with $v_e = 10{,}000$ km/s the ship must carry 19× its dry mass in propellant to accelerate and then decelerate, achievable with fleet-supported loading (<a class="xref" href="#appendix-h">Appendix H</a>). D-He3 exhaust at $v_e \approx 15{,}000$ km/s reduces the ratio to ~6.4×.
 
 Current fusion-electric drives (~100 km/s class) are excellent for Solar System logistics but cannot reach interstellar velocities without astronomical mass ratios. The two-tier architecture (Tier A fusion-electric for Solar System, Tier B direct fusion product for interstellar) reflects this constraint.
 
@@ -271,22 +273,22 @@ Deceleration at the destination is a drive burn against the direction of travel.
 
 At Tier A power scales (1–20 GW), pushing $2 \times 10^8$ kg to 0.01–0.05c would take millennia.
 
-**Mode 3 power regime.** In direct fusion product exhaust, thrust power is the kinetic energy of the fusion products themselves. Thrust power $P_{thrust} = \frac{1}{2}\dot{m}v_e^2 = \frac{F \cdot v_e}{2}$. For a ship of average mass ~$5 \times 10^8$ kg accelerating at ~0.02 m/s² with $v_e = 10^7$ m/s: $P_{thrust} \approx$ 50–100 TW. This is two to three orders of magnitude above the Tier A electrical regime. Mode 3 is a fundamentally different power class, driven by the energy density of the fusion products rather than reactor electrical output.
+**Mode 3 power regime.** In direct fusion product exhaust, thrust power is the kinetic energy of the fusion products themselves. Thrust power $P_{thrust} = \frac{1}{2}\dot{m}v_e^2 = \frac{F \cdot v_e}{2}$. For a ship of average mass ~$5 \times 10^8$ kg accelerating at ~0.02 m/s² with $v_e = 10^7$ m/s: $P_{thrust} \approx$ 50–100 TW. This is two to three orders of magnitude above the Tier A electrical regime. Mode 3 is a different power class, driven by the energy density of the fusion products rather than reactor electrical output.
 
-Current quantified DFD-class designs report ~40 N thrust, $v_e$ ~56.5 km/s, and system specific power ~180 W/kg—firmly in Tier A.<sup><a href="#ref-19">[19]</a></sup> Scaling from multi-MW to multi-GW is not merely "more of the same": radiator mass, magnet mass, neutron damage, and power handling scale non-linearly. Tier B propulsion remains a second-generation programme built on demonstrated Tier A infrastructure.
+Current quantified DFD-class designs report ~40 N thrust, $v_e$ ~56.5 km/s, and system specific power ~180 W/kg—firmly in Tier A.<sup><a href="#ref-19">[19]</a></sup> Radiator mass, magnet mass, neutron damage, and power handling all scale non-linearly from multi-MW to multi-GW. Tier B propulsion remains a second-generation programme built on demonstrated Tier A infrastructure.
 
 **Two distinct power regimes.** The architecture requires separating two power classes that are often conflated:
 
 - *Hotel/industrial electrical power* (MW–GW): life support, mining, manufacturing, station-keeping. This is the Tier A regime, compatible with NEP-like systems at specific mass 10–40 kg/kW$_e$.
 - *Propulsive fusion power* (TW+): interstellar acceleration of a $2 \times 10^8$ kg craft to 0.01–0.05c on sub-century timescales, driven by fusion product kinetic energy.
 
-Near-term fission demonstrators (Kilopower-class) operate at single-digit W/kg. A "system-level ≥1,000 W/kg" target (≤1 kg/kW$_e$) represents a leap of 1–2 orders of magnitude beyond current NEP design points. The architecture's Tier A / Tier B split acknowledges this: Tier A is an engineering programme. Tier B is a physics programme that inherits Tier A infrastructure.
+Near-term fission demonstrators (Kilopower-class) operate at single-digit W/kg. A "system-level ≥1,000 W/kg" target (≤1 kg/kW$_e$) is a leap of 1–2 orders of magnitude beyond current NEP design points. The architecture's Tier A / Tier B split acknowledges this: Tier A is an engineering programme. Tier B is a physics programme that inherits Tier A infrastructure.
 
 ### <span id="appendix-d" class="appendix-anchor"></span>D. Atmospheric Intake and Throughput
 
 *Hypersonic skimming is not a design preference—it is forced by the throughput arithmetic.*
 
-The gross mass flow through the intake is $\dot{m} = \rho A v$, and the dynamic pressure is $q = \frac{1}{2}\rho v^2$. These two relations define the feasible skimming envelope. Throughput requires high $\rho A v$, but structural survival limits $q$:
+The gross mass flow through the intake is $\dot{m} = \rho A v$. The dynamic pressure is $q = \frac{1}{2}\rho v^2$. These two relations define the feasible skimming envelope. Throughput requires high $\rho A v$, but structural survival limits $q$:
 
 | Regime | $\rho$ (kg/m³) | $v$ (km/s) | $q$ (kPa) | $\dot{m}$ (kg/s) for $A = 10{,}000$ m² |
 |---|---|---|---|---|
@@ -294,35 +296,39 @@ The gross mass flow through the intake is $\dot{m} = \rho A v$, and the dynamic 
 | Mid-altitude (0.1 bar) | 0.02 | 3.0 | 90 | 600,000 |
 | High/fast | 0.005 | 5.0 | 63 | 250,000 |
 
-At $q \approx 400$ kPa the structural loads are severe for a km-scale vehicle under repeated cycles. Operating at lower density (0.02–0.05 kg/m³) and higher velocity reduces $q$ to 60–100 kPa, which is within the envelope of high-$q$ hypersonic flight regimes, but punishing for repeated cycles at kilometre scale, at the cost of lower instantaneous throughput. This is why the design trades *where on the ($\rho$, $v$) curve it operates*: the remaining freedom is narrow, bounded above by structural limits and below by throughput requirements.<sup><a href="#ref-20">[20]</a></sup>
+At $q \approx 400$ kPa the structural loads are severe for a km-scale vehicle under repeated cycles. Operating at lower density (0.02–0.05 kg/m³) and higher velocity reduces $q$ to 60–100 kPa. That is within the envelope of high-$q$ hypersonic flight regimes, still punishing for repeated cycles at kilometre scale, and it costs instantaneous throughput. This is why the design trades *where on the ($\rho$, $v$) curve it operates*: the remaining freedom is narrow, bounded above by structural limits and below by throughput requirements.<sup><a href="#ref-20">[20]</a></sup>
 
 **Capture fraction and deuterium yield.** The intake does not process all incoming flow. Define $f_c$ as the fraction of gross flow actually captured into the processing train, and $\eta_s$ as the net deuterium separation efficiency. The deuterium mass fraction of the hydrogen stream is ~$5 \times 10^{-5}$ (from D/H $= 2.6 \times 10^{-5}$, doubled for the mass ratio). Deuterium output per day:
 
 $$\dot{m}_D = \dot{m}_{gross} \times f_c \times X_H \times 5 \times 10^{-5} \times \eta_s \times 86{,}400$$
 
-where $X_H$ is the hydrogen mass fraction of the atmosphere (~0.89 for Jupiter, ~0.96 for Saturn, the balance is helium and traces).<sup><a href="#ref-20">[20]</a></sup> We use Jupiter's measured D/H as an anchor. Saturn's D/H and vertical gradients may differ, shifting yield linearly. For the mid-altitude case ($\dot{m} = 600{,}000$ kg/s), with $f_c = 0.05$ (5% capture) and $\eta_s = 0.5$ (50% separation efficiency): $\dot{m}_D \approx 58$ t/day. At the deep/slow case with the same parameters: ~380 t/day. The essay's "on the order of 70 tonnes per day" sits within this band and is consistent with NASA atmospheric mining trade studies.<sup><a href="#ref-3">[3]</a></sup>
+where $X_H$ is the hydrogen mass fraction of the atmosphere (~0.89 for Jupiter, ~0.96 for Saturn, the balance is helium and traces).<sup><a href="#ref-20">[20]</a></sup> We use Jupiter's measured D/H as an anchor. Saturn's D/H and vertical gradients may differ, shifting yield linearly.
+
+For the mid-altitude case ($\dot{m} = 600{,}000$ kg/s), with $f_c = 0.05$ (5% capture) and $\eta_s = 0.5$ (50% separation efficiency): $\dot{m}_D \approx 58$ t/day. At the deep/slow case with the same parameters: ~380 t/day. The essay's "on the order of 70 tonnes per day" sits within this band and is consistent with NASA atmospheric mining trade studies.<sup><a href="#ref-3">[3]</a></sup>
 
 At aerostatic speeds (100 m/s), mass intake drops by a factor of 20–50× versus hypersonic passes, making campaign durations impractical.
 
-Saturn is the first practical refuelling stop. Its escape velocity is substantially lower than Jupiter's, its radiation environment far milder, and repeated sortie cycles therefore cost less energy per kilogram of propellant recovered.<sup><a href="#ref-20">[20]</a></sup>
+Saturn is the first practical refuelling stop. Its escape velocity is lower than Jupiter's and its radiation environment far milder. Repeated sortie cycles cost less energy per kilogram of propellant recovered.<sup><a href="#ref-20">[20]</a></sup>
 
 ### <span id="appendix-e" class="appendix-anchor"></span>E. Thermal Management
 
 Radiator area from Stefan-Boltzmann:<sup><a href="#ref-21">[21]</a></sup> $A \approx P / (\sigma T^4)$
 
-For 10 GW waste heat at 800 K (ideal blackbody): $A \approx 430{,}000$ m². Real designs pay a penalty for emissivity ($\epsilon \lt 1$), non-zero sink temperature, and view factors ($F \lt 1$). NASA multi-megawatt NEP radiator studies report representative view factors of ~0.73 and areal densities of ~6 kg/m² including heat pipes, panels, structure, and piping.<sup><a href="#ref-22">[22]</a></sup> Applying these factors: practical radiator area at 10 GW is 1–2 km², with a radiator subsystem mass of ~2,600–6,000 tonnes.
+For 10 GW waste heat at 800 K (ideal blackbody): $A \approx 430{,}000$ m². Real designs pay a penalty for emissivity ($\epsilon \lt 1$), non-zero sink temperature, and view factors ($F \lt 1$). NASA multi-megawatt NEP radiator studies report representative view factors of ~0.73 and areal densities of ~6 kg/m² including heat pipes, panels, structure, and piping.<sup><a href="#ref-22">[22]</a></sup> With these factors applied, practical radiator area at 10 GW is 1–2 km², with a radiator subsystem mass of ~2,600–6,000 tonnes.
 
 Radiator design is the primary structural fact of the spacecraft. At GW scale, two effects that are secondary at MW scale become first-order: micrometeoroid and dust damage to km²-class surfaces over decades, and integration of heat rejection geometry with propulsion exhaust and shielding. Liquid droplet radiators offer mass reduction at large areas but introduce containment/recapture complexity.<sup><a href="#ref-23">[23]</a></sup>
 
 **Tier B coupling.** If interstellar acceleration requires fusion power in the tens of terawatts (<a class="xref" href="#appendix-c">Appendix C</a>, Mode 3), then either the vast majority of that power must leave as directed exhaust energy with minimal waste heat fraction, or radiator area becomes implausibly large.
 
-Mode 3's direct fusion product exhaust is intrinsically efficient in this regard. The charged products carry the energy out of the system. The waste heat fraction is the residual: neutron losses, Bremsstrahlung, incomplete product confinement. Keeping that fraction below ~1% at TW scale is the radiator design constraint that makes Tier B architecturally coherent with km²-class panels rather than requiring continent-scale surfaces.
+Mode 3's direct fusion product exhaust is intrinsically efficient here. The charged products carry the energy out of the system. The waste heat fraction is the residual: neutron losses, Bremsstrahlung, incomplete product confinement. Keeping that fraction below ~1% at TW scale is the radiator design constraint that makes Tier B architecturally coherent with km²-class panels rather than requiring continent-scale surfaces.
 
 ### <span id="appendix-f" class="appendix-anchor"></span>F. Life Support Mass Balance
 
 For a crew of 100, basic consumable throughput before recycling is approximately 215 tonnes per year (water ~110 t, oxygen ~33 t, food ~73 t). At 90% recycling efficiency: ~22 tonnes per year must be resupplied—manageable with Earth logistics, not without. At 99%: ~2.2 tonnes per year, compensable from in-situ water harvesting during gas giant refuelling visits. At 99.9%: ~220 kg per year, achievable from atmospheric collection alone. ISS has demonstrated ~98% water recovery with current ECLSS upgrades (Brine Processor Assembly).<sup><a href="#ref-12">[12]</a></sup><sup><a href="#ref-24">[24]</a></sup><sup><a href="#ref-13">[13]</a></sup>
 
-Oxygen closure is a harder bottleneck. NASA's current state-of-the-art recovers ~50% of oxygen from exhaled CO₂ via Sabatier reduction.<sup><a href="#ref-14">[14]</a></sup> The mechanism is structural: the Sabatier reaction produces methane (CH₄), which is currently vented overboard, losing four hydrogen atoms per carbon atom processed. Since water electrolysis depends on that hydrogen to regenerate O₂, venting methane caps maximum oxygen recovery at ~50% without post-processing. Closing this loop further (toward ≥75–95%) requires cracking the methane to recover hydrogen—via pyrolysis, solid oxide electrolysis, or plasma decomposition—or bypassing the Sabatier entirely with biological photosynthesis. ESA's MELiSSA programme is the most sustained effort toward near-complete closure using integrated bio-regenerative loops.<sup><a href="#ref-11">[11]</a></sup>
+Oxygen closure is a harder bottleneck. NASA's current state-of-the-art recovers ~50% of oxygen from exhaled CO₂ via Sabatier reduction.<sup><a href="#ref-14">[14]</a></sup> The mechanism is structural: the Sabatier reaction produces methane (CH₄), which is currently vented overboard, losing four hydrogen atoms per carbon atom processed. Since water electrolysis depends on that hydrogen to regenerate O₂, venting methane caps maximum oxygen recovery at ~50% without post-processing.
+
+Closing this loop further (toward ≥75–95%) requires cracking the methane to recover hydrogen—via pyrolysis, solid oxide electrolysis, or plasma decomposition—or bypassing the Sabatier entirely with biological photosynthesis. ESA's MELiSSA programme is the most sustained effort toward near-complete closure using integrated bio-regenerative loops.<sup><a href="#ref-11">[11]</a></sup>
 
 The water gap to mission requirements is narrow. The oxygen gap is wider but tractable.
 
@@ -332,7 +338,7 @@ At 0.05c, Alpha Centauri (4.37 ly): $t_{cruise} \approx 87$ years. At 0.02c: 218
 
 $$t_{burn} = \frac{v}{a} = \frac{1.5 \times 10^7}{0.02} = 7.5 \times 10^8 \text{ s} \approx 24 \text{ years}$$
 
-Symmetric deceleration adds another ~24 years. Total mission duration at 0.05c: roughly 87 + 48 ≈ 135 years. At 0.02c the burn phases shorten to ~10 years each, giving ~238 years total. Both are within a single extended human lifetime with torpor,<sup><a href="#ref-7">[7]</a></sup> though the 0.05c case is tighter. The factor-of-2.5 velocity difference separates single-generation from multi-generational transit, and trades directly against thrust power and propellant requirements (Appendices C, H).
+Symmetric deceleration adds another ~24 years. Total mission duration at 0.05c: roughly 87 + 48 ≈ 135 years. At 0.02c the burn phases shorten to ~10 years each, giving ~238 years total. Both are within a single extended human lifetime with torpor,<sup><a href="#ref-7">[7]</a></sup> though the 0.05c case is tighter. The factor-of-2.5 velocity difference separates single-generation from multi-generational transit. It trades directly against thrust power and propellant requirements (Appendices C, H).
 
 ### <span id="appendix-h" class="appendix-anchor"></span>H. Propellant Loading Timelines
 
@@ -353,7 +359,7 @@ The propellant masses from <a class="xref" href="#appendix-c">Appendix C</a> det
 | 0.02c (accel + decel) | 15,000 km/s | 246,000 t | ~10 years |
 | 0.05c (accel + decel) | 15,000 km/s | 1,280,000 t | ~50 years |
 
-This arithmetic substantiates the essay's claims. Pre-departure loading in the Solar System is a fleet logistics problem solvable in years: purpose-built mining ships skim the gas giants in parallel and transfer propellant to Arcadia on intercept, consistent with NASA AMOSS reference architectures.<sup><a href="#ref-3">[3]</a></sup>
+Pre-departure loading in the Solar System is a fleet logistics problem solvable in years: purpose-built mining ships skim the gas giants in parallel and transfer propellant to Arcadia on intercept, consistent with NASA AMOSS reference architectures.<sup><a href="#ref-3">[3]</a></sup>
 
 At the destination, the ship mines alone. A return voyage at 0.02c requires 10–18 years of single-ship mining depending on exhaust velocity. A faster return at 0.05c requires ~50 years of accumulation, or a slower departure velocity.
 
@@ -369,7 +375,7 @@ These figures assume linear scaling from the NASA reference case and continuous 
 
 Saturn's atmospheric helium is depleted by H/He phase separation ("helium rain"), with estimated He mass fraction ~0.13–0.16. Uranus and Neptune preserve higher primordial helium fractions and may offer better He-3 yield per kilogram processed, trading lower gravity wells and longer transit against improved isotope recovery.
 
-**Isotope separation.** Helium isotope separation at scale requires cryogenic methods—distillation, cryogenic adsorption, or superfluid "heat-flush" techniques—each with distinct temperature, equipment mass, and throughput characteristics. Hydrogen isotope separation (H/D) uses mature cryogenic distillation, but space implementations face challenges in long-duration cryogenics maintenance and contamination control.
+**Isotope separation.** Helium isotope separation at scale requires cryogenic methods—distillation, cryogenic adsorption, or superfluid "heat-flush" techniques—each with distinct temperature, equipment mass, and throughput characteristics. Hydrogen isotope separation (H/D) uses mature cryogenic distillation. In space, the challenges are long-duration cryogenics maintenance and contamination control.
 
 **Propellant strategy fork.** The choice of fusion fuel regime determines the interstellar architecture:
 
@@ -382,9 +388,9 @@ This is the single biggest architectural fork in the system. D-He3 buys performa
 
 **Galactic cosmic ray dose.** MSL/RAD measurements during Mars cruise provide the best empirical deep-space analogue: dose equivalent rate of 1.84 ± 0.3 mSv/day (~0.67 Sv/year).<sup><a href="#ref-25">[25]</a></sup> NASA-STD-3001 Vol 1 Rev B sets a universal career effective dose limit of 600 mSv.<sup><a href="#ref-26">[26]</a></sup> An indefinite mission exceeds this limit within the first year at unshielded cruise conditions, making radiation management structurally load-bearing.
 
-**Passive shielding complication.** Adding passive mass reduces low-energy GCR but can create secondary particle cascades from high-energy HZE ions. Partial shielding can worsen some dose components. The practical architecture separates: SPE protection (amenable to storm shelters and local passive mass) from chronic GCR/HZE exposure (requires either large column density, active magnetic deflection, or both).
+**Passive shielding complication.** Adding passive mass reduces low-energy GCR but can create secondary particle cascades from high-energy HZE ions. Partial shielding can worsen some dose components. The practical architecture separates SPE protection, amenable to storm shelters and local passive mass, from chronic GCR/HZE exposure, which requires large column density, active magnetic deflection, or both.
 
-**Active magnetic shielding.** NASA NIAC work on spacecraft-scale magnetospheric protection proposes dipolar torus topologies to deflect a large fraction of GCR including HZE. Deflection of a GeV proton requires $\int B_\perp \, dr$ on the order of ~3 T·m. The approach introduces new failure modes (cryogenics, quench protection, structural loads) and net benefit must be assessed with full particle transport including secondaries.<sup><a href="#ref-27">[27]</a></sup>
+**Active magnetic shielding.** NASA NIAC work on spacecraft-scale magnetospheric protection proposes dipolar torus topologies to deflect a large fraction of GCR including HZE. Deflection of a GeV proton requires $\int B_\perp \, dr$ on the order of ~3 T·m. The approach introduces new failure modes: cryogenics, quench protection, structural loads. Net benefit must be assessed with full particle transport, including secondaries.<sup><a href="#ref-27">[27]</a></sup>
 
 **Interstellar medium impacts.** At 0.01–0.05c, collisions with interstellar gas and dust become a distinct hazard class not captured by GCR shielding alone. Even atomic hydrogen at 0.05c carries ~1.2 MeV/nucleon. Over decades of cruise, cumulative damage modes include surface erosion, gas implantation and blistering, and rare catastrophic dust grain impacts. Forward shielding design, erosion-resistant coatings, and a sacrificial leading-edge architecture are engineering requirements for Tier B, separate from and additional to the radiation shielding problem.
 
@@ -409,11 +415,11 @@ This is the single biggest architectural fork in the system. D-He3 buys performa
 (The measured D/H and ³He/⁴He ratios anchoring the fuel-inventory estimates.)
 
 <span id="ref-3">[3]</span> Palaszewski, B. (2020). <a href="https://ntrs.nasa.gov/citations/20205004479" target="_blank" rel="noopener noreferrer">"Atmospheric Mining in the Outer Solar System: Aerospacecraft Analysis, Propulsion, and Resource Capturing Implications."</a> NASA Glenn Research Center / AIAA Propulsion and Energy Forum.
-See also Palaszewski, B. (2024), <a href="https://ntrs.nasa.gov/citations/20240007489" target="_blank" rel="noopener noreferrer">"Atmospheric Mining in the Outer Solar System: Interplanetary Transfer Vehicles, In-Situ Resource Utilization, and Moon Mining Issues."</a> NASA Technical Reports Server.
+See also Palaszewski, B. (2024). <a href="https://ntrs.nasa.gov/citations/20240007489" target="_blank" rel="noopener noreferrer">"Atmospheric Mining in the Outer Solar System: Interplanetary Transfer Vehicles, In-Situ Resource Utilization, and Moon Mining Issues."</a> NASA Technical Reports Server.
 (Atmospheric mining of deuterium and helium-3 from outer-planet atmospheres, including capture rates, storage, and in-situ utilisation.)
 
 <span id="ref-4">[4]</span> Atzeni, S. & Meyer-ter-Vehn, J. (2004). <a href="https://global.oup.com/academic/product/the-physics-of-inertial-fusion-9780198562641" target="_blank" rel="noopener noreferrer">*The Physics of Inertial Fusion.*</a> Oxford University Press.
-Reaction energetics for D-D, D-T, and D-He3 channels.
+(Reaction energetics for D-D, D-T, and D-He3 channels.)
 
 <span id="ref-5">[5]</span> Sun, H. et al. (2013). <a href="https://doi.org/10.1002/adma.201204576" target="_blank" rel="noopener noreferrer">"Ultralight Graphene Aerogel."</a> *Advanced Materials* 25.
 (Densities as low as ~0.16 mg/cm³—the material class behind a hull lighter than air.)
@@ -421,7 +427,7 @@ Reaction energetics for D-D, D-T, and D-He3 channels.
 <span id="ref-6">[6]</span> Gibson, L.J. & Ashby, M.F. (1999). <a href="https://www.cambridge.org/core/books/cellular-solids/036671BF298A521B9C5DC7752BD4EAD3" target="_blank" rel="noopener noreferrer">*Cellular Solids: Structure and Properties*</a> (2nd ed.). Cambridge University Press.
 
 <span id="ref-7">[7]</span> Cerri, M. et al. (2013). <a href="https://doi.org/10.1016/j.lssr.2013.12.001" target="_blank" rel="noopener noreferrer">"Hibernation for space travel: Impact on radioprotection."</a> *Life Sciences in Space Research* 1(1).
-See also Bradford, J. et al. (2018). <a href="https://ntrs.nasa.gov/citations/20180008683" target="_blank" rel="noopener noreferrer">"Torpor Inducing Transfer Habitat for Human Stasis to Mars."</a> NASA Technical Reports Server; and Bradford, J. et al. (2018), <a href="https://ntrs.nasa.gov/citations/20180007195" target="_blank" rel="noopener noreferrer">"Advancing Torpor Inducing Transfer Habitats for Human Stasis to Mars: II - Phase."</a> NASA Technical Reports Server.
+See also Bradford, J. et al. (2018). <a href="https://ntrs.nasa.gov/citations/20180008683" target="_blank" rel="noopener noreferrer">"Torpor Inducing Transfer Habitat for Human Stasis to Mars."</a> NASA Technical Reports Server; and Bradford, J. et al. (2018). <a href="https://ntrs.nasa.gov/citations/20180007195" target="_blank" rel="noopener noreferrer">"Advancing Torpor Inducing Transfer Habitats for Human Stasis to Mars: II - Phase."</a> NASA Technical Reports Server.
 
 <span id="ref-8">[8]</span> Frank, J., Jónsson, A., Morris, R. & Smith, D. (2001). <a href="https://ntrs.nasa.gov/citations/20010087327" target="_blank" rel="noopener noreferrer">"Planning and Scheduling for Fleets of Earth Observing Satellites."</a> NASA Technical Reports Server / i-SAIRAS.
 (Autonomous planning and scheduling for spacecraft fleets.)

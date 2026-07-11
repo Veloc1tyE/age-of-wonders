@@ -175,7 +175,7 @@ The frontier is running out of land.
 
 <CollapsibleAppendix title="Technical Appendix">
 
-*A first-principles engineering analysis of the system, subsystem by subsystem. The numbers are concept-study estimates; ranges are shown where the inputs are uncertain. Each section states its assumptions, derives a result, and where possible checks it against a known engineering system.*
+*A first-principles engineering analysis of the system, subsystem by subsystem. The numbers are concept-study estimates. Ranges are shown where the inputs are uncertain. Each section states its assumptions, derives a result, and where possible checks it against a known engineering system.*
 
 ### <span id="appendix-a" class="appendix-anchor"></span>A. Power Demand Per Frontier Run
 
@@ -183,7 +183,7 @@ The power a single training run draws is its compute divided by the efficiency o
 
 $$\boxed{\,P \approx \frac{C}{(\text{FLOP/W}) \times t}\,}$$
 
-The growth rate of $P$ is therefore the growth rate of frontier compute divided by the growth rate of efficiency. Both have decade-long trends:<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-2">[2]</a></sup><sup><a href="#ref-3">[3]</a></sup>
+So the growth rate of $P$ is the growth rate of frontier compute divided by the growth rate of efficiency. Both have decade-long trends:<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-2">[2]</a></sup><sup><a href="#ref-3">[3]</a></sup>
 
 | Quantity | Annual growth | Basis |
 |---|---|---|
@@ -201,7 +201,7 @@ Projecting a ~0.3 GW 2025 frontier cluster forward at the two ends of the comput
 
 The aggressive column breaks before 2035, which is the point: scaling cannot hold 4×/yr indefinitely because power runs out first. Across every non-absurd path, a single frontier run reaches gigawatts to tens of gigawatts within 5–10 years.<sup><a href="#ref-35">[35]</a></sup>
 
-For scale, total United States generating capacity is ~1,280 GW,<sup><a href="#ref-6">[6]</a></sup> and datacentre load was ~35 GW in 2024, projected to ~80–130 GW by 2030.<sup><a href="#ref-36">[36]</a></sup><sup><a href="#ref-7">[7]</a></sup> A single frontier run of tens of gigawatts is a national-scale load behind one fence, which is why it cannot sit on ordinary land near existing transmission.
+For scale, total United States generating capacity is ~1,280 GW,<sup><a href="#ref-6">[6]</a></sup> and datacentre load was ~35 GW in 2024, projected to ~80–130 GW by 2030.<sup><a href="#ref-36">[36]</a></sup><sup><a href="#ref-7">[7]</a></sup> A single frontier run of tens of gigawatts is a national-scale load behind one fence. It cannot sit on ordinary land near existing transmission.
 
 The efficiency denominator is also weakening. With Dennard scaling ended and precision approaching a floor of a few bits, FLOP/W gains increasingly come from packaging rather than transistor physics. So the historical ~1.4×/yr that partly offset compute growth is fading.<sup><a href="#ref-3">[3]</a></sup><sup><a href="#ref-4">[4]</a></sup><sup><a href="#ref-5">[5]</a></sup>
 
@@ -217,7 +217,7 @@ Allowing for power electronics, switching, CPUs, and circulation overhead, the c
 
 $$V = \pi r^2 L \approx \pi (2.25)^2 (15) \approx 240\,\text{m}^3$$
 
-Power density is then $10\,\text{MW} / 240\,\text{m}^3 \approx 42\,\text{kW/m}^3$ at the vessel envelope, rising to 100–150 kW/m³ at the populated-board level. A conventional air-cooled hall runs 1–2 kW/m³ all-in. The pod is one to two orders of magnitude denser. That density is the physical basis for the lattice compaction in <a class="xref" href="#appendix-d">§D</a>, and it is only possible because the heat leaves through fluid, not air.<sup><a href="#ref-38">[38]</a></sup><sup><a href="#ref-39">[39]</a></sup>
+Power density is then $10\,\text{MW} / 240\,\text{m}^3 \approx 42\,\text{kW/m}^3$ at the vessel envelope, rising to 100–150 kW/m³ at the populated-board level. A conventional air-cooled hall runs 1–2 kW/m³ all-in. The pod is one to two orders of magnitude denser. That density is the physical basis for the lattice compaction in <a class="xref" href="#appendix-d">§D</a>. It is only possible because the heat leaves through fluid, not air.<sup><a href="#ref-38">[38]</a></sup><sup><a href="#ref-39">[39]</a></sup>
 
 ### <span id="appendix-c" class="appendix-anchor"></span>C. The All-Reduce and What Binds Coherence
 
@@ -233,7 +233,7 @@ $$
 \,}
 $$
 
-The two terms behave completely differently. Only one of them carries distance.
+The two terms behave differently. Only one carries distance.
 
 **The latency term carries distance. The bandwidth term does not.** The per-hop latency decomposes as $\alpha = t_\text{switch} + t_\text{prop}$, where switch-ASIC latency $t_\text{switch} \approx 0.1\text{–}0.3\,\mu\text{s}$ and propagation $t_\text{prop}$ is the distance term: light covers about one metre every 5 ns in fibre. The bandwidth term contains no length at all. It is set by the optical fabric, not by how far apart the endpoints sit.
 
@@ -271,7 +271,7 @@ At $N = 10{,}000$ pods, $N^{1/6} \approx 4.6$. This is the *packing* advantage b
 | 1 GW | 100 | ~37 m | 70–90 m | 0.35–0.45 µs |
 | 10 GW | 1,000 | ~80 m | 140–180 m | 0.7–0.9 µs |
 
-The lattice edge assumes ~240 m³ per pod (<a class="xref" href="#appendix-b">§B</a>) plus an equal allowance for backplanes, structure, and flow channels, i.e. ~500 m³ per pod gross. A 1 GW block is then ~50,000 m³ of compute, a cube ~37 m on a side—the footprint of a single large building, holding a hundred times the compute of one such cluster. That single sentence is the whole geometric argument, and <a class="xref" href="#appendix-b">§B</a> and <a class="xref" href="#appendix-d">§D</a> are where it is earned.<sup><a href="#ref-41">[41]</a></sup>
+The lattice edge assumes ~240 m³ per pod (<a class="xref" href="#appendix-b">§B</a>) plus an equal allowance for backplanes, structure, and flow channels, i.e. ~500 m³ per pod gross. A 1 GW block is then ~50,000 m³ of compute, a cube ~37 m on a side—the footprint of a single large building, holding a hundred times the compute of one such cluster. That sentence is the whole geometric argument. <a class="xref" href="#appendix-b">§B</a> and <a class="xref" href="#appendix-d">§D</a> are where it is earned.<sup><a href="#ref-41">[41]</a></sup>
 
 ### <span id="appendix-e" class="appendix-anchor"></span>E. The Internal Thermal Loop and Pump Power
 
@@ -286,7 +286,7 @@ $$\dot{m} = \frac{Q}{c_p\,\Delta T} = \frac{10.5\times10^6}{2{,}274\times10} \ap
 | Full immersion | 1.5 bar | 87 kW | 133 kW | 1.3% |
 | Cold-plate | 3.5 bar | 203 kW | 312 kW | 3.1% |
 
-The seawater side adds its own pumping. Sizing the seawater flow for a 5 K rise gives $\dot m_\text{sw} = Q/(c_{p,\text{sw}}\Delta T) \approx 526\,\text{kg/s}$ ($\dot V \approx 0.51\,\text{m}^3/\text{s}$); at ~0.75 bar through the exchanger, ~59 kW, or 0.6%. Total pumping is therefore ~2–4% of IT load. This is the dominant contributor to the facility-overhead budget in <a class="xref" href="#appendix-l">§L</a>.<sup><a href="#ref-42">[42]</a></sup>
+The seawater side adds its own pumping. Sizing the seawater flow for a 5 K rise gives $\dot m_\text{sw} = Q/(c_{p,\text{sw}}\Delta T) \approx 526\,\text{kg/s}$ ($\dot V \approx 0.51\,\text{m}^3/\text{s}$); at ~0.75 bar through the exchanger, ~59 kW, or 0.6%. Total pumping is ~2–4% of IT load. This is the dominant contributor to the facility-overhead budget in <a class="xref" href="#appendix-l">§L</a>.<sup><a href="#ref-42">[42]</a></sup>
 
 ### <span id="appendix-f" class="appendix-anchor"></span>F. The Hull Heat Exchanger and the Thermal Crux
 
@@ -294,7 +294,7 @@ Rejecting 10.5 MW into 20–22 °C water is the hardest steady-state problem in 
 
 $$\boxed{Q = U A \Delta T_\mathrm{lm} \quad\Rightarrow\quad A = \frac{Q}{U \Delta T_\mathrm{lm}}}$$
 
-The first-order design question is the temperature difference between the pod's internal cooling loop and the surrounding seawater. A 35 °C bulk loop against ~20 °C seawater gives $\Delta T_\mathrm{lm} \approx 12\text{–}15\,\mathrm{K}$, which is a conservative cold-loop case. Liquid-cooled compute can run warmer than this if the processors, memory, seals, connectors, dielectric fluid and reliability model are qualified for it. A more realistic concept range is a 45–55 °C hot loop, with 60 °C as an aggressive case.
+The first-order design question is the temperature difference between the pod's internal cooling loop and the surrounding seawater. A 35 °C bulk loop against ~20 °C seawater gives $\Delta T_\mathrm{lm} \approx 12\text{–}15\,\mathrm{K}$, a conservative cold-loop case. Liquid-cooled compute can run warmer than this if the processors, memory, seals, connectors, dielectric fluid and reliability model are qualified for it. A more realistic concept range is a 45–55 °C hot loop, with 60 °C as an aggressive case.
 
 For a clean seawater-to-fluid exchanger, using $U \approx 800\text{–}1{,}100\,\mathrm{W\,m^{-2}\,K^{-1}}$, the required wetted area falls sharply as loop temperature rises:
 
@@ -310,7 +310,7 @@ The cylindrical hull of <a class="xref" href="#appendix-b">§B</a> has an extern
 
 $$A_\mathrm{hull} \sim \pi D L \approx \pi(4.5)(15) \approx 210\,\mathrm{m^2}.$$
 
-So the pod still cannot reject 10 MW through a bare hull. But the exchanger penalty is less severe than the cold-loop case implies. With a qualified hot loop, the design needs roughly 1.5–4× the hull area in wetted, corrosion-resistant exchanger surface, rather than necessarily 3–5×. That surface can be folded into fins, keels, external exchanger panels, or a jacketed flow path around the capsule.
+So the pod still cannot reject 10 MW through a bare hull. But the exchanger penalty is less severe than the cold-loop case implies. With a qualified hot loop, the design needs roughly 1.5–4× the hull area in wetted, corrosion-resistant exchanger surface, rather than 3–5×. That surface can be folded into fins, keels, external exchanger panels, or a jacketed flow path around the capsule.
 
 **Biofouling is the dominant long-term degradation.** Marine growth on the seawater side adds a fouling resistance $R_f$ in series, so<sup><a href="#ref-44">[44]</a></sup>
 
@@ -325,7 +325,7 @@ Using a 50 °C loop case with $\Delta T_\mathrm{lm} \approx 29\,\mathrm{K}$, fou
 | 0.0004                    | moderate   |                  764 |       ~474 m² |    +44% |
 | 0.0008                    | heavy      |                  585 |       ~619 m² |    +88% |
 
-At 200 m, reduced light suppresses photosynthetic growth, but microbial films and sessile marine organisms can still colonise surfaces. The design must therefore oversize the exchanger for end-of-cycle fouling, favour smooth high-flow geometries that shed growth, and tie the retrieval interval (<a class="xref" href="#appendix-k">§K</a>) to fouling as much as to silicon refresh.
+At 200 m, reduced light suppresses photosynthetic growth, but microbial films and sessile marine organisms can still colonise surfaces. So the design must oversize the exchanger for end-of-cycle fouling, favour smooth high-flow geometries that shed growth, and tie the retrieval interval (<a class="xref" href="#appendix-k">§K</a>) to fouling as much as to silicon refresh.
 
 **Check against known systems.** The duty is not exotic by marine standards. Ships and power stations reject tens of megawatts to gigawatts into seawater through engineered exchangers and condensers. The pod's exchanger is smaller than a power-station condenser and comparable in thermal duty to marine machinery. The hard part is not the heat-transfer equation. It is doing it sealed, fouled, retrievable, and reliable for years around frontier AI hardware.
 
@@ -343,7 +343,7 @@ With seawater $\rho c_p \approx 4.1\times10^6\,\text{J/m}^3\text{K}$, $U \approx
 | 10 GW compact | ~10.3 GW | ~1,000 m | 0.5–0.8 °C |
 | 100 GW compact | ~103 GW | ~3,000 m | ~2–4 °C |
 
-This is a deliberately first-order model. It's enough to answer the only question that matters at concept stage: whether the system scales as one heat source or as a federation. The ranges carry the parameter uncertainty: at the nominal current and mixing values the 100 GW point estimate is ~1.7 °C, and the upper end belongs to the weaker-current, thinner-mixing sectors a three-kilometre field cannot fully avoid.
+This is a deliberately first-order model. It is enough to answer the only question that matters at concept stage: whether the system scales as one heat source or as a federation. The ranges carry the parameter uncertainty: at the nominal current and mixing values the 100 GW point estimate is ~1.7 °C, and the upper end belongs to the weaker-current, thinner-mixing sectors a three-kilometre field cannot fully avoid.
 
 International-finance environmental guidance commonly limits a discharge to a **3 °C rise at the edge of a defined mixing zone**.<sup><a href="#ref-17">[17]</a></sup> A 1 GW and a 10 GW campus clear that with spacing and current. A single compact 100 GW field crosses it.
 
@@ -376,7 +376,7 @@ That is the proof-machine case. It minimises capital and demonstrates the pod, t
 
 The frontier case is different. If the pod contains current-generation or next-generation frontier silicon, night becomes expensive. A 1 GW field with roughly \$15B of accelerators should not sit idle for fifteen hours if storage is cheaper than the lost productive time. A public round-the-clock solar benchmark is approximately 5.2 GW of PV and 19 GWh of batteries to deliver 1 GW continuously.<sup><a href="#ref-50">[50]</a></sup> That is a useful current anchor, not the final Leviathan design.
 
-By the time Leviathan reaches bankable scale, the relevant battery cost is not the 2026 cost. It is the 2031–2036 cost. Battery storage costs have already fallen sharply. Further reductions are expected as stationary storage becomes a larger share of global battery demand.<sup><a href="#ref-51">[51]</a></sup><sup><a href="#ref-52">[52]</a></sup> The architecture should therefore be designed around tiered firmness:
+By the time Leviathan reaches bankable scale, the relevant battery cost is not the 2026 cost. It is the 2031–2036 cost. Battery storage costs have already fallen sharply. Further reductions are expected as stationary storage becomes a larger share of global battery demand.<sup><a href="#ref-51">[51]</a></sup><sup><a href="#ref-52">[52]</a></sup> So the architecture should be designed around tiered firmness:
 
 | Pod class         | Hardware age | Power model                               | Economic logic                                                 |
 | ----------------- | -----------: | ----------------------------------------- | -------------------------------------------------------------- |
@@ -398,7 +398,7 @@ $$110 \times 0.375 \times 0.70 \approx 29$$
 | 10 GW | ~1,100× | ~200–350× |
 | 100 GW | ~11,000× | ~1,000–3,000× |
 
-The solar-adjusted table is the low-storage case. It is useful because it proves that even a sun-following station can produce extraordinary throughput. It is not the only commercial configuration.
+The solar-adjusted table is the low-storage case. It proves that even a sun-following station can produce extraordinary throughput. It is not the only commercial configuration.
 
 If frontier pods are firmed for round-the-clock operation, the duty-cycle multiplier changes. The limiting factor becomes realised programme efficiency rather than sunlight hours. A 1 GW station at ~110× the reference cluster's peak and 70% realised programme efficiency would deliver roughly:
 
@@ -414,7 +414,7 @@ current frontier-cluster-days per day.
 
 These are projected operating envelopes. The correct dispatch depends on hardware age, workload value, storage cost, solar yield, customer urgency and the software scheduler. The economic point is simple: as battery costs fall and frontier silicon remains expensive, the newest pods increasingly justify firmed power. The older pods do not need it.
 
-**Honest distinction: strong vs weak scaling.** The peak multiples are near-trivial: a hundred clusters have a hundred clusters' compute. The interesting and contested quantity is the **70% efficiency factor**, and it means two different things:
+**Honest distinction: strong vs weak scaling.** The peak multiples are near-trivial: a hundred clusters have a hundred clusters' compute. The interesting and contested quantity is the **70% efficiency factor**. It means two different things:
 
 - *Weak scaling* (many independent runs in parallel, or sparse/asynchronous workloads—MoE, self-play, synthetic-data generation, RL): the 70% is easy, the multiple approaches the raw peak, and the work does **not** depend on the subsea topology at all. You could run these anywhere.
 - *Strong scaling* (one model trained faster across the whole field): the 70% is doing enormous work, and sustaining it across ~500,000 GPUs is an extraordinary claim that lives or dies on the fabric of <a class="xref" href="#appendix-c">§C</a>. This is the regime where the architecture's coherence advantage matters—and where it must be proven, not assumed.
@@ -423,7 +423,7 @@ The body's multiple is defensible for the mixed workload most labs actually run.
 
 **The second multiplier: software.** Hardware throughput is one axis. Computational Abundance documents a second running in parallel: the compute needed to reach a fixed capability falls as the software improves, roughly threefold a year in pretraining and faster still in inference.<sup><a href="#ref-31">[31]</a></sup>
 
-Over the five-year build of a station, that axis compounds into one to two further orders of magnitude of effective capability per delivered FLOP. The two multipliers are independent and they multiply. A station finishing a thousandfold more throughput, running software that extracts a hundredfold more capability per operation, is the arithmetic behind the body's claim that 100 GW enters a range with no precedent to measure it against.
+Over the five-year build of a station, that axis compounds into one to two further orders of magnitude of effective capability per delivered FLOP. The two multipliers are independent. They multiply. A station finishing a thousandfold more throughput, running software that extracts a hundredfold more capability per operation, is the arithmetic behind the body's claim that 100 GW enters a range with no precedent to measure it against.
 
 ### <span id="appendix-j" class="appendix-anchor"></span>J. Marine Survivability: Pressure, Corrosion, Connectors, Retrieval
 
@@ -439,7 +439,7 @@ This is exactly the oil-filled-housing approach used for ROV electronics and pro
 
 **2. Corrosion.** Seawater plus dissimilar metals drives galvanic attack. Mitigations are standard marine practice: copper-nickel or titanium for wetted heat-exchanger surfaces, cathodic protection by sacrificial anodes, dielectric isolation of dissimilar metals, and anti-fouling coatings on smooth exterior geometry.<sup><a href="#ref-55">[55]</a></sup><sup><a href="#ref-56">[56]</a></sup> The hull refit interval (~8–10 years) is set by corrosion and fouling, decoupled from the faster IT-refresh interval (<a class="xref" href="#appendix-k">§K</a>).
 
-**3. Wet-mate connectors.** Each pod needs subsea power-in and fibre, mated and de-mated underwater by ROV. Subsea wet-mate connectors exist at the required power and data rates in oil-and-gas and subsea-power practice.<sup><a href="#ref-57">[57]</a></sup><sup><a href="#ref-58">[58]</a></sup> The gap is reliability expectation: subsea energy tolerates downtime that synchronous training does not. This is one of the two genuinely unproven subsystems and belongs on the gate list.
+**3. Wet-mate connectors.** Each pod needs subsea power-in and fibre, mated and de-mated underwater by ROV. Subsea wet-mate connectors exist at the required power and data rates in oil-and-gas and subsea-power practice.<sup><a href="#ref-57">[57]</a></sup><sup><a href="#ref-58">[58]</a></sup> The gap is reliability expectation: subsea energy tolerates downtime that synchronous training does not. This is one of the two unproven subsystems and belongs on the gate list.
 
 **4. Retrieval mass.** The pod is dominated by fluid mass: $m_\text{fluid} \approx \rho_f V \approx 800 \times 240 \approx 190\,\text{t}$, plus hull, exchanger, and hardware—call it 300–450 t. Recovery needs a heavy-lift or construction vessel with ROV support, not a barge winch.<sup><a href="#ref-59">[59]</a></sup> The operating model is *retrieve-to-service*, not repair-in-place: lift the pod, refit ashore, redeploy.
 
@@ -447,7 +447,7 @@ This is exactly the oil-filled-housing approach used for ROV electronics and pro
 
 ### <span id="appendix-k" class="appendix-anchor"></span>K. Reliability and the Refresh Cascade
 
-A subsea pod should not be treated as a static asset. It is a modular compute organ with a lifecycle.
+A subsea pod is a modular compute organ with a lifecycle, not a static asset.
 
 The vessel, exchanger, connectors, power interface and subsea frame are durable infrastructure. They should be designed for a five-to-seven-year deployment cycle, with retrieval driven by fouling, corrosion, seal life, connector qualification and planned refit. The accelerator stack inside the pod lives on a faster clock. Frontier hardware turns over every few years. A pod that is frontier-class on the day it is lowered will not remain the newest machine forever.
 
@@ -468,7 +468,7 @@ New pods carry the frontier. Older pods carry the plateau. The station becomes a
 
 That model fits the architecture better than a forced two-year retrieval cycle. It reduces vessel time, lowers operating disruption, extends useful asset life, and lets hardware depreciation become a feature rather than a failure. The same thing that happens across the wider economy in <a href="/essays/computational-abundance">*Computational Abundance*</a><sup><a href="#ref-31">[31]</a></sup> happens inside the station itself: the frontier falls, the plateau catches it, and useful intelligence continues to run.
 
-The key design implication is that Leviathan should be built for mixed workloads from the beginning. Its software scheduler must assign work by pod generation, network quality, thermal margin, customer priority and hardware capability. Its commercial model must price the station as a tiered fabric, not as a uniform block of identical capacity.
+The design implication is that Leviathan should be built for mixed workloads from the beginning. Its software scheduler must assign work by pod generation, network quality, thermal margin, customer priority and hardware capability. Its commercial model must price the station as a tiered fabric, not as a uniform block of identical capacity.
 
 The remaining risk is reliability. Large accelerator fleets fail.<sup><a href="#ref-60">[60]</a></sup> A pod sealed for years cannot be maintained like a land rack. It must carry spare capacity, reconfigurable networking, graceful degradation, leak detection, thermal monitoring and workload migration. The pilot must measure the true failure rate under immersion, pressure, heat and continuous AI load. That number is still unknown.
 
@@ -511,13 +511,13 @@ Per gigawatt, the bill of materials is dominated by the accelerators, not the ma
 | 15-min BESS (<a class="xref" href="#appendix-h">§H</a>) | IRENA ~\$192/kWh | ~\$0.05B |
 | **Total ex-silicon** | | **~\$2.4–4.0B** |
 
-Silicon is therefore ~79–86% of capital.<sup><a href="#ref-51">[51]</a></sup><sup><a href="#ref-41">[41]</a></sup> The marginal **energy** cost is smaller still: one pod consumes $10\,\text{MW}\times 9\,\text{h}\times 365 \approx 33\,\text{GWh/yr}$, ~\$1.0M/yr at \$0.03/kWh solar—under 1% per year of the ~\$150M of silicon it contains. The conclusion mirrors <a href="/essays/bridge-to-infinity">*Bridge to Infinity*</a>'s lunar arithmetic in reverse:<sup><a href="#ref-65">[65]</a></sup> the architecture does not make intelligence cheap. It changes *where* the most expensive machine in the world can physically exist. The solar-and-sea system removes the grid, water, and land constraints.
+Silicon is ~79–86% of capital.<sup><a href="#ref-51">[51]</a></sup><sup><a href="#ref-41">[41]</a></sup> The marginal **energy** cost is smaller still: one pod consumes $10\,\text{MW}\times 9\,\text{h}\times 365 \approx 33\,\text{GWh/yr}$, ~\$1.0M/yr at \$0.03/kWh solar—under 1% per year of the ~\$150M of silicon it contains. The conclusion mirrors <a href="/essays/bridge-to-infinity">*Bridge to Infinity*</a>'s lunar arithmetic in reverse:<sup><a href="#ref-65">[65]</a></sup> the architecture does not make intelligence cheap. It changes *where* the most expensive machine in the world can physically exist. The solar-and-sea system removes the grid, water, and land constraints.
 
 This is a 2026 concept snapshot. The dollar cost of one electrical gigawatt of silicon may not fall quickly, because each new generation of accelerator is both more powerful and more expensive. But the effective cost of computation per gigawatt should fall sharply. The relevant denominator is not only dollars per installed watt. It is training work per dollar, per watt, and per year. On that basis the architecture improves with time: denser racks, better FLOP/W, cheaper solar, cheaper short-duration storage, and compounding software efficiency all make each future gigawatt more productive than the one before it.
 
 ### <span id="appendix-n" class="appendix-anchor"></span>N. Siting
 
-The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar reaches 200 m only ~25 km offshore, lengthening the power cable and weakening the case. The narrow shelf at Sur / Ra's al Hadd reaches 200 m within ~5 km—the strongest candidate for short export runs and compact fields.<sup><a href="#ref-13">[13]</a></sup> Intermediate-depth water along the slope carries the warm, saline Arabian Gulf outflow (~20–22 °C, the <a class="xref" href="#appendix-f">§F</a> design point),<sup><a href="#ref-14">[14]</a></sup><sup><a href="#ref-66">[66]</a></sup><sup><a href="#ref-67">[67]</a></sup><sup><a href="#ref-15">[15]</a></sup> and sits within an oxygen-sensitive regime that makes continuous local thermal and ecological monitoring non-negotiable.<sup><a href="#ref-68">[68]</a></sup><sup><a href="#ref-18">[18]</a></sup>
+The Gulf of Oman shelf varies sharply. The broad Al-Batinah shelf near Sohar reaches 200 m only ~25 km offshore, lengthening the power cable and weakening the case. The narrow shelf at Sur / Ra's al Hadd reaches 200 m within ~5 km—the strongest candidate for short export runs and compact fields.<sup><a href="#ref-13">[13]</a></sup> Intermediate-depth water along the slope carries the warm, saline Arabian Gulf outflow (~20–22 °C, the <a class="xref" href="#appendix-f">§F</a> design point).<sup><a href="#ref-14">[14]</a></sup><sup><a href="#ref-66">[66]</a></sup><sup><a href="#ref-67">[67]</a></sup><sup><a href="#ref-15">[15]</a></sup> It sits within an oxygen-sensitive regime that makes continuous local thermal and ecological monitoring non-negotiable.<sup><a href="#ref-68">[68]</a></sup><sup><a href="#ref-18">[18]</a></sup>
 
 **The gate list.** Pulling the weak links together, an honest programme proves these in order before scaling, and no gate assumes the one above it: continuous 10 MW rejection into 20 °C water with managed fouling (<a class="xref" href="#appendix-f">§F</a>); safe plume behaviour (<a class="xref" href="#appendix-g">§G</a>); wet-mate connector reliability at training-uptime expectations (<a class="xref" href="#appendix-j">§J.3</a>); measured in-pod failure rate and graceful degradation (<a class="xref" href="#appendix-k">§K</a>); clean retrieve-and-refit (<a class="xref" href="#appendix-j">§J.4</a>); and a resolved answer to the frontier-versus-plateau positioning (<a class="xref" href="#appendix-k">§K</a>). The physics works at concept level. The programme is what turns it into a machine.
 

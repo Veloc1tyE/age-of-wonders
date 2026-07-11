@@ -290,9 +290,9 @@ Dynamic pressure at launcher exit: $q = \tfrac{1}{2}\rho v^2$
 | 25 km | 0.039 | 122 kPa | 176 kPa |
 | 30 km | 0.018 | 56 kPa | 81 kPa |
 
-For comparison, a typical rocket experiences Max Q of 30–40 kPa at ~12 km altitude and ~500 m/s. A lower exit (20–25 km) exposes the vehicle to more air, which means higher aerodynamic authority for the bank manoeuvre that converts surplus vertical velocity into horizontal momentum (<a class="xref" href="#appendix-c2">Appendix C2</a>). 
+For comparison, a typical rocket experiences Max Q of 30–40 kPa at ~12 km altitude and ~500 m/s. A lower exit (20–25 km) exposes the vehicle to more air. More air means higher aerodynamic authority for the bank manoeuvre that converts surplus vertical velocity into horizontal momentum (<a class="xref" href="#appendix-c2">Appendix C2</a>).
 
-The optimum exit altitude is a trade between terminal pylon height (higher = shorter, cheaper pylon) and aerodynamic turn potential (lower = more free delta-v). A 20 km exit with a purpose-built lifting body can harvest ~500 m/s of horizontal velocity aerodynamically, and at the exponential rates of the rocket equation, that is not small. The high dynamic pressure is brief (the vehicle climbs at 3 km/s through rapidly thinning air) and the vehicle is moving vertically rather than pitching over in the densest layer.
+The optimum exit altitude is a trade between terminal pylon height (higher = shorter, cheaper pylon) and aerodynamic turn potential (lower = more free delta-v). A 20 km exit with a purpose-built lifting body can harvest ~500 m/s of horizontal velocity aerodynamically, and at the exponential rates of the rocket equation, that is not small. The high dynamic pressure is brief: the vehicle climbs at 3 km/s through rapidly thinning air, moving vertically rather than pitching over in the densest layer.
 
 
 ### <span id="appendix-b" class="appendix-anchor"></span>B. Launch Budget Decomposition
@@ -314,7 +314,7 @@ Circular orbital speed at 200 km: $v_{circ} = \sqrt{\mu / (R_E + h)} \approx 7.7
 
 **What the launcher removes.** A near-vertical electromagnetic assist to ~20 km altitude and ~3 km/s upward velocity eliminates or sharply reduces:
 - Drag loss (~0.5 km/s): payload exits above 93%+ of the atmosphere
-- Gravity loss (~0.9–1.1 km/s): essentially fully eliminated—the launcher does the vertical climb electromagnetically (no engine burn, no gravity loss during ascent); the lifting body banks immediately after exit, converting vertical momentum into horizontal momentum aerodynamically before engine ignition, so the powered burn begins already near-horizontal and nearly perpendicular to the gravity vector
+- Gravity loss (~0.9–1.1 km/s): all but eliminated. The launcher does the vertical climb electromagnetically (no engine burn, no gravity loss during ascent). The lifting body banks immediately after exit, converting vertical momentum into horizontal momentum aerodynamically before engine ignition, so the powered burn begins near-horizontal and nearly perpendicular to the gravity vector
 - Steering loss (~0.1 km/s): the vacuum stage can pitch directly to optimal burn attitude
 - *Additional*: the aerodynamic bank converts ~100–500 m/s of surplus vertical velocity into horizontal momentum at zero propellant cost, depending on vehicle class (~500 m/s for purpose-built cargo at 3 km/s, ~100 m/s for human-rated at 700 m/s with full bank. See <a class="xref" href="#appendix-c2">Appendix C2</a>)
 
@@ -345,14 +345,14 @@ where $g \approx 9.8$ m/s² at 20 km (negligibly less than surface $g_0$).
 | 25 km | 3.0 | 459 km | 484 km | 306 s (5.1 min) | ~10 min |
 | 30 km | 3.0 | 459 km | 489 km | 306 s (5.1 min) | ~10 min |
 
-At the cargo reference design point—3 km/s from 20 km—the unburned arc gives roughly 10 minutes above the dense atmosphere. In practice the lifting body banks immediately: at 3 km/s and 7% of sea-level density, the aerodynamic authority is substantial (~500 m/s of free horizontal delta-v per <a class="xref" href="#appendix-c2">Appendix C2</a>). The stage lights seconds after exit, already carrying horizontal speed earned aerodynamically. The 10-minute window is the envelope; the burn fills most of it.
+At the cargo reference design point—3 km/s from 20 km—the unburned arc gives roughly 10 minutes above the dense atmosphere. In practice the lifting body banks immediately: at 3 km/s and 7% of sea-level density, the bank harvests ~500 m/s of free horizontal delta-v (<a class="xref" href="#appendix-c2">Appendix C2</a>). The stage lights seconds after exit, already carrying horizontal speed earned aerodynamically. The 10-minute window is the envelope. The burn fills most of it.
 
-For a cargo hydrolox stage with $\Delta v \approx 7.2$ km/s (after ~500 m/s aero credit at 20 km), a 5-minute burn (300 s) gives average acceleration $\bar{a} = 7200 / 300 = 24$ m/s², or about 2.4 g—a reasonable upper-stage acceleration for cargo. The crewed vehicle burns for ~7 minutes from 0.9 g to 5 g (85% below 3 g); its 2.4-minute ballistic window is extended by wing lift and centrifugal effects, so the burn fits comfortably—see <a class="xref" href="#appendix-e">Appendix E</a>.
+For a cargo hydrolox stage with $\Delta v \approx 7.2$ km/s (after ~500 m/s aero credit at 20 km), a 5-minute burn (300 s) gives average acceleration $\bar{a} = 7200 / 300 = 24$ m/s², or about 2.4 g—a reasonable upper-stage acceleration for cargo. The crewed vehicle burns for ~7 minutes from 0.9 g to 5 g (85% below 3 g); its 2.4-minute ballistic window is extended by wing lift and centrifugal effects, so the burn fits comfortably. See <a class="xref" href="#appendix-e">Appendix E</a>.
 
 
 ### <span id="appendix-c2" class="appendix-anchor"></span>C2. Aerodynamic Turn Optimisation
 
-The launcher oversupplies vertical velocity: the vehicle exits with ~3 km/s upward but only needs ~500–700 m/s of residual vertical to stay above the atmosphere during the burn. The surplus is available for conversion to horizontal momentum, and the lifting body can do that aerodynamically, at zero propellant cost. The question is: how much, and what sets the optimum?
+The launcher oversupplies vertical velocity: the vehicle exits with ~3 km/s upward but only needs ~500–700 m/s of residual vertical to stay above the atmosphere during the burn. The surplus is available for conversion to horizontal momentum. The lifting body can do that aerodynamically, at zero propellant cost. Two questions remain: how much, and what sets the optimum.
 
 **Closed-form solution.** Air density falls exponentially with altitude: $\rho(h) = \rho_0 \, e^{-(h - h_0)/H}$ where $H \approx 7.5$ km is the scale height. For a vehicle climbing at velocity $v_0$, altitude increases as $h(t) \approx h_0 + v_0 t$, so $\rho(t) = \rho_0 \, e^{-v_0 t / H}$.
 
@@ -364,21 +364,21 @@ Integrating over the entire climb (the exponential decay makes the integral conv
 
 $$\boxed{\Delta v_{\text{aero}} = \frac{\rho_0 \, v_0 \, H \, S \, C_L}{2m}}$$
 
-This is exact in the limit of constant climb speed (a good approximation: the vehicle loses only ~2–3% of its 3 km/s to gravity during the ~3 s of significant aero authority). The result is elegant: aero delta-v scales linearly with exit density $\rho_0$, exit speed $v_0$, scale height $H$, and the vehicle's lift parameter $S C_L / m$.
+This is exact in the limit of constant climb speed (a good approximation: the vehicle loses only ~2–3% of its 3 km/s to gravity during the ~3 s of significant aero authority). Aero delta-v scales linearly with exit density $\rho_0$, exit speed $v_0$, scale height $H$, and the vehicle's lift parameter $S C_L / m$.
 
 Since $\rho_0 = \rho_{\text{SL}} \, e^{-h_0/H}$, **every $H\ln 2 \approx 5$ km lower in exit altitude doubles the free delta-v** (each 7.5 km multiplies it by $e$). This is why exit altitude matters so much.
 
 **Wing loading governs the result.** A concern: $m$ in the formula is the *full vehicle mass at exit*—cargo, dry stage, and all propellant. A 50 t payload with hydrolox propellant for a 7.2 km/s burn masses roughly 484 t at exit. Does the formula collapse?
 
-No—because the vehicle must also land on a runway after delivering its cargo. Landing wing loading $W_L = m_{\text{final}} g / S$ constrains the planform area $S$ in proportion to the post-burn mass. At exit, $m_{\text{exit}} = R \cdot m_{\text{final}}$, so substituting $S = m_{\text{final}} g / W_L$:
+No. The vehicle must also land on a runway after delivering its cargo. Landing wing loading $W_L = m_{\text{final}} g / S$ constrains the planform area $S$ in proportion to the post-burn mass. At exit, $m_{\text{exit}} = R \cdot m_{\text{final}}$, so substituting $S = m_{\text{final}} g / W_L$:
 
 $$\boxed{\Delta v_{\text{aero}} = \frac{\rho_0 \, v_0 \, H \, C_L \, g}{2 \, R \, W_L}}$$
 
 **The absolute mass cancels.** The aero delta-v depends on landing wing loading ($W_L$), hypersonic lift coefficient ($C_L$), exit density ($\rho_0$), and mass ratio ($R$). A heavier vehicle needs proportionally more planform to land; that extra planform provides exactly the lift authority for the bank.
 
-For a purpose-built cargo drone landing at $W_L \approx 2{,}000$ N/m² (approach speed ~130 knots—comparable to a regional airliner) with $C_L = 0.5$ at ~30° hypersonic AoA, carrying 50 t of payload and ~390 t of hydrolox at exit ($R \approx 4.8$): planform area ~490 m² (~31 m × 16 m), total exit mass ~484 t. At 20 km exit this gives ~500 m/s—half a kilometre per second of free horizontal velocity, earned from the air itself.
+For a purpose-built cargo drone landing at $W_L \approx 2{,}000$ N/m² (approach speed ~130 knots, comparable to a regional airliner) with $C_L = 0.5$ at ~30° hypersonic AoA, carrying 50 t of payload and ~390 t of hydrolox at exit ($R \approx 4.8$): planform area ~490 m² (~31 m × 16 m), total exit mass ~484 t. At 20 km exit this gives ~500 m/s—half a kilometre per second of free horizontal velocity, earned from the air itself.
 
-**Design envelope.** For a 50 t payload at $v_0 = 3$ km/s, hydrolox, $\varepsilon = 0.10$—solved self-consistently ($R$ and $\Delta v_{\text{aero}}$ co-determined):
+**Design envelope.** For a 50 t payload at $v_0 = 3$ km/s, hydrolox, $\varepsilon = 0.10$, solved self-consistently ($R$ and $\Delta v_{\text{aero}}$ co-determined):
 
 | Exit altitude | $\rho_0$ (kg/m³) | $q_0$ (kPa) | Aero $\Delta v$ (conservative) | Aero $\Delta v$ (purpose-built) | Peak lateral $g$ (conservative) | Peak lateral $g$ (purpose-built) |
 |---|---|---|---|---|---|---|
@@ -411,7 +411,7 @@ $$\rho_{0,\text{max}} = \frac{2 \, m \, a_{\text{limit}}}{v_0^2 \, S \, C_L}$$
 
 These g-limits apply to vehicles exiting at 3 km/s, where dynamic pressure is high (~401 kPa at 20 km). The constraint drives a reduced bank angle and modest aero delta-v. But the human-rated vehicle does not exit at 3 km/s.
 
-**The human vehicle exits at ~700 m/s.** At that speed, exit dynamic pressure is only ~22 kPa—gentler than a rocket's Max Q. The peak lateral g at full bank ($C_L = 0.5$) is:
+**The human vehicle exits at ~700 m/s.** At that speed, exit dynamic pressure is only ~22 kPa, gentler than a rocket's Max Q. The peak lateral g at full bank ($C_L = 0.5$) is:
 
 $$a_{\text{peak}} = \frac{\rho_0 \, v_0^2 \, C_L \, g}{2 \, R \, W_L} = \frac{0.089 \times 490{,}000 \times 0.5 \times 9.81}{2 \times 5.53 \times 2{,}000} \approx 1.0g$$
 
@@ -419,9 +419,9 @@ The vehicle banks at full authority with g-loads at level flight. The aero delta
 
 $$\Delta v_{\text{aero}} = \frac{\rho_0 \, v_0 \, H \, C_L \, g}{2 \, R \, W_L} = \frac{0.089 \times 700 \times 7500 \times 0.5 \times 9.81}{2 \times 5.53 \times 2000} \approx 105 \text{ m/s}$$
 
-At lower exit velocity, the aero delta-v is proportionally smaller, but the peak g is also lower, so the full bank angle is always available. A cargo vehicle from the same altitude at 3 km/s and full $C_L = 0.5$ gets ~500 m/s—the speed multiplier dominates. The human savings come not from aerodynamics but from loss elimination: the vertical climb is electromagnetic, the exit is above 93% of the atmosphere, and the engine burns near-horizontal. The ~100 m/s of aero credit is a bonus, not the main story.
+At lower exit velocity the aero delta-v is proportionally smaller. But the peak g is also lower, so the full bank angle is always available. A cargo vehicle from the same altitude at 3 km/s and full $C_L = 0.5$ gets ~500 m/s. The speed multiplier dominates. The human savings come not from aerodynamics but from loss elimination: the vertical climb is electromagnetic, the exit is above 93% of the atmosphere, and the engine burns near-horizontal. The ~100 m/s of aero credit is a bonus, not the main story.
 
-**The optimal exit altitude is set by the terminal pylon, not the aerodynamics.** For both cargo and human-rated vehicles, the aero delta-v formula says "go as low as possible." The binding constraint is structural: how tall a tension-stabilised mast can you build from a given summit?
+**The optimal exit altitude is set by the terminal pylon, not the aerodynamics.** For both cargo and human-rated vehicles, the aero delta-v formula says "go as low as possible." The binding constraint is structural: the height of tension-stabilised mast you can build from a given summit.
 
 | Summit altitude | Pylon height | Exit altitude | Aero $\Delta v$ (cargo 3 km/s, purpose-built) | Aero $\Delta v$ (human 700 m/s, full bank) | Human peak g |
 |---|---|---|---|---|---|
@@ -431,7 +431,7 @@ At lower exit velocity, the aero delta-v is proportionally smaller, but the peak
 | 8 km | 10 km | 18 km | 686 m/s | ~143 m/s | ~1.4 g |
 | 8 km | 15 km | 23 km | 310 m/s | ~65 m/s | ~0.7 g |
 
-At 700 m/s, the human-rated vehicle banks at full authority everywhere—no g-limit is binding. Lower altitude gives the human vehicle more free delta-v (230 m/s at 15 km vs 105 m/s at 20 km), and the peak g-loads remain gentle throughout (under 3 g even at 15 km). For cargo at 3 km/s, lower altitude is even better: a 10 km pylon on a 5 km summit (15 km exit) yields over a kilometre per second of free horizontal delta-v, though at 44 g peak.
+At 700 m/s, the human-rated vehicle banks at full authority everywhere. No g-limit is binding. Lower altitude gives the human vehicle more free delta-v (230 m/s at 15 km vs 105 m/s at 20 km). The peak g-loads remain gentle throughout (under 3 g even at 15 km). For cargo at 3 km/s, lower altitude is even better: a 10 km pylon on a 5 km summit (15 km exit) yields over a kilometre per second of free horizontal delta-v, though at 44 g peak.
 
 **Propellant savings across the design envelope.** For hydrolox ($I_{sp}$ = 465 s, 100 t post-burn mass):
 
@@ -451,9 +451,9 @@ For NTP ($I_{sp}$ = 900 s):
 | 20 km | ~500 m/s | 7.2 km/s | 2.26 | 126 | 88% |
 | 15 km | ~1,100 m/s | 6.6 km/s | 2.12 | 112 | 90% |
 
-**Drag penalty.** At $L/D = 2$, drag costs about half the lift impulse from the vertical velocity budget. But the vehicle has ~3 km/s vertical and needs only ~500–700 m/s residual. Even at 1,100 m/s of aero delta-v with drag loss of ~550 m/s, the vehicle retains ~2,375 m/s vertical after drag and gravity losses. 
+**Drag penalty.** At $L/D = 2$, drag costs about half the lift impulse from the vertical velocity budget. But the vehicle has ~3 km/s vertical and needs only ~500–700 m/s residual. Even at 1,100 m/s of aero delta-v with drag loss of ~550 m/s, the vehicle retains ~2,375 m/s vertical after drag and gravity losses.
 
-The vertical budget is never the binding constraint. This is fundamentally different from a rocket, where drag opposes the direction of travel and is pure loss. Here the vehicle is climbing nearly vertically into thinning air. Drag bleeds surplus climb that would otherwise be wasted on overshoot, while the same aerodynamic force, projected horizontally as lift, builds wanted orbital velocity. The vehicle's planform is sized for runway landing and horizontal banking, not for minimum drag. The design envelope that makes reuse possible is the same one that makes the turn productive.
+The vertical budget is never the binding constraint. In a rocket, drag opposes the direction of travel and is pure loss. Here the vehicle is climbing nearly vertically into thinning air. Drag bleeds surplus climb that would otherwise be wasted on overshoot, while the same aerodynamic force, projected horizontally as lift, builds wanted orbital velocity. The vehicle's planform is sized for runway landing and horizontal banking, not for minimum drag. The design envelope that makes reuse possible is the same one that makes the turn productive.
 
 **Reference design summary.** For an 8 km summit with a 12 km tension-stabilised pylon (20 km exit), 50 t payload:
 
@@ -465,9 +465,9 @@ The vertical budget is never the binding constraint. This is fundamentally diffe
 | Ruggedised cargo (bulk metal, water) | 50 g | ~2.1 km/s | ~315 m/s | 7.4 km/s | 407 t | 62% |
 | Hardened cargo (aggregate, probes) | 100 g | ~3.0 km/s | ~500 m/s | 7.2 km/s | 385 t | 64% |
 
-All five classes use the same tunnel, the same pylon, the same exit altitude, the same vacuum. The ~30 km bore (12 km linear + 18 km curvilinear toward vertical) serves every vehicle class. The coils run a different acceleration programme for each manifest—the software decides how hard to push based on what is in the cradle. The curve that gives humans a roller-coaster (7 g) gives bulk cargo 50 g and hardened freight 100 g. One tunnel, one pylon, *N* programmes.
+All five classes use the same tunnel, the same pylon, the same exit altitude, the same vacuum. The ~30 km bore (12 km linear + 18 km curvilinear toward vertical) serves every vehicle class. The coils run a different acceleration programme for each manifest. The software decides how hard to push based on what is in the cradle. The curve that gives humans a roller-coaster (7 g) gives bulk cargo 50 g and hardened freight 100 g. One tunnel, one pylon, *N* programmes.
 
-**The Pythagorean Dividend.** The aerodynamic turn is nearly free because velocity components add in quadrature: $v_{\text{total}}^2 = v_v^2 + v_h^2$. Converting a vertical vector into a horizontal one at high speed costs almost nothing in total speed because the horizontal component you gain is squared before it contributes, and the vertical component you surrender is subtracted from a much larger squared number.
+**The Pythagorean Dividend.** The aerodynamic turn is nearly free because velocity components add in quadrature: $v_{\text{total}}^2 = v_v^2 + v_h^2$. Converting a vertical vector into a horizontal one at high speed costs almost nothing in total speed because the horizontal component you gain is squared before it contributes. The vertical component you surrender is subtracted from a much larger squared number.
 
 | Case | Initial vertical | Aero Δv gained | Vertical after bank | Apogee tax | Tax (%) |
 |---|---|---|---|---|---|
@@ -476,9 +476,9 @@ All five classes use the same tunnel, the same pylon, the same exit altitude, th
 
 Meridian deliberately oversupplies vertical velocity so the bank can exploit this asymmetry. The 3 km/s throw is far more than Halcyon needs to reach apogee. Halcyon can trade the surplus. Stealing 500 m/s horizontal for 42 m/s vertical is the point.
 
-**Why 700 m/s for humans.** The curvilinear section's turn radius scales as $v^2/a$. At human summit velocity (852 m/s) and 5 g centripetal, the radius is 15 km—the same curve that gives humans a roller-coaster (5–7 g) gives cargo at 3 km/s a ~60–90 g ride. Both fit through the same bore. The lower exit speed means gentler dynamic pressure (22 kPa vs 401 kPa) and a propellant penalty of 68 t: 453 t vs 385 t per 100 t delivered, or 58% vs 64% savings. The 58% comes not from the aerodynamic turn but from loss elimination—the vertical climb is electromagnetic and the exit is above 93% of the atmosphere regardless of exit speed.
+**Why 700 m/s for humans.** The curvilinear section's turn radius scales as $v^2/a$. At human summit velocity (852 m/s) and 5 g centripetal, the radius is 15 km. The same curve that gives humans a roller-coaster (5–7 g) gives cargo at 3 km/s a ~60–90 g ride. Both fit through the same bore. The lower exit speed means gentler dynamic pressure (22 kPa vs 401 kPa) and a propellant penalty of 68 t: 453 t vs 385 t per 100 t delivered, or 58% vs 64% savings. The 58% comes not from the aerodynamic turn but from loss elimination: the vertical climb is electromagnetic and the exit is above 93% of the atmosphere regardless of exit speed.
 
-**The deeper point.** The optimisation reveals something about the architecture's logic. The ideal exit altitude is not "as high as possible to escape the atmosphere." It is as *low* as the pylon can reach because the residual atmosphere is a resource to be harvested. Every additional metre of air the vehicle flies through is free horizontal momentum the engine does not have to provide. The launcher oversupplies vertical velocity *on purpose*. That surplus buys altitude (atmosphere bypass), time (vacuum burn window), and—via the lifting body—free orbital velocity. Electricity provides the kinetic energy. Thin air provides the turn. Vacuum provides the burn. Nothing is wasted.
+**The deeper point.** The ideal exit altitude is not "as high as possible to escape the atmosphere." It is as *low* as the pylon can reach because the residual atmosphere is a resource to be harvested. Every additional metre of air the vehicle flies through is free horizontal momentum the engine does not have to provide. The launcher oversupplies vertical velocity *on purpose*. That surplus buys altitude (atmosphere bypass), time (vacuum burn window), and—via the lifting body—free orbital velocity. Electricity provides the kinetic energy. Thin air provides the turn. Vacuum provides the burn. Nothing is wasted.
 
 
 ### <span id="appendix-c3" class="appendix-anchor"></span>C3. Cargo Structural and Thermal Survivability at Exit
@@ -556,7 +556,7 @@ CFRP allowable in bending: **800–1,500 MPa**. Margin: **10–19×**. Even at 1
 
 #### 4. Integrated Stress Comparison: Exit vs Re-entry
 
-The cargo vehicle's full exit+bank event is structurally less severe than a routine orbital re-entry—and far less severe than the entry vehicles already deployed:
+The cargo vehicle's full exit+bank event is structurally less severe than a routine orbital re-entry, and far less severe than the entry vehicles already deployed:
 
 | Load | Cargo exit (3 km/s, 20 km) | Dragon orbital re-entry | Ratio |
 |---|---|---|---|
@@ -579,7 +579,7 @@ For a ruggedised cargo lifting body (≤30 g class, standard cargo):
 4. **Attitude control:** Must maintain bank angle ±5° through the aero pulse. At 3 km/s and high dynamic pressure, control authority from aerodynamic surfaces is large. Small deflections produce large moments. This is a flight dynamics problem with well-characterised solutions.
 5. **Hardened cargo (100 g class):** At 100 g, bending stress reaches ~380 MPa—still within CFRP limits but requiring careful layup optimisation. Heat load unchanged (same altitude, same duration). Acoustic environment unchanged. These vehicles are functionally ICBM re-entry bodies in reverse: a well-understood engineering class.<br/>
 
-**The bottom line.** The cargo vehicle does not face a novel structural or thermal challenge. It faces a brief, intense pulse—three seconds at a load that re-entry vehicles are already designed to exceed in magnitude and dwarf in duration. The nose needs an ablative cap measured in millimetres. The structure needs no special provision beyond what runway landing already demands. The acoustic environment is matched by existing military-qualified hardware. The engineering constraints are real but entirely conventional.
+**The bottom line.** The cargo vehicle does not face a novel structural or thermal challenge. It faces a brief, intense pulse—three seconds at a load that re-entry vehicles are already designed to exceed in magnitude and dwarf in duration. The nose needs an ablative cap measured in millimetres. The structure needs no special provision beyond what runway landing already demands. The acoustic environment is matched by existing military-qualified hardware. The engineering constraints are real but conventional.
 
 
 ### <span id="appendix-d" class="appendix-anchor"></span>D. Rocket Equation Mass Savings
@@ -625,11 +625,11 @@ The 64% cargo propellant saving versus all-rocket kerolox has three distinct sou
 | 2. Eliminate losses | Δv 9.2→7.7 | 465 | 7.7 | 441 | 212 t (30% of total) |
 | 3. Aerodynamic turn | Δv 7.7→7.2 | 465 | 7.2 | 385 | 56 t (8% of total) |
 
-**The Isp switch is the largest single factor**—61% of the total propellant saving comes from replacing sea-level kerolox with vacuum hydrolox. The launcher enables this switch by removing the atmospheric constraints that force ground-launched vehicles toward dense propellants. Loss elimination contributes 30%. The aerodynamic turn, despite being the most novel element, contributes 8%.
+**The Isp switch is the largest single factor.** Replacing sea-level kerolox with vacuum hydrolox contributes 61% of the total propellant saving. The launcher enables this switch by removing the atmospheric constraints that force ground-launched vehicles toward dense propellants. Loss elimination contributes 30%. The aerodynamic turn, despite being the most novel element, contributes 8%.
 
 **Why the layers compound.** The rocket equation is $m_{propellant} = m_{final} \times (e^{\Delta v / v_e} - 1)$. The exponent is $\Delta v / v_e$. The Bridge attacks both sides of that fraction simultaneously:
 
-- *Numerator* (reduce $\Delta v$): loss elimination removes ~1.5 km/s; the aerodynamic turn harvests another 100–500 m/s. Both are free—paid for by electricity and thin air.
+- *Numerator* (reduce $\Delta v$): loss elimination removes ~1.5 km/s; the aerodynamic turn harvests another 100–500 m/s. Both are free, paid for by electricity and thin air.
 - *Denominator* (increase $v_e$): the Isp switch from sea-level kerolox ($v_e$ = 3,728 m/s) to vacuum hydrolox ($v_e$ = 4,562 m/s) raises exhaust velocity by 22%.
 
 The baseline exponent is $9.2 / 3.73 = 2.47$. After all three layers: $7.2 / 4.56 = 1.58$. That is a 36% reduction in the exponent, but because it *is* an exponent, the mass ratio drops from 11.8 to 4.85, a 59% reduction in propellant. In a linear system, shrinking the budget by 22% and improving the engine by 22% would save roughly 40%. Through the exponential, the same improvements save 64%. Each layer amplifies the others because they all feed through the same nonlinearity. The rocket equation punishes brute force exponentially; it rewards layered optimisation just as exponentially.
@@ -643,7 +643,7 @@ The baseline exponent is $9.2 / 3.73 = 2.47$. After all three layers: $7.2 / 4.5
 | Hydrolox (H₂/LOX) | ~366 | ~465 | 385 | 64% |
 | NTP (H₂ expander) |—| ~900 | 126 | 88% |
 
-Methalox and kerolox perform similarly in vacuum (348 vs 363 s—only 4% difference). Their ground-launched advantages—higher density, smaller tanks, less drag—are irrelevant when the vehicle starts at 28 km in vacuum. Hydrolox at 465 s<sup><a href="#ref-6">[6]</a></sup><sup><a href="#ref-19">[19]</a></sup> is 28% better than methalox, and through the exponential that gap nearly halves the propellant (655→385 t). The planform that earns the aerodynamic turn provides exactly the volume hydrogen's low density requires—the tanks are the wing, and both constraints point to the same design.
+Methalox and kerolox perform similarly in vacuum (348 vs 363 s—only 4% difference). Their ground-launched advantages—higher density, smaller tanks, less drag—are irrelevant when the vehicle starts at 28 km in vacuum. Hydrolox at 465 s<sup><a href="#ref-6">[6]</a></sup><sup><a href="#ref-19">[19]</a></sup> is 28% better than methalox. Through the exponential, that gap nearly halves the propellant (655→385 t). The planform that earns the aerodynamic turn provides exactly the volume hydrogen's low density requires: the tanks are the wing, and both constraints point to the same design.
 
 
 ### <span id="appendix-e" class="appendix-anchor"></span>E. Launcher Acceleration and Path Length
@@ -659,15 +659,15 @@ Required acceleration track length: $s = v^2 / (2a)$
 | 2.5 km/s | 106.2 km | 63.7 km | 31.9 km | 15.9 km | 10.6 km |
 | 3.0 km/s | 153.0 km | 91.8 km | 45.9 km | 23.0 km | 15.3 km |
 
-The reference bore is ~30 km: 12 km linear + 18 km curvilinear toward vertical. Both cargo and human flights use the same bore. Crew at 3 g sustained reach ~850 m/s summit velocity (700 m/s at pylon exit after gravity losses), navigating the curvilinear section at 5–7 g centripetal. Cargo at 20+ g sustained accelerates through both sections, reaching up to 3 km/s—the shared curve produces ~30–50 g centripetal at ruggedised-cargo speeds (~2 km/s) and ~85–90 g at the full 3 km/s, within the 100 g hardened-cargo rating (<a class="xref" href="#appendix-c2">Appendix C2</a>).
+The reference bore is ~30 km: 12 km linear + 18 km curvilinear toward vertical. Both cargo and human flights use the same bore. Crew at 3 g sustained reach ~850 m/s summit velocity (700 m/s at pylon exit after gravity losses), navigating the curvilinear section at 5–7 g centripetal. Cargo at 20+ g sustained accelerates through both sections, reaching up to 3 km/s. The shared curve produces ~30–50 g centripetal at ruggedised-cargo speeds (~2 km/s) and ~85–90 g at the full 3 km/s, within the 100 g hardened-cargo rating (<a class="xref" href="#appendix-c2">Appendix C2</a>).
 
-This is achievable with standard bedrock-tunnel engineering. For comparison, the Gotthard Base Tunnel is 57 km long through the Alps. The 30 km bore is well within this range. The structural challenge is maintaining vacuum, alignment, and electromagnetic coil precision—not length itself. The mountain provides the structure; the bore provides the path.
+This is achievable with standard bedrock-tunnel engineering. For comparison, the Gotthard Base Tunnel is 57 km long through the Alps. The 30 km bore is well within this range. The structural challenge is maintaining vacuum, alignment, and electromagnetic coil precision, not length itself. The mountain provides the structure; the bore provides the path.
 
-**Vacuum loading is structurally trivial.** An evacuated tunnel must resist atmospheric pressure on its walls: ~101 kPa (14.7 psi). Lithostatic pressure from rock overburden grows at roughly 23 kPa per metre of depth (assuming ~2,300 kg/m³ rock density). At just 5 metres of overburden, rock pressure already exceeds atmospheric pressure. At the Gotthard Base Tunnel's maximum overburden of 2,300 m, the rock stress is roughly 50 MPa—over 500 times atmospheric. The Gotthard engineers contended with squeezing rock conditions causing 0.5–0.7 m of tunnel convergence under that pressure. By comparison, the 0.1 MPa of vacuum loading is a rounding error. Any tunnel lining competent to withstand rock overburden in a mountain range automatically contains vacuum.
+**Vacuum loading is structurally trivial.** An evacuated tunnel must resist atmospheric pressure on its walls: ~101 kPa (14.7 psi). Lithostatic pressure from rock overburden grows at roughly 23 kPa per metre of depth (assuming ~2,300 kg/m³ rock density). At just 5 metres of overburden, rock pressure already exceeds atmospheric pressure. At the Gotthard Base Tunnel's maximum overburden of 2,300 m, the rock stress is roughly 50 MPa, over 500 times atmospheric. The Gotthard engineers contended with squeezing rock conditions causing 0.5–0.7 m of tunnel convergence under that pressure. By comparison, the 0.1 MPa of vacuum loading is a rounding error. Any tunnel lining competent to withstand rock overburden in a mountain range automatically contains vacuum.
 
 The harder structural requirements are electromagnetic: maintaining coil alignment to millimetre precision over tens of kilometres, managing thermal cycling from pulsed multi-gigawatt discharge, and ensuring vacuum seal integrity at joints and transitions. These are precision engineering challenges, not structural strength challenges. The mountain handles strength. The engineering handles precision.
 
-**Curvilinear section.** Near the summit, the tunnel curves from its bore angle toward near-vertical alignment with the pylon. In this section, the electromagnetic coils maintain velocity against gravity (~1 g of deceleration at near-vertical orientation) but do not add speed. The dominant force the payload experiences is centripetal—from the curved path. The turn radius scales as $r = v^2/a$, which makes exit velocity the dominant variable:
+**Curvilinear section.** Near the summit, the tunnel curves from its bore angle toward near-vertical alignment with the pylon. In this section, the electromagnetic coils maintain velocity against gravity (~1 g of deceleration at near-vertical orientation) but do not add speed. The dominant force the payload experiences is centripetal, from the curved path. The turn radius scales as $r = v^2/a$, which makes exit velocity the dominant variable:
 
 | Vehicle | Summit velocity | Centripetal g | Turn radius | Arc for 70° turn | Arc for 10° turn |
 |---|---|---|---|---|---|
@@ -676,15 +676,17 @@ The harder structural requirements are electromagnetic: maintaining coil alignme
 | Human | 852 m/s | 5 g | 15 km | ~18 km |—|
 | Human | 852 m/s | 7 g | 10 km | ~13 km |—|
 
-Both vehicle classes use the same ~30 km bore: 12 km linear + 18 km curvilinear (70° turn toward vertical). The curve is a graduated clothoid—gentle at the start, tighter near the summit. Humans navigate it at 852 m/s with 3–7 g centripetal (7 g for under 3 seconds, ~21 seconds total). Cargo traverses the same curve at higher speed: ~30–50 g centripetal at ruggedised speeds, rising to ~85–90 g at the full 3 km/s—within the 100 g hardened-cargo rating. The coils provide different programs: maintain-velocity-only for humans in the curve, sustained acceleration for cargo throughout. One bore, two acceleration profiles.
+Both vehicle classes use the same ~30 km bore: 12 km linear + 18 km curvilinear (70° turn toward vertical). The curve is a graduated clothoid—gentle at the start, tighter near the summit. Humans navigate it at 852 m/s with 3–7 g centripetal (7 g for under 3 seconds, ~21 seconds total). Cargo traverses the same curve at higher speed: ~30–50 g centripetal at ruggedised speeds, rising to ~85–90 g at the full 3 km/s, within the 100 g hardened-cargo rating. The coils provide different programmes: maintain-velocity-only for humans in the curve, sustained acceleration for cargo throughout. One bore, two acceleration profiles.
 
-**Load distribution in the curve.** The vehicle does not sit on rails. It rides inside a cylindrical electromagnetic cradle; a 360° magnetic suspension that distributes centripetal force omnidirectionally around the hull. At 50 g, a 500-tonne cargo vehicle has an apparent weight of ~25,000 tonnes. Concentrated on a chassis, that would require massive reinforcement. Distributed uniformly around a cylindrical shell, it becomes like the hoop stress of a deep sea vessel. 
+**Load distribution in the curve.** The vehicle does not sit on rails. It rides inside a cylindrical electromagnetic cradle: a 360° magnetic suspension that distributes centripetal force omnidirectionally around the hull. At 50 g, a 500-tonne cargo vehicle has an apparent weight of ~25,000 tonnes. Concentrated on a chassis, that would require massive reinforcement. Distributed uniformly around a cylindrical shell, it becomes like the hoop stress of a deep-sea vessel.
 
-Composite cylinders are exceptionally strong under uniform compression. A lightweight CFRP shell that would buckle under a point load survives enormous distributed pressure with margin. The mountain absorbs the reaction (bending moment from the curved track transfers into bedrock through the tunnel lining). The cradle converts a structural impossibility into a solved engineering problem: uniform compression of a rigid shell.
+Composite cylinders are exceptionally strong under uniform compression. A lightweight CFRP shell that would buckle under a point load survives the distributed pressure with margin. The mountain absorbs the reaction (bending moment from the curved track transfers into bedrock through the tunnel lining). The cradle converts a structural impossibility into a solved engineering problem: uniform compression of a rigid shell.
 
-**Terminal pylon.** The terminal structure above the summit adds 10–15 km of vertical height and carries zero acceleration load. Both cargo and human vehicles exit the same bore and coast through the same pylon, but the gravity loss during transit differs markedly. Cargo at ~3 km/s loses ~39 m/s over ~4 seconds. The human vehicle at ~852 m/s loses ~152 m/s over ~16 seconds, arriving at the top at ~700 m/s. This is why the tunnel accelerates humans to ~850 m/s rather than 700 m/s: it pre-loads the gravity tax. The pylon is purely a vacuum-containment and altitude-extension structure. All acceleration is done inside the mountain, where bedrock absorbs the reaction forces. This is the key structural insight: the pylon never has to resist the forces of launching a vehicle. It only has to stand up and hold vacuum.
+**Terminal pylon.** The terminal structure above the summit adds 10–15 km of vertical height and carries zero acceleration load. Both cargo and human vehicles exit the same bore and coast through the same pylon, but the gravity loss during transit differs. Cargo at ~3 km/s loses ~39 m/s over ~4 seconds. The human vehicle at ~852 m/s loses ~152 m/s over ~16 seconds, arriving at the top at ~700 m/s. This is why the tunnel accelerates humans to ~850 m/s rather than 700 m/s: it pre-loads the gravity tax. The pylon is purely a vacuum-containment and altitude-extension structure. All acceleration is done inside the mountain, where bedrock absorbs the reaction forces. The pylon never has to resist the forces of launching a vehicle. It only has to stand up and hold vacuum.
 
-**Passenger seat orientation: phase-by-phase.** The human body's tolerance to acceleration is strongly axis-dependent. Longitudinal Gs acting head-to-toe (+G$_z$) drain blood from the brain; the onset of G-induced loss of consciousness (G-LOC) occurs around 5–6 g. Transverse Gs acting chest-to-back (+G$_x$, "eyeballs-in") keep blood at the same hydrostatic level as the heart and brain; humans remain conscious and functional up to 10–15 g in this orientation.<sup><a href="#ref-20">[20]</a></sup> Every crewed vehicle design—from Mercury to Dragon—exploits this by seating astronauts supine relative to the thrust axis, turning what would be a blackout into a heavy but survivable sensation. The Bridge vehicle faces a complication standard rockets do not: the dominant force vector rotates through roughly 70° over the first two minutes, from longitudinal (linear bore) to centripetal (curvilinear section) and back. The solution is fully articulating seats that track the shifting vector continuously.
+**Passenger seat orientation: phase-by-phase.** The human body's tolerance to acceleration is strongly axis-dependent. Longitudinal Gs acting head-to-toe (+G$_z$) drain blood from the brain; the onset of G-induced loss of consciousness (G-LOC) occurs around 5–6 g. Transverse Gs acting chest-to-back (+G$_x$, "eyeballs-in") keep blood at the same hydrostatic level as the heart and brain; humans remain conscious and functional up to 10–15 g in this orientation.<sup><a href="#ref-20">[20]</a></sup> Every crewed vehicle design—from Mercury to Dragon—exploits this by seating astronauts supine relative to the thrust axis, turning what would be a blackout into a heavy but survivable sensation.
+
+The Bridge vehicle faces a complication standard rockets do not: the dominant force vector rotates through roughly 70° over the first two minutes, from longitudinal (linear bore) to centripetal (curvilinear section) and back. The solution is fully articulating seats that track the shifting vector continuously.
 
 | Phase | Duration | Peak g | Force axis | Seat position |
 |---|---|---|---|---|
@@ -695,7 +697,7 @@ Composite cylinders are exceptionally strong under uniform compression. A lightw
 | Engine burn (0.9–5 g) | ~7 min | 5 g | Longitudinal (rearward) | Reclined again; seats tilt further as acceleration builds to 5 g at burnout |
 | Re-entry glide | ~30 min | ~1.5 g | Longitudinal (braking) | Standard seated posture; spaceplane deceleration well within comfort envelope |
 
-The critical transition is entering the curve. Without the seat pivot, 7 g centripetal acting straight down the spine would cause immediate G-LOC. With the pivot—seats rotating backward as the track curves, so that passengers end up lying flat on their backs—the same force presses uniformly across the full dorsal surface. The peak feels like a heavy weight on the chest for three seconds, then eases. The requirement is a pivot mechanism that tracks the local g-vector in real time; this is well-understood actuation engineering, similar in principle to reclining systems used in high-performance centrifuge training seats and advanced fighter pilot couch concepts. The seat need not be exotic—the physics argument is simply that the axis matters more than the magnitude.
+The critical transition is entering the curve. Without the seat pivot, 7 g centripetal acting straight down the spine would cause immediate G-LOC. With the pivot—seats rotating backward as the track curves, so that passengers end up lying flat on their backs—the same force presses uniformly across the full dorsal surface. The peak feels like a heavy weight on the chest for three seconds, then eases. The requirement is a pivot mechanism that tracks the local g-vector in real time. This is well-understood actuation engineering, similar in principle to reclining systems used in centrifuge training seats and fighter-pilot couch concepts. The seat need not be exotic. The physics argument is that the axis matters more than the magnitude.
 
 
 ### <span id="appendix-f" class="appendix-anchor"></span>F. Terminal Structure Materials
@@ -715,7 +717,7 @@ Carbon nanotube composites are the enabling material for the terminal pylon. The
 
 The order-of-magnitude disparity between CNT tensile and compressive strength drives the architecture toward a tension-stabilised stayed mast rather than a compression tower. In this design:
 
-- The central mast carries modest compression (its own weight only—payloads coast through at exit velocity with no acceleration forces transmitted to the structure)
+- The central mast carries modest compression (its own weight only: payloads coast through at exit velocity with no acceleration forces transmitted to the structure)
 - A wide network of guy cables, anchored to bedrock kilometres from the base, carries the dominant structural loads in tension
 - The mast can be slender because the cables prevent buckling and there are no launch reaction forces
 
@@ -732,13 +734,13 @@ The pylon is the hardest component in the architecture. It is also not required 
 
 For ruggedised bulk cargo—raw materials, propellant feedstock, structural mass, water—a launcher can exit directly from the mountainside at a steep angle (45–60° from horizontal), skipping the pylon entirely. At the extreme end, expendable probes at 50–100 g need only 5–10 km of tunnel and can tolerate the full atmospheric exit pulse. The tunnel is the only major infrastructure: bored mostly horizontal through the mountain for the acceleration phase, curving to the exit angle in the final kilometres.
 
-**The air is denser and more useful.** At an 8 km summit exit with no pylon, air density is ~0.53 kg/m³ (43% of sea level). Dynamic pressure at 3 km/s is roughly 2,400 kPa, about 6× the 20 km reference case. The structural pulse is fierce but brief (~2.5 s time constant). For ruggedised cargo at 30 g peak tolerance, the aerodynamic turn harvests ~735 m/s of free horizontal delta-v, substantially more than the 500 m/s available at 20 km with 20 g. At 100 g, the aero turn yields ~2,450 m/s. At that loading, though, the vehicle is closer to a ballistic shell than a lifting body, and the aero delta-v formula starts to break down as the turn becomes a large fraction of total velocity.
+**The air is denser and more useful.** At an 8 km summit exit with no pylon, air density is ~0.53 kg/m³ (43% of sea level). Dynamic pressure at 3 km/s is roughly 2,400 kPa, about 6× the 20 km reference case. The structural pulse is fierce but brief (~2.5 s time constant). For ruggedised cargo at 30 g peak tolerance, the aerodynamic turn harvests ~735 m/s of free horizontal delta-v, more than the 500 m/s available at 20 km with 20 g. At 100 g, the aero turn yields ~2,450 m/s. At that loading, though, the vehicle is closer to a ballistic shell than a lifting body. The aero delta-v formula starts to break down as the turn becomes a large fraction of total velocity.
 
 $$\Delta v_{\text{aero}} = \frac{a_{\text{peak}} \cdot H}{v_0} = \frac{30 \times 9.81 \times 7500}{3000} \approx 735 \text{ m/s (at 30\,g)}$$
 
-**The angled exit adds a horizontal head start.** At 60° from horizontal, the vehicle exits with ~1,500 m/s horizontal and ~2,600 m/s vertical. At 45°, the split is ~2,120 / 2,120. The vehicle is already partway to orbit before the bank begins. Combined with the aero turn, the engine's residual duty drops significantly.
+**The angled exit adds a horizontal head start.** At 60° from horizontal, the vehicle exits with ~1,500 m/s horizontal and ~2,600 m/s vertical. At 45°, the split is ~2,120 / 2,120. The vehicle is already partway to orbit before the bank begins. Combined with the aero turn, the engine's residual duty drops further.
 
-**Tunnel length scales inversely with g-tolerance.** This is the expendable-probe argument. At 100 g and 3 km/s, the tunnel is ~4.6 km—a fraction of the Gotthard. At 50 g: ~9.2 km. At 30 g: ~15.3 km. For disposable shells carrying bulk mass (water, metal stock, shielding aggregate), the vehicle cost is minimal and the tunnel is short. The economics resemble artillery logistics more than aerospace: cheap rounds, expensive gun, fire often.
+**Tunnel length scales inversely with g-tolerance.** This is the expendable-probe argument. At 100 g and 3 km/s, the tunnel is ~4.6 km, a fraction of the Gotthard. At 50 g: ~9.2 km. At 30 g: ~15.3 km. For disposable shells carrying bulk mass (water, metal stock, shielding aggregate), the vehicle cost is minimal and the tunnel is short. The economics resemble artillery logistics more than aerospace: cheap rounds, expensive gun, fire often.
 
 | Configuration | Tunnel g | Tunnel length | Exit altitude | Aero Δv | Vehicle type | Pylon |
 |---|---|---|---|---|---|---|
@@ -768,14 +770,14 @@ $$E_{launch} = \frac{1}{2}Mv^2$$
 | 100 t | ~441 t (hydrolox, 7.7 km/s) | ~541 t | 3 km/s | 2.44 TJ (0.68 GWh) |
 | 100 t | ~139 t (NTP, 7.7 km/s) | ~239 t | 3 km/s | 1.08 TJ (0.30 GWh) |
 
-Real launcher efficiency includes magnetic coil losses, power conditioning, and thermal management—assume 60–70% wall-plug-to-kinetic efficiency. The table uses the conservative 60% figure; at 70%, gross energy per shot falls by roughly one-seventh. Gross energy per shot:
+Real launcher efficiency includes magnetic coil losses, power conditioning, and thermal management. Assume 60–70% wall-plug-to-kinetic efficiency. The table uses the conservative 60% figure. At 70%, gross energy per shot falls by roughly one-seventh. Gross energy per shot:
 
 | Case | Gross energy per shot | At daily cadence | At 6-hour cadence |
 |---|---|---|---|
 | Hydrolox | ~1.13 GWh | ~47 MW avg | ~188 MW avg |
 | NTP | ~0.50 GWh | ~21 MW avg | ~83 MW avg |
 
-**Peak vs average power.** A 3 km/s exit at 20 g means the acceleration phase lasts ~15 seconds. Delivering 2.44 TJ in 15 seconds requires ~160 GW average instantaneous—far beyond any continuous source. The solution is energy storage: flywheels, superconducting magnetic energy storage, or capacitor banks charged over hours from the grid, discharged in seconds through the coils. This is standard pulsed-power engineering, used in particle accelerators and electromagnetic launch research at smaller scales.<sup><a href="#ref-22">[22]</a></sup><sup><a href="#ref-23">[23]</a></sup> The U.S. Navy's EMALS uses exactly this architecture—stored kinetic energy, solid-state power conversion, linear motor—to launch aircraft from carrier decks at controlled acceleration profiles.<sup><a href="#ref-24">[24]</a></sup>
+**Peak vs average power.** A 3 km/s exit at 20 g means the acceleration phase lasts ~15 seconds. Delivering 2.44 TJ in 15 seconds requires ~160 GW average instantaneous, far beyond any continuous source. The solution is energy storage: flywheels, superconducting magnetic energy storage, or capacitor banks charged over hours from the grid, discharged in seconds through the coils. This is standard pulsed-power engineering, used in particle accelerators and electromagnetic launch research at smaller scales.<sup><a href="#ref-22">[22]</a></sup><sup><a href="#ref-23">[23]</a></sup> The U.S. Navy's EMALS uses exactly this architecture—stored kinetic energy, solid-state power conversion, linear motor—to launch aircraft from carrier decks at controlled acceleration profiles.<sup><a href="#ref-24">[24]</a></sup>
 
 **Annual throughput comparison.**
 
@@ -809,7 +811,7 @@ Ratio: lunar escape energy is ~4.5% of Earth's. For transport to high Earth orbi
 | 20 g | 14.4 km | 12 s |
 | 30 g | 9.6 km | 8 s |
 
-These are modest lengths in the lunar context—no atmosphere, low gravity, stable regolith foundation. O'Neill's original mass driver concepts proposed similar scales for lunar material export.<sup><a href="#ref-26">[26]</a></sup>
+These are modest lengths in the lunar context: no atmosphere, low gravity, stable regolith foundation. O'Neill's original mass driver concepts proposed similar scales for lunar material export.<sup><a href="#ref-26">[26]</a></sup>
 
 **Regolith composition** (Apollo sample averages):<sup><a href="#ref-12">[12]</a></sup>
 
@@ -830,7 +832,7 @@ The regolith table above makes this concrete: metals, glass, ceramics, oxygen, a
 
 **The problem with scaling chemical rocketry.** NOAA research (2022) found that a projected 10× increase in hydrocarbon-fuelled launches would cause meaningful damage to the stratospheric ozone layer, primarily through injection of black carbon (soot) and reactive nitrogen species directly into the stratosphere.<sup><a href="#ref-3">[3]</a></sup> NASA's 2024 review found that launch and reentry particulate emissions could, by 2040, become comparable to the natural meteoritic background flux if launch activity continues its growth trajectory.<sup><a href="#ref-27">[27]</a></sup>
 
-These findings imply that simply scaling the current chemical launch paradigm cannot sustainably deliver a future requiring 10–100× more orbital mass throughput.
+These findings imply that scaling the current chemical launch paradigm cannot sustainably deliver a future requiring 10–100× more orbital mass throughput.
 
 **Launcher-assisted architecture comparison.**
 
@@ -840,17 +842,19 @@ These findings imply that simply scaling the current chemical launch paradigm ca
 | Launcher + aero turn + hydrolox | Upper stage only, above ~25 km | Near zero (H₂/O₂ exhaust is water) | Low (water vapour, OH chemistry at scale) | ~385 t water vapour above ~25 km |
 | Launcher + aero turn + NTP | Upper stage only, above ~25 km | Zero (no combustion) | Minimal (H₂ exhaust) | ~126 t hydrogen above ~25 km |
 
-The electromagnetic launcher replaces the dirtiest part of ascent—first-stage combustion through dense atmosphere—with stationary electricity. The orbital stage still produces exhaust, but in thin air or vacuum, and if hydrogen-fuelled, the exhaust is water vapour rather than soot, CO₂, and reactive species.
+The electromagnetic launcher replaces the dirtiest part of ascent—first-stage combustion through dense atmosphere—with stationary electricity. The orbital stage still produces exhaust, but in thin air or vacuum. If hydrogen-fuelled, the exhaust is water vapour rather than soot, CO₂, and reactive species.
 
 **High-altitude water vapour injection is not zero-impact.** Three mechanisms deserve acknowledgement:
 
-*Noctilucent cloud seeding.* Water injected above ~80 km (the mesosphere) can nucleate polar mesospheric clouds. NASA directly observed Space Shuttle exhaust creating artificial noctilucent clouds. This is primarily an optical effect—not a serious climate driver—but it is a real and observable atmospheric perturbation.
+*Noctilucent cloud seeding.* Water injected above ~80 km (the mesosphere) can nucleate polar mesospheric clouds. NASA directly observed Space Shuttle exhaust creating artificial noctilucent clouds. This is primarily an optical effect, not a serious climate driver, but it is a real and observable atmospheric perturbation.
 
 *Hydroxyl (OH) chemistry.* Water vapour in the stratosphere photodissociates under UV to produce OH radicals, which participate in catalytic ozone destruction cycles. The effect is much smaller per molecule than halogen-based chemistry (HCl from solid rocket motors is far more damaging), but at high launch rates, stratospheric OH perturbation warrants quantitative modelling.
 
-*Residence time.* Stratospheric water vapour has a longer residence time than tropospheric—on the order of months to years rather than days. Injecting water above ~25 km means it stays aloft long enough for cumulative effects to matter at industrial throughput.
+*Residence time.* Stratospheric water vapour has a longer residence time than tropospheric, on the order of months to years rather than days. Injecting water above ~25 km means it stays aloft long enough for cumulative effects to matter at industrial throughput.
 
-The comparative picture remains strongly in the launcher-assisted architecture's favour. Soot (black carbon) has an effective global warming potential roughly 500× CO₂ on a per-mass basis at injection altitude. And the propellant savings—63% for hydrolox with aerodynamic turn, 88% for NTP—mean total atmospheric injection mass is reduced by the same fractions even if launch frequency rises dramatically. At the throughput levels discussed in this essay (tens of megatonnes of Earth-export per year), the cumulative water vapour burden remains small relative to natural stratospheric sources. At industrial scale—millions of tonnes per year—it becomes a legitimate atmospheric chemistry monitoring question, treated the same way any large industrial process is: measured, modelled, and managed.
+The comparative picture remains strongly in the launcher-assisted architecture's favour. Soot (black carbon) has an effective global warming potential roughly 500× CO₂ on a per-mass basis at injection altitude. And the propellant savings—63% for hydrolox with aerodynamic turn, 88% for NTP—mean total atmospheric injection mass is reduced by the same fractions even if launch frequency rises.
+
+At the throughput levels discussed in this essay (tens of megatonnes of Earth-export per year), the cumulative water vapour burden remains small relative to natural stratospheric sources. At industrial scale—millions of tonnes per year—it becomes a legitimate atmospheric chemistry monitoring question, treated the same way any large industrial process is: measured, modelled, and managed.
 
 For industrial-scale orbital freight—$10^5$ to $10^6$ tonnes per year—the launcher-assisted architecture is not merely "greener." It is the only architecture compatible with high-cadence operations without large-scale stratospheric damage. The residual concern is water vapour chemistry, not carbon or ozone depletion. That is a tractable monitoring and management problem. Soot in the stratosphere is not.
 
@@ -868,7 +872,7 @@ The specific energy to reach escape velocity from a body is $E = \tfrac{1}{2}v_{
 | Earth | 11.2 km/s | 62.7 MJ/kg | +significant | 1× (reference) |
 | Moon | 2.38 km/s | 2.83 MJ/kg | none | ~22× shallower |
 
-The 1986 National Commission on Space estimated lunar-to-high-Earth-orbit transport at less than 1/20th the energy of Earth-to-HEO for equivalent mass.<sup><a href="#ref-10">[10]</a></sup> The factor of ~22 in specific escape energy understates the full advantage because Earth's atmospheric drag penalty adds further energy cost on ascent—a penalty the Moon does not have.
+The 1986 National Commission on Space estimated lunar-to-high-Earth-orbit transport at less than 1/20th the energy of Earth-to-HEO for equivalent mass.<sup><a href="#ref-10">[10]</a></sup> The factor of ~22 in specific escape energy understates the full advantage because Earth's atmospheric drag penalty adds further energy cost on ascent, a penalty the Moon does not have.
 
 **Marginal energy cost of lunar launch.**<sup><a href="#ref-11">[11]</a></sup>
 
@@ -884,7 +888,7 @@ Assuming 60–70% wall-plug-to-kinetic efficiency, wall-plug energy is ~1.12–1
 | \$0.03/kWh (cheap solar/nuclear) | \$0.034/kg | \$34/t |
 | \$0.01/kWh (future lunar solar) | \$0.011/kg | \$11/t |
 
-These costs are for the energy alone. Infrastructure amortisation, operations, and payload processing add more—but at high throughput (millions of tonnes per year), infrastructure amortisation falls rapidly. The marginal operating cost of a mature lunar mass driver is dominated by power, which from polar crater-rim solar installations approaches near-zero after capital recovery.
+These costs are for the energy alone. Infrastructure amortisation, operations, and payload processing add more. But at high throughput (millions of tonnes per year), infrastructure amortisation falls rapidly. The marginal operating cost of a mature lunar mass driver is dominated by power, which from polar crater-rim solar installations approaches zero after capital recovery.
 
 **Track length for lunar mass driver.**
 
@@ -897,11 +901,11 @@ Using $s = v^2/(2a)$ for $v = 2.38$ km/s:
 | 30 g | 9.6 km | 8.1 s |
 | 50 g (bulk raw ore) | 5.8 km | 4.9 s |
 
-These are modest civil-engineering scales on the lunar surface—no atmosphere, low seismic activity, stable regolith. The structural engineering is straightforward compared to the terrestrial launcher. No vacuum tube required (the Moon has essentially no atmosphere), no guyed terminal structure, no complex atmospheric exit. The lunar mass driver is a solved conceptual problem. Its challenges are manufacturing, deployment, and teleoperated maintenance at scale, not structural physics.
+These are modest civil-engineering scales on the lunar surface: no atmosphere, low seismic activity, stable regolith. The structural engineering is straightforward compared to the terrestrial launcher. No vacuum tube required (the Moon has essentially no atmosphere), no guyed terminal structure, no complex atmospheric exit. The lunar mass driver is a solved conceptual problem. Its challenges are manufacturing, deployment, and teleoperated maintenance at scale, not structural physics.
 
 **Polar solar power.**
 
-Crater rims near the lunar poles receive sunlight for 70–90% of the lunar year—near-continuous illumination from a body with no axial weather variation.<sup><a href="#ref-28">[28]</a></sup> A polar mass driver site can draw from near-continuous solar power without battery storage requirements for most operations. This is fundamentally different from equatorial lunar sites (14 days light, 14 days dark) and drives site selection strongly toward polar regions, which also tend to have permanently shadowed craters nearby containing water ice for propellant production.
+Crater rims near the lunar poles receive sunlight for 70–90% of the lunar year—near-continuous illumination from a body with no axial weather variation.<sup><a href="#ref-28">[28]</a></sup> A polar mass driver site can draw from near-continuous solar power without battery storage requirements for most operations. Equatorial lunar sites get 14 days of light, then 14 of dark. The contrast drives site selection toward the poles, which also tend to have permanently shadowed craters nearby containing water ice for propellant production.
 
 **The two mass drivers compared.**
 
@@ -926,7 +930,7 @@ The lunar mass driver is roughly 50–100× cheaper per kilogram in energy cost 
 | 12% (robust drone-bus) | 5.4 | 15.4 t/t | Heavier TPS, wider margins |
 | 15% (human-rated shuttle) | 5.4 | 28.7 t/t | Life support, redundancy, runway landing gear |
 
-The human-rated variant pays a steep mass penalty. That is why the architecture separates crew and cargo vehicles: the drone-bus hauls tonnage; the crewed shuttle carries people and delicate cargo at lower cadence and higher per-flight cost.
+The human-rated variant pays a steep mass penalty. That is why the architecture separates crew and cargo vehicles. The drone-bus hauls tonnage. The crewed shuttle carries people and delicate cargo at lower cadence and higher per-flight cost.
 
 **Energy cost floor.** Per delivered tonne to LEO:
 
@@ -948,7 +952,7 @@ At high throughput, launcher amortisation becomes a small fraction of total cost
 
 **Dominant cost: the bridge vehicle.** Vehicle capital recovery, TPS inspection and replacement, engine overhaul, ground handling, cryogenic loading, range operations, and labour dominate the mature cost structure. This is the layer where industrial process engineering—not physics—determines the final number.
 
-Why reuse count is decisive—a simple amortisation sensitivity for a 100 t net payload vehicle (ignoring financing):
+Reuse count is decisive. A simple amortisation sensitivity for a 100 t net payload vehicle, ignoring financing:
 
 | Vehicle build cost | 50 reuses | 100 reuses | 500 reuses | 2,000 reuses |
 |---|---|---|---|---|
@@ -971,9 +975,9 @@ The design instinct—standard exterior, modular internals, fast turnaround—is
 
 The first-generation band (\$100–300/kg) reflects early fleet sizes, conservative reuse counts, and immature process engineering. It is the number to underwrite the first launcher on.
 
-The mature band (\$20–50/kg) requires the bridge vehicle to achieve locomotive-like durability: 500–2,000+ flights per airframe, days between turnarounds, and standardised maintenance. At that cadence, vehicle amortisation falls to \$2–10/kg (see reuse table above), launcher amortisation is sub-\$1/kg, and the dominant term becomes operations labour and consumables. This is in the range of intercontinental air freight today—which is the correct structural analogy for what the bridge becomes at scale. Not a space programme. A freight system.
+The mature band (\$20–50/kg) requires the bridge vehicle to achieve locomotive-like durability: 500–2,000+ flights per airframe, days between turnarounds, and standardised maintenance. At that cadence, vehicle amortisation falls to \$2–10/kg (see reuse table above), launcher amortisation is sub-\$1/kg, and the dominant term becomes operations labour and consumables. This is in the range of intercontinental air freight today. That is the correct structural analogy for what the bridge becomes at scale. Not a space programme. A freight system.
 
-**Calibration note.** The energy floor and amortisation arithmetic are grounded in cited inputs and straightforward accounting. The refurbishment and labour cost model is not: it is argued by analogy to high-cadence transport systems (airlines, container shipping) rather than derived from demonstrated bridge-vehicle operations. The \$20–50/kg asymptote is therefore a directional target supported by the cost structure, not a figure the current evidence stack fully earns. The conservative \$100–300/kg first-generation band is the number to underwrite infrastructure decisions on.
+**Calibration note.** The energy floor and amortisation arithmetic are grounded in cited inputs and straightforward accounting. The refurbishment and labour cost model is not: it is argued by analogy to high-cadence transport systems (airlines, container shipping) rather than derived from demonstrated bridge-vehicle operations. The \$20–50/kg asymptote is a directional target supported by the cost structure, not a figure the current evidence stack fully earns. The conservative \$100–300/kg first-generation band is the number to underwrite infrastructure decisions on.
 
 
 ### <span id="appendix-l" class="appendix-anchor"></span>L. Population and Industrial Migration
@@ -1066,7 +1070,7 @@ Launch is energetically negligible. The real lunar power budget is dominated by 
 
 **Illustrative population trajectory (two-stage model).**
 
-Using decayed Earth-export burden, the reference launch ramp, 1.5%/yr natural off-world growth, and the habitat completion schedule. These are scenario outputs, not forecasts—they show what the logistics architecture *permits* given the assumed ramp rates, not what will happen.
+Using decayed Earth-export burden, the reference launch ramp, 1.5%/yr natural off-world growth, and the habitat completion schedule. These are scenario outputs, not forecasts: they show what the logistics architecture *permits* given the assumed ramp rates, not what will happen.
 
 | Year | Off-world population (scenario) |
 |---|---|
@@ -1076,7 +1080,7 @@ Using decayed Earth-export burden, the reference launch ramp, 1.5%/yr natural of
 | ~2157 | ~1 billion |
 | 2200 | ~3.3 billion |
 
-These figures are internally consistent with the decay model and the essay's throughput assumptions. The 2200 figure assumes lunar export continues at 500 Mt/yr plateau through the late 22nd century and that off-world natural growth compounds at 1.5%/yr—both scenario choices, not inevitabilities. The actual trajectory will be determined by civilisational priorities, demographic choices, and industrial commitment that cannot be modelled from physics alone.
+These figures are internally consistent with the decay model and the essay's throughput assumptions. The 2200 figure assumes lunar export continues at 500 Mt/yr plateau through the late 22nd century and that off-world natural growth compounds at 1.5%/yr—both scenario choices, not inevitabilities. Civilisational priorities, demographic choices, and industrial commitment will set the actual trajectory. None of those can be modelled from physics alone.
 
 **Passenger transport at maximum habitat fill rate (2150 upper bound).**
 
@@ -1089,9 +1093,9 @@ If all 22.2 M new residents/yr are actively transported in the same year (the th
 | 1.0 | 22.2 | 7.8 | 30.0 | ~38 |
 | 2.0 (full shuttle overhead) | 44.4 | 7.8 | 52.2 | ~66 |
 
-At the low end (0.2 t/person—minimal capsule, short transit), passenger migration adds modestly to the industrial stream. At the high end (2.0 t/person—full shuttle with life support, redundancy, and personal cargo), passenger ferry mass dominates and requires 5–7× more lanes than complexity cargo alone. This is the quantitative reason the essay's "industrial first" timeline is structurally necessary: the habitat shell can scale faster than the passenger pipeline until ferry mass per person falls and/or off-world births dominate net growth.
+At the low end (0.2 t/person: minimal capsule, short transit), passenger migration adds modestly to the industrial stream. At the high end (2.0 t/person: full shuttle with life support, redundancy, and personal cargo), passenger ferry mass dominates and requires 5–7× more lanes than complexity cargo alone. This is the quantitative reason the essay's "industrial first" timeline is structurally necessary: the habitat shell can scale faster than the passenger pipeline until ferry mass per person falls and/or off-world births dominate net growth.
 
-At 20 megacomplexes, even the heavy case is ~3 tubes per site. The binding constraint at this scale is not launch physics—it is **how quickly habitats can be outfitted and made operational** to receive people.
+At 20 megacomplexes, even the heavy case is ~3 tubes per site. The binding constraint at this scale is not launch physics. It is **how quickly habitats can be outfitted and made operational** to receive people.
 
 **Summary.**
 
@@ -1104,7 +1108,7 @@ At 20 megacomplexes, even the heavy case is ~3 tubes per site. The binding const
 | Earth solar share (raw intercept) | 0.000020–0.000027% | 0.000039–0.000053% | 0.000060–0.000080% |
 | Off-world population | ~16 M | ~132 M | ~780 M |
 
-**Key conclusion.** The physics is not in the way. The dominant constraints are: (1) lunar industrial throughput setting the housing ceiling, (2) the two-stage decay of Earth's per-capita complexity burden validating a modest launch-lane requirement, and (3) the bridge vehicle and orbital operations throughput. Energy—on either body—is a large but tractable infrastructure challenge, not a resource limit. By the 22nd century, the bottleneck is whether Earth can export enough irreducible complexity to fill what the Moon and orbital industry can already build. And as orbital industry matures, even that burden contracts.
+**Key conclusion.** The physics is not in the way. The dominant constraints are: (1) lunar industrial throughput setting the housing ceiling, (2) the two-stage decay of Earth's per-capita complexity burden validating a modest launch-lane requirement, and (3) the bridge vehicle and orbital operations throughput. Energy, on either body, is a large but tractable infrastructure challenge, not a resource limit. By the 22nd century, the bottleneck is whether Earth can export enough irreducible complexity to fill what the Moon and orbital industry can already build. And as orbital industry matures, even that burden contracts.
 
 
 ### <span id="appendix-m" class="appendix-anchor"></span>M. Dry Fraction Sensitivity and Energy Budget Decomposition
@@ -1130,7 +1134,7 @@ Two consequences:
 
 *There is a dry-fraction cliff.* Hydrolox at 7.3 km/s (with aerodynamic turn credit) tolerates reusable dry fractions up to ~20% before the mass ratio diverges, but economics collapse well before that. Moving from 10% to 15% dry roughly *doubles* total energy per kilogram. This is why "minimal wings, reusable TPS, standard pods, high reuse" is the governing constraint on the architecture.
 
-*The electric throw is a minority of total energy.* At 10% dry fraction, the launcher contributes ~18.5 kWh/kg while propellant production contributes ~85.7 kWh/kg. The launch system's power electronics are hard engineering; the planetary energy budget is not.
+*The electric throw is a minority of total energy.* At 10% dry fraction, the launcher contributes ~18.5 kWh/kg while propellant production contributes ~85.7 kWh/kg. The launch system's power electronics are hard engineering. The planetary energy budget is not.
 
 **NTP comparison.** For NTP ($I_{sp}$ = 900 s, hydrogen monopropellant) at 7.3 km/s insertion, mass ratios fall sharply but hydrogen production remains large:
 
@@ -1153,11 +1157,11 @@ The NTP table defines dry fraction stage-based (structure ÷ [structure + propel
 
 *Re-entry metal deposition.* Direct measurements now show a material fraction of stratospheric aerosol particles containing metals traceable to spacecraft re-entry ("burn-up").<sup><a href="#ref-4">[4]</a></sup> At the launch cadence described in this essay—thousands of returning bridge vehicles per year—re-entry metal aerosol becomes a legitimate atmospheric chemistry monitoring variable. The mitigation path is vehicle design (controlled re-entry corridors, materials selection, ablation management) and quantitative atmospheric monitoring, treated as standard industrial process management.
 
-*Orbital debris governance.* NASA's debris mitigation standards and the U.S. Government ODMSP update formalise quantitative limits for large constellations, proximity operations, and disposal reliability.<sup><a href="#ref-16">[16]</a></sup> Any "hourly lane" civilisation must treat debris mitigation and traffic management as core infrastructure, not optional compliance. The volume of cis-lunar space is large; the density of useful orbital corridors is not. This is a governance and systems-engineering constraint, not a physics limit.
+*Orbital debris governance.* NASA's debris mitigation standards and the U.S. Government ODMSP update formalise quantitative limits for large constellations, proximity operations, and disposal reliability.<sup><a href="#ref-16">[16]</a></sup> Any "hourly lane" civilisation must treat debris mitigation and traffic management as core infrastructure, not optional compliance. The volume of cis-lunar space is large. The density of useful orbital corridors is not. This is a governance and systems-engineering constraint, not a physics limit.
 
-*Land use for generation.* At the industrial peak (~8 Mt/yr Earth complexity export), the PV sizing in <a class="xref" href="#appendix-o">Appendix O</a> implies hundreds of GW of installed solar nameplate—a major land-use undertaking.<sup><a href="#ref-17">[17]</a></sup> Electrolysis is water-intensive. Cryogenic plants are capex-heavy. These are solvable with known engineering but require deliberate siting, permitting, and infrastructure investment on the same centurial timescale as the bridge itself.
+*Land use for generation.* At the industrial peak (~8 Mt/yr Earth complexity export), the PV sizing in <a class="xref" href="#appendix-o">Appendix O</a> implies hundreds of GW of installed solar nameplate, a major land-use undertaking.<sup><a href="#ref-17">[17]</a></sup> Electrolysis is water-intensive. Cryogenic plants are capex-heavy. These are solvable with known engineering but require deliberate siting, permitting, and infrastructure investment on the same centurial timescale as the bridge itself.
 
-*NTP governance.* Nuclear thermal propulsion adds a regulatory and safety governance layer to any Earth-adjacent operations. NASA's own materials emphasise NTP as a high-performance in-space option with heritage testing, but the safety case for operations involving fission reactors requires oversight infrastructure commensurate with the technology.<sup><a href="#ref-7">[7]</a></sup> The IAEA/UNCOPUOS Safety Framework for Nuclear Power Source Applications in Outer Space provides the international governance baseline for launch approval, operational safety, and end-state disposal.<sup><a href="#ref-34">[34]</a></sup>
+*NTP governance.* Nuclear thermal propulsion adds a regulatory and safety governance layer to any Earth-adjacent operations. NASA's own materials emphasise NTP as a high-performance in-space option with heritage testing. But the safety case for operations involving fission reactors requires oversight infrastructure commensurate with the technology.<sup><a href="#ref-7">[7]</a></sup> The IAEA/UNCOPUOS Safety Framework for Nuclear Power Source Applications in Outer Space provides the international governance baseline for launch approval, operational safety, and end-state disposal.<sup><a href="#ref-34">[34]</a></sup>
 
 **Net assessment.** The bridge does not achieve zero environmental impact. It converts *unmanaged atmospheric chemistry* (soot injected into the stratosphere by scaling chemical rockets) into *managed industrial externalities* (land use, water consumption, re-entry aerosol monitoring, debris governance). The latter are tractable engineering and governance problems with historical analogues. The former is not.
 
@@ -1185,9 +1189,9 @@ NREL ATB 2024 utility-scale PV capacity factors range from 21.4% (resource class
 
 Launch energy from the lunar surface is remarkably small: 0.78 kWh/kg kinetic at escape velocity, ~1.12–1.31 kWh/kg at 60–70% launcher efficiency (<a class="xref" href="#appendix-h">Appendix H</a>). But the mass driver launches *processed* material—metals, glass, oxygen—not raw regolith.
 
-NASA's ISRU requirements documents note prototype oxygen extraction systems operating at approximately **400 kWh/kg O₂** (annualised, including all system overhead).<sup><a href="#ref-38">[38]</a></sup> That is a huge number: two orders of magnitude larger than the launch energy itself. At 500 Mt/yr of processed export, even if only 20% of the mass requires full extraction-grade processing, the power demand reaches hundreds of GW—still a tiny fraction of the Moon's ~12.9 PW intercepted sunlight, but the dominant term in the lunar energy budget.
+NASA's ISRU requirements documents note prototype oxygen extraction systems operating at approximately **400 kWh/kg O₂** (annualised, including all system overhead).<sup><a href="#ref-38">[38]</a></sup> That is two orders of magnitude larger than the launch energy itself. At 500 Mt/yr of processed export, even if only 20% of the mass requires full extraction-grade processing, the power demand reaches hundreds of GW—still a tiny fraction of the Moon's ~12.9 PW intercepted sunlight, but the dominant term in the lunar energy budget.
 
-This implies that **process innovation—beneficiation, reactor design, thermal recuperation, high-temperature electrolysis—is the difference between "lunar industry" and "lunar science outpost."** NASA's regolith electrolysis efforts (e.g., the GaLORE programme at Kennedy Space Center) confirm the core chemistry is known. The efficiency frontier is still open.<sup><a href="#ref-39">[39]</a></sup>
+**Process innovation—beneficiation, reactor design, thermal recuperation, high-temperature electrolysis—is the difference between "lunar industry" and "lunar science outpost."** NASA's regolith electrolysis efforts (e.g., the GaLORE programme at Kennedy Space Center) confirm the core chemistry is known. The efficiency frontier is still open.<sup><a href="#ref-39">[39]</a></sup>
 
 | Lunar process | Energy intensity | Notes |
 |---|---|---|
@@ -1196,7 +1200,7 @@ This implies that **process innovation—beneficiation, reactor design, thermal 
 | Metal smelting (analogous) | ~15–25 kWh/kg | Terrestrial aluminium smelting analogue |
 | Total processing (speculative mature) | ~30–100 kWh/kg | High uncertainty; depends on beneficiation breakthroughs |
 
-The long-term trajectory is clear: launch energy is negligible, and processing energy is the industrial constraint that determines whether the Moon is a quarry or merely a laboratory.
+Launch energy is negligible. Processing energy is the industrial constraint that determines whether the Moon is a quarry or merely a laboratory.
 
 
 ### <span id="appendix-q" class="appendix-anchor"></span>Q. Why Ground SSTO Fails and Bridge SSTO Works
@@ -1220,7 +1224,7 @@ where $R = e^{\Delta v / v_e}$ is the mass ratio. If $f_{payload} \leq 0$, the v
 
 **Ground kerolox SSTO is impossible.** At any realistic dry fraction, payload is negative. The exponential wins.
 
-**Ground hydrolox SSTO is marginal.** At an aggressive 8% dry fraction—lighter than any crewed reusable vehicle ever built—payload is 2.7%. A 100 t vehicle delivers 2.7 t. And this uses a trajectory-averaged 420 s Isp because the engine must fire through dense atmosphere with a compromised nozzle. It never achieves full vacuum performance. The X-33 programme was cancelled because the composite hydrogen tanks required to reach this dry fraction could not be manufactured to spec.
+**Ground hydrolox SSTO is marginal.** At an aggressive 8% dry fraction—lighter than any crewed reusable vehicle ever built—payload is 2.7%. A 100 t vehicle delivers 2.7 t. And this uses a trajectory-averaged 420 s Isp because the engine must fire through dense atmosphere with a compromised nozzle. It never achieves full vacuum performance. NASA cancelled the X-33 programme because the composite hydrogen tanks required to reach this dry fraction could not be manufactured to spec.
 
 **Bridge-assisted SSTO is comfortable.** At 10% dry fraction—a realistic reusable lifting body—cargo payload is 10.6% and human payload is 8.1%. A 485 t vehicle delivers 50 t of cargo. The margin is wide enough for engineering growth, structural reserves, and operational reality.
 
@@ -1234,9 +1238,11 @@ where $R = e^{\Delta v / v_e}$ is the mass ratio. If $f_{payload} \leq 0$, the v
 
 The combined effect: the exponent drops from $9.2/3.24 = 2.84$ (ground kerolox) to $7.2/4.56 = 1.58$ (Bridge hydrolox). A 44% reduction in the exponent produces a 72% reduction in mass ratio (17.1 → 4.85). The SSTO that was always 2% short has 10% margin.
 
-**Why previous assisted launch didn't solve this.** Air launch (Virgin Orbit, Pegasus) provides ~250 m/s at ~10 km. The rocket still does 97% of the work, still fires through dense atmosphere, still uses a sea-level engine. The assist is too small to shift the propulsion regime. The Isp stays the same, the losses stay the same, and the mass budget barely moves. SpinLaunch and sea-level railguns provide more speed but at sea level—where dynamic pressure destroys the vehicle before it can bank or burn. These systems add velocity at the wrong altitude. The Bridge adds altitude at moderate velocity, which changes the engine, the propellant, the nozzle, and the structural envelope simultaneously. That is why the savings compound exponentially rather than adding linearly.
+**Why previous assisted launch didn't solve this.** Air launch (Virgin Orbit, Pegasus) provides ~250 m/s at ~10 km. The rocket still does 97% of the work, still fires through dense atmosphere, still uses a sea-level engine. The assist is too small to shift the propulsion regime. The Isp stays the same, the losses stay the same, and the mass budget barely moves.
 
-**The deeper point.** The SSTO spaceplane simply starts in the wrong place. Move the starting line from sea level to 20 km for vacuum engines, and the mass budget that was always negative becomes robustly positive.
+SpinLaunch and sea-level railguns provide more speed but at sea level, where dynamic pressure destroys the vehicle before it can bank or burn. These systems add velocity at the wrong altitude. The Bridge adds altitude at moderate velocity, which changes the engine, the propellant, the nozzle, and the structural envelope simultaneously. That is why the savings compound exponentially rather than adding linearly.
+
+**The deeper point.** The SSTO spaceplane starts in the wrong place. Move the starting line from sea level to 20 km for vacuum engines, and the mass budget that was always negative becomes robustly positive.
 
 
 ### <span id="appendix-r" class="appendix-anchor"></span>R. The Falsifier Register
@@ -1361,7 +1367,7 @@ Landis, G.A. (2005). "Reactionless Orbital Propulsion Using Tether Deployment." 
 
 Lofstrom, K. (1985). "The Launch Loop: A Low Cost Earth-to-High Orbit Launch System." *AIAA Space Programs and Technologies Conference.* Active dynamic structure for launch assist.
 
-Birch, P. (1982). "Orbital Ring Systems and Jacob's Ladders." *Journal of the British Interplanetary Society* 35. Orbital ring concept for Earth-to-space transport at very high throughput.
+Birch, P. (1982). "Orbital Ring Systems and Jacob's Ladders." *Journal of the British Interplanetary Society* 35. Orbital ring concept for Earth-to-space transport at high throughput.
 
 National Research Council (2012). *NASA Space Technology Roadmaps and Priorities.* The National Academies Press. https://doi.org/10.17226/13354
 
