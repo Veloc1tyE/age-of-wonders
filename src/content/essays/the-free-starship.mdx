@@ -145,6 +145,10 @@ The ISS achieves ~98% water recycling.<sup><a href="#ref-12">[12]</a></sup><sup>
 
 Mechanical parts, including pumps, seals, and structural panels, are plausible with additive and subtractive manufacturing from onboard feedstock. Metals can be reprocessed, polymers recast. But radiation-hardened processors, high-purity semiconductors, and precision sensors require fabrication chains that remain, today, firmly Earth-dependent.
 
+Count the processors at departure and you have set the mission clock. Radiation and thermal cycling retire them at a knowable rate, and nothing aboard can print more. Every other shortage is a queue. Silicon is a countdown (<a class="xref" href="#appendix-k">Appendix K</a>).
+
+A colony inherits the clock. A crew of a hundred cannot labour a planet into industry, so it does not try: machines mine, smelt, and print, and the crew administers. The imported tools are spent deliberately, printers building refineries and refineries feeding foundries, a decades-long sprint to pull the first local wafer before the last imported processor fails. Lose the sprint and the settlement drops to a computing floor it can pour on site, logic run in fluid and vacuum instead of silicon, and holds.
+
 Humanity must design Arcadia to be, in the oldest sense of the word, a vessel.
 
 ## VI. The Galaxy
@@ -161,6 +165,12 @@ Arcadia reaches any star with a gas giant.
 It hops between stars. Each hop is a human lifetime, spent mostly in sleep. Over centuries, a handful of ships becomes a lattice, because refuelling creates waypoints, and waypoints accumulate into routes, and routes become infrastructure.
 
 The [Solar Gravitational Lens](/essays/the-solar-gravitational-lens) maps the destinations, resolving continents and biosignatures on worlds thirty light-years away, before Arcadia departs.<sup><a href="#ref-sgl">[SGL]</a></sup>
+
+And the lens works in both directions, because every star is one. After planetfall, Arcadia sends a single probe back out: a close fall past the new star for speed, then a quarter-century coast to its gravitational focus. From there, the star's own gravity turns a metre of aperture into a permanent channel home (<a class="xref" href="#appendix-l">Appendix L</a>).
+
+The stream is one-way, and it arrives decades old. It is enough. Geology, weather, the genome of an alien leaf: Earth redesigns the next wave of ships around the ground truth of the last one, before those ships launch. Distance still forbids conversation. It no longer forbids inheritance.
+
+No ship that follows starts from zero.
 
 Commercial fusion leaves the laboratory. Fusion propulsion builds on that base. Life support narrows the gap between the ISS's 98% and the 99% the mission requires. A ship capable of indefinite Solar System exploration is a late-21st-century programme.
 
@@ -399,6 +409,32 @@ This is the single biggest architectural fork in the system. D-He3 buys performa
 **Displacement requirement.** To buoy $2 \times 10^8$ kg in sea-level air requires displacing roughly $1.7 \times 10^8$ m³, a volume about 550 m on a side. Not absurd for a lifting body at this scale. The hull is a shell whose mean density is below ambient air, held open by structural stiffness rather than internal gas pressure.
 
 **Failure modes.** The dominant failure mode is buckling under external pressure, not weight. Shell stability, puncture tolerance, and inspectability are the engineering constraints, not material density alone.
+
+### <span id="appendix-k" class="appendix-anchor"></span>K. The Silicon Clock
+
+*Structure can be printed from a planet. Processors cannot.*
+
+**Register.** This appendix is design modelling, not derivation from measured constants like <a class="xref" href="#appendix-a">A</a>–<a class="xref" href="#appendix-j">J</a>. Its numbers are stated so they can be attacked.
+
+**The bounded currency.** A settlement scales structural mass locally: regolith to metal, silicates to glass, both to enclosures. Nanoscale semiconductors do not scale the same way. A modern fab sits at the top of a supply chain of thousands of firms working the purest materials humans make. What the ship lands with is a fixed inventory: flight processors, sensors, radios, and spares. Total ionising dose, thermal cycling, and single-event burnout retire that inventory at a rate that can be budgeted in advance. At conservative duty cycles, with a cold reserve behind heavy shielding, the design allowance is ~75 years. That number is the mission clock.
+
+**The ladder.** The imported seed tools—metal printers, CNC mills, sintering beds—are selected for transitivity: each must be able to build a larger, cruder version of itself and the next tool up. The sequence runs from refining and induction smelting, through local generation and high-purity chemistry, to lithography: contact printing first, at micron scale, then projection steppers, then deep-ultraviolet optics. Parity with Earth is not the goal. A colony runs indefinitely on 1980s-class silicon if it can make enough of it. The sprint is from planetfall to the first local wafer, inside the ~75-year allowance.
+
+**The floor.** If lithography slips past the clock, the settlement drops one technological register and survives. Homeostasis—airflow, water, nutrient dosing in the agricultural enclosures—runs on fluidic logic cast into the structural ribs: no semiconductors, no radiation sensitivity, printable in glass and alloy. Heavy automation runs on thermionic vacuum-tube relays at macro scale. The floor is stagnation, not collapse, and it preserves the chemistry and optics work that makes a second attempt possible.
+
+**The administrators.** The scarcest resource is crew attention: a hundred people supervising a planetary industrial birth. The architecture is federated. Each sector—refining, agriculture, logistics—runs autonomously at the edge, on the cheapest substrate sufficient for it, and reports summaries upward to a shielded mainframe vault. Imported silicon is reserved for what only silicon can do: design, sequencing, the vault itself. The crew does not operate machines. It adjudicates exceptions. This is the deployment shape [*Computational Abundance*](/essays/computational-abundance) describes on Earth—bounded autonomy at the edge, verification at the centre—run where the stakes are a settlement rather than a workflow.
+
+### <span id="appendix-l" class="appendix-anchor"></span>L. The Reverse Relay
+
+*Every star ships with its own telescope.*
+
+**Register.** Like <a class="xref" href="#appendix-k">Appendix K</a>: design modelling on published physics.
+
+**Geometry.** The lens of [*The Solar Gravitational Lens*](/essays/the-solar-gravitational-lens) is not unique to the Sun. Any star bends light the same way, and a Sun-like star focuses from roughly 550 AU outward.<sup><a href="#ref-sgl">[SGL]</a></sup> After planetfall, one probe makes the lens mission in reverse: a close pass by the new star for velocity—the Sundiver manoeuvre—then an outbound coast of roughly 25 years to the focal line, buffering the survey record on solid state as it goes: geology, atmospheric chemistry, biology sequenced in the field.
+
+**The link.** On station, the probe transmits along the Earth line, and the host star's gravity supplies the gain—the same ~10¹¹ amplification the lens essay describes, now working for the transmitter. Metre-class apertures at both ends close an optical link across tens of light-years. The receiver is an SGL station already parked on the Sun's focal line, pointed the right way: the instrument that mapped the destination now listens to it.
+
+**The lattice.** Latency equals distance. A colony thirty light-years out speaks with a thirty-year delay, permanently, and the link is a broadcast, not a conversation. What it carries compounds anyway: every manifest, alloy, and enclosure design in the next wave of ships is corrected by ground truth from the last, decades before launch. Each settled system adds a node. The ships carry the species outward. The lenses carry what it learns home.
 
 </CollapsibleAppendix>
 
