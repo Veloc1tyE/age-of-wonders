@@ -35,6 +35,18 @@ function escapeHtml(str) {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// Strip Obsidian vault syntax before rendering. Three forms leak from vault
+// notes: the auto-generated "## Related" autolinks block, trailing bare
+// wiki-link lists, and inline [[target|label]] references. Generated PDFs
+// must carry none of them.
+function stripWikiSyntax(content) {
+  let out = content.replace(/\n*## Related\n<!-- autolinks -->\n[\s\S]*?<!-- \/autolinks -->\n*/g, '\n');
+  out = out.replace(/(?:\n[ \t]*-[ \t]*\[\[[^\]\n]+\]\][ \t]*)+\n*$/, '\n');
+  out = out.replace(/\[\[([^\]|\n]+)\|([^\]\n]+)\]\]/g, '$2');
+  out = out.replace(/\[\[([^\]\n]+)\]\]/g, '$1');
+  return out;
+}
+
 function getCSS() {
   return `
 @page { size: A4; margin: 2.0cm 0 1.8cm 0; }
@@ -302,7 +314,7 @@ async function main() {
   const absPath = resolve(ROOT, filepath);
   const raw = readFileSync(absPath, 'utf-8');
   const { data, content } = parseFrontmatter(raw);
-  let bodyHtml = marked.parse(content);
+  let bodyHtml = marked.parse(stripWikiSyntax(content));
   // Inject explicit page-break divs before every h2 except the first
   let firstH2 = true;
   bodyHtml = bodyHtml.replace(/<h2[ >]/g, (match) => {
@@ -311,9 +323,14 @@ async function main() {
   });
   const fullHtml = buildHTML(data, bodyHtml);
 
-  mkdirSync(OUTPUT_DIR, { recursive: true });
+  // Route output by source: private/<dir>/... -> pdfs/<dir>/
+  const seg = resolve(filepath).includes('/private/')
+    ? resolve(filepath).split('/private/')[1].split('/')[0]
+    : null;
+  const outDir = seg ? join(ROOT, 'pdfs', seg) : OUTPUT_DIR;
+  mkdirSync(outDir, { recursive: true });
   const slug = basename(filepath, '.md');
-  const out = join(OUTPUT_DIR, slug + '.pdf');
+  const out = join(outDir, slug + '.pdf');
 
   process.stdout.write('\n  > ' + slug + ' ... ');
   await generatePDF(fullHtml, out);

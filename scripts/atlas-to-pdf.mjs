@@ -16,7 +16,7 @@ import puppeteer from 'puppeteer';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = resolve(__dirname, '..');
-const OUTPUT_DIR = join(ROOT, 'pdfs');
+const OUTPUT_DIR = join(ROOT, 'pdfs', 'atlas');
 
 function parseFrontmatter(raw) {
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
@@ -36,6 +36,18 @@ function escapeHtml(str) {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// Strip Obsidian vault syntax before rendering. Three forms leak from vault
+// notes: the auto-generated "## Related" autolinks block, trailing bare
+// wiki-link lists, and inline [[target|label]] references. Generated PDFs
+// must carry none of them.
+function stripWikiSyntax(content) {
+  let out = content.replace(/\n*## Related\n<!-- autolinks -->\n[\s\S]*?<!-- \/autolinks -->\n*/g, '\n');
+  out = out.replace(/(?:\n[ \t]*-[ \t]*\[\[[^\]\n]+\]\][ \t]*)+\n*$/, '\n');
+  out = out.replace(/\[\[([^\]|\n]+)\|([^\]\n]+)\]\]/g, '$2');
+  out = out.replace(/\[\[([^\]\n]+)\]\]/g, '$1');
+  return out;
+}
+
 function getCSS() {
   return `
 @page { size: A4; margin: 2.0cm 0 1.8cm 0; }
@@ -44,7 +56,7 @@ function getCSS() {
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 11pt;
-  line-height: 1.8;
+  line-height: 1.6;
   color: #222;
   padding: 52px 88px 52px;
   -webkit-font-smoothing: antialiased;
@@ -111,13 +123,30 @@ body {
 
 article h1 { display: none; }
 
+.section-head {
+  margin-top: 46px;
+  margin-bottom: 18px;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.section-number {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b8b8b8;
+  margin-bottom: 6px;
+}
+
 article h2 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 18pt;
+  font-size: 19pt;
   font-weight: 500;
   color: #111;
-  margin-top: 44px;
-  margin-bottom: 16px;
+  margin: 0;
   line-height: 1.2;
   break-after: avoid;
   page-break-after: avoid;
@@ -128,6 +157,45 @@ article h2 {
   page-break-before: always;
   height: 0;
   display: block;
+}
+
+.stat-row {
+  display: flex;
+  gap: 32px;
+  margin: 10px 0 38px;
+  padding: 26px 0 4px;
+  border-top: 0.75pt solid #e4e4e4;
+  border-bottom: 0.75pt solid #e4e4e4;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.stat {
+  flex: 1;
+  padding-right: 26px;
+  border-right: 0.75pt solid #ededed;
+}
+
+.stat:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26pt;
+  font-weight: 500;
+  color: #111;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 8.5pt;
+  line-height: 1.55;
+  color: #777;
 }
 
 article h3 {
@@ -145,8 +213,31 @@ article p { margin-bottom: 18px; orphans: 3; widows: 3; }
 article a { color: #444; text-decoration: none; border-bottom: 0.5px solid #ccc; }
 article strong { font-weight: 600; color: #111; }
 
-article ul, article ol { margin: 14px 0 18px; padding-left: 28px; }
-article li { margin-bottom: 7px; }
+article ul, article ol { margin: 14px 0 18px; padding-left: 24px; }
+article li { margin-bottom: 9px; }
+
+article ul { list-style: none; padding-left: 4px; }
+article ul li {
+  position: relative;
+  padding-left: 20px;
+}
+article ul li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+article ol { padding-left: 22px; }
+article ol li::marker {
+  color: #999;
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5pt;
+}
 
 article hr {
   border: none;
@@ -282,18 +373,22 @@ async function main() {
   const absPath = resolve(ROOT, filepath);
   const raw = readFileSync(absPath, 'utf-8');
   const { data, content } = parseFrontmatter(raw);
-  let bodyHtml = marked.parse(content);
-  // Inject explicit page-break divs before every h2 except the first
-  let firstH2 = true;
-  bodyHtml = bodyHtml.replace(/<h2[ >]/g, (match) => {
-    if (firstH2) { firstH2 = false; return match; }
-    return '<div class="page-break"></div>' + match;
-  });
+  let bodyHtml = marked.parse(stripWikiSyntax(content));
+  // Wrap numbered section headings ("## I. Title") with a quiet Roman-numeral label
+  bodyHtml = bodyHtml.replace(
+    /<h2>([IVXLCDM]+)\.\s*(.*?)<\/h2>/g,
+    (_match, numeral, title) => '<div class="section-head"><span class="section-number">Section ' + numeral + '</span><h2>' + title + '</h2></div>'
+  );
   const fullHtml = buildHTML(data, bodyHtml);
 
-  mkdirSync(OUTPUT_DIR, { recursive: true });
+  // Vault-sourced notes render into pdfs/atlas/; private/<dir> sources route to pdfs/<dir>/
+  const seg = resolve(filepath).includes('/private/')
+    ? resolve(filepath).split('/private/')[1].split('/')[0]
+    : null;
+  const outDir = seg ? join(ROOT, 'pdfs', seg) : OUTPUT_DIR;
+  mkdirSync(outDir, { recursive: true });
   const slug = basename(filepath, '.md');
-  const out = join(OUTPUT_DIR, slug + '.pdf');
+  const out = join(outDir, slug + '.pdf');
 
   process.stdout.write('\n  > ' + slug + ' ... ');
   await generatePDF(fullHtml, out);

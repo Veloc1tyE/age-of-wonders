@@ -324,6 +324,18 @@ async function generatePDF(htmlContent, outputPath) {
   await browser.close();
 }
 
+// Strip Obsidian vault syntax before rendering. Three forms leak from vault
+// notes: the auto-generated "## Related" autolinks block, trailing bare
+// wiki-link lists, and inline [[target|label]] references. Generated PDFs
+// must carry none of them.
+function stripWikiSyntax(content) {
+  let out = content.replace(/\n*## Related\n<!-- autolinks -->\n[\s\S]*?<!-- \/autolinks -->\n*/g, '\n');
+  out = out.replace(/(?:\n[ \t]*-[ \t]*\[\[[^\]\n]+\]\][ \t]*)+\n*$/, '\n');
+  out = out.replace(/\[\[([^\]|\n]+)\|([^\]\n]+)\]\]/g, '$2');
+  out = out.replace(/\[\[([^\]\n]+)\]\]/g, '$1');
+  return out;
+}
+
 async function main() {
   const filepath = process.argv[2];
   if (!filepath) {
@@ -334,7 +346,7 @@ async function main() {
   const absPath = resolve(ROOT, filepath);
   const raw = readFileSync(absPath, 'utf-8');
   const { data, content } = parseFrontmatter(raw);
-  const bodyHtml = marked.parse(content);
+  const bodyHtml = marked.parse(stripWikiSyntax(content));
   const fullHtml = buildHTML(data, bodyHtml);
 
   mkdirSync(OUTPUT_DIR, { recursive: true });
