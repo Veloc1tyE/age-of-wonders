@@ -499,7 +499,7 @@ Name one observable that would weaken or falsify the argument.
 
 Computational Abundance does this explicitly through dated predictions. Other essays do it implicitly. The Solar Gravitational Lens depends on the physics. The Free Starship depends on fuel autonomy. Perceptual Abundance depends on measurement becoming more available, not less.
 
-The mature form is the **falsifier register**: an appendix section listing each major claim's falsifier with a date and a failure mode ("if Blackwell holds above $35K into 2028, the framework is wrong"). Computational Abundance, Leviathan (Appendix O), Bridge to Infinity (Appendix R), and Singularity (Appendix H) all carry one. The strongest appendices go further and argue *against* the essay where they can — naming the honest caveat, grading their own evidence, declaring which numbers are original modelling. The appendix is where the essay tries to kill itself and fails.
+The mature form is the **falsifier register**: an appendix section listing each major claim's falsifier with a date and a failure mode ("if Blackwell holds above $35K into 2028, the framework is wrong"). Every essay now carries one: Computational Abundance (Appendices H/M), Leviathan (Appendix O), Bridge to Infinity (Appendix R), Singularity (Appendix H), It's All Energy (Appendix G), The Free Starship (Appendix M), The Solar Gravitational Lens (Appendix B), and Create an Age of Wonders (a directional Dated Register). Perceptual Abundance and Love is the Foundation carry theirs implicitly, by tier, as sanctioned below. The strongest appendices go further and argue *against* the essay where they can — naming the honest caveat, grading their own evidence, declaring which numbers are original modelling. The appendix is where the essay tries to kill itself and fails.
 
 Speculation gets its own register. Singularity declares it before reaching: "This section is speculation, and drawn in lighter ink." Declared speculation buys reach; undeclared speculation is a mood. For claims that are metaphysical rather than empirical, state the fence as faith — "Read as physics, it is a conjecture. Read as scripture, it is the oldest instruction there is." — once, and do not double-fence.
 
@@ -629,7 +629,9 @@ LitF is structurally the deepest foundation, placed late so the canon earns it. 
 The essays hand off to each other:
 
 - **SGL gives TFS its destinations.** Without the maps, the starship has no purpose.
-- **TFS makes SGL's maps actionable.** Without vessels, maps are curiosity.
+- **TFS makes SGL's maps actionable.** Without vessels, maps are curiosity. SGL returns the edge in §V ("the maps have a vessel").
+- **TFS's reverse relay makes SGL the receiver.** The ship's probe on the destination star's focal line (TFS §VI, Appendix L) transmits to the SGL station on the Sun's — the lens that mapped the world becomes the channel that carries it home. Appendix L inherits SGL's falsifier register wholesale.
+- **TFS's silicon clock runs on CA's deployment shape.** The colony's federated administration (TFS Appendix K) is CA's bounded-autonomy-at-the-edge architecture with the supply chain removed.
 - **BtI and TFS answer the same constraint by different means.** The bridge moves the launch above the atmosphere; the starship's buoyant hull rises through it without thrust. BtI names the handoff itself: the cathedral chain "ends with the free starships: vessels that depend on nothing before them."
 - **CA diffuses the intelligence that operates all of it.** Plateau models run navigation, planning, and analysis across the whole system.
 - **Leviathan trains the frontier models that distil into CA's plateau.** The forge is upstream of the diffusion.
@@ -650,7 +652,7 @@ For eight essays the canon claimed the universe is organised in favour of life w
 
 Singularity (published 2026-06-18) makes it, and improves on the spec this guide once held for it. The planned version was bare anthropic necessity: a universe that produces observers must be rich enough to support them. The essay rejects that framing as ungrounded ("True, but it explains the fact without grounding it") and substitutes a causal mechanism — cosmological natural selection extended to civilisations. The access frame stops being an observation about technology and becomes an observation about what kind of universe survives its own selection.
 
-The essay's falsifiers are registered in its Appendix H. The closing line was delivered exactly as written: *If you can ask whether the universe is with you, you are already the answer.*
+The essay's falsifiers are registered in its Appendix H. The planned closing line was delivered nearly as written — *If you can ask whether the universe is with you, you are already the answer.* — as the penultimate beat; the shipped close returns to agency, as the chord progression requires: *So keep walking.*
 
 The lesson for future essays: even the canon's own specifications are subject to the mechanism rule. The ninth essay was not ready until its mechanism was named.
 
@@ -1752,7 +1754,7 @@ private/
 
 ### Open Technical Items
 
-- [ ] Create `public/og-default.png` for social sharing previews.
-- [ ] Add per-essay OG images.
+- [x] Create `public/og-default.png` for social sharing previews.
+- [x] Add per-essay OG images. Generated into `public/og/` by `scripts/generate-og-images.mjs` (rerun after a title or description changes); wired via `ogImage` frontmatter.
 - [ ] Reconnect LinkedIn to Typefully social set `277101`.
 - [ ] Configure Buttondown favicon in the dashboard.

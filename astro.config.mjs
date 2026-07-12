@@ -9,7 +9,7 @@ export default defineConfig({
   site: "https://ageofwonders.org", // Updated to actual domain
   output: "server", // Server-side rendering for API routes
   adapter: vercel(),
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap({ filter: (page) => !page.includes('/phoenix') })],
   markdown: {
     remarkPlugins: [await import("remark-math").then(m => m.default)],
     rehypePlugins: [await import("rehype-katex").then(m => m.default)],

@@ -3,6 +3,7 @@ title: The Solar Gravitational Lens
 description: Photographing distant worlds by turning the Sun into a telescope.
 date: 2026-01-22
 draft: false
+ogImage: "https://ageofwonders.org/og/the-solar-gravitational-lens.png"
 ---
 
 import Callout from '../../components/Callout.astro';
@@ -130,6 +131,8 @@ It's a spacecraft, a telescope, a mission profile. Flagship-class in ambition. B
 
 For most of history, knowledge required presence. Then telescopes made distance visible. The SGL would do something stranger: turn a star into an instrument and make geography visible at interstellar range.
 
+And the maps have a vessel. [*The Free Starship*](/essays/the-free-starship) goes where the lens has looked, and sends a probe to the destination star's own focal line: the lens that mapped the world becomes the channel that carries what the ship learns home. Eshleman's title promised both: observations, and communications.<sup><a href="#ref-3">[3]</a></sup>
+
 <Figure
   src={kepler186f}
   alt="Artist's conception of Kepler-186f, an Earth-sized exoplanet in the habitable zone"
@@ -144,6 +147,46 @@ At 550 AU, a small spacecraft stares at a thread-thin ring of light around the S
   title="The Solar Gravitational Lens"
   description="Photographing continents on distant worlds by turning the Sun into a telescope."
 />
+
+---
+
+<CollapsibleAppendix title="Technical Appendix">
+
+*Values are representative of published mission studies. Exact figures depend on wavelength, coronagraph design, and reconstruction assumptions.*
+
+### <span id="appendix-a" class="appendix-anchor"></span>A. Mission Physics
+
+*Deconvolution recovers the map—analogous to Event Horizon Telescope imaging.*
+
+- **Focal distance:** The focal line begins at ~547 AU (where f = R☉²/2rg, with rg the Sun's Schwarzschild radius) and extends outward. Light grazing the Sun's limb is deflected by ~1.75 arcseconds. See [2], [4] for derivations.
+
+- **Optical gain:** ~10¹⁰–10¹¹ brightness amplification at optical/near-IR wavelengths [4]. This pushes the photon budget into a fundamentally different regime from conventional telescopes.
+
+- **Image formation:** The planet appears as an Einstein ring. Metre-scale motion in the image plane corresponds (order-of-magnitude) to tens-of-kilometres-class changes in the reconstructed surface footprint, depending on wavelength, coronagraph performance, and noise assumptions.
+
+- **Integration time:** Months to a year for megapixel-class maps of Earth analogues at tens of parsecs [4, 5]. Nearer targets (e.g., Proxima b at 1.3 pc) require less time.
+
+- **Propulsion:** Solar sails with sundiver manoeuvres can achieve tens of AU/year exit velocities [7]. Laser propulsion could reduce times further [8].
+
+- **Station-keeping:** Sub-kilometre accuracy maintained for years via ion thrusters. The Sun, telescope, and target must remain well aligned to sub-microradian precision—so well that tiny pointing errors distort what you measure.
+
+- **Mission architecture:** Swarm concepts with multiple small probes provide redundancy and enable parallel observations [10]. Optical laser links return data at tractable rates even from 550+ AU.
+
+- **Why no alternative works:** Space interferometers need ~100 km baselines. Fast flybys spend only minutes at target with prohibitive communication challenges. Each non-SGL approach falls 2–5 orders of magnitude short [4].
+
+### <span id="appendix-b" class="appendix-anchor"></span>B. Falsifier Register
+
+*The essay's claims, and what would break them. The gates are physical rather than calendared: the lens waits on engineering, not on events with schedules.*
+
+**B.1 — The corona, at first mission-level study.** The claim: optical-wavelength imaging survives the Sun's glare behind a coronagraph, because corona noise that is severe at radio wavelengths is far weaker at optical ones [11]. This is the register's foundation stone. If mission-level modelling or a precursor coronagraph demonstration shows the ring's photon budget drowned at optical wavelengths for an Earth analogue at tens of parsecs, the imaging claim fails at its root, and the lens returns to what it was before 1979: a curiosity of general relativity. Every other entry assumes B.1 holds.
+
+**B.2 — Station-keeping, at first deep-space demonstration.** The claim: metre-class image-plane position held for years by ion thrusters. If precursor flights cannot hold that class, resolution coarsens from tens of kilometres toward continental scale. The map degrades. The mission survives: a continent is still geography.
+
+**B.3 — The reconstruction, checkable now.** The megapixel claim rests on published inverse-problem modelling [4, 5]. It fails by recomputation: if end-to-end simulation with realistic corona noise and solar oblateness cannot recover tens-of-kilometre features at 30 parsecs, the coastline in §II overstates, and the essay falls back to the published sensitivity floor. A reader with the papers and a workstation can attack this entry today.
+
+**B.4 — The transit, at first sundiver.** The 15–25 year timeline requires sundiver solar sails reaching tens of AU per year [7], or laser propulsion faster still [8, 9]. If the first flown sundiver-class sail falls an order of magnitude short, the focal line recedes to Voyager timescales and the mission slips a generation. The lens does not move. It waits.
+
+</CollapsibleAppendix>
 
 ---
 
@@ -182,28 +225,6 @@ See also: <a href="https://arxiv.org/abs/2301.07495" target="_blank" rel="noopen
 
 <span id="ref-11">[11]</span> Turyshev, S.G. & Toth, V.T. (2018). <a href="https://arxiv.org/abs/1810.06627" target="_blank" rel="noopener noreferrer">"Diffraction of light by the gravitational field of the Sun and the solar corona."</a>
 (SGL modelling including solar-corona plasma effects: severe at radio wavelengths, far weaker at optical wavelengths, hence the coronagraph.)
-
-**Technical Notes**
-
-Deconvolution recovers the map—analogous to Event Horizon Telescope imaging.
-
-*Values are representative of published mission studies. Exact figures depend on wavelength, coronagraph design, and reconstruction assumptions.*
-
-- **Focal distance:** The focal line begins at ~547 AU (where f = R☉²/2rg, with rg the Sun's Schwarzschild radius) and extends outward. Light grazing the Sun's limb is deflected by ~1.75 arcseconds. See [2], [4] for derivations.
-
-- **Optical gain:** ~10¹⁰–10¹¹ brightness amplification at optical/near-IR wavelengths [4]. This pushes the photon budget into a fundamentally different regime from conventional telescopes.
-
-- **Image formation:** The planet appears as an Einstein ring. Metre-scale motion in the image plane corresponds (order-of-magnitude) to tens-of-kilometres-class changes in the reconstructed surface footprint, depending on wavelength, coronagraph performance, and noise assumptions.
-
-- **Integration time:** Months to a year for megapixel-class maps of Earth analogues at tens of parsecs [4, 5]. Nearer targets (e.g., Proxima b at 1.3 pc) require less time.
-
-- **Propulsion:** Solar sails with sundiver manoeuvres can achieve tens of AU/year exit velocities [7]. Laser propulsion could reduce times further [8].
-
-- **Station-keeping:** Sub-kilometre accuracy maintained for years via ion thrusters. The Sun, telescope, and target must remain well aligned to sub-microradian precision—so well that tiny pointing errors distort what you measure.
-
-- **Mission architecture:** Swarm concepts with multiple small probes provide redundancy and enable parallel observations [10]. Optical laser links return data at tractable rates even from 550+ AU.
-
-- **Why no alternative works:** Space interferometers need ~100 km baselines. Fast flybys spend only minutes at target with prohibitive communication challenges. Each non-SGL approach falls 2–5 orders of magnitude short [4].
 
 </CollapsibleAppendix>
 

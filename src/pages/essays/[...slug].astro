@@ -53,14 +53,32 @@ const jsonLd = {
   }
 };
 
-// Get all published essays sorted by date for prev/next navigation
+// Prev/next navigation follows the canon's narrative order, not chronology.
+// Keep in sync with CANONICAL_ORDER in index.astro and essays/index.astro.
+const CANONICAL_ORDER = [
+  'create-an-age-of-wonders',
+  'perceptual-abundance',
+  'its-all-energy',
+  'computational-abundance',
+  'leviathan',
+  'bridge-to-infinity',
+  'the-solar-gravitational-lens',
+  'the-free-starship',
+  'love-is-the-foundation',
+  'singularity',
+];
+
 const allEssays = (await getCollection("essays"))
   .filter(e => !e.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => {
+    const ai = CANONICAL_ORDER.indexOf(a.slug);
+    const bi = CANONICAL_ORDER.indexOf(b.slug);
+    return (ai === -1 ? CANONICAL_ORDER.length : ai) - (bi === -1 ? CANONICAL_ORDER.length : bi);
+  });
 
 const currentIndex = allEssays.findIndex(e => e.slug === slug);
-const previousEssay = currentIndex < allEssays.length - 1 ? allEssays[currentIndex + 1] : null;
-const nextEssay = currentIndex > 0 ? allEssays[currentIndex - 1] : null;
+const previousEssay = currentIndex > 0 ? allEssays[currentIndex - 1] : null;
+const nextEssay = currentIndex < allEssays.length - 1 && currentIndex !== -1 ? allEssays[currentIndex + 1] : null;
 
 // Read raw file content for editing (only in dev)
 const filepath = `src/content/essays/${slug}.mdx`;
