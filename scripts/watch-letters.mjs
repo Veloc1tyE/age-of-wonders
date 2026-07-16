@@ -37,6 +37,13 @@ function escapeHtml(str) {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// Strip the Atlas/Obsidian vault's auto-generated backlinks block. It's
+// regenerated on the vault side, so filtering here at render time is more
+// durable than editing it out of the source document.
+function stripAutolinks(content) {
+  return content.replace(/\n+## Related\n<!-- autolinks -->\n[\s\S]*?<!-- \/autolinks -->\n*$/, '\n');
+}
+
 function getCSS() {
   return `
 @page { size: A4; margin: 1.8cm 0 1.5cm 0; }
@@ -236,10 +243,16 @@ function buildHTML(data, bodyHtml) {
 
 async function generatePDF(mdPath) {
   const slug = basename(mdPath, '.md');
-  const outPath = join(OUTPUT_DIR, slug + '.pdf');
+  // Route output by source: private/<dir>/... -> pdfs/<dir>/
+  const seg = resolve(mdPath).includes('/private/')
+    ? resolve(mdPath).split('/private/')[1].split('/')[0]
+    : null;
+  const outDir = seg ? join(ROOT, 'pdfs', seg) : OUTPUT_DIR;
+  mkdirSync(outDir, { recursive: true });
+  const outPath = join(outDir, slug + '.pdf');
   const raw = readFileSync(mdPath, 'utf-8');
   const { data, content } = parseFrontmatter(raw);
-  const bodyHtml = marked.parse(content);
+  const bodyHtml = marked.parse(stripAutolinks(content));
   const html = buildHTML(data, bodyHtml);
 
   mkdirSync(OUTPUT_DIR, { recursive: true });

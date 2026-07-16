@@ -6,7 +6,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "dossier": "node private/dossier-aquila/site.mjs",
+    "dossier:dev": "DOSSIER_DEV=1 node private/dossier-aquila/site.mjs --dev-serve",
+    "dossier:check": "node scripts/dossier-devcheck.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",

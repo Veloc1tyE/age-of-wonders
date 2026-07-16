@@ -17,13 +17,31 @@
 
 import { readFileSync } from 'fs';
 import { join, extname } from 'path';
+import { fileURLToPath } from 'url';
 
 export function getSharedCSS({ register }) {
   const isDeck = register === 'deck';
 
+  // Fonts are INLINED (base64), not assumed present on the rendering machine.
+  // Previously these PDFs relied on system-installed Cormorant/Inter — if the face
+  // was missing, Puppeteer silently substituted and the document shipped wrong.
+  //   thesis -> Heebo + Inter  (engineering register; matches the dossier site)
+  //   deck   -> Cormorant + Inter (unchanged)
+  const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..');
+  const fontFile = isDeck
+    ? 'private/book/assets/fonts/fonts-inline.css'
+    : 'private/dossier-aquila/assets/fonts-dossier.css';
+  let fonts = '';
+  try {
+    fonts = readFileSync(join(ROOT, fontFile), 'utf-8');
+  } catch {
+    fonts = ''; // fall back to system faces rather than fail the build
+  }
+
   // Shared palette + typography tokens. All visual primitives reference these
   // so the two registers stay visually consistent.
   const base = `
+${fonts}
 :root {
   --ink: #1A1A1A;
   --ink-soft: #333;
@@ -54,8 +72,8 @@ article a {
   border-bottom: 0.5px solid #ccc;
 }
 
-article ul, article ol { margin: 9px 0 12px 0; padding-left: 22px; }
-article li { margin-bottom: 4px; orphans: 3; widows: 3; page-break-inside: avoid; }
+article ul, article ol { margin: ${isDeck ? '9px 0 12px 0' : '14px 0 18px 0'}; padding-left: 22px; }
+article li { margin-bottom: ${isDeck ? '4px' : '7px'}; orphans: 3; widows: 3; page-break-inside: avoid; }
 article li p { margin-bottom: 4px; }
 
 article hr {
@@ -65,8 +83,8 @@ article hr {
 }
 
 article blockquote {
-  margin: 18px 0;
-  padding: 12px 20px;
+  margin: 22px 0;
+  padding: 18px 20px;
   border-left: 2pt solid #ccc;
   background: #fafafa;
   color: #444;
@@ -78,7 +96,7 @@ article blockquote p { margin-bottom: 0; text-align: left; }
 article table {
   width: 100%;
   border-collapse: collapse;
-  margin: 18px 0 22px;
+  margin: ${isDeck ? '18px 0 22px' : '24px 0 28px'};
   page-break-inside: avoid;
 }
 article thead th {
@@ -87,12 +105,12 @@ article thead th {
   text-align: left;
   padding: 8px 12px;
   border-bottom: 1.5pt solid #222;
-  font-size: 8pt;
+  font-size: ${isDeck ? '8pt' : '9pt'};
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 article tbody td {
-  padding: 7px 12px;
+  padding: ${isDeck ? '7px 12px' : '9px 12px'};
   border-bottom: 0.5pt solid #ececec;
   color: #333;
   vertical-align: top;
@@ -212,7 +230,7 @@ article > .section-head:first-of-type {
 }
 .compare > div {
   flex: 1;
-  padding: ${isDeck ? '22px 26px' : '14px 18px'};
+  padding: ${isDeck ? '22px 26px' : '18px 20px'};
 }
 .compare > div:first-child {
   border-right: 0.5pt solid #ccc;
@@ -481,50 +499,55 @@ article blockquote {
   }
 
   // THESIS register (Armor)
-  return base + visualPrimitives + `
+  //
+  // Post-processed below: the SHARED visual primitives still ask for Cormorant, but
+  // Cormorant is no longer inlined in this register — left alone it would silently
+  // fall back to Georgia. Heebo also ships no true italic, so any `font-style: italic`
+  // would render as a synthesised slant. Both are rewritten at the end of this function.
+  const thesisCss = base + visualPrimitives + `
 /* ──────────────────────────────────────────────── */
 /* THESIS REGISTER — Armor strategic thesis        */
 /* ──────────────────────────────────────────────── */
 
 @page {
   size: A4;
-  margin: 1.8cm 0 1.7cm 0;
+  margin: 2.1cm 0 1.9cm 0;
 }
 
 body {
-  font-size: 9.5pt;
-  line-height: 1.75;
-  padding: 0 72px 48px;
+  font-size: 10.8pt;
+  line-height: 1.78;
+  padding: 0 118px 52px;
 }
 
 /* Document header */
 .doc-header {
-  padding: 0 0 36px 0;
-  margin-bottom: 48px;
+  padding: 0 0 42px 0;
+  margin-bottom: 60px;
   border-bottom: 1.5pt solid #111;
 }
 .company-name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 20pt;
+  font-family: 'Heebo', sans-serif;
+  font-size: 17pt;
   font-weight: 500;
   color: #111;
   letter-spacing: -0.2px;
   margin-bottom: 10px;
 }
 .classification {
-  font-size: 7.5pt;
+  font-size: 8pt;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.4px;
   color: #aaa;
   margin-bottom: 28px;
 }
-.meta-table { font-size: 9pt; line-height: 1.75; color: #555; }
+.meta-table { font-size: 9.5pt; line-height: 1.7; color: #555; }
 .meta-table .label {
   font-weight: 500;
   color: #999;
   text-transform: uppercase;
-  font-size: 7.5pt;
+  font-size: 8pt;
   letter-spacing: 0.8px;
   width: 56px;
   display: inline-block;
@@ -534,32 +557,32 @@ body {
 .meta-row { margin-bottom: 5px; }
 
 .document-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 26pt;
-  font-weight: 400;
+  font-family: 'Heebo', sans-serif;
+  font-size: 23pt;
+  font-weight: 600;
   line-height: 1.15;
   color: #111;
   margin-bottom: 8px;
   letter-spacing: -0.3px;
 }
 .document-subtitle {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 14pt;
+  font-family: 'Heebo', sans-serif;
+  font-size: 12.5pt;
   font-weight: 300;
-  font-style: italic;
   color: #777;
   margin-bottom: 0;
 }
 
 /* Section headers (H1 = # Roman-numeral sections) */
 article h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 18pt;
-  font-weight: 500;
+  font-family: 'Heebo', sans-serif;
+  font-size: 17.5pt;
+  font-weight: 600;
+  letter-spacing: -0.3px;
   color: #111;
   margin-top: 0;
-  margin-bottom: 16px;
-  line-height: 1.2;
+  margin-bottom: 24px;
+  line-height: 1.3;
   page-break-before: always;
   break-before: page;
   page-break-after: avoid;
@@ -578,54 +601,77 @@ article > h1:first-of-type {
 
 /* Subsection headers (H2) */
 article h2 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 13pt;
-  font-weight: 500;
+  font-family: 'Heebo', sans-serif;
+  font-size: 13.5pt;
+  font-weight: 600;
+  letter-spacing: -0.2px;
   color: #111;
-  margin-top: 28px;
-  margin-bottom: 10px;
-  line-height: 1.3;
+  margin-top: 38px;
+  margin-bottom: 14px;
+  line-height: 1.35;
   page-break-after: avoid;
 }
 
 /* Sub-subsection headers (H3) */
 article h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 11pt;
+  font-family: 'Heebo', sans-serif;
+  font-size: 11.5pt;
   font-weight: 500;
-  font-style: italic;
   color: #333;
-  margin-top: 22px;
-  margin-bottom: 7px;
-  line-height: 1.35;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  line-height: 1.4;
   page-break-after: avoid;
 }
 
 /* Deep headers (H4) */
 article h4 {
   font-family: 'Inter', sans-serif;
-  font-size: 9pt;
+  font-size: 9.5pt;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: #666;
-  margin-top: 24px;
-  margin-bottom: 6px;
+  margin-top: 32px;
+  margin-bottom: 9px;
   page-break-after: avoid;
 }
 
 /* Body text */
 article p {
-  margin-bottom: 11px;
+  margin-bottom: 17px;
   orphans: 4;
   widows: 4;
+  /* Flush both edges. Naive justify + hyphens:auto hyphenated every other line
+     (mod-ules, ratio-nally, re-ceiver); the limits below are what make justification
+     survivable: only break words of 8+ chars, never leave a stub under 4 chars on
+     either side, and never hyphenate more than 2 lines in a row.
+     NB: no backticks in this file's comments — they sit inside a template literal. */
   text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
   hyphens: auto;
+  hyphenate-limit-chars: 10 5 5;   /* only break words of 10+, never a stub under 5 */
+  hyphenate-limit-lines: 2;
 }
+/* never justify a heading, a cell, or a caption — only running prose */
+article h1, article h2, article h3, article h4,
+article th, article td, article li, .kicker, .stat .l, .stat .n, figcaption { text-align: left; hyphens: none; }
+
+/* display equation — no KaTeX in this pipeline, so the formula is set by hand */
+.eq { margin: 22pt auto; padding: 14pt 16pt; background: #fbfbfb; border: 0.75pt solid #ececec;
+      border-radius: 3pt; text-align: center; font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 15pt; line-height: 1.5; break-inside: avoid; }
+.eq i { font-style: italic; }
+.eq sub { font-size: 0.62em; font-style: italic; vertical-align: -0.25em; }
+.eq .op { padding: 0 0.45em; color: #999; font-style: normal; }
+.eq .k { font-size: 8.5pt; font-family: 'Inter', sans-serif; color: #777; display: block;
+         margin-top: 9pt; line-height: 1.6; }
 
 article blockquote {
-  font-size: 9.5pt;
-  line-height: 1.7;
+  font-size: 10.2pt;
+  line-height: 1.75;
 }
 
 /* Appendix / source entries */
@@ -633,7 +679,28 @@ article blockquote {
   display: block;
   margin-top: 4px;
 }
+
+/* ─── WIDE TABLES ────────────────────────────────── */
+/* Break out of the prose measure and use the page. */
+article table.wide {
+  width: calc(100% + 156px);
+  margin-left: -78px;
+  margin-right: -78px;
+  font-size: 8pt;
+  page-break-inside: auto;   /* a 23-row register cannot fit one page; let it flow */
+}
+article table.wide th { font-size: 7pt; padding: 6px 7px; }
+article table.wide td { padding: 6px 7px; line-height: 1.42; }
+article table.wide.dense { font-size: 7.2pt; }
+article table.wide.dense th { font-size: 6.5pt; letter-spacing: .3px; }
+article table.wide.dense td { padding: 5px 6px; line-height: 1.38; }
+article table.wide tr { page-break-inside: avoid; }   /* never split a single row */
+article table.wide thead { display: table-header-group; }  /* repeat header on each page */
 `;
+
+  return thesisCss
+    .replace(/'Cormorant Garamond', Georgia, serif/g, "'Heebo', sans-serif")
+    .replace(/\n\s*font-style: italic;/g, '');
 }
 
 /**
@@ -669,6 +736,18 @@ export function groupSectionHeads(html) {
  */
 export function inlineAssets(html, rootDir) {
   const publicDir = join(rootDir, 'public');
+  // CONFIDENTIAL FIGURES MUST NEVER LIVE IN public/. That directory is the Astro public
+  // root and deploys to ageofwonders.org — anything in it is on the open internet.
+  // A data-src beginning "dossier/" resolves to the NDA-only asset directory instead.
+  const dossierDir = join(rootDir, 'private/dossier-aquila/assets/diagrams');
+  // Photographs live in assets/images/optimised (2000px, ~500KB each). The originals are
+  // print-grade and enormous; embedding them would add 47 MB to the PDF for no visible gain.
+  const photoDir = join(rootDir, 'private/dossier-aquila/assets/images/optimised');
+  const resolveAsset = (src) => {
+    if (src.startsWith('dossier/photo/')) return join(photoDir, src.slice('dossier/photo/'.length));
+    if (src.startsWith('dossier/')) return join(dossierDir, src.slice('dossier/'.length));
+    return join(publicDir, src);
+  };
 
   // Replace <figure class="... diagram ..." data-src="images/...svg" data-caption="..."></figure>
   html = html.replace(
@@ -679,10 +758,19 @@ export function inlineAssets(html, rootDir) {
       const classMatch = attrs.match(/class="([^"]*)"/);
       const cls = classMatch ? classMatch[1] : 'figure diagram';
       try {
-        const svgPath = join(publicDir, src);
-        const svgContent = readFileSync(svgPath, 'utf-8')
-          .replace(/<\?xml[^>]*\?>\s*/, '');
+        const assetPath = resolveAsset(src);
         const figcap = caption ? `<figcaption>${caption}</figcaption>` : '';
+        const ext = extname(assetPath).toLowerCase();
+        // A raster asset must be embedded as a data URI. Reading a JPEG as UTF-8 and
+        // injecting it as inline SVG dumps the binary into the document as text — it
+        // turned a 9-page booklet into 295 pages of garbage before this check existed.
+        if (ext === '.jpg' || ext === '.jpeg' || ext === '.png') {
+          const mime = ext === '.png' ? 'image/png' : 'image/jpeg';
+          const b64 = readFileSync(assetPath).toString('base64');
+          return `<figure class="${cls}"><img src="data:${mime};base64,${b64}" alt=""/>${figcap}</figure>`;
+        }
+        const svgContent = readFileSync(assetPath, 'utf-8')
+          .replace(/<\?xml[^>]*\?>\s*/, '');
         return `<figure class="${cls}">${svgContent}${figcap}</figure>`;
       } catch (e) {
         return `<figure class="${cls}"><p>[Missing: ${src}]</p></figure>`;
@@ -692,10 +780,10 @@ export function inlineAssets(html, rootDir) {
 
   // Replace <img src="/images/..."> with inlined SVG or data-URI'd PNG.
   html = html.replace(/<img([^>]*?)src="([^"]+)"([^>]*?)>/g, (match, pre, src, post) => {
-    if (!src.startsWith('/images/') && !src.startsWith('images/')) return match;
+    if (!src.startsWith('/images/') && !src.startsWith('images/') && !src.startsWith('dossier/')) return match;
     const rel = src.replace(/^\/+/, '');
     try {
-      const abs = join(publicDir, rel);
+      const abs = resolveAsset(rel);
       const ext = extname(abs).toLowerCase();
       if (ext === '.svg') {
         const svg = readFileSync(abs, 'utf-8').replace(/<\?xml[^>]*\?>\s*/, '');
@@ -713,4 +801,27 @@ export function inlineAssets(html, rootDir) {
   });
 
   return html;
+}
+
+
+/**
+ * Wide tables must escape the text column.
+ *
+ * The measure is tuned for prose (~72 chars). A 6-column roadmap grid or a
+ * 5-column falsifier register with 400-character cells crushed into that width
+ * renders one word per line and is simply unreadable. These tables get to use the
+ * full page: they break out of the measure, drop a type size, and are allowed to
+ * split across pages (page-break-inside:avoid on a two-page table pushes it whole
+ * and leaves half a page blank).
+ */
+export function markWideTables(html) {
+  return html.replace(/<table>([\s\S]*?)<\/table>/g, (whole, inner) => {
+    const firstRow = (inner.match(/<tr>[\s\S]*?<\/tr>/) || [''])[0];
+    const cols = (firstRow.match(/<th/g) || []).length;
+    const longest = Math.max(0, ...(inner.match(/<td[^>]*>([\s\S]*?)<\/td>/g) || [])
+      .map((c) => c.replace(/<[^>]+>/g, '').trim().length));
+    if (cols >= 5 && longest > 60) return `<table class="wide dense">${inner}</table>`;
+    if (cols >= 5) return `<table class="wide">${inner}</table>`;
+    return whole;
+  });
 }

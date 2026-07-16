@@ -19,7 +19,7 @@ import { join, resolve, basename } from 'path';
 import { fileURLToPath } from 'url';
 import { marked } from 'marked';
 import puppeteer from 'puppeteer';
-import { getSharedCSS, inlineAssets, groupSectionHeads } from './document-css.mjs';
+import { getSharedCSS, inlineAssets, groupSectionHeads, markWideTables } from './document-css.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -44,8 +44,10 @@ function escapeHtml(str) {
 }
 
 function buildHTML(data, bodyHtml) {
-  const fontsUrl = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap';
-  const docTitle = [data.title, data.subtitle].filter(Boolean).join(' — ') || 'Document';
+  // Fonts are inlined (base64) by getSharedCSS — no network fetch at render time.
+  // The old Google Fonts <link> made a confidential build depend on the internet,
+  // and silently substituted faces whenever it failed.
+  const docTitle = [data.title, data.subtitle].filter(Boolean).join(': ') || 'Document';
   const shortTitle = data.title || 'Document';
 
   const parts = [];
@@ -54,9 +56,6 @@ function buildHTML(data, bodyHtml) {
   parts.push('<head>');
   parts.push('<meta charset="utf-8">');
   parts.push('<title>' + escapeHtml(docTitle) + '</title>');
-  parts.push('<link rel="preconnect" href="https://fonts.googleapis.com">');
-  parts.push('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>');
-  parts.push('<link href="' + fontsUrl + '" rel="stylesheet">');
   parts.push('<style>' + getSharedCSS({ register: 'thesis' }) + '</style>');
   if (data.flow === 'continuous') {
     // Short client documents: sections flow instead of each opening a fresh page.
@@ -105,7 +104,7 @@ function buildHTML(data, bodyHtml) {
   return { html: parts.join('\n'), shortTitle };
 }
 
-async function generatePDF(htmlContent, outputPath, shortTitle, footerText) {
+async function generatePDF(htmlContent, outputPath, shortTitle, footerText, numberPages = true) {
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
@@ -124,13 +123,12 @@ async function generatePDF(htmlContent, outputPath, shortTitle, footerText) {
       padding: 0 88px;
       font-size: 8pt;
       color: #bbb;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-family: -apple-system, Helvetica, Arial, sans-serif;
     ">
-      <span style="font-size:7pt;font-family:Inter,sans-serif;font-style:normal;letter-spacing:0.5px;text-transform:uppercase;color:#ccc;">
+      <span style="font-size:7pt;font-family:-apple-system,Helvetica,Arial,sans-serif;font-style:normal;letter-spacing:0.5px;text-transform:uppercase;color:#ccc;">
         ${footerText}
       </span>
-      <span class="pageNumber"></span>
+      ${numberPages ? '<span class="pageNumber"></span>' : '<span></span>'}
     </div>`;
 
   await page.pdf({
@@ -176,22 +174,34 @@ async function main() {
 
   let bodyHtml = marked.parse(body);
   bodyHtml = groupSectionHeads(bodyHtml);
+  bodyHtml = markWideTables(bodyHtml);
   bodyHtml = inlineAssets(bodyHtml, ROOT);
 
   const { html, shortTitle } = buildHTML(data, bodyHtml);
 
-  // Route output by source: private/<dir>/... -> pdfs/<dir>/
+  // Output: `--out <dir>` wins (callers that own a directory tree, e.g. dossier-package),
+  // else route by source: private/<dir>/... -> pdfs/<dir>/
+  const outIdx = process.argv.indexOf('--out');
+  const explicitOut = outIdx !== -1 ? process.argv[outIdx + 1] : null;
   const seg = resolve(filepath).includes('/private/')
     ? resolve(filepath).split('/private/')[1].split('/')[0]
     : null;
-  const outDir = seg ? join(ROOT, 'pdfs', seg) : OUTPUT_DIR;
+  const outDir = explicitOut ? resolve(explicitOut)
+                             : (seg ? join(ROOT, 'pdfs', seg) : OUTPUT_DIR);
   mkdirSync(outDir, { recursive: true });
   const slug = basename(filepath, '.md');
-  const out = join(outDir, slug + '.pdf');
+  // `--name "Nice Name"` renames the artefact (deliverables want human names, not slugs)
+  const nameIdx = process.argv.indexOf('--name');
+  const outName = nameIdx !== -1 ? process.argv[nameIdx + 1] : slug;
+  const out = join(outDir, outName + '.pdf');
 
   process.stdout.write('\n  > ' + slug + ' ... ');
-  const footerText = escapeHtml(data.footer || (data.company ? 'Confidential — ' + data.company : 'Confidential — Aquila Space Technologies'));
-  await generatePDF(html, out, shortTitle, footerText);
+  const footerText = escapeHtml(data.footer || (data.company ? 'Confidential · ' + data.company : 'Confidential · Aquila Global Infrastructure'));
+  // --no-page-numbers: this component is destined for a bound volume, which stamps its
+  // own CONTINUOUS numbering after merge. Baked-in per-document numbers restart at 1 in
+  // the middle of a volume and make every page reference in the contents wrong.
+  const numberPages = !process.argv.includes('--no-page-numbers');
+  await generatePDF(html, out, shortTitle, footerText, numberPages);
   console.log('done');
   console.log('  ' + out + '\n');
 }
