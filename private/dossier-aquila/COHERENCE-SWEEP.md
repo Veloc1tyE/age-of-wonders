@@ -2,9 +2,9 @@
 uid: note_178dfa0b3ba5
 ---
 
-# Package coherence sweep — 15 July 2026 (verified applied 16 July 2026)
+# Package coherence sweep — 15 July 2026 (finding register; basis updated 16 July 2026)
 
-**206 findings.** Every BLOCKER adversarially re-verified. All BLOCKER corrections have been applied to the source documents and verified against the corrected sources on 16 July 2026.
+**206 findings in the 15 July pass.** Every BLOCKER was adversarially re-verified before it entered this register. The detailed `Current` and `Replace with` blocks preserve the source state reviewed on that date; they are not live assertions. The latest basis and closure state are in the addendum at the end.
 
 
 ## BLOCKER
@@ -1134,6 +1134,41 @@ The unit economics are why it converts. An Era II anchor site delivers at **$0.2
 
 ---
 
-## Verification — 16 July 2026
+## Re-verification — 16 July 2026 consistency fleet
 
-All BLOCKER corrections above have been applied to the source documents. Verified against the corrected engineering-blueprint.md, investment-thesis.md, executive-memo.md, package/booklet-pre-nda.md, and the four design reviews. All cross-document number consistency confirmed: 541 kW, 3.509 chain, 12.98 MW corridor nameplate, $0.434/$0.359 LCOE, F + v_r·P_aperture + v_e·P_demand site cost model, $68.4M corridor capital, split Gate D, 2 HAPS precedent jurisdictions, 31-entry falsifier register. The next coherence sweep should include the SWF-EVALUATOR-BRIEF.md (added 16 July 2026) in the document set.
+The previous blanket closure statement was superseded by the three-basis receiver convention. Cross-document coherence now requires every capacity claim to identify whether it means **hardware ceiling**, **mean planning**, **contracted output**, **day-one load**, or **transmit envelope**.
+
+The governing Era II corridor is 22 fixed articles across 16 sites. Per article: 788.055 kW hardware / 541.465 kW planning / 487.318 kW contracted. Corridor totals: 17.337 MW / 11.912 MW / 10.721 MW on those bases, against 8.549 MW day-one load. The canonical N-1 ingress estate is 3 stations × 9 panels = 27 panels / 51.3 MW nominal installed; the surviving pair is dispatch-capped at 31.8 MW optical / 3.509 = 9.0624 MW delivered. Initial corridor capital is $76.0286M. The cost model is F + v_r·P_hardware + v_e·P_demand, plus the committed N-1 ingress estate.
+
+The earlier 24-article / 17-site / 12.98 MW statement is retired. The SWF Evaluator Brief is in scope as a non-authoritative navigation aid; its claims must inherit the same sources and cannot override the dossier. Citation residuals are tracked in `CITATION-AUDIT.md` and remain open until their exact URLs are mapped.
+
+### Corridor-economics propagation closure — 16 July 2026
+
+`sim/corridor_model.py` is the live authority for the reference-corridor split. It now computes and validates all four return labels separately:
+
+- operator capital **$62.528610M**; annual year-five share **$4.108146M**;
+- operator first-year cash yield **6.5700%**;
+- operator flat-flow IRR **−0.1820% over 15 years** and **4.2479% over 25 years**, using one outflow at t=0, equal end-of-year inflows and no growth, refleet or terminal value;
+- Aquila first-year cash yield **30.4307%**, and commercial-tranche first-year cash yield after the model's 30% concessional blend and financing-cost drag **8.5258%**. Neither is an IRR.
+
+The live `investment-thesis.md` and `engineering-blueprint.md` now carry the rounded N-1 forms 6.57%, −0.18%, 4.25%, 30.43% and 8.53% on the same bases. Appendix B-2.3 identifies the flat-flow comparator and separates the programme-level entry-point IRRs in B-2.2 from corridor cash yields. The Section VIII operating summary, tranche table, F30 and Appendix K financeability response use the same terminology.
+
+`python3 sim/corridor_model.py` passes all 27 printed-figure checks, including ingress quantisation, N-1 feasibility, committed capital and both flat-flow IRRs. Earlier finding text above remains the historical audit record; this closure block is the current disposition.
+
+The former Era III **5.41 MW / exactly 10:1** convention preserved in earlier findings is also superseded. The current dossier treats P3 as a separately qualified rack article: **19 MW optical, 2.360 planning chain, 9.08 MW hardware ceiling, 8.05 MW planning and 7.41 MW contracted**. It is not used to alter the Era II reference-corridor economics.
+
+### Final hostile red-team closure — 16 July 2026
+
+The last independent pass reopened a costing convention that earlier checks had missed. Laser learning-curve prices are quoted per **optical watt out**. Multiplying an optical-output price by the optical-to-delivered chain already converts it to dispatched delivered-watt capex; dividing that result by PCSEL wall-plug efficiency again double-counts WPE. WPE belongs in electrical input, source energy, cooling and electrical balance of plant. It does not create additional optical-output laser hardware.
+
+The live reference corridor model was not corrupted: it has always priced the 27 installed panels directly as 51.3 MW optical × $0.40/W = **$20.52M**. The resulting **$2.40/W of day-one delivered load** is caused by the N-1 installed estate and initial utilisation, not by a second WPE divisor. The stale convention did, however, reach the 2036–39 governed-equipment stream and the long-run Appendix B.2/B.3 stage table. Those derivatives are now rebuilt:
+
+- Aquila governed content: **$3.813/W** of Era II planning nameplate; **$0.872/W** in 2036–39, comprising $0.20/W-optical × the 2.360 Era III planning chain + $0.30/W receiver + ~$0.10/W deployment integration; **$0.90/W** from 2040 on the declared mature integration basis.
+- Founder equipment-stream expected NPV at 15%: **$0.98B**. Founder expected inflow/spend/net: **$3.76B / $0.46B / +$3.29B**, or **8.09×**.
+- Hostile seeded case: **18.5% P(NPV>0)**; P10/P50/P90 **−$0.23B / −$0.03B / +$3.82B**; success IRR **35.4% / 38.6% / 41.7%**; all-pass median **+$4.68B**.
+- Success-path entry IRRs with the governed stream: **52.3% / 56.9% / 71.3% / 119.0%** at T1/T2/T3/T4; uplifts **+6.4 / +7.8 / +13.4 / +35.6 points** against the rebuilt core paths.
+- Long-run stage table: Era I **$27.3/W and $1.22/kWh**; Era II **$5.79/W and $0.194/kWh**; Era III **$2.515/W and $0.067/kWh**; mature backbone **$1.27/W capex and $0.109/kWh including paid source energy**.
+
+The same pass closed five release residues: the archived 200-trial network fixture is byte-exact against the capacity-aware model; Era III explicitly uses 0.5 corridor per-unit per clear ingress and reports **99.2% mean power-weighted capacity / 99.5% delivered trunk service**; the site manifest states 12 pages including `model.html`; Mark Murphy's four photographs are current Aquila employee work product with chain-of-title retention required; and William Jeremijenko's Zimbabwe homestead image is recorded as his own phone photograph.
+
+The root release battery reproduces the corridor's 27/27 printed checks, the full 200-trial network tables, Python/JavaScript byte parity, default/hostile/core-only/stacked programme cases, equipment stream and entry IRRs. Earlier issue blocks remain historical evidence only; this is the current closure disposition.

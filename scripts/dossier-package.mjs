@@ -135,6 +135,7 @@ const COMPONENTS = [
   ['design-haps-relay.md', 'Design Review — HAPS Relay'],
   ['design-receiver-thermal.md', 'Design Review — Receiver Thermal'],
   ['design-network-operations.md', 'Design Review — Network Operations'],
+  ['SWF-EVALUATOR-BRIEF.md', 'SWF Evaluator Brief'],
 ];
 for (const [f, name] of COMPONENTS) render(join(DOSSIER, f), DIR_COMP, name);
 render(join(PKG, 'package-map.md'), DIR_COMP, 'Package Map');
@@ -191,7 +192,7 @@ const VOLUMES = [
   {
     num: 'II', name: 'The Verification', tone: 'audit',
     file: 'Verification/The Verification — Thesis Appendices A–M.pdf',
-    blurb: 'The arithmetic behind the dossier: physics derivations, the economic and financial models, the three-prior valuation, the falsifier register (F1–F30), the corridor pipeline, IP and export-control positions, the programme registers, the risk register, and the register of adversarial findings. The valuation model ships runnable at sim/econ_model.py — re-run it on your own priors rather than take ours.',
+    blurb: 'The arithmetic behind the dossier: physics derivations, the economic and financial models, the three-prior valuation, the falsifier register (F1–F31), the corridor pipeline, IP and export-control positions, the programme registers, the risk register, and the register of adversarial findings. The valuation model ships runnable at sim/econ_model.py — re-run it on your own priors rather than take ours.',
     parts: [{ src: join(DIR_BUILD, 'thesis-appendices.pdf'), title: 'Thesis Appendices A–M' }],
   },
   {
@@ -326,7 +327,7 @@ Verification/                           ${pp('II') + pp('III')} pp. Everything t
 
     The Verification —                  ${String(pp('II')).padStart(3)} pp   Physics derivations, the economic
     Thesis Appendices A–M.pdf                  and financial models, the three-prior
-                                               valuation, falsifiers F1–F30, the
+                                               valuation, falsifiers F1–F31, the
                                                corridor pipeline, IP and export control,
                                                the programme and risk registers.
 
@@ -334,7 +335,7 @@ Verification/                           ${pp('II') + pp('III')} pp. Everything t
     Blueprint and Design Reviews.pdf           independent design reviews. Every number
                                                recomputed from first principles or cited.
 
-    Components/                         The individual documents, if an advisor wants
+    Components/                         ${COMPONENTS.length + 1} individual documents, if an advisor wants
                                         one on its own rather than a bound volume.
 
 .build/                                 Build intermediates. Ignore.
@@ -360,6 +361,6 @@ console.log(`
     Verification/                            ${pp('II') + pp('III')} pp  audited, not read
         The Verification — Appendices.pdf    ${String(pp('II')).padStart(3)} pp
         The Engineering — Blueprint…pdf      ${String(pp('III')).padStart(3)} pp
-        Components/                          8 individual documents
+        Components/                          ${COMPONENTS.length + 1} individual documents
 `);
 console.log(`  Total: ${built.reduce((a, b) => a + b.pages, 0)} pp.\n`);

@@ -2,13 +2,13 @@
 uid: note_b55db6681d91
 ---
 
-# Citation integrity audit — 14 July 2026 (verified applied 16 July 2026)
+# Citation integrity audit — 14 July 2026 (finding register; reopened 16 July 2026)
 
-Every reference fetched and checked against (a) the claim its register entry says it anchors and (b) the body sentence citing it. Anything not cleanly confirmed went to a second, independent adversarial pass. All identified fixes have been applied to the source documents and verified on 16 July 2026.
+Every reference was checked against (a) the claim its register entry said it anchored and (b) the body sentence citing it. Anything not cleanly confirmed went to a second, independent adversarial pass. The detailed `Current`, `Finding`, and `Fix` blocks below preserve the state reviewed on 14 July; they are evidence history, not a description of the live source files.
 
-**65 references. 19 clean. 5 do not support the claim. 1 dead URL. 40 partial.**
+**At the 14 July audit date: 65 references. 19 clean. 5 did not support the claim. 1 dead URL. 40 partial.**
 
-> Nothing in this file has been applied. Every item below changes a factual claim and needs a human decision.
+> The initial findings below were recommendations when written. Some were later applied, some were only partially applied, and a fresh re-verification reopened the residual items listed at the end of this file. Never infer present closure from a historical `Fix` block.
 
 
 ## DOES_NOT_SUPPORT
@@ -479,6 +479,18 @@ Every reference fetched and checked against (a) the claim its register entry say
 
 ---
 
-## Verification — 16 July 2026
+## Re-verification — 16 July 2026 consistency fleet
 
-All cited fixes have been applied to the source documents. The TH[4] URL has been repointed. The corrected documents (15 July 2026) carry the same reference set; no new citations were added in the correction pass. A fresh citation audit against the corrected documents is recommended before the package ships to a counterparty — particularly to verify that the corrected LCOE figures ($0.434, $0.359, $0.133), the 541 kW / 3.509 chain, and the $68.4M corridor capital are each traceable to their stated sources.
+The blanket closure statement previously carried here was not supportable. A fresh check reopened the items below and propagated the corrections into the live thesis, blueprint, design reviews, memo, booklet, and context map:
+
+- **DARPA POWER:** the live text now records the public >800 W / 8.6 km result and the programme's completion; no public airborne-relay demonstration or sub-μrad DARPA pointing result is claimed.
+- **TH[7]:** the unsupported $1,300–5,118 rural-connection range was removed from the measured transmission-cost sentence. The ESMAP source now carries only the figures it supports.
+- **TH[9], TH[15], TH[21], TH[31]:** compound entries now state which part the clickable source supports. Mobile/tower claims point separately to GSMA; aerosol, site-diversity, and the historical diode-price series are no longer attributed to a URL that does not contain them and carry lower evidence language where retained.
+- **Sunglider:** the 2020 flight record and the 2 October 2024 SoftBank DoD field-trial record are separate links. The latter supports an up-to-75 kg rating; neither is presented as an as-flown payload-mass measurement.
+- **Sceye:** unsupported 15.8 km and 250 kg figures were removed. The retained primary-source facts are the 12-day flight, >88 h over selected areas, and station-seeking radii as low as 1 km; payload and relay altitude remain open gates.
+- **NREL:** all body and register links for the $0.65/Wp presentation now point to the durable OSTI record at https://www.osti.gov/biblio/1215183.
+- **Zephyr:** the 67-day 2025 flight is recorded as safely terminated; the lost aircraft is correctly identified as the separate 64-day 2022 flight.
+
+The current corridor arithmetic is an internal model derivation, not an externally cited fact: 22 articles across 16 sites; per article 788.055 kW hardware ceiling / 541.465 kW planning / 487.318 kW contracted; corridor 17.337 MW / 11.912 MW / 10.721 MW on those bases; 8.549 MW day-one metered load plus 5% site auxiliaries; 3 ingress stations × 9 panels = 27 panels / 51.3 MW nominal optical installed; N-1 surviving-pair dispatch 31.8 MW optical / 3.509 = 9.0624 MW delivered; $76.0286M initial capital. Its authority is `sim/corridor_model.py` plus the engineering blueprint, and every narrative document must name the basis when quoting a capacity.
+
+Image attribution and rights context were updated on 16 July 2026 from the founder's direct record: Aquila employee Mark Murphy photographed the four used Canberra/hilltop demonstration images, and William Jeremijenko made the Zimbabwe homestead image on his phone. `assets/images/LICENCES.md` carries the credits and records the four Mark Murphy images as Aquila employee work product. The distribution chain-of-title file should retain the governing employment agreement and its work-product/IP-assignment terms.
