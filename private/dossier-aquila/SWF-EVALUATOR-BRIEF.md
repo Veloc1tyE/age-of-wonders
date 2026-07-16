@@ -158,11 +158,13 @@ A SWF evaluator should move through these layers, but not strictly sequentially.
 
 2. **The people question** — who executes? The founder owns the UAE sovereign relationship (Eelke Sijbrandij), the African sovereign relationship (Oliver Tapuwa Mapunga), and the technology vision. The IEC TC 76 seat belongs to Aquila's optical engineer, not the founder personally. The legacy entity has a CEO who is not the founder. Understanding who controls what — and whether the founder can execute through the proposed vehicle — is load-bearing.
 
-3. **The window question** — why now? The connectome carries a claim: "Architecture closeable window bounded ~end-2027" with seven independent clocks converging. The legacy entity has ~5 months of runway (December 2026 base case, October 2026 floor). The UAE strategic posture — explicit pivot toward sovereign-defence capability and patient infrastructure capital deployment in the Global South — is not permanent. If this programme doesn't secure sovereign anchoring in the current window, the configuration may not reassemble.
+3. **The window question** — why now? The connectome carries a claim: "Architecture closeable window bounded ~end-2027" with seven independent clocks converging. The UAE strategic posture — explicit pivot toward sovereign-defence capability and patient infrastructure capital deployment in the Global South — is not permanent. If this programme doesn't secure sovereign anchoring in the current window, the configuration may not reassemble.
+
+**Capital structure assumption.** The legacy entity's current financial state (December 2026 runway) is expected to resolve before this package reaches an evaluator. The initial ~$30M tranche is likely covered through Eelke Sijbrandij's fund (the existing UAE sovereign channel). Remaining stages progress through broader SWF channels, then deployment SPVs for individual corridors. The evaluator is not being asked to rescue a distressed company — they are being asked to evaluate a programme that has already cleared its immediate resolution. Structure the diligence accordingly.
 
 ### Second pass — the investment case
 
-4. **The narrative** — Executive Memo. One hour. Does the case hold as a story? The core claim: generation is manufactured and gets cheaper; delivery is construction and does not. Lightway inverts the cost curve for delivery.
+4. **The narrative** — Executive Memo. Does the case hold as a story? The core claim: generation is manufactured and gets cheaper; delivery is construction and does not. Lightway inverts the cost curve for delivery.
 5. **The architecture** — Investment Thesis + Engineering Blueprint. Does the scaling roadmap close? Era I (fibre laser, solar HAPS, 10-30 kW), Era II (PCSEL phased array, 1 MW, 541 kW planning), Era III (beam-powered relay, 10 MW corridors, 8.05 MW planning, grid-competitive). Gates, not dates.
 6. **The capital structure** — tranche-and-gate discipline. Programme capital committed at AGI Top-Co, drawn only at gate discharges. This is infrastructure fund drawdown, not venture rounds. The $2.9B is the programme estimate; the actual commitment structure is phased.
 7. **The return architecture** — sovereign capital is strictly last in the loss waterfall. Builder's equity absorbs first, facility equity second, sovereign partner's capital last. This is the cross-portfolio asymmetry: risk is structured so the sovereign only loses after everyone else has. Carry flows: ACI CarryCo → HoldCo → AGI Top-Co, with the founder holding majority governance at Top-Co.
@@ -196,3 +198,50 @@ This is not a static document. It should be treated the same way the fleet treat
 - Persist findings back to the brain — the evaluation itself produces knowledge that compounds
 
 The SWF evaluator's job is not to read a dossier. It's to make a multi-billion dollar decision with decade-plus consequences. The brain is the institutional memory that makes that decision informed.
+
+---
+
+## The dossier refactor — recursive self-improvement
+
+This brief is not the final form. The dossier itself needs a refactoring pass, and the shape mirrors the Atlas codebase refactor: coherence, consistency, high signal, nothing left to remove.
+
+### The pattern
+
+The Atlas fleet refactors the codebase → the refactored Atlas becomes the tool the fleet uses to refactor the dossier → the dossier refactor proves the system works → the dossier becomes the first real test case of the hardened system → findings feed back into a final hardening pass.
+
+This is recursive self-improvement in the product sense. The fleet is the first enterprise customer of Atlas, and the dossier is the fleet's first real workload. If Atlas can't help the fleet produce a coherent, consistent, high-signal dossier, it can't help a SWF evaluator navigate one either.
+
+### The dossier base
+
+The dossier documents (`executive-memo.md`, `investment-thesis.md`, `engineering-blueprint.md`, the four design docs, the coherence/citation/architecture sweeps) are the static reference set. The refactor should:
+
+- **Ensure cross-document coherence.** Every number that appears in multiple documents must be identical or carry an explicit reconciliation note. The coherence sweep is the record — extend it.
+- **Remove duplication.** Some material appears in both the investment thesis and the engineering blueprint. The evaluator shouldn't have to read the same claim twice to trust it.
+- **Strengthen the counterfactual.** The comparative analysis against grid extension and solar mini-grids should be a first-class section, not scattered across appendices.
+- **Make the risk register queryable.** RR1-RR12 should be structured so an evaluator can ask "what's the central technical risk?" and get the answer with its mitigant and falsifier inline.
+- **Surface the capital pathway.** Eelke's fund → SWF channels → deployment SPVs. Each stage with its gate and its capital source. Clearer than the current narrative, which interweaves legacy entity concerns with programme architecture.
+
+### Atlas endpoint for the data room
+
+Following the dossier refactor, the private data room site should serve an Atlas endpoint — a query interface over the dossier and the relevant brain material. The evaluator shouldn't just read documents; they should be able to ask questions of the institutional memory directly:
+
+```
+"Show me every claim about receiver sizing and who verified it."
+"What's the evidence for the 1080 nm / 1550 nm wavelength separation?"
+"List every risk where the mitigant hasn't been tested yet."
+"What changed between the June and July versions of the financial model?"
+```
+
+The endpoint should be scoped — the evaluator sees dossier material and curated supporting evidence, not the full brain. But the mechanism is the same: recall → cite → verify. The evaluator gets the same product experience the enterprise customer gets. The dossier refactor proves the product; the data room endpoint demonstrates it.
+
+### The recursive loop
+
+This creates a self-reinforcing cycle:
+
+1. Fleet refactors Atlas (enterprise hardening)
+2. Fleet uses refactored Atlas to refactor the dossier (first real workload)
+3. Dossier quality proves the system's capability (test case with measurable output)
+4. Findings from dossier work feed back into final Atlas hardening (real user feedback)
+5. Data room endpoint demonstrates the product to the evaluator (the same SWF evaluating the programme sees Atlas working on the programme's own material)
+
+The dossier is not just documentation. It's the product demonstration. The SWF evaluator evaluating the energy programme is simultaneously evaluating the knowledge infrastructure that produced the evaluation materials — and that infrastructure is what Atlas sells. Every correction caught by the coherence sweep, every number traced to its source, every risk mapped to its mitigant — these are the product working on itself.
