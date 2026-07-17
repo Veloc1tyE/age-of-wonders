@@ -22,7 +22,7 @@ The dossier lives at `~/age-of-wonders/private/dossier-aquila/`. The generated `
 | 2 | `executive-memo.md` | The five-minute case. What is being built, why now, what the first capital buys. |
 | 3 | `investment-thesis.md` | The full investment case. Technology, markets, deployment, capital structure, risk architecture, geopolitical configuration. The governing reference. |
 | 4 | `engineering-blueprint.md` | The build plan. R&D gates, manufacturing roadmap, PCSEL scaling, HAPS platform, receiver thermal design, corridor model. |
-| 5 | `design-pcsel-array.md` | Transmitter design verification. Die to 380 MW block. |
+| 5 | `design-pcsel-array.md` | Transmitter design verification. Die to 19 MW rack. |
 | 6 | `design-haps-relay.md` | Relay platform design. Era I relay, Era II–III beam-powered platform. |
 | 7 | `design-receiver-thermal.md` | Receiver and thermal design. Optical power converter, Suncave receiver, community-substation environment. |
 | 8 | `design-network-operations.md` | Network operations model. Corridor simulation, availability, scheduling. |
@@ -68,7 +68,7 @@ An evaluator should understand: the programme is engineered for the **proposed**
 atlas_recall(queries=[
   "PCSEL power beaming technology architecture cost per delivered watt",
   "Lightway engineering blueprint receiver sizing convention corrected",
-  "PCSEL phased array transmitter design verification die to block"
+  "PCSEL phased array transmitter design verification die to rack"
 ])
 ```
 
@@ -170,7 +170,7 @@ A SWF evaluator should move through these layers, but not strictly sequentially.
 ### Second pass — the investment case
 
 4. **The narrative** — Executive Memo. Does the case hold as a story? The core claim: generation is manufactured and gets cheaper; delivery is construction and does not. Lightway inverts the cost curve for delivery.
-5. **The architecture** — Investment Thesis + Engineering Blueprint. G1 is a repeatable full-altitude fibre architecture proof; G2 is an operating fibre corridor; PCSEL P0/P1 runs in parallel without holding either gate hostage. Era III still requires the megawatt panel and beam-powered relay.
+5. **The architecture** — Investment Thesis + Engineering Blueprint. G1 is a repeatable full-altitude fibre architecture proof; G2 is an operating fibre corridor. T1 funds no PCSEL development; P0/P1 may open after G1 as a separately governed option and is not conjunctive with G2. Era III still requires the megawatt panel and beam-powered relay.
 6. **The capital structure** — tranche-and-gate discipline. T1 is one licensing-backed $30M close: $25.5M baseline accounts plus $4.5M internal management reserve. The binding HAPS terms govern campaign commitments, not financing availability. T2–T4 can be funded upfront as sovereign-sized tranches once the prior gate discharges; detailed phase accounts are in Blueprint §§11–12.
 7. **The proposed return architecture** — sovereign capital is intended to sit last in the loss waterfall: builder's equity first, facility equity second, sovereign partner capital last. Carry is proposed to flow ACI CarryCo → HoldCo → AGI Top-Co, with founder-majority governance at Top-Co. Confirm the executed entities and instruments; the architecture is not evidence that they already exist.
 
