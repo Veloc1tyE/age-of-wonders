@@ -314,7 +314,7 @@ async function generatePDF(htmlContent, outputPath) {
     footerTemplate: `
       <div style="width:100%;font-family:Times New Roman,serif;font-size:8px;color:#999;
                   display:flex;justify-content:space-between;padding:0 2.8cm;box-sizing:border-box;">
-        <span>Aquila Space Technologies Pty Ltd &amp; NextEra</span>
+        <span>Confidential</span>
         <span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>
       </div>`,
     printBackground: true,

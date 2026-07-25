@@ -135,7 +135,6 @@ const COMPONENTS = [
   ['design-haps-relay.md', 'Design Review — HAPS Relay'],
   ['design-receiver-thermal.md', 'Design Review — Receiver Thermal'],
   ['design-network-operations.md', 'Design Review — Network Operations'],
-  ['SWF-EVALUATOR-BRIEF.md', 'SWF Evaluator Brief'],
 ];
 for (const [f, name] of COMPONENTS) render(join(DOSSIER, f), DIR_COMP, name);
 render(join(PKG, 'package-map.md'), DIR_COMP, 'Package Map');
