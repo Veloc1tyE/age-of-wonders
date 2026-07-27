@@ -259,7 +259,7 @@ h1{font-size:52px;font-weight:400;line-height:1.02;letter-spacing:-0.4px;margin-
 <div class="class">Confidential · Under NDA</div>
 <div class="vol">${vol.top ? 'Aquila Global Infrastructure' : 'Verification · ' + vol.name}</div>
 <h1>${vol.name}</h1>
-<div class="sub">${vol.top ? 'Delivering reliable power to a billion people, through the stratosphere, with light.' : 'The Aquila Dossier · July 2026'}</div>
+<div class="sub">${vol.top ? 'Delivering energy abundance to billions of people, through the sky, with light.' : 'The Aquila Dossier · July 2026'}</div>
 ${vol.blurb ? `<div class="blurb">${vol.blurb}</div>` : ''}
 <div class="toc">${rows}</div>
 <div class="foot">Aquila Global Infrastructure · July 2026${vol.top ? '' : ' · audited, not read'}</div>

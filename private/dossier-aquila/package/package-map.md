@@ -24,15 +24,17 @@ No claim in the memo or booklet is stronger than the design-review verdict or mo
 
 Eight statements hold across every document. Where a document disagrees, the document is wrong.
 
-**The product is reliable, productive-use power.** Three-phase, surge-tolerant and available. The customer pays the authority a stable tariff. Aquila is paid a fixed $50/MWh delivered at the customer bus; authority-directed economic curtailment against annual contract quantity is deemed delivered, while Aquila-caused shortfalls are not.
+**Our mission is to deliver energy abundance to billions of people by providing reliable, industrial power to remote communities.**
+
+**Lightway delivers productive power where conventional grids cannot economically reach.** It transmits power through the sky with stratospheric relays. Household solar creates the first electrical infrastructure and demand for firm, round-the-clock power. Lightway is the industrial complement that connects that emerging local system to firm industrial supply.
+
+**The customer buys firm metered energy. The grid authority dispatches. Aquila earns $50/MWh delivered at the customer bus.** At fleet scale, each stratospheric relay pays itself back in under one year and returns $3.09 million after replacement cost over its seven-year life.
 
 **The architecture is graduated.** On-site solar and batteries carry bulk household energy and smooth load. Local industrial power systems or diesel supply remote productive loads today. Lightway carries centrally dispatched productive-use power, with diesel retained as emergency backup.
 
 **Lightway completes the system.** Generation is getting cheaper while transmission is not. The energy transition is manufacturing generation and electrifying the edge faster than civil-engineered networks can connect them.
 
-**The headline is: Delivering energy abundance to billions of people.**
-
-**Our mission is to deliver energy abundance to billions of people.** Reaching the Modern Energy Minimum is the first objective. Household solar creates the first electrical infrastructure and demand for firm, round-the-clock power. Lightway connects that emerging local system to firm industrial supply. Demand is contracted corridor by corridor.
+**The headline is: Delivering energy abundance to billions of people.** Reaching the Modern Energy Minimum is the first objective. Demand is contracted corridor by corridor.
 
 **The unit is one stratospheric vehicle.** At a fixed $50/MWh delivered fee, the conservative $2 million hull repays in 3.9 years, the approximately 100-unit cost case in 2.6 years, and the fleet-scale floor in under one year.
 
