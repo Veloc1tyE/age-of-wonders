@@ -10,7 +10,7 @@
  *   ├── README.txt                          what this is, and what to read
  *   ├── Lightway — Pre-NDA Briefing.pdf     shareable, no NDA required
  *   ├── The Aquila Dossier.pdf              THE DOCUMENT — executive memo + thesis §I–XIII
- *   └── Verification/                       audited, not read
+ *   └── Verification/                       internal verification and reproduction
  *       ├── The Verification — Thesis Appendices A–M.pdf
  *       ├── The Engineering — Blueprint and Design Reviews.pdf
  *       └── Components/                     individual documents, if an advisor wants one
@@ -221,7 +221,7 @@ const VOLUMES = [
   {
     num: 'III', name: 'The Engineering', tone: 'audit',
     file: 'Verification/The Engineering — Blueprint and Design Reviews.pdf',
-    blurb: 'The engineering, allocated and independently checked.',
+    blurb: 'The engineering, allocated, internally reviewed and reproducible.',
     parts: [
       { src: join(DIR_COMP, 'Engineering Blueprint.pdf'), title: 'Lightway Engineering Blueprint' },
       { src: join(DIR_COMP, 'Design Review — PCSEL Array.pdf'), title: 'Design Review: PCSEL Array' },
@@ -262,7 +262,7 @@ h1{font-size:52px;font-weight:400;line-height:1.02;letter-spacing:-0.4px;margin-
 <div class="sub">${vol.top ? 'Delivering energy abundance to billions of people, through the sky, with light.' : 'The Aquila Dossier · July 2026'}</div>
 ${vol.blurb ? `<div class="blurb">${vol.blurb}</div>` : ''}
 <div class="toc">${rows}</div>
-<div class="foot">Aquila Global Infrastructure · July 2026${vol.top ? '' : ' · audited, not read'}</div>
+<div class="foot">Aquila Global Infrastructure · July 2026${vol.top ? '' : ' · internal verification and reproduction'}</div>
 </body></html>`;
   const page = await browser.newPage();
   await page.setContent(html, { waitUntil: 'domcontentloaded' });
@@ -341,8 +341,8 @@ The Aquila Dossier.pdf                  ${String(pp('I')).padStart(3)} pp   THE 
                                         argument for it.
 
 
-Verification/                           ${pp('II') + pp('III')} pp. Everything the dossier asserts,
-                                        checked. Not on the desk; one click away.
+Verification/                           ${pp('II') + pp('III')} pp. Every material claim in the dossier,
+                                        internally checked and reproducible. One click away.
 
     The Verification —                  ${String(pp('II')).padStart(3)} pp   Physics derivations, the economic
     Thesis Appendices A–M.pdf                  and financial models, the three-prior
@@ -351,7 +351,7 @@ Verification/                           ${pp('II') + pp('III')} pp. Everything t
                                                the programme and risk registers.
 
     The Engineering —                   ${String(pp('III')).padStart(3)} pp   The build document and four
-    Blueprint and Design Reviews.pdf           independent design reviews. Every number
+    Blueprint and Design Reviews.pdf           internal design reviews. Every number
                                                recomputed from first principles or cited.
 
     Components/                         ${COMPONENTS.length + 1} individual documents, if an advisor wants
@@ -394,7 +394,7 @@ console.log(`
     README.txt
     Lightway — Pre-NDA Briefing.pdf          shareable, no NDA
     The Aquila Dossier.pdf                   ${String(pp('I')).padStart(3)} pp  ← THE DOCUMENT (memo + thesis §I–XIII)
-    Verification/                            ${pp('II') + pp('III')} pp  audited, not read
+    Verification/                            ${pp('II') + pp('III')} pp  internal verification
         The Verification — Appendices.pdf    ${String(pp('II')).padStart(3)} pp
         The Engineering — Blueprint…pdf      ${String(pp('III')).padStart(3)} pp
         Components/                          ${COMPONENTS.length + 1} individual documents

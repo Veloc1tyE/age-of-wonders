@@ -46,7 +46,7 @@ Eight statements hold across every document. Where a document disagrees, the doc
 
 The reference operator still does not return its capital on flat flows. Its IRR is −0.91% over fifteen years with no terminal value, and 3.69% over twenty-five. The 7.99% concessional blend is a first-year yield, and it does not stand in for a return across the horizon. Commercial project capital therefore needs growth, greater concession, tariff headroom or explicit avoided-network and public-service value, counted once.
 
-**T1 buys measurement, not a return.** It funds at close against a licence into a ring-fenced sovereign entity, and what it buys is the evidence the later tranches are underwritten against. Early corridors may carry a disclosed capped loss; the late-2030s replication network owns the commercial claim.
+**T1 buys measurement, not a return.** It is intended to fund at close against a licence into a ring-fenced sovereign entity, and what it buys is the evidence the later tranches are underwritten against. The investor commits only to T1. The Dossier describes the full programme Aquila intends to follow; T2–T4 are separate investment decisions, taken only after the preceding gate discharges. Early corridors may carry a disclosed capped loss; the late-2030s replication network owns the commercial claim.
 
 # Claim Grades
 
@@ -72,7 +72,7 @@ The falsifier register dates the observation that would break each material clai
 
 # Canonical Programme Sequence
 
-T0 is complete. The $30M T1 close is expected in 2027. T1 is one licensing-backed tranche funded at close. Its internal checkpoints carry no investor draws, and the kilometre-scale perpetual-flight article is G1a, an internal sub-gate. T1 releases T2 only after G1: a binding HAPS slot, qualified relay payload, commercial 10–30 kW fibre transmitter, and the Blueprint's efficiency and safety floors cleared at full altitude. Corridor hardening — the 24-hour continuous lock, the repeat campaign, the independent witness pack — discharges at G2. T2 buys the first operating fibre corridor. PCSEL P0/P1 runs beside T2 as a migration option.
+T0 is complete. The $30M T1 close is expected in 2027. T1 is one tranche intended to be licensing-backed and funded at close. Its internal checkpoints carry no investor draws, and the kilometre-scale perpetual-flight article is G1a, an internal sub-gate. T1 releases T2 only after G1: a binding HAPS slot, qualified relay payload, commercial 10–30 kW fibre transmitter, and the Blueprint's efficiency and safety floors cleared at full altitude. Corridor hardening — the 24-hour continuous lock, the repeat campaign, the independent witness pack — discharges at G2. T2 buys the first operating fibre corridor. PCSEL P0/P1 runs beside T2 as a migration option.
 
 The programme waypoint is 150 TWh/year delivered in 2041. The mission endpoint remains 2050. The schedule rebase delays the first close and intermediate gates by about one year, then requires faster replication between 2041 and 2050; the financial outputs below are recomputed on that schedule.
 
