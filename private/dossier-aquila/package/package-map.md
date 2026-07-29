@@ -17,7 +17,7 @@ The documents check each other in one direction.
 
 Design reviews test the blueprint's subsystem allocations. The blueprint carries the thesis's engineering claims. The thesis prices what the blueprint specifies. The memo distils the thesis. The booklet excerpts the public-facing case. The Evaluator Guide routes the questions.
 
-When a subsystem number is questioned, start with its design-review verdict register. Follow the evidence or model pointer to the governing source. Corridor economics reproduce from `sim/corridor_model.py`; valuation reproduces from `sim/econ_model.py`.
+When a subsystem number is questioned, start with its design-review verdict register. Follow the evidence or model pointer to the governing source. Era II operating screens reproduce from `sim/corridor_model.py`; the Era III operator hurdle reproduces from `sim/cost_curve_scenarios.py`; valuation reproduces from `sim/econ_model.py`.
 
 No claim in the memo or booklet is stronger than the design-review verdict or model authority behind it.
 
@@ -31,13 +31,13 @@ These statements hold across every current document.
 
 **The customer buys reliable, metered power.** Aquila earns $50 for each megawatt-hour delivered through the network.
 
-**A link is one complete path to one customer.** One aircraft serves the short proof route. The 100–300 kilometre Era II demonstration and the 300–500 kilometre Era III reference link use two active aircraft. Longer routes add aircraft.
+**A link is one complete path to one customer.** One aircraft serves the short proof route. The 100–300 kilometre Era II demonstration uses two active aircraft. Era III uses the same two-aircraft geometry across roughly 100–500 kilometres, with 300–500 kilometres as the reference case. Longer routes add aircraft.
 
 **Era II proves; Era III pays.** Era II is an evidence tier, not the commercial unit. The Era III reference link delivers 4.682 MW, earns $2.051M a year and uses two active aircraft plus one relief. Its assigned fleet repays in 76.1 weeks gross and returns 26.0% after modelled fleet costs, before the regional spare pool.
 
 **Distance adds aircraft, not another fee.** Aquila is paid once for the complete delivered link. Longer routes remain viable only while the same fee covers the larger fleet and added optical loss.
 
-**The first ground projects are demonstrations.** Their returns are marginal on current costs. Later ground projects improve through equipment learning; the commercial aircraft economics begin with Era III.
+**Era II ground projects are demonstrations.** Commercial project companies begin with Era III and clear their route-specific target return before sanction. The commercial aircraft economics also begin with Era III.
 
 **T1 buys one measurement.** The $30M tranche proves the complete path at full altitude. Aquila fundraises for later tranches only after the preceding gate is discharged.
 
@@ -85,13 +85,15 @@ The governed success path returns 38.1% through 2055 with no terminal value and 
 | Mean net-cash multiple on programme spend, undiscounted | 7.78× |
 | Discounted path multiple at 15% | 0.96× mean / 0.48× median |
 
+Expected NPV is capital-weighted across the simulation; the path multiple is the simple mean of each path's own ratio. Early failures draw much less capital, so positive expected NPV can coexist with a mean path multiple below 1×.
+
 `--interim-cash` prints the alternative wind-down convention; the conservative default treats recovery multiples as total realised value.
 
 Appendix B-2.2 states T1's explicit terms: **$80M minimum acceptable pre-money, $30M funded at close, $110M post-money and 27.3% issued ownership**. Hostile gate weighting produces **$822M** of programme value. The intended T1–T4 pre-money ladder is **$80M / $526M / $2.236B / $10.138B**, producing expected investor IRRs of **35.3% / 25.0% / 22.5% / 20.0%**. Without following on, the T1 investor dilutes to **19.8%** and its expected stake value is **$192M at the 15% valuation hurdle**.
 
 # The Pre-NDA Booklet
 
-The booklet is the pre-NDA surface. It omits the valuation outputs, the unit-economics tariffs, the gate probabilities, the sponsor capital mechanics, and all counterparty matter. Every booklet claim survives intact in these volumes: deepened, priced and given its falsifier.
+The booklet is the pre-NDA surface. It states Aquila's fixed fee and the reference link's annual revenue, while omitting valuation outputs, operator underwriting, gate probabilities, sponsor capital mechanics and all counterparty matter. Every booklet claim survives intact in these volumes: deepened, priced and given its falsifier.
 
 - [[booklet-pre-nda|Lightway: Pre-NDA Briefing]]
 - [[evaluator-guide|Evaluator Guide]]

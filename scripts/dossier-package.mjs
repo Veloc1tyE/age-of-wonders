@@ -133,8 +133,10 @@ const MODEL_SOURCES = ['investment-thesis.md', 'engineering-blueprint.md', 'exec
   'design-receiver-thermal.md'];
 const MODEL_PKG_SOURCES = ['booklet-pre-nda.md', 'evaluator-guide.md', 'package-map.md',
   'revision-history.md'];
+const MODEL_SURFACE_SOURCES = ['site.content.json', 'site.mjs'];
 for (const f of MODEL_SOURCES) cpSync(join(DOSSIER, f), join(DIR_MODELS, f));
 for (const f of MODEL_PKG_SOURCES) cpSync(join(PKG, f), join(DIR_MODELS, 'package', f));
+for (const f of MODEL_SURFACE_SOURCES) cpSync(join(DOSSIER, f), join(DIR_MODELS, f));
 
 // ---------------------------------------------------------------- 1. split the thesis
 const thesis = readFileSync(join(DOSSIER, 'investment-thesis.md'), 'utf-8');
@@ -336,9 +338,8 @@ Lightway — Pre-NDA Briefing.pdf         Shareable. No NDA required. Every numb
                                         same claim grade.
 
 The Aquila Dossier.pdf                  ${String(pp('I')).padStart(3)} pp   THE DOCUMENT.
-                                        Reading order, the executive memo, and the
-                                        thesis (§I–XIII). The whole bet, and the
-                                        argument for it.
+                                        The executive memo and thesis (§I–XIII).
+                                        The whole bet, and the argument for it.
 
 
 Verification/                           ${pp('II') + pp('III')} pp. Every material claim in the dossier,
