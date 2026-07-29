@@ -130,7 +130,7 @@ mkdirSync(join(DIR_MODELS, 'package'), { recursive: true });
 for (const f of simFiles) cpSync(join(SRC_SIM, f), join(DIR_MODELS, 'sim', f));
 const MODEL_SOURCES = ['investment-thesis.md', 'engineering-blueprint.md', 'executive-memo.md',
   'design-haps-relay.md', 'design-network-operations.md', 'design-pcsel-array.md',
-  'design-receiver-thermal.md', 'reference-v1.0-architecture.md'];
+  'design-receiver-thermal.md'];
 const MODEL_PKG_SOURCES = ['booklet-pre-nda.md', 'evaluator-guide.md', 'package-map.md',
   'revision-history.md'];
 for (const f of MODEL_SOURCES) cpSync(join(DOSSIER, f), join(DIR_MODELS, f));
@@ -259,7 +259,7 @@ h1{font-size:52px;font-weight:400;line-height:1.02;letter-spacing:-0.4px;margin-
 <div class="class">Confidential · Under NDA</div>
 <div class="vol">${vol.top ? 'Aquila Global Infrastructure' : 'Verification · ' + vol.name}</div>
 <h1>${vol.name}</h1>
-<div class="sub">${vol.top ? 'Delivering energy abundance to billions of people, through the sky, with light.' : 'The Aquila Dossier · July 2026'}</div>
+<div class="sub">${vol.top ? 'Delivering energy abundance to billions of people by making industrial power available everywhere.' : 'The Aquila Dossier · July 2026'}</div>
 ${vol.blurb ? `<div class="blurb">${vol.blurb}</div>` : ''}
 <div class="toc">${rows}</div>
 <div class="foot">Aquila Global Infrastructure · July 2026${vol.top ? '' : ' · internal verification and reproduction'}</div>
@@ -378,8 +378,8 @@ Python 3 and Node, no dependencies to install. From Verification/Models/sim/:
 
     python3 validate_package.py         binds every document to every model and
                                         fails on any figure that has drifted
-    python3 corridor_model.py --show    the reference corridor, figure by figure.
-                                        Ends by asserting the document agrees.
+    python3 corridor_model.py --show    the canonical Era III link economics.
+    python3 cost_curve_scenarios.py     the Era III project-company economics.
     python3 econ_model.py --prior hostile   the §IX valuation under hostile priors
     python3 network_sim.py --table F18  the joint-blockage falsifier that fired
 

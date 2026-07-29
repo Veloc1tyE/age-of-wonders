@@ -8,6 +8,7 @@ date: "July 2026"
 from: "Aquila Global Infrastructure"
 prepared_for: "Counterparties under NDA."
 status: verified
+revision: "29 July 2026"
 ---
 
 # Verification Chain
@@ -16,37 +17,31 @@ The documents check each other in one direction.
 
 Design reviews test the blueprint's subsystem allocations. The blueprint carries the thesis's engineering claims. The thesis prices what the blueprint specifies. The memo distils the thesis. The booklet excerpts the public-facing case. The Evaluator Guide routes the questions.
 
-When a subsystem number is questioned, start with the matching design-review verdict register, then follow its correction or model pointer to the current authority. Corridor economics rebuild from `sim/corridor_model.py`, the valuation from `sim/econ_model.py`.
+When a subsystem number is questioned, start with its design-review verdict register. Follow the evidence or model pointer to the governing source. Corridor economics reproduce from `sim/corridor_model.py`; valuation reproduces from `sim/econ_model.py`.
 
 No claim in the memo or booklet is stronger than the design-review verdict or model authority behind it.
 
 ## The framing spine
 
-Eight statements hold across every document. Where a document disagrees, the document is wrong.
+These statements hold across every current document.
 
-**Our mission is to deliver energy abundance to billions of people by providing reliable, industrial power to remote communities.**
+**Aquila's mission is to deliver energy abundance to billions of people by making industrial power available everywhere.**
 
-**Lightway delivers productive power where conventional grids cannot economically reach.** It transmits power through the sky with stratospheric relays. Household solar creates the first electrical infrastructure and demand for firm, round-the-clock power. Lightway is the industrial complement that connects that emerging local system to firm industrial supply.
+**Lightway moves electricity without a power line.** A ground station turns electricity into light, aircraft pass it across the sky, and a receiver turns it back into electricity.
 
-**The customer buys firm metered energy. The grid authority dispatches. Aquila earns $50/MWh delivered at the customer bus.** At fleet scale, each stratospheric relay pays itself back in under one year and returns $3.09 million after replacement cost over its seven-year life.
+**The customer buys reliable, metered power.** Aquila earns $50 for each megawatt-hour delivered through the network.
 
-**The architecture is graduated.** On-site solar and batteries carry bulk household energy and smooth load. Local industrial power systems or diesel supply remote productive loads today. Lightway carries centrally dispatched productive-use power, with diesel retained as emergency backup.
+**A link is one complete path to one customer.** One aircraft serves the short proof route. The 100–300 kilometre Era II demonstration and the 300–500 kilometre Era III reference link use two active aircraft. Longer routes add aircraft.
 
-**Lightway completes the system.** Generation is getting cheaper while transmission is not. The energy transition is manufacturing generation and electrifying the edge faster than civil-engineered networks can connect them.
+**Era II proves; Era III pays.** Era II is an evidence tier, not the commercial unit. The Era III reference link delivers 4.682 MW, earns $2.051M a year and uses two active aircraft plus one relief. Its assigned fleet repays in 76.1 weeks gross and returns 26.0% after modelled fleet costs, before the regional spare pool.
 
-**The headline is: Delivering energy abundance to billions of people.** Reaching the Modern Energy Minimum is the first objective. Demand is contracted corridor by corridor.
+**Distance adds aircraft, not another fee.** Aquila is paid once for the complete delivered link. Longer routes remain viable only while the same fee covers the larger fleet and added optical loss.
 
-**The unit is one stratospheric vehicle.** At a fixed $50/MWh delivered fee, the conservative $2 million hull repays in 3.9 years, the approximately 100-unit cost case in 2.6 years, and the fleet-scale floor in under one year.
+**The first ground projects are demonstrations.** Their returns are marginal on current costs. Later ground projects improve through equipment learning; the commercial aircraft economics begin with Era III.
 
-**The customer buys firm service; the authority runs the merit order.** The authority dispatches and Aquila routes. Contract-allocated surplus runs first, firm grid energy runs while cheaper than destination diesel, receiver storage bridges transitions and local diesel carries the refusal tail. The first corridor is screened at a $15/MWh net annual source book and paid firm ingress near $50/MWh; it does not prescribe a source mix. Four-quarter nodal replay and separate operator-solvency and project-return tests decide whether replication closes.
+**T1 buys one measurement.** The $30M tranche proves the complete path at full altitude. Aquila fundraises for later tranches only after the preceding gate is discharged.
 
-**The honesty spine reads the same everywhere.** F18's joint-blockage cap is breached at the real 55-minute buffer limit, at 8.78 to 10.75 off-station events a corridor-year against a cap of two, or 7.13 with the wing-solar hold. The corridor P&L carries the response at $1.91M a year, 20.9% of EBITDA, with the $3.92M simulated reading held as a stress. The seven-hour figure is the unpowered glide window, a different quantity. The Era III 0.55 conversion cell is undemonstrated, and so is the ≥99.95% per-surface coating class, published to 34 cm against a metre-class aperture. Recovery multiples read as total realised value, with interim operating cash disclosed beside them. The relay station-keeping tap is metered as a corridor line and carries no charge against gate throughput.
-
-**Authority sanction and project return are separate decisions.** The authority may sanction Lightway at full economic break-even where it is the least-cost way to fulfil its electrification mandate. Full economic break-even means the stable customer tariff plus explicit support covers every incremental service cost, including source energy, connection, imbalance, ancillary services, common operations and Aquila's fixed fee.
-
-The reference operator still does not return its capital on flat flows. Its IRR is −0.91% over fifteen years with no terminal value, and 3.69% over twenty-five. The 7.99% concessional blend is a first-year yield, and it does not stand in for a return across the horizon. Commercial project capital therefore needs growth, greater concession, tariff headroom or explicit avoided-network and public-service value, counted once.
-
-**T1 buys measurement, not a return.** It is intended to fund at close against a licence into a ring-fenced sovereign entity, and what it buys is the evidence the later tranches are underwritten against. The investor commits only to T1. The Dossier describes the full programme Aquila intends to follow; T2–T4 are separate investment decisions, taken only after the preceding gate discharges. Early corridors may carry a disclosed capped loss; the late-2030s replication network owns the commercial claim.
+**The commercial buildout requires debt after G4.** T1–T4 fund the $1.11B proof programme. With programme expenditure funded separately and operating cash retained, the success path needs a warehouse draw of approximately $10.03B at the 10 per cent screen, peaking in 2041 at about 46% of in-service fleet cost and repaid in 2045. Fees, advance rates, reserves and covenants remain G4 underwriting outputs.
 
 # Claim Grades
 
@@ -72,24 +67,27 @@ The falsifier register dates the observation that would break each material clai
 
 # Canonical Programme Sequence
 
-T0 is complete. The $30M T1 close is expected in 2027. T1 is one tranche intended to be licensing-backed and funded at close. Its internal checkpoints carry no investor draws, and the kilometre-scale perpetual-flight article is G1a, an internal sub-gate. T1 releases T2 only after G1: a binding HAPS slot, qualified relay payload, commercial 10–30 kW fibre transmitter, and the Blueprint's efficiency and safety floors cleared at full altitude. Corridor hardening — the 24-hour continuous lock, the repeat campaign, the independent witness pack — discharges at G2. T2 buys the first operating fibre corridor. PCSEL P0/P1 runs beside T2 as a migration option.
+T0 is complete. The $30M T1 close is expected in 2027. T1 is one tranche intended to be licensing-backed and funded at close. Its internal checkpoints carry no investor draws, and the kilometre-scale perpetual-flight article is G1a, an internal sub-gate. T1 releases T2 only after G1: a binding HAPS slot, qualified relay payload, commercial 10–30 kW fibre transmitter, and the Blueprint's efficiency and safety floors cleared at full altitude. Corridor hardening—the 24-hour continuous lock, the repeat campaign, the independent witness pack—discharges at G2. T2 buys the first continuously operated fibre link while PCSEL P0/P1 runs as a first-class programme. T3 buys one complete 1.9 MW Era II link and full link qualification. T4 buys one complete 13.3 MW Era III reference link, certification and a contract to deploy at scale.
 
-The programme waypoint is 150 TWh/year delivered in 2041. The mission endpoint remains 2050. The schedule rebase delays the first close and intermediate gates by about one year, then requires faster replication between 2041 and 2050; the financial outputs below are recomputed on that schedule.
+Pre-G4 volume remains evidence-scale: 0.005 / 0.025 / 0.100 / 1.0 TWh in 2031 / 2033 / 2035 / 2037. Commercial replication begins only after G4, reaching 25 TWh in 2039, 300 TWh in 2041, the one-billion-person waypoint of 366.26 TWh in 2042, and 1,391.79 TWh in 2050, equivalent to Lightway's modelled contribution across 3.8 billion people. The financial outputs below are recomputed on that schedule.
 
-The hull curve moves from $2M at ten-unit orders to a $0.5M floor at 30,000-unit production, and `--stress flat-hull-cost` holds $2M through the horizon. The default hostile run of `sim/econ_model.py` (20,000 paths, seed 7) reproduces:
+The hull curve moves from $2M at ten-unit proof orders to a $0.5M floor at 30,000-unit production. Every commercial forecast applies fleet learning. Era III separately carries a $1M high-power-aircraft floor. The default hostile run of `sim/econ_model.py` (20,000 paths, seed 7) reproduces:
+
+The governed success path returns 36.2% through 2055 with no terminal value and a 17.39× PV multiple at 15%. Mature delivered-energy cash ROIC is 26.0%, 27.5% including the equipment stream and 26.9% with net programme capital in the denominator. The hostile run below tests the probability and quality of reaching that commercial state; it is not the mature-link return.
 
 | Output | Value |
 |---|---|
-| P(NPV>0) | 18.3% |
-| NPV P10 / P50 / P90 | −$0.20B / −$0.02B / +$1.97B |
-| Median loss-given-failure | $27M |
-| Expected NPV / expected capital | +$0.261B / $0.573B |
-| Mean net-cash multiple on capital drawn, undiscounted | 3.43× |
-| Discounted path multiple at 15% | 1.01× mean / 0.53× median |
+| P(NPV>0) | 13.7% |
+| NPV P10 / P50 / P90 | −$0.14B / −$0.02B / +$0.01B |
+| Median loss-given-failure | $25M |
+| Expected NPV / expected programme spend | +$0.0660B / $0.307B |
+| Expected NPV per dollar of programme spend | +0.2149 |
+| Mean net-cash multiple on programme spend, undiscounted | 7.20× |
+| Discounted path multiple at 15% | 0.86× mean / 0.48× median |
 
 `--interim-cash` prints the alternative wind-down convention; the conservative default treats recovery multiples as total realised value.
 
-The IRR of record is the core entry-point column in Appendix B-2.2 and C.4: 45.0%, 48.0%, 56.2% and 80.8% at T1 to T4, rebuilt by `sim/irr_update.py`. Including the governed equipment stream gives 49.5%, 53.9%, 67.5% and 115.3%. No success-path IRR is published: the back-loaded final tranche gives every all-pass path more than one sign change.
+Appendix B-2.2 states T1's explicit terms: **$80M minimum acceptable pre-money, $30M funded at close, $110M post-money and 27.3% issued ownership**. Hostile gate weighting produces **$711M** of programme value. The intended T1–T4 pre-money ladder is **$80M / $444M / $1.919B / $8.822B**, producing expected investor IRRs of **33.3% / 25.0% / 22.5% / 20.0%**. Without following on, the T1 investor dilutes to **18.8%** and its expected stake value is **$162M at the 15% valuation hurdle**.
 
 # The Pre-NDA Booklet
 
@@ -101,40 +99,33 @@ The booklet is the pre-NDA surface. It omits the valuation outputs, the unit-eco
 - [[executive-memo|Executive Memo]]
 - [[investment-thesis|The Aquila Energy Thesis]]
 - [[engineering-blueprint|Lightway Engineering Blueprint]]
-- [[design-pcsel-array|Design Review — PCSEL Array]]
-- [[design-haps-relay|Design Review — HAPS Relay]]
-- [[design-receiver-thermal|Design Review — Receiver Thermal]]
-- [[design-network-operations|Design Review — Network Operations]]
-- [[reference-v1.0-architecture|Reference — v1.0 Architecture (superseded)]]
+- [[design-pcsel-array|Design Review—PCSEL Array]]
+- [[design-haps-relay|Design Review—HAPS Relay]]
+- [[design-receiver-thermal|Design Review—Receiver Thermal]]
+- [[design-network-operations|Design Review—Network Operations]]
 
-## Document state — 27 July 2026
+## Document state—29 July 2026
 
 | Basis | Value |
 |---|---|
-| Era II corridor | 30 fixed articles across 20 sites |
-| Per article — hardware ceiling / planning / contracted | 632.072 kW / 530.628 kW / 477.565 kW |
-| Corridor total on those three bases | 18.962 MW / 15.919 MW / 14.327 MW |
+| Era II status | Demonstration tier; no aggregate corridor fleet underwriting |
+| Per two-aircraft Era II article—hardware ceiling / planning / contracted | 536.039 kW / 445.266 kW / 400.739 kW |
+| Corridor total on those three bases | 16.081 MW / 13.358 MW / 12.022 MW |
 | Day-one load | 12.548 MW |
 | LW-1.6 relay availability, Era II | ≥97% per relay |
-| Era II chain, at 0.97 rather than 0.98 | 3.581 optical watts per delivered watt |
-| N-1 ingress estate | 3 stations × 10 panels = 30 panels / 57.0 MW nominal optical installed |
-| Surviving pair, dispatch-capped | 35.333 MW optical / 3.581 = 9.87 MW delivered |
-| Mean-basis envelope utilisation | 91.4%, inside LW-1.10's ≤95% requirement |
-| Initial corridor capital | $76.998M, of which $63.498M operator capital |
-| Reference underwriting input | $15.00/MWh net annual source book; paid firm intervals capped near $50/MWh or the diesel crossover |
-| Aquila network fee | $50/MWh delivered at the customer bus; authority-directed economic curtailment against annual quantity is deemed delivered; $3.079M/yr at reference billed volume |
-| Firm-service closure | The $15/MWh source book produces $7.012M network EBITDA; the authority contract and four-quarter nodal replay must reproduce it |
-| Merit-order crossover | $50/MWh firm ingress delivers an energy component of $0.319/kWh; $0.55/kWh diesel becomes cheaper above $86.09/MWh ingress |
-| Reference dispatch evidence | 422.8 GWh/yr ingress replayed chronologically; realised surplus, firm and diesel shares are outputs |
-| Chain amplification to the bus | 6.07× at Era II, 4.30× at Era III, on 16.477% and 23.256% end to end |
-| Corridor revenue / network EBITDA, with the F18 response booked | $19.398M / $7.012M a year |
-| Aquila / operator annual allocation | $3.079M fixed fee / $3.933M residual |
-| Aquila yield / operator yield, unlevered / operator 30% concessional | 22.81% / 6.19% / 7.99% |
-| Operator flat-flow IRR, 15 / 25 years, no terminal value | −0.91% / 3.69% |
-| Community tariffs | $0.32 feeder head, $0.28 greenfield |
-| ≥8% concessional-blend hurdle fails at | $14.99/MWh corridor; $17.47/MWh isolated utility |
-| Mature delivered-cost boundary | ~$0.235/kWh delivered firm-service cost at the customer bus through a $30/MWh net source book, including the $50/MWh Aquila fee but before operator capital return |
+| Era II propulsion-inclusive planning chain | 4.267 optical watts per delivered planning watt |
+| N-1 ingress estate | 3 stations × 12 panels = 36 panels / 68.4 MW nominal optical installed |
+| Surviving pair, dispatch-capped | 42.400 MW optical / 4.267 = 9.94 MW delivered |
+| Mean-basis envelope utilisation | 90.7%, inside LW-1.10's ≤95% requirement |
+| Aquila network fee | $50/MWh delivered at the customer bus; revenue counted once per end-to-end link |
+| Chain amplification to the bus | 7.23× at Era II, 4.43× at Era III, on 13.827% and 22.575% end to end |
+| Era III reference link | 4.682 MW contracted; two active / three assigned $1M aircraft across 300–500 km; $2.051M/yr; 50.7-week active-pair / 76.1-week assigned-fleet gross payback; 26.0% complete fleet ROIC |
+| Longer Era III routes | Three active / four assigned: 600–1,000 km, 12.5% ROIC; four / five: 900–1,500 km, 4.5%; five / six: 1,200–2,000 km, −0.9%; six / seven: 1,500–2,500 km, −4.7% |
+| Mission ramp / fleet | 300 TWh in 2041; 366.26 TWh / 1B people in 2042; 1,391.79 TWh / 3.8B in 2050; ~33,900 links / 67,900 active / 101,800 assigned aircraft before regional pool |
+| Mature Era III ground-stack economics | $7.93–10.88M capital; $4.54–4.63M annual operator cash; 41.8–58.4% yield; 41.5–58.4% 15-year IRR |
+| Mature Era III operator reference screen | At $235.20/MWh customer revenue: $66.44 source energy through the 4.4296× chain; $50 Aquila fee; $5.80–7.96 ground-stack O&M; $110.80–112.96 operator residual. Actual route price must beat its full avoided alternative |
+| Mature Era III maximum net source book | Route-vintage specific: $36.02–37.59/MWh for 15-year capital recovery; $35.22–37.01 for 8% first-year yield; $33.02–35.40 for 8% IRR over 15 years; rises with ground-hardware learning |
 
-The five capacity bases and the corridor worked end to end live in the Blueprint's sanction basis.
+The Era III link and operator screen reproduce from the thesis models. Era II operating models remain demonstration and safety evidence.
 
-The first-corridor source book is effectively on its 8% operator-hurdle boundary. Chronological source closure, operator solvency and operator capital return are separate gates.
+Chronological source closure, operator solvency and operator capital return are tested separately. Commercial operator economics use the Era III link.
