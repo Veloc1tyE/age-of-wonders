@@ -37,7 +37,7 @@ These statements hold across every current document.
 
 **Distance adds aircraft, not another fee.** Aquila is paid once for the complete delivered link. Longer routes remain viable only while the same fee covers the larger fleet and added optical loss.
 
-**Era II ground projects are demonstrations.** Commercial project companies begin with Era III and clear their route-specific target return before sanction. The commercial aircraft economics also begin with Era III.
+**Era II ground projects are demonstrations.** Commercial ground economics begin with Era III. Customers can own the equipment directly or finance it against signed contracts.
 
 **T1 buys one measurement.** The $30M tranche proves the complete path at full altitude. Aquila fundraises for later tranches only after the preceding gate is discharged.
 
@@ -73,7 +73,7 @@ Pre-G4 volume remains evidence-scale: 0.005 / 0.025 / 0.100 / 1.0 TWh in 2031 / 
 
 The hull curve moves from $2M at ten-unit proof orders to a $0.5M floor at 30,000-unit production. Every commercial forecast applies fleet learning. Era III separately carries a $1M high-power-aircraft floor. The default hostile run of `sim/econ_model.py` (20,000 paths, seed 7) reproduces:
 
-The governed success path returns 38.1% through 2055 with no terminal value and a 19.80× PV multiple at 15%. Mature delivered-energy cash ROIC is 26.0%, 28.7% including the equipment stream and 28.4% with net programme capital in the denominator. The equipment stream is included by default. The hostile run below tests the probability and quality of reaching that commercial state; it is not the mature-link return.
+The governed success path returns 38.1% through 2055 with no terminal value and a 19.80× PV multiple at 15%. Mature delivered-energy cash ROIC is 26.0%, 28.7% including equipment revenue and 28.4% with net programme capital in the denominator. The hostile run tests the probability and quality of reaching that commercial state.
 
 | Output | Value |
 |---|---|
@@ -125,8 +125,9 @@ The booklet is the pre-NDA surface. It states Aquila's fixed fee and the referen
 | Longer Era III routes | Three active / four assigned: 600–1,000 km, 12.5% ROIC; four / five: 900–1,500 km, 4.5%; five / six: 1,200–2,000 km, −0.9%; six / seven: 1,500–2,500 km, −4.7% |
 | Mission ramp / fleet | 300 TWh in 2041; 366.26 TWh / 1B people in 2042; 1,391.79 TWh / 3.8B in 2050; ~33,900 links / 67,900 active / 101,800 assigned aircraft before regional pool |
 | Mature Era III ground-stack economics | $9.18–12.13M capital per 4.682 MW contracted link; aircraft separate |
-| Mature Era III operator reference screen | At a $0.21/kWh customer bid, the project company is priced to an 8% 15-year return; actual routes clear case by case |
-| Mature Era III maximum net source book | $26.32–28.70/MWh at the reference bid and current ground-capital band; varies with tariff, hardware learning and route costs |
+| Mature Era III ground-finance screen | At a $0.21/kWh customer bid, third-party project finance is priced to an 8% 15-year return; direct owners apply their own capital hurdle |
+| Source book | Weighted annual cost of surplus, contracted and firming energy; zero- or negative-cost energy is blended with paid supply that closes the delivery obligation |
+| Mature Era III maximum net source book | $26.32–28.70/MWh at the reference bid and current ground-capital band; varies with tariff, ownership, hardware learning and route costs |
 
 The Era III link and operator screen reproduce from the thesis models. Era II operating models remain demonstration and safety evidence.
 
