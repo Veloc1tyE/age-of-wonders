@@ -13,7 +13,6 @@
  *   └── Verification/                       analysis, engineering and verification
  *       ├── Appendices A–M.pdf
  *       ├── The Engineering — Blueprint and Design Reviews.pdf
- *       ├── Verification.pdf
  *       └── Components/                     individual documents, if an advisor wants one
  *
  * A head of state opens the folder and sees the thing to read. No reading-order preamble,
@@ -202,7 +201,6 @@ async function sectionStartPages(mdPath) {
 // THE DOSSIER (top level, the read): reading order + the memo + the thesis argument.
 // THE APPENDICES (one level down): the analysis and derivations.
 // THE ENGINEERING (one level down): blueprint + the four design reviews.
-// VERIFICATION (one level down): the package checksum and control map.
 const VOLUMES = [
   {
     num: 'I', name: 'The Aquila Dossier', tone: 'read', top: true,
@@ -325,12 +323,6 @@ for (const dir of [DIR_COMP, DIR_PRE]) {
   }
 }
 
-// The package map is also the standalone verification checksum. Copy the stamped
-// component so its page numbering and contents remain identical in both locations.
-cpSync(join(DIR_COMP, 'Package Map.pdf'), join(DIR_VER, 'Verification.pdf'));
-const verificationDoc = await PDFDocument.load(readFileSync(join(DIR_VER, 'Verification.pdf')));
-const verificationPages = verificationDoc.getPageCount();
-
 // ---------------------------------------------------------------- 4. the README
 const pp = (n) => built.find((b) => b.vol.num === n).pages;
 writeFileSync(join(OUT, 'README.txt'), `THE AQUILA DOSSIER
@@ -350,8 +342,8 @@ The Aquila Dossier.pdf                  ${String(pp('I')).padStart(3)} pp   THE 
                                         The whole bet, and the argument for it.
 
 
-Verification/                           ${pp('II') + pp('III') + verificationPages} pp. Analysis, engineering
-                                        and the package checksum. One click away.
+Verification/                           ${pp('II') + pp('III')} pp. Analysis and engineering.
+                                        One click away.
 
     Appendices A–M.pdf                  ${String(pp('II')).padStart(3)} pp   Physics derivations, the economic
                                                and financial models, the three-prior
@@ -362,9 +354,6 @@ Verification/                           ${pp('II') + pp('III') + verificationPag
     The Engineering —                   ${String(pp('III')).padStart(3)} pp   The build document and four
     Blueprint and Design Reviews.pdf           internal design reviews. Every number
                                                recomputed from first principles or cited.
-
-    Verification.pdf                    ${String(verificationPages).padStart(3)} pp   Package checksum, claim control and
-                                               route into the underlying evidence.
 
     Components/                         ${COMPONENTS.length + 1} individual documents, if an advisor wants
                                         one on its own rather than a bound volume.
@@ -406,10 +395,9 @@ console.log(`
     README.txt
     Lightway — Pre-NDA Briefing.pdf          shareable, no NDA
     The Aquila Dossier.pdf                   ${String(pp('I')).padStart(3)} pp  ← THE DOCUMENT (memo + thesis §I–XIII)
-    Verification/                            ${pp('II') + pp('III') + verificationPages} pp  analysis and verification
+    Verification/                            ${pp('II') + pp('III')} pp  analysis and engineering
         Appendices A–M.pdf                   ${String(pp('II')).padStart(3)} pp
         The Engineering — Blueprint…pdf      ${String(pp('III')).padStart(3)} pp
-        Verification.pdf                     ${String(verificationPages).padStart(3)} pp
         Components/                          ${COMPONENTS.length + 1} individual documents
         Models/                              ${simFiles.length} runnable model files
 `);
