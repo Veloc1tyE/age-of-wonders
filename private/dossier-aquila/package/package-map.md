@@ -8,12 +8,12 @@ date: "July 2026"
 from: "Aquila Global Infrastructure"
 prepared_for: "Counterparties under NDA."
 status: verified
-revision: "31 July 2026"
+revision: "1 August 2026"
 ---
 
 # Verification
 
-The Analysis exposes the argument. Engineering defines the system. Verification checks that every material claim resolves to one current source, one model boundary and one test or gate.
+The Appendices expose the arithmetic. Engineering defines the system. Verification checks that every material claim resolves to one current source, one model boundary and one test or gate.
 
 A release passes when:
 
@@ -42,7 +42,7 @@ Each layer answers a different reader question. Successive layers increase resol
 | Pre-NDA Briefing | Is this important and credible enough to investigate? | Mission, need, product, evidence boundary, commercial unit and first capital ask |
 | Executive Memo | What decision is being requested? | The complete decision in compressed form |
 | Aquila Energy Thesis | Why can this become a major infrastructure category? | The causal argument from need through programme |
-| The Analysis | Can I reproduce the calculations? | Equations, assumptions, sensitivities, falsifiers and source register |
+| The Appendices | Can I reproduce the calculations? | Equations, assumptions, sensitivities, falsifiers and source register |
 | Engineering | What will be built and tested? | Baselines, requirements, interfaces, allocations, margins and verification plans |
 | Verification | Is the package current and controlled? | Authority map, model manifest, consistency rules and release state |
 
@@ -50,7 +50,7 @@ The shortest complete reading path is:
 
 **Pre-NDA Briefing → Executive Memo → Aquila Energy Thesis**
 
-Diligence continues through **The Analysis → Engineering → Verification**. The Evaluator Guide provides direct routes for technical, commercial, regulatory and investment questions.
+Diligence continues through **The Appendices → Engineering → Verification**. The Evaluator Guide provides direct routes for technical, commercial, regulatory and investment questions.
 
 ## Authority map
 
@@ -60,7 +60,7 @@ Every material fact has one authoritative home. Other documents may summarise it
 |---|---|
 | Mission, customer proposition and decision ask | Executive Memo |
 | Reader-facing architecture and causal argument | Aquila Energy Thesis |
-| Governing equations and sensitivities | The Analysis |
+| Governing equations and sensitivities | The Appendices |
 | Exact configuration, requirements and interfaces | Engineering Blueprint |
 | Subsystem allocations, margins and test plans | Design reviews |
 | Physical parameters and era baselines | `sim/physical_state.py` |
@@ -72,7 +72,7 @@ Every material fact has one authoritative home. Other documents may summarise it
 | Equipment stream | `sim/equipment_stream.py` |
 | Tranche valuation and investor returns | `sim/tranche_valuation.py` |
 | Risks and falsifiers | Thesis risk and falsifier registers |
-| Published evidence | Analysis source register |
+| Published evidence | Appendices source register |
 | Historical figures and supersessions | Revision History |
 
 The models own numerical output. The documents explain it.
@@ -120,6 +120,7 @@ A state changes only through a controlled source, model or test record. The upda
 | Programme cash flow, value boundary and fleet finance | `sim/econ_model.py` |
 | First-install equipment stream | `sim/equipment_stream.py` |
 | Tranche valuation and investor returns | `sim/tranche_valuation.py` |
+| Retired conventional-flow programme-IRR comparator | `sim/irr_update.py` |
 | Browser/Python economic parity | `sim/parity_check.py`, `sim/parity_check.mjs` |
 | Cross-document release checksum | `sim/validate_package.py` |
 
