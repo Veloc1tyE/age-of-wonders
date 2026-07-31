@@ -215,7 +215,7 @@ const VOLUMES = [
     ],
   },
   {
-    num: 'II', name: 'Appendices', tone: 'audit',
+    num: 'II', name: 'The Verification', tone: 'audit',
     file: 'Verification/Appendices A–M.pdf',
     blurb: 'The arithmetic behind every number in the dossier.',
     parts: [{ src: join(DIR_BUILD, 'thesis-appendices.pdf'), title: 'Thesis Appendices A–M' }],
