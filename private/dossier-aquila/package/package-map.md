@@ -1,134 +1,143 @@
 ---
 uid: note_c3174d924a7a
-title: "Aquila Dossier"
-subtitle: "How the Documents Check Each Other"
+title: "Verification"
+subtitle: "Package checksum and control"
 classification: "Confidential: Institutional Investment Reference"
 company: "Aquila Global Infrastructure"
 date: "July 2026"
 from: "Aquila Global Infrastructure"
 prepared_for: "Counterparties under NDA."
 status: verified
-revision: "29 July 2026"
+revision: "31 July 2026"
 ---
 
-# Verification Chain
+# Verification
 
-The documents check each other in one direction.
+The Analysis exposes the argument. Engineering defines the system. Verification checks that every material claim resolves to one current source, one model boundary and one test or gate.
 
-Design reviews test the blueprint's subsystem allocations. The blueprint carries the thesis's engineering claims. The thesis prices what the blueprint specifies. The memo distils the thesis. The booklet excerpts the public-facing case. The Evaluator Guide routes the questions.
+A release passes when:
 
-When a subsystem number is questioned, start with its design-review verdict register. Follow the evidence or model pointer to the governing source. Era II operating screens reproduce from `sim/corridor_model.py`; the Era III operator hurdle reproduces from `sim/cost_curve_scenarios.py`; valuation reproduces from `sim/econ_model.py`.
+- the governing models run;
+- repeated figures agree with their authoritative output;
+- superseded figures remain only in the Revision History;
+- the Python and browser models match;
+- every material qualification appears beside the claim it qualifies;
+- every projected capability resolves to a gate and falsifier;
+- the rendered package contains no broken tables or development controls.
 
-No claim in the memo or booklet is stronger than the design-review verdict or model authority behind it.
+Run the package checksum from the repository root:
 
-## The framing spine
+```bash
+python3 sim/validate_package.py
+```
 
-These statements hold across every current document.
+The command exits non-zero when the controlled documents and executable models disagree.
 
-**Aquila's mission is to deliver energy abundance to billions of people by making industrial power available everywhere.**
+## One book at several depths
 
-**Lightway moves electricity without a power line.** A ground station turns electricity into light, aircraft pass it across the sky, and a receiver turns it back into electricity.
+Each layer answers a different reader question. Successive layers increase resolution while preserving the meaning of the earlier claim.
 
-**The customer buys reliable, metered power.** Aquila earns $50 for each megawatt-hour delivered through the network.
+| Layer | Reader's question | Controlled purpose |
+|---|---|---|
+| Pre-NDA Briefing | Is this important and credible enough to investigate? | Mission, need, product, evidence boundary, commercial unit and first capital ask |
+| Executive Memo | What decision is being requested? | The complete decision in compressed form |
+| Aquila Energy Thesis | Why can this become a major infrastructure category? | The causal argument from need through programme |
+| The Analysis | Can I reproduce the calculations? | Equations, assumptions, sensitivities, falsifiers and source register |
+| Engineering | What will be built and tested? | Baselines, requirements, interfaces, allocations, margins and verification plans |
+| Verification | Is the package current and controlled? | Authority map, model manifest, consistency rules and release state |
 
-**A link is one complete path to one customer.** One aircraft serves the short proof route. The 100–300 kilometre Era II demonstration uses two active aircraft. Era III uses the same two-aircraft geometry across roughly 100–500 kilometres, with 300–500 kilometres as the reference case. Longer routes add aircraft.
+The shortest complete reading path is:
 
-**Era II proves; Era III pays.** Era II is an evidence tier, not the commercial unit. The Era III reference link delivers 4.682 MW, earns $2.051M a year and uses two active aircraft plus one relief. Its assigned fleet repays in 76.1 weeks gross and returns 26.0% after modelled fleet costs, before the regional spare pool.
+**Pre-NDA Briefing → Executive Memo → Aquila Energy Thesis**
 
-**Distance adds aircraft, not another fee.** Aquila is paid once for the complete delivered link. Longer routes remain viable only while the same fee covers the larger fleet and added optical loss.
+Diligence continues through **The Analysis → Engineering → Verification**. The Evaluator Guide provides direct routes for technical, commercial, regulatory and investment questions.
 
-**Era II ground projects are demonstrations.** Commercial ground economics begin with Era III. Customers can own the equipment directly or finance it against signed contracts.
+## Authority map
 
-**T1 buys one measurement.** The $30M tranche proves the complete path at full altitude. Aquila fundraises for later tranches only after the preceding gate is discharged.
+Every material fact has one authoritative home. Other documents may summarise it at lower resolution.
 
-**The commercial buildout requires debt after G4.** T1–T4 fund the $1.11B proof programme. With programme expenditure funded separately and operating cash retained, the success path needs a warehouse draw of approximately $7.73B at the 10 per cent screen, peaking in 2041 at 35.2% of in-service fleet cost and repaid in 2044. Fees, advance rates, reserves and covenants remain G4 underwriting outputs.
-
-# Claim Grades
-
-The thesis uses three long-form grades:
-
-- **[Measured]**: demonstrated on operational hardware, published data, or executed transactions.
-- **[Validated precedent]**: established by a third party in a comparable regime.
-- **[Projection—gated]**: contingent on a named risk-retirement gate, tied to the tranche that gate releases.
-
-The design reviews use the compact equivalents **[meas]**, **[pub]** and **[alloc]**; the network review adds **[model]** for simulation output. **Proposed** marks a target structure rather than evidence that it exists. The memo and booklet inherit the grade of the governing claim even where the tag is not printed. A projection is not evidence that its gate has been passed.
-
-Auxiliary tags:
-
-- **[Strategic framing]**: a mission-level claim rather than an evidence claim.
-- **[Estimated—…]**: an analyst estimate, basis named in the tag.
-- **[Modelled—…]**: a computed result on declared assumptions.
-- **[Derived—…]**: arithmetic recomputable from the named appendix.
-- **[Open]**: not yet established in either direction.
-- **[order-of-magnitude]**: a scale claim rather than a point estimate.
-- **[model-approx]**: a simplified model calculation.
-
-The falsifier register dates the observation that would break each material claim. Appendix K holds the adversarial findings with the engineering response.
-
-# Canonical Programme Sequence
-
-T0 is complete. The $30M T1 close is expected in 2027. T1 is one tranche intended to be licensing-backed and funded at close. Its internal checkpoints carry no investor draws, and the kilometre-scale perpetual-flight article is G1a, an internal sub-gate. T1 releases T2 only after G1: a binding HAPS slot, qualified relay payload, commercial 10–30 kW fibre transmitter, and the Blueprint's efficiency and safety floors cleared at full altitude. Corridor hardening—the 24-hour continuous lock, the repeat campaign, the independent witness pack—discharges at G2. T2 buys the first continuously operated fibre link while PCSEL P0/P1 runs as a first-class programme. T3 buys one complete 1.9 MW Era II link and full link qualification. T4 buys one complete 13.3 MW Era III reference link, certification and a contract to deploy at scale.
-
-Pre-G4 volume remains evidence-scale: 0.005 / 0.025 / 0.100 / 1.0 TWh in 2031 / 2033 / 2035 / 2037. Commercial replication begins only after G4, reaching 25 TWh in 2039, 300 TWh in 2041, the one-billion-person waypoint of 366.26 TWh in 2042, and 1,391.79 TWh in 2050, equivalent to Lightway's modelled contribution across 3.8 billion people. The financial outputs below are recomputed on that schedule.
-
-The hull curve moves from $2M at ten-unit proof orders to a $0.5M floor at 30,000-unit production. Every commercial forecast applies fleet learning. Era III separately carries a $1M high-power-aircraft floor. The default hostile run of `sim/econ_model.py` (20,000 paths, seed 7) reproduces:
-
-The governed success path returns 38.1% through 2055 with no terminal value and a 19.80× PV multiple at 15%. Mature delivered-energy cash ROIC is 26.0%, 28.7% including equipment revenue and 28.4% with net programme capital in the denominator. The hostile run tests the probability and quality of reaching that commercial state.
-
-| Output | Value |
+| Information | Authoritative home |
 |---|---|
-| P(NPV>0) | 14.4% |
-| NPV P10 / P50 / P90 | −$0.14B / −$0.02B / +$0.02B |
-| Median loss-given-failure | $25M |
-| Expected NPV / expected programme spend | +$0.1064B / $0.307B |
-| Expected NPV per dollar of programme spend | +0.3464 |
-| Mean net-cash multiple on programme spend, undiscounted | 7.78× |
-| Discounted path multiple at 15% | 0.96× mean / 0.48× median |
+| Mission, customer proposition and decision ask | Executive Memo |
+| Reader-facing architecture and causal argument | Aquila Energy Thesis |
+| Governing equations and sensitivities | The Analysis |
+| Exact configuration, requirements and interfaces | Engineering Blueprint |
+| Subsystem allocations, margins and test plans | Design reviews |
+| Physical parameters and era baselines | `sim/physical_state.py` |
+| End-to-end energy planes and losses | `sim/energy_ledger.py` |
+| Era III operator financeability | `sim/cost_curve_scenarios.py` |
+| Dispatch and source chronology sensitivity | `sim/source_service.py` |
+| Link-unit reconciliation and Era II operating screen | `sim/corridor_model.py` |
+| Programme cash flow and fleet finance | `sim/econ_model.py` |
+| Equipment stream | `sim/equipment_stream.py` |
+| Tranche valuation and investor returns | `sim/tranche_valuation.py` |
+| Risks and falsifiers | Thesis risk and falsifier registers |
+| Published evidence | Analysis source register |
+| Historical figures and supersessions | Revision History |
 
-Expected NPV is capital-weighted across the simulation; the path multiple is the simple mean of each path's own ratio. Early failures draw much less capital, so positive expected NPV can coexist with a mean path multiple below 1×.
+The models own numerical output. The documents explain it.
 
-`--interim-cash` prints the alternative wind-down convention; the conservative default treats recovery multiples as total realised value.
+## Evidence states
 
-Appendix B-2.2 states T1's explicit terms: **$80M minimum acceptable pre-money, $30M funded at close, $110M post-money and 27.3% issued ownership**. Hostile gate weighting produces **$822M** of programme value. The intended T1–T4 pre-money ladder is **$80M / $526M / $2.236B / $10.138B**, producing expected investor IRRs of **35.3% / 25.0% / 22.5% / 20.0%**. Without following on, the T1 investor dilutes to **19.8%** and its expected stake value is **$192M at the 15% valuation hurdle**.
+The package distinguishes six evidence states.
 
-# The Pre-NDA Booklet
-
-The booklet is the pre-NDA surface. It states Aquila's fixed fee and the reference link's annual revenue, while omitting valuation outputs, operator underwriting, gate probabilities, sponsor capital mechanics and all counterparty matter. Every booklet claim survives intact in these volumes: deepened, priced and given its falsifier.
-
-- [[booklet-pre-nda|Lightway: Pre-NDA Briefing]]
-- [[evaluator-guide|Evaluator Guide]]
-- [[revision-history|Revision History]]
-- [[executive-memo|Executive Memo]]
-- [[investment-thesis|The Aquila Energy Thesis]]
-- [[engineering-blueprint|Lightway Engineering Blueprint]]
-- [[design-pcsel-array|Design Review—PCSEL Array]]
-- [[design-haps-relay|Design Review—HAPS Relay]]
-- [[design-receiver-thermal|Design Review—Receiver Thermal]]
-- [[design-network-operations|Design Review—Network Operations]]
-
-## Document state—29 July 2026
-
-| Basis | Value |
+| State | Meaning |
 |---|---|
-| Era II status | Demonstration tier; no aggregate corridor fleet underwriting |
-| Per two-aircraft Era II article—hardware ceiling / planning / contracted | 536.039 kW / 445.266 kW / 400.739 kW |
-| Corridor total on those three bases | 16.081 MW / 13.358 MW / 12.022 MW |
-| Day-one load | 12.548 MW |
-| LW-1.6 relay availability, Era II | ≥97% per relay |
-| Era II propulsion-inclusive planning chain | 4.267 optical watts per delivered planning watt |
-| N-1 ingress estate | 3 stations × 12 panels = 36 panels / 68.4 MW nominal optical installed |
-| Surviving pair, dispatch-capped | 42.400 MW optical / 4.267 = 9.94 MW delivered |
-| Mean-basis envelope utilisation | 90.7%, inside LW-1.10's ≤95% requirement |
-| Aquila network fee | $50/MWh delivered at the customer bus; revenue counted once per end-to-end link |
-| Chain amplification to the bus | 7.23× at Era II, 4.43× at Era III, on 13.827% and 22.575% end to end |
-| Era III reference link | 4.682 MW contracted; two active / three assigned $1M aircraft across 300–500 km; $2.051M/yr; 50.7-week active-pair / 76.1-week assigned-fleet gross payback; 26.0% complete fleet ROIC |
-| Longer Era III routes | Three active / four assigned: 600–1,000 km, 12.5% ROIC; four / five: 900–1,500 km, 4.5%; five / six: 1,200–2,000 km, −0.9%; six / seven: 1,500–2,500 km, −4.7% |
-| Mission ramp / fleet | 300 TWh in 2041; 366.26 TWh / 1B people in 2042; 1,391.79 TWh / 3.8B in 2050; ~33,900 links / 67,900 active / 101,800 assigned aircraft before regional pool |
-| Mature Era III ground-stack economics | $9.18–12.13M capital per 4.682 MW contracted link; aircraft separate |
-| Mature Era III ground-finance screen | At a $0.21/kWh customer bid, third-party project finance is priced to an 8% 15-year return; direct owners apply their own capital hurdle |
-| Source book | Weighted annual cost of surplus, contracted and firming energy; zero- or negative-cost energy is blended with paid supply that closes the delivery obligation |
-| Mature Era III maximum net source book | $26.32–28.70/MWh at the reference bid and current ground-capital band; varies with tariff, ownership, hardware learning and route costs |
+| Established physics | The governing relationship is well established |
+| Published evidence | A third party has demonstrated the result under stated conditions |
+| Aquila measured | Aquila has measured the result on an identified article or experiment |
+| Engineering allocation | The value is a controlled requirement or budget |
+| Model projection | The result is calculated from declared assumptions |
+| Unproven integration | Reliance awaits an integrated test |
 
-The Era III link and operator screen reproduce from the thesis models. Era II operating models remain demonstration and safety evidence.
+The long-form tags **[Measured]**, **[Validated precedent]** and **[Projection—gated]** and the compact design-review tags **[meas]**, **[pub]**, **[alloc]** and **[model]** map to these states. **Proposed** identifies a target commercial or programme structure. Plain-language documents state the same boundary without printing a tag beside every sentence.
 
-Chronological source closure, operator solvency and operator capital return are tested separately. Commercial operator economics use the Era III link.
+A state changes only through a controlled source, model or test record. The update propagates to every lower-resolution document in the same release.
+
+## Disclosure rules
+
+1. **Graduated disclosure increases resolution.** A deeper layer may quantify a claim, expose its sensitivity or show its test. Its meaning remains stable.
+2. **Material qualifications travel with the claim.** A ceiling, exclusion, measurement plane, availability convention or unproven dependency appears at the first material use.
+3. **Each document is locally sufficient.** A reader can understand the promise made by that document without opening another volume.
+4. **Authority stays singular.** A summary may quote an owned result. It cannot redefine the result.
+5. **No load-bearing premise begins downstream.** A design review or Verification record may discover a new fact. Any consequence for performance, safety, economics or the investment decision returns to the Thesis and Executive Memo before release.
+6. **Repeated figures are generated or checked.** Manual transcription creates no second source of truth.
+
+## Executable model manifest
+
+| Boundary | Executable authority |
+|---|---|
+| Canonical physical state | `sim/physical_state.py` |
+| Named-plane energy ledger | `sim/energy_ledger.py` |
+| Spherical route, atmosphere and beam screens | `sim/physics_model.py` |
+| Segmented-aperture and field acceptance | `sim/field_model.py` |
+| Aircraft mass, power, reserve and thermal screen | `sim/aircraft_model.py` |
+| Abort timing, exposure and safe-state screen | `sim/safety_model.py` |
+| Weather chronology and topology sensitivity | `sim/availability_model.py` |
+| Link-unit reconciliation and Era II operating screen | `sim/corridor_model.py` |
+| Dispatch and source chronology sensitivity | `sim/source_service.py` |
+| Era III operator return boundary | `sim/cost_curve_scenarios.py` |
+| Programme cash flow, value boundary and fleet finance | `sim/econ_model.py` |
+| First-install equipment stream | `sim/equipment_stream.py` |
+| Tranche valuation and investor returns | `sim/tranche_valuation.py` |
+| Browser/Python economic parity | `sim/parity_check.py`, `sim/parity_check.mjs` |
+| Cross-document release checksum | `sim/validate_package.py` |
+
+Each executable owns its stated boundary. A simplified screen remains labelled as a screen. An integrated model earns authority only for the variables it actually couples.
+
+## Release discipline
+
+The release is withheld when:
+
+- a governing model fails its own validation;
+- Python and browser outputs diverge;
+- a required document omits a current controlled value;
+- a superseded value survives outside the Revision History;
+- two documents assign different meanings to the same measurement plane or configuration;
+- a planning value lacks its scenario, unit or evidence state;
+- a projected capability lacks a measurable gate or falsifier;
+- a cited claim lacks a source-register entry;
+- a downstream document carries a newer baseline than its authority;
+- the site or PDF render changes the meaning of a table, equation or qualification.
+
+The Revision History records what changed. Verification records whether the current release agrees with itself.

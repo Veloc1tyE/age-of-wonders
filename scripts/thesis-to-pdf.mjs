@@ -15,15 +15,29 @@
  */
 
 import { readFileSync, mkdirSync } from 'fs';
-import { join, resolve, basename } from 'path';
+import { join, resolve, basename, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { marked } from 'marked';
+import katex from 'katex';
 import puppeteer from 'puppeteer';
 import { getSharedCSS, inlineAssets, groupSectionHeads, markWideTables } from './document-css.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const OUTPUT_DIR = join(ROOT, 'pdfs');
+const KATEX_CSS_PATH = fileURLToPath(import.meta.resolve('katex/dist/katex.min.css'));
+const KATEX_DIR = dirname(KATEX_CSS_PATH);
+
+const KATEX_CSS = readFileSync(KATEX_CSS_PATH, 'utf-8').replace(
+  /src:url\(fonts\/([^)]+\.woff2)\) format\("woff2"\),url\(fonts\/[^)]+\.woff\) format\("woff"\),url\(fonts\/[^)]+\.ttf\) format\("truetype"\)/g,
+  (_whole, filename) => {
+    const encoded = readFileSync(join(KATEX_DIR, 'fonts', filename)).toString('base64');
+    return `src:url(data:font/woff2;base64,${encoded}) format("woff2")`;
+  },
+);
+if (KATEX_CSS.includes('url(fonts/')) {
+  throw new Error('KaTeX CSS contains an unembedded font URL');
+}
 
 function parseFrontmatter(raw) {
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
@@ -43,6 +57,62 @@ function escapeHtml(str) {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+function extractMath(body, sourceLabel) {
+  const math = [];
+  const token = (tex, display) => {
+    const id = `AQUILAMATHTOKEN${math.length}END`;
+    math.push({ id, tex: tex.trim(), display });
+    return id;
+  };
+  const protectedBody = body.replace(
+    /```[\s\S]*?```|`[^`\n]*`|\\\[([\s\S]*?)\\\]|\\\(([\s\S]*?)\\\)/g,
+    (whole, displayTex, inlineTex) => {
+      if (whole.startsWith('`')) return whole;
+      if (displayTex !== undefined) return token(displayTex, true);
+      return token(inlineTex, false);
+    },
+  );
+  const outsideCode = protectedBody.replace(/```[\s\S]*?```|`[^`\n]*`/g, '');
+  const unsupportedDisplay = outsideCode.indexOf('$$');
+  if (unsupportedDisplay !== -1) {
+    const line = outsideCode.slice(0, unsupportedDisplay).split('\n').length;
+    throw new Error(`${sourceLabel}:${line}: unsupported $$ mathematics delimiter; use \\[ and \\]`);
+  }
+  const bad = outsideCode.match(/\\(?:\[|\]|\(|\))/);
+  if (bad) {
+    const line = outsideCode.slice(0, bad.index).split('\n').length;
+    throw new Error(`${sourceLabel}:${line}: unmatched mathematics delimiter ${bad[0]}`);
+  }
+  return { body: protectedBody, math };
+}
+
+function restoreMath(html, math, sourceLabel) {
+  for (const item of math) {
+    let rendered;
+    try {
+      rendered = katex.renderToString(item.tex, {
+        displayMode: item.display,
+        throwOnError: true,
+        strict: false,
+        trust: false,
+        output: 'htmlAndMathml',
+      });
+    } catch (error) {
+      throw new Error(`${sourceLabel}: invalid mathematics “${item.tex.slice(0, 90)}”: ${error.message}`);
+    }
+    const wrapped = item.display
+      ? `<div class="math-block" role="group" aria-label="display equation">${rendered}</div>`
+      : `<span class="math-inline">${rendered}</span>`;
+    const paragraph = `<p>${item.id}</p>`;
+    if (item.display && html.includes(paragraph)) html = html.replace(paragraph, wrapped);
+    else html = html.replaceAll(item.id, wrapped);
+    if (html.includes(item.id)) {
+      throw new Error(`${sourceLabel}: mathematics token ${item.id} survived rendering`);
+    }
+  }
+  return html;
+}
+
 function buildHTML(data, bodyHtml) {
   // Fonts are inlined (base64) by getSharedCSS — no network fetch at render time.
   // The old Google Fonts <link> made a confidential build depend on the internet,
@@ -56,7 +126,14 @@ function buildHTML(data, bodyHtml) {
   parts.push('<head>');
   parts.push('<meta charset="utf-8">');
   parts.push('<title>' + escapeHtml(docTitle) + '</title>');
-  parts.push('<style>' + getSharedCSS({ register: 'thesis' }) + '</style>');
+  parts.push('<style>' + getSharedCSS({ register: 'thesis' }) + KATEX_CSS + `
+.math-block{margin:18pt 0;padding:12pt 10pt;overflow:hidden;text-align:center;background:#fbfbfb;border:0.6pt solid #ececec;border-radius:3pt;break-inside:avoid}
+.math-block .katex-display{margin:0}
+.math-inline{white-space:nowrap}
+.math-inline .katex{font-size:1em}
+th .katex,td .katex{font-size:.96em}
+th .katex,th .katex *{text-transform:none!important;letter-spacing:normal}
+` + '</style>');
   if (data.flow === 'continuous') {
     // Short client documents: sections flow instead of each opening a fresh page.
     parts.push('<style>.section-head, article h1 { page-break-before: auto !important; break-before: auto !important; margin-top: 44px; }</style>');
@@ -171,11 +248,12 @@ async function main() {
   // Vault furniture: autolinks blocks, trailing wiki-link lists, and inline
   // [[...]] references feed the knowledge graph, not the reader.
   const body = stripWikiSyntax(content);
-
-  let bodyHtml = marked.parse(body);
+  const extracted = extractMath(body, filepath);
+  let bodyHtml = marked.parse(extracted.body);
   bodyHtml = groupSectionHeads(bodyHtml);
   bodyHtml = markWideTables(bodyHtml);
   bodyHtml = inlineAssets(bodyHtml, ROOT);
+  bodyHtml = restoreMath(bodyHtml, extracted.math, filepath);
 
   const { html, shortTitle } = buildHTML(data, bodyHtml);
 
