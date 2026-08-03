@@ -114,6 +114,7 @@ A state changes only through a controlled source, model or test record. The upda
 | Aircraft mass, power, reserve and thermal screen | `sim/aircraft_model.py` |
 | Abort timing, exposure and safe-state screen | `sim/safety_model.py` |
 | Weather chronology and topology sensitivity | `sim/availability_model.py` |
+| Corridor availability replay and fleet-SLA chronology | `sim/network_sim.py` (seed-7 companion tables in `sim/run_200_seed7.txt`) |
 | Link-unit reconciliation and Era II operating screen | `sim/corridor_model.py` |
 | Dispatch and source chronology sensitivity | `sim/source_service.py` |
 | Era III operator return boundary | `sim/cost_curve_scenarios.py` |

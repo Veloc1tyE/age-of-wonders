@@ -34,3 +34,6 @@ pdfs/
 # sensitive local packages — never commit
 board-package/
 dossier-energy-package/
+
+# knowledge graph outputs (contain extracted private content — never publish)
+/graphify-out/
