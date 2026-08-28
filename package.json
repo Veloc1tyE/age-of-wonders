@@ -9,7 +9,14 @@
     "astro": "astro",
     "dossier": "node private/dossier-aquila/site.mjs",
     "dossier:dev": "DOSSIER_DEV=1 node private/dossier-aquila/site.mjs --dev-serve",
-    "dossier:check": "node scripts/dossier-devcheck.mjs"
+    "dossier:check": "node scripts/dossier-devcheck.mjs",
+    "pcsel:model": "python3 private/dossier-pcsel-research/models/scala.py baseline",
+    "pcsel:model:all": "node private/dossier-pcsel-research/generate-models.mjs",
+    "pcsel:brief": "node private/dossier-pcsel-research/render-meeting-brief.mjs",
+    "pcsel:test": "python3 -m unittest discover -s private/dossier-pcsel-research/models/tests -v",
+    "pcsel:build": "node private/dossier-pcsel-research/site.mjs",
+    "pcsel:dev": "PCSEL_DOSSIER_DEV=1 node private/dossier-pcsel-research/site.mjs --dev-serve",
+    "pcsel:check": "node private/dossier-pcsel-research/check.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",

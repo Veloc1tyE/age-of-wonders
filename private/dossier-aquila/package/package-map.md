@@ -90,7 +90,7 @@ The package distinguishes six evidence states.
 | Model projection | The result is calculated from declared assumptions |
 | Unproven integration | Reliance awaits an integrated test |
 
-The long-form tags **[Measured]**, **[Validated precedent]** and **[Projection—gated]** and the compact design-review tags **[meas]**, **[pub]**, **[alloc]** and **[model]** map to these states. **Proposed** identifies a target commercial or programme structure. Plain-language documents state the same boundary without printing a tag beside every sentence.
+The long-form tags **[Measured]**, **[Validated precedent]** and **[Projection — gated]** and the compact design-review tags **[meas]**, **[pub]**, **[alloc]** and **[model]** map to these states. **Proposed** identifies a target commercial or programme structure. Plain-language documents state the same boundary without printing a tag beside every sentence.
 
 A state changes only through a controlled source, model or test record. The update propagates to every lower-resolution document in the same release.
 

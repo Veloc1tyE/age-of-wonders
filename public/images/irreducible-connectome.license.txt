@@ -1,0 +1,7 @@
+The Human Connectome
+Author: Andreas Horn (Wikimedia user Andreashorn)
+Source: https://commons.wikimedia.org/wiki/File:The_Human_Connectome.png
+Licence: Creative Commons Attribution-ShareAlike 4.0 International
+Licence URL: https://creativecommons.org/licenses/by-sa/4.0/
+Description: Group connectome rendered from diffusion MRI across twenty subjects. Fibres are colour-coded by traversing direction.
+Modification: Displayed on a black background.
