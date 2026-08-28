@@ -183,7 +183,7 @@ The site should feel instant.
 
 **Canonical Order:** Essays have a deliberate narrative order defined in `CANONICAL_ORDER` arrays, especially in `src/pages/index.astro`.
 
-The order tells a story: vision, evidence, infrastructure, bridge, reach, foundation, cosmology, coda.
+The order tells a story: vision, evidence, infrastructure, reach, human experience, love, and cosmology.
 
 Do not replace canonical order with date order unless the page explicitly asks for chronology.
 
@@ -383,6 +383,7 @@ Every major essay has a mechanism:
 - **Perceptual Abundance:** retrieval replaces inference.
 - **Create an Age of Wonders:** intelligence, simulation, biotech, and energy infrastructure raise the creative ceiling.
 - **Computational Abundance:** the cascade and plateau crossover move intelligence into the economy.
+- **Irreducible:** digital abstraction makes cognition reproducible; embodied continuation makes experience irreducible, moving the bottleneck from execution to authorship.
 - **Bridge to Infinity:** the Pythagorean Dividend changes launch economics.
 - **The Free Starship:** fuel autonomy turns a probe into a vessel.
 - **The Solar Gravitational Lens:** the physics is already the instrument; computation becomes the camera.
@@ -499,7 +500,7 @@ Name one observable that would weaken or falsify the argument.
 
 Computational Abundance does this explicitly through dated predictions. Other essays do it implicitly. The Solar Gravitational Lens depends on the physics. The Free Starship depends on fuel autonomy. Perceptual Abundance depends on measurement becoming more available, not less.
 
-The mature form is the **falsifier register**: an appendix section listing each major claim's falsifier with a date and a failure mode ("if Blackwell holds above $35K into 2028, the framework is wrong"). Every essay now carries one: Computational Abundance (Appendices H/M), Leviathan (Appendix O), Bridge to Infinity (Appendix R), Singularity (Appendix H), It's All Energy (Appendix G), The Free Starship (Appendix M), The Solar Gravitational Lens (Appendix B), and Create an Age of Wonders (a directional Dated Register). Perceptual Abundance and Love is the Foundation carry theirs implicitly, by tier, as sanctioned below. The strongest appendices go further and argue *against* the essay where they can — naming the honest caveat, grading their own evidence, declaring which numbers are original modelling. The appendix is where the essay tries to kill itself and fails.
+The mature form is the **falsifier register**: an appendix section listing each major claim's falsifier with a date and a failure mode ("if Blackwell holds above $35K into 2028, the framework is wrong"). Every essay now carries one: Computational Abundance (Appendices H/M), Leviathan (Appendix O), Bridge to Infinity (Appendix R), Singularity (Appendix H), It's All Energy (Appendix G), The Free Starship (Appendix M), The Solar Gravitational Lens (Appendix B), Irreducible (Appendix G), and Create an Age of Wonders (a directional Dated Register). Perceptual Abundance and Love is the Foundation carry theirs implicitly, by tier, as sanctioned below. The strongest appendices go further and argue *against* the essay where they can — naming the honest caveat, grading their own evidence, declaring which numbers are original modelling. The appendix is where the essay tries to kill itself and fails.
 
 Speculation gets its own register. Singularity declares it before reaching: "This section is speculation, and drawn in lighter ink." Declared speculation buys reach; undeclared speculation is a mood. For claims that are metaphysical rather than empirical, state the fence as faith — "Read as physics, it is a conjecture. Read as scripture, it is the oldest instruction there is." — once, and do not double-fence.
 
@@ -611,16 +612,16 @@ If it only repeats the worldview, it is not ready.
 
 The canon moves through four nested scales:
 
-- **Foundation** (LitF, CAOW): the moral and intellectual ground — why abundance matters and what tools make it possible.
+- **Foundation** (CAOW, Irreducible, LitF): the intellectual and moral ground — what future can be built, who it is for, and what sustains it.
 - **Infrastructure** (IAE, CA, Leviathan, BtI): the material systems that build and distribute access. It's All Energy is the tier's keystone — the master resource the other three consume.
 - **Reach** (SGL, TFS, PA): what becomes possible once those conditions are met.
 - **Cosmology** (Singularity): the meta-argument — why the universe keeps being organised in favour of life.
 
 The structure is recursive, not linear. PA is also the epistemological engine of the whole canon — the claim that the universe became *retrievable* (not just observable) is the underlying logic of every other essay. SGL retrieves coastlines. CA retrieves intelligence at ambient cost. BtI retrieves orbital access by removing the atmospheric constraint. The perceptual revolution PA describes is the canon's method, not only one of its subjects.
 
-LitF is structurally the deepest foundation, placed late so the canon earns it. By the time the reader arrives at "the scarcity is only ever local," they have seen it proven eight ways. Singularity then widens the frame to cosmology and returns to LitF's claim at maximum scale.
+Irreducible opens the canon's return from reach to foundation by naming the conscious life for whom abundance matters. LitF then names love as the deepest foundation of that life. Singularity widens the frame to cosmology and returns to the claim at maximum scale.
 
-**The chord progression.** The canon now ends in two movements, not three: "only love founds" (LitF, economics) and "Love is why you walk it... So keep walking." (Singularity, cosmology). Singularity is the canon's last essay, so its own final beat has to carry the return to agency a coda once supplied — the ending cannot rest in wonder alone, exactly because nothing follows it. Every closing tier still returns to love and access at a wider scale than the last. Before writing a new close, or a new final essay, read both existing resolutions and decide where the new one sits.
+**The chord progression.** The canon ends in three movements: "Humanity remains who the work is for" (Irreducible, experience), "only love founds" (LitF, economics), and "Love is why you walk it... So keep walking." (Singularity, cosmology). Singularity is the canon's last essay, so its own final beat has to carry the return to agency a coda once supplied — the ending cannot rest in wonder alone, exactly because nothing follows it. Every closing tier returns to experience, love, and access at a wider scale than the last. Before writing a new close, or a new final essay, read all three existing resolutions and decide where the new one sits.
 
 ---
 
@@ -635,12 +636,16 @@ The essays hand off to each other:
 - **BtI and TFS answer the same constraint by different means.** The bridge moves the launch above the atmosphere; the starship's buoyant hull rises through it without thrust. BtI names the handoff itself: the cathedral chain "ends with the free starships: vessels that depend on nothing before them."
 - **CA diffuses the intelligence that operates all of it.** Plateau models run navigation, planning, and analysis across the whole system.
 - **Leviathan trains the frontier models that distil into CA's plateau.** The forge is upstream of the diffusion.
+- **CA supplies Irreducible's premise.** Intelligence becomes copyable infrastructure; Irreducible asks what remains when competence becomes abundant.
+- **Irreducible supplies LitF's subject.** It names the conscious life for whom abundance matters; LitF explains how love forms and sustains that life.
 - **LitF provides the moral claim that makes all of it matter.** Without love as foundation, abundance is accumulation.
 - **CAOW is the thesis. PA is the proof that the thesis is already partly true.**
-- **Singularity takes the whole graph as its evidence.** The eight essays before it are its fossil record; LitF gives it its survival filter — love as a selection criterion.
+- **Singularity takes the whole graph as its evidence.** The preceding essays are its fossil record; LitF gives it its survival filter — love as a selection criterion.
 - **It's All Energy is where the canon touches the ground.** CA and Leviathan run on the watts it promises. LitF's tailor and mother are its opening witnesses. Every scarcity in the canon decomposes into the watt it names.
 
-When It's All Energy publishes, it takes position three in the canonical order — after Perceptual Abundance, before Computational Abundance. The keystone doubles as the altitude bridge: PA ends in wonder, CA begins in analysis, and the energy essay carries the reader between them. Repoint LitF's "energy to lift every life" links to it at the same time.
+It's All Energy occupies position three in the canonical order — after Perceptual Abundance, before Computational Abundance. The keystone doubles as the altitude bridge: PA ends in wonder, CA begins in analysis, and the energy essay carries the reader between them.
+
+Irreducible occupies position nine — after The Free Starship, before Love is the Foundation. The canon has built intelligence, infrastructure, and reach; Irreducible asks who any of it is for. It turns CA's machine intelligence into infrastructure and hands LitF the conscious life that infrastructure serves.
 
 A new essay should add a node to this graph — a new domain, mechanism, or inversion. If it only restates the worldview without connecting to the existing dependencies, it is not ready.
 
@@ -648,13 +653,13 @@ A new essay should add a node to this graph — a new domain, mechanism, or inve
 
 ### The meta-argument (Singularity)
 
-For eight essays the canon claimed the universe is organised in favour of life without arguing *why* this keeps being true. Each essay named a specific instance — the Sun bends light, hydrogen fuses, silicon computes, love founds — but none made the meta-argument.
+Across the preceding essays, the canon claimed the universe is organised in favour of life without arguing *why* this keeps being true. Each essay named a specific instance — the Sun bends light, hydrogen fuses, silicon computes, love founds — but none made the meta-argument.
 
 Singularity (published 2026-06-18) makes it, and improves on the spec this guide once held for it. The planned version was bare anthropic necessity: a universe that produces observers must be rich enough to support them. The essay rejects that framing as ungrounded ("True, but it explains the fact without grounding it") and substitutes a causal mechanism — cosmological natural selection extended to civilisations. The access frame stops being an observation about technology and becomes an observation about what kind of universe survives its own selection.
 
 The essay's falsifiers are registered in its Appendix H. The planned closing line was delivered nearly as written — *If you can ask whether the universe is with you, you are already the answer.* — as the penultimate beat; the shipped close returns to agency, as the chord progression requires: *So keep walking.*
 
-The lesson for future essays: even the canon's own specifications are subject to the mechanism rule. The ninth essay was not ready until its mechanism was named.
+The lesson for future essays: even the canon's own specifications are subject to the mechanism rule. The final essay was not ready until its mechanism was named.
 
 ---
 
