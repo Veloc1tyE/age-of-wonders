@@ -500,9 +500,9 @@ Name one observable that would weaken or falsify the argument.
 
 Computational Abundance does this explicitly through dated predictions. Other essays do it implicitly. The Solar Gravitational Lens depends on the physics. The Free Starship depends on fuel autonomy. Perceptual Abundance depends on measurement becoming more available, not less.
 
-The mature form is the **falsifier register**: an appendix section listing each major claim's falsifier with a date and a failure mode ("if Blackwell holds above $35K into 2028, the framework is wrong"). Every essay now carries one: Computational Abundance (Appendices H/M), Leviathan (Appendix O), Bridge to Infinity (Appendix R), Singularity (Appendix H), It's All Energy (Appendix G), The Free Starship (Appendix M), The Solar Gravitational Lens (Appendix B), Irreducible (Appendix G), and Create an Age of Wonders (a directional Dated Register). Perceptual Abundance and Love is the Foundation carry theirs implicitly, by tier, as sanctioned below. The strongest appendices go further and argue *against* the essay where they can — naming the honest caveat, grading their own evidence, declaring which numbers are original modelling. The appendix is where the essay tries to kill itself and fails.
+The mature form is the **falsifier register**: an appendix section listing each major claim's falsifier with a date and a failure mode ("if Blackwell holds above $35K into 2028, the framework is wrong"). The analytical and speculative essays carry one: Computational Abundance (Appendices H/M), Leviathan (Appendix O), Bridge to Infinity (Appendix R), Singularity (Appendix H), The Free Starship (Appendix M), The Solar Gravitational Lens (Appendix B), and Irreducible (Appendix G). The elemental essays carry falsifiability through their cited claims rather than a separate register. The strongest appendices go further and argue *against* the essay where they can — naming the honest caveat, grading their own evidence, declaring which numbers are original modelling. The appendix is where the essay tries to kill itself and fails.
 
-Speculation gets its own register. Singularity declares it before reaching: "This section is speculation, and drawn in lighter ink." Declared speculation buys reach; undeclared speculation is a mood. For claims that are metaphysical rather than empirical, state the fence as faith — "Read as physics, it is a conjecture. Read as scripture, it is the oldest instruction there is." — once, and do not double-fence.
+Speculation gets its own register. Singularity declares it before reaching: "What follows is speculation, drawn in lighter ink." Declared speculation buys reach; undeclared speculation is a mood. For claims that are metaphysical rather than empirical, state the fence as faith — "Read as physics, it is a conjecture. Read as scripture, it is the oldest instruction there is." — once, and do not double-fence.
 
 The optimism is load-bearing.
 
@@ -617,7 +617,7 @@ The canon moves through four nested scales:
 - **Reach** (SGL, TFS, PA): what becomes possible once those conditions are met.
 - **Cosmology** (Singularity): the meta-argument — why the universe keeps being organised in favour of life.
 
-The structure is recursive, not linear. PA is also the epistemological engine of the whole canon — the claim that the universe became *retrievable* (not just observable) is the underlying logic of every other essay. SGL retrieves coastlines. CA retrieves intelligence at ambient cost. BtI retrieves orbital access by removing the atmospheric constraint. The perceptual revolution PA describes is the canon's method, not only one of its subjects.
+The structure is recursive, not linear. PA is also the epistemological engine of the whole canon — the claim that the universe became *retrievable* (not just observable) is the underlying logic of every other essay. SGL retrieves continents. CA retrieves intelligence at ambient cost. BtI retrieves orbital access by removing the atmospheric constraint. The perceptual revolution PA describes is the canon's method, not only one of its subjects.
 
 Irreducible opens the canon's return from reach to foundation by naming the conscious life for whom abundance matters. LitF then names love as the deepest foundation of that life. Singularity widens the frame to cosmology and returns to the claim at maximum scale.
 
@@ -631,9 +631,9 @@ The essays hand off to each other:
 
 - **SGL gives TFS its destinations.** Without the maps, the starship has no purpose.
 - **TFS makes SGL's maps actionable.** Without vessels, maps are curiosity. SGL returns the edge in §V ("the maps have a vessel").
-- **TFS's reverse relay makes SGL the receiver.** The ship's probe on the destination star's focal line (TFS §VI, Appendix L) transmits to the SGL station on the Sun's — the lens that mapped the world becomes the channel that carries it home. Appendix L inherits SGL's falsifier register wholesale.
+- **TFS's reverse relay makes SGL the receiver.** The ship's probe on the destination star's focal line (TFS §VI, Appendix L) transmits to the SGL station on the Sun's — the lens that mapped the world becomes the channel that carries it home. The relay inherits the lens's corona, station-keeping, alignment, and link-budget gates. Image reconstruction is irrelevant to communication.
 - **TFS's silicon clock runs on CA's deployment shape.** The colony's federated administration (TFS Appendix K) is CA's bounded-autonomy-at-the-edge architecture with the supply chain removed.
-- **BtI and TFS answer the same constraint by different means.** The bridge moves the launch above the atmosphere; the starship's buoyant hull rises through it without thrust. BtI names the handoff itself: the cathedral chain "ends with the free starships: vessels that depend on nothing before them."
+- **BtI and TFS answer the same constraint by different means.** The bridge moves the launch above the atmosphere; the starship uses buoyancy through its dense lower layers. BtI names the handoff itself: the cathedral chain "ends with the free starships: vessels that can leave the supply line behind."
 - **CA diffuses the intelligence that operates all of it.** Plateau models run navigation, planning, and analysis across the whole system.
 - **Leviathan trains the frontier models that distil into CA's plateau.** The forge is upstream of the diffusion.
 - **CA supplies Irreducible's premise.** Intelligence becomes copyable infrastructure; Irreducible asks what remains when competence becomes abundant.
@@ -655,7 +655,7 @@ A new essay should add a node to this graph — a new domain, mechanism, or inve
 
 Across the preceding essays, the canon claimed the universe is organised in favour of life without arguing *why* this keeps being true. Each essay named a specific instance — the Sun bends light, hydrogen fuses, silicon computes, love founds — but none made the meta-argument.
 
-Singularity (published 2026-06-18) makes it, and improves on the spec this guide once held for it. The planned version was bare anthropic necessity: a universe that produces observers must be rich enough to support them. The essay rejects that framing as ungrounded ("True, but it explains the fact without grounding it") and substitutes a causal mechanism — cosmological natural selection extended to civilisations. The access frame stops being an observation about technology and becomes an observation about what kind of universe survives its own selection.
+Singularity (published 2026-06-18) makes it, and improves on the spec this guide once held for it. The planned version was bare anthropic necessity: a universe that produces observers must be rich enough to support them. The essay says this explains the observation without explaining the constants, then substitutes a causal mechanism — cosmological natural selection extended to civilisations. The access frame stops being an observation about technology and becomes an observation about what kind of universe survives its own selection.
 
 The essay's falsifiers are registered in its Appendix H. The planned closing line was delivered nearly as written — *If you can ask whether the universe is with you, you are already the answer.* — as the penultimate beat; the shipped close returns to agency, as the chord progression requires: *So keep walking.*
 

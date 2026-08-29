@@ -62,7 +62,7 @@ And the scarce asset is the **slot**: permitted power, cooling, land, transforme
 
 Every order book is a claim on a future slot. Every "X gigawatts" announcement is a claim on a slot. The order book equals demand only if the slots arrive on time.
 
-In January 2026, AWS raised H200 Capacity Block pricing by 15%<sup><a href="#ref-6">[6]</a></sup>. For the first time in two decades, cloud compute got more expensive. Slot scarcity did that.
+In January 2026, AWS raised H200 Capacity Block pricing by 15%<sup><a href="#ref-6">[6]</a></sup>. Scarce slots overpowered the usual direction of cloud pricing.
 
 ## II. The Order Book Is Not Demand
 
@@ -98,7 +98,7 @@ Industrial-grade autonomy requires reliability several orders of magnitude beyon
 
 Capability arrives before verification, regulation, and integration. It always has—in medicine, in finance, in software itself.<sup><a href="#ref-10">[10]</a></sup>
 
-And almost all AI demand growth has concentrated in software engineering. Cursor, Claude Code, Copilot, Codex, Devin: coding built AI's first billion-dollar revenue lines. Software engineering spent fifty years building exactly the distribution layer the deployment economy requires: compilers, type systems, linters, version control, test frameworks, CI/CD, sandboxed runtimes, code review, IDEs, and open-source ecosystems with documented APIs.
+Coding produced some of AI's clearest early revenue lines. Cursor, Claude Code, Copilot, Codex, Devin: each entered a field with fifty years of deployment scaffolding—compilers, type systems, linters, version control, test frameworks, CI/CD, sandboxed runtimes, code review, IDEs, and open-source ecosystems with documented APIs.
 
 Q1 2026 made the asymmetry impossible to miss.
 
@@ -181,7 +181,13 @@ The compute backbone is growing at unprecedented scale: hyperscaler campuses, so
 
 The models are capable. The distribution layer is not.
 
-In AI, the distribution layer is reliability engineering, verification, observability, permissions, audit, rollback; agentic harnesses, distillation, quantisation, and the optimisations that make smaller models perform like larger ones on commodity hardware; integration into industry software stacks, regulatory regimes, procurement, insurance, liability, and workflow ownership. A frontier training run produces an input. Turning that input into intelligence the economy can apply is the distribution problem.
+In AI, the distribution layer is reliability engineering: verification, observability, permissions, audit, and rollback.
+
+It includes the methods that make smaller models useful on ordinary hardware: harnesses, distillation, and quantisation.
+
+It includes integration into software, regulation, procurement, insurance, liability, and workflow ownership.
+
+A frontier run produces an input. Distribution turns it into intelligence the economy can use.
 
 Coding got there first because coding has compile, lint, test, and revert built in by default. Every output verifies in seconds against deterministic rails. Most other domains do not have that. They build their distribution layer from scratch, against domain-specific failure modes, under regulatory regimes that did not contemplate autonomous agents, inside organisations whose change-management cycles measure in years.
 
@@ -306,9 +312,9 @@ This is what the migrated infrastructure will host: smaller, distilled, speciali
 
 The frontier labs will keep training larger models on the newest hardware. They are correct to. But capability deployment happens on the cheaper, older, more plentiful tier, with smaller models distilled out of the frontier and re-engineered for industrial use.
 
-The recipe is standard. A frontier model serves as the teacher, generating millions of synthetic reasoning traces and logit distributions for a target workflow. A smaller dense student, single-GPU class, is fine-tuned to match those traces, then aligned with reinforcement learning against an automated validator: a compiler, a schema check, a domain-specific scorer. The result is a deterministic specialist that operates at the bulk of the teacher's accuracy on the bounded workflow at a small fraction of the inference cost.
+The recipe is standard. A frontier model teaches a smaller model the target workflow. Automated validators—a compiler, schema check, or domain scorer—then constrain and improve it. The result is a bounded specialist that delivers much of the teacher's accuracy at a fraction of the inference cost.
 
-Frontier intelligence discovers, judges, and creates. Plateau intelligence executes, repeats, monitors, and verifies.
+The frontier discovers capability. The plateau distributes it.
 
 The cost of running a given level of intelligence on a given piece of hardware falls every year. Distillation, quantisation, sparsity, speculative decoding, KV-cache compression, mixture-of-experts routing, FlashAttention, compiler advances—each compounds on the others. Measured at cost-per-token for a given capability level, the effect is orders of magnitude.<sup><a href="#ref-15">[15]</a></sup>
 
@@ -366,13 +372,13 @@ When the price of a plateau slot collapses, three things happen—
 
 <PullQuote>
 
-Demand scales exponentially when we lower price.
+Lower prices open larger markets.
 
 </PullQuote>
 
 *[Create an Age of Wonders](/essays/create-an-age-of-wonders)* named this: intelligence as infrastructure.<sup><a href="#ref-16">[16]</a></sup> The post-bust world is what that phrase means in practice.
 
-Bandwidth became an ambient property around 2010. Electricity became ambient in the 1930s. Refrigeration. Plumbing. Roads. Each started as an event and became infrastructure: present, cheap, taken for granted.
+In the economies that built them, bandwidth became ambient around 2010. Electricity did the same across the twentieth century. Refrigeration. Plumbing. Roads. Each started as an event and became infrastructure: present, cheap, taken for granted.
 
 Compute is in the middle of that transition. Intelligence is following it.
 
@@ -829,104 +835,6 @@ Third, the access layer is the *structurally underwritable surface* across the d
 
 The forward predictions in this appendix are dated and observable on known timetables. The framework updates if any falsifies.
 
-### <span id="appendix-l" class="appendix-anchor"></span>L. Domain-Specific Diffusion and the Stockfish Multiplier
-
-§VI argues that the deployable shape of intelligence is bounded learned components inside engineered scaffolding—Stockfish for everything. This appendix quantifies the implication: the *deployment timeline* under that architecture is wave-shaped across 2026–2040, governed by a workload-specific reliability-bar lattice and a scaffolding multiplier that stacks on top of base-model capability. The shorthand *"AI will reach 99.99% reliability in N years"* is correct on the headline number and misleading on the economic substance. Most addressable value crosses its threshold long before the terminal bar is reached.
-
-**L.1: The reliability-bar lattice.** Autonomous deployment of an AI workflow requires effective system reliability $R_{\text{eff}}(w)$ to exceed a workload-specific bar $R_{\text{bar}}(w)$, set by cost-of-error, recourse availability, and regulatory regime. The bar spans four orders of magnitude across the economy. The values below are approximate, intended as order-of-magnitude thresholds rather than measured universal constants. The strong claim is the spread across workload classes, not the exact decimal assigned to any single task:
-
-| Task class | $R_{\text{bar}}$ | Rationale |
-|---|---|---|
-| Brainstorming, drafting, outlines | ~0.70 | Human review default |
-| Translation, summarisation | ~0.92 | Direct user consumption |
-| Code completion (suggested) | ~0.80 | Developer accepts/rejects |
-| Customer support (assisted deflection) | ~0.85 | Human escalation handles tail |
-| Code generation with tests-in-loop | ~0.90 | Test suite catches failures |
-| Junior knowledge work (supervised) | ~0.85 | Supervisor catches failures |
-| Research synthesis with citations | ~0.92 | Citations enable verification |
-| Tier-2 autonomous customer resolution | ~0.92 | Human escalation tail |
-| Sales prospecting and outreach | ~0.85 | Low cost of error |
-| Tax preparation (autonomous, standard cases) | ~0.98 | Liability-bearing |
-| Legal contract drafting (standard) | ~0.98 | Liability-bearing |
-| Code review with autonomous merge | ~0.98 | Production risk |
-| Medical diagnosis (autonomous, routine) | ~0.99 | Patient safety |
-| Surgical decision support (high autonomy) | ~0.999 | Life-critical |
-| Financial trading (autonomous) | ~0.9999 | Cascading capital risk |
-| Self-driving (L4+, all edge cases) | ~0.99999 | Public safety, regulatory |
-| Autonomous surgery | ~0.99999 | Patient mortality |
-
-The shape of the diffusion follows from the shape of the bar lattice, not from any single benchmark trajectory.
-
-**L.2: Base capability growth.** Frontier-model headline benchmark improvement, annualised across 2024–2026 releases (Anthropic, OpenAI, Google):
-
-| Benchmark family | Annualised improvement | Notes |
-|---|---|---|
-| Hard reasoning (HLE, GPQA) | ~10–15 pp/yr | Diminishing returns near ceiling |
-| Hard coding (SWE-Bench Pro) | ~15–20 pp/yr | Largest current gains |
-| Saturating agentic tasks (OSWorld) | ~3–6 pp/yr | Approaching benchmark ceiling |
-| Practical knowledge work (Finance Agent, GPQA-AA) | ~8–12 pp/yr | Mid-saturation |
-
-Capability scales approximately logarithmically in compute (§H.1). Benchmark improvement saturates as scores approach 1.0. The naïve linear extrapolation that produces a 2038–2042 estimate for 99.99% across hard agentic tasks treats the base-model rate as the only input. It is not.
-
-**L.3: The Stockfish multiplier.** Each scaffolding layer in the §VI architecture catches an independent fraction of base-model failures. Treat each layer as a Bernoulli catcher with catch probability $c_i$, applied independently to residual failures. Effective system reliability for workload $w$:
-
-$$R_{\text{eff}}(w, t) \;=\; 1 \,-\, \big(1 - R_{\text{base}}(t)\big) \cdot \prod_{i \in \text{stack}(w)} \big(1 - c_i\big)$$
-
-Illustrative catch probabilities from observed deployment systems:
-
-| Scaffolding layer | $c_i$ (illustrative) | Mechanism |
-|---|---|---|
-| Test-driven generation loop | ~0.60 | Failing tests reject candidate outputs |
-| Multi-agent disagreement detection | ~0.50 | Two-agent disagreement triggers tiebreaker |
-| Formal verification on covered surface | ~0.95 | Type system, proof checker, schema conformance |
-| Retrieval-grounded generation | ~0.70 on factual claims | Citation anchoring eliminates a hallucination class |
-| Tool augmentation (calc, code exec, search) | ~1.0 on the augmented sub-task | Deterministic computation |
-| Specialised fine-tuning on domain | ~0.30 lift on residual error | Domain-specific failure-mode coverage |
-| Human-in-the-loop on calibrated abstention | ~0.95 on flagged cases | Uncertainty triggers escalation |
-
-Layers stack multiplicatively on independent failure modes. An 85% base model + 60% test-loop catcher + 70% retrieval catcher yields:
-
-$$R_{\text{eff}} \;=\; 1 - (1 - 0.85)(1 - 0.60)(1 - 0.70) \;=\; 1 - 0.018 \;\approx\; 0.982$$
-
-Roughly 98% effective system reliability emerges from a base model that one-shots at 85%. This is the empirical pattern observed when Claude Code, Cursor, or comparable agentic harnesses wrap a frontier model in test-loop scaffolding: codebase-scale operations succeed at materially higher rates than the underlying model's one-shot benchmark would predict.<sup><a href="#ref-38">[38]</a></sup>
-
-The independence assumption is an upper-bound simplification. Scaffolding layers have correlated failure modes: bad retrieval, ambiguous instructions, shared model priors, common blind spots, or domain misunderstandings can cause multiple layers to fail together. So the deployment question is not whether every layer is statistically independent, but whether enough layers are *orthogonal*—tests, retrieval, formal checks, human escalation, sandboxed execution, audit logs—to reduce residual failure below the workload bar. Three to five well-chosen orthogonal layers clear most production reliability bars. The operative work is selecting layers whose failure modes do not stack, not adding more layers of the same kind.
-
-The Stockfish multiplier is not metaphor. It is the architecture of the deployed system and the lever the next decade of effective intelligence runs on.
-
-**L.4: Deployment-phase timeline under the multiplier.** Combining base capability growth (10–15 pp/yr on hard tasks, saturating logarithmically) with empirically achievable Stockfish multipliers, task classes cross their respective bars in the following windows. Each window assumes the relevant scaffolding stack is built and deployed. Absent the stack, the crossing slips by years.
-
-| Window | Task classes crossing their bar |
-|---|---|
-| 2024–2026 (crossed) | Brainstorming and drafting, translation, summarisation, code completion, email drafting, Tier-1 customer-support deflection, research drafting with citations |
-| 2026–2028 | Code generation with tests-in-loop, Tier-2 autonomous customer resolution, document review (legal, financial, audit, with human sign-off), personal-assistant task handling, sales prospecting automation, standardised tax preparation, educational tutoring |
-| 2028–2031 | Autonomous coding for non-critical systems, medical diagnosis support (assisted), legal contract analysis and standard drafting, low-risk autonomous code-review merge, financial advice (assisted, with liability framework), junior engineering design, geofenced robotaxi expansion |
-| 2031–2035 | Autonomous medical diagnosis (routine), autonomous standard legal drafting, autonomous coding for critical systems (with formal verification), high-autonomy surgical decision support, L4 robotaxi across most environments, autonomous portfolio management |
-| 2035–2040 | Autonomous surgery (with safety backup), binding autonomous legal counsel, fully autonomous self-driving across all edge cases, model-led novel scientific discovery |
-| Possibly not under current paradigm | Cross-domain executive judgement, fully autonomous novel cross-disciplinary theorising, some long-tail physical-world autonomy edge cases |
-
-The economically dense windows are 2026–2028 and 2028–2031. The 2031–2040 windows clear the critical-domain autonomy bars but capture a smaller fraction of total economic surface than the earlier waves. Most addressable value reorganises through the access layer during 2026–2031, well before the headline 99.99% bar is cleared on any domain.
-
-**L.5: Wave-shaped inference demand and the lease term.** The diffusion is not concentrated at the terminal date. Each row of the L.4 table represents a new tenant class entering the inference compute market on plateau-tier silicon. The compounding produces monotonically rising inference demand across the 2026–2040 window:
-
-- 2026–2028: knowledge-work and customer-facing AI wave. Largest tenant count, lowest per-unit inference, broad geographic distribution.
-- 2028–2031: professional-services and supervised-autonomy wave. Mid tenant count, mid per-unit inference, regulated-vertical concentration.
-- 2031–2035: critical-domain autonomy wave. Smallest tenant count, largest per-unit inference per critical decision, highest tenant credit quality.
-
-The agentic compounding factor of §VI—dynamic workflows, hundreds of parallel subagents per user-facing action, longer-running tasks—is approximately orthogonal to the bar-crossing schedule.<sup><a href="#ref-38">[38]</a></sup> Same model + 10–100× agentic complexity per action multiplies inference demand independent of which bar has crossed. The two effects compound: wave-shaped tenant growth × agentic-complexity multiplier on every active tenant.
-
-For an access-layer operator, this wave shape supports multi-year underwriting. A position originated in 2027 captures the full 2028–2031 professional-services wave and the early 2031–2035 critical-domain wave inside a 5–10 year horizon. The underwriting does not depend on any single wave materialising on schedule. It depends on enough waves materialising across the horizon to keep utilisation above the underwriting floor. The wave shape converts deployment-timeline uncertainty into portfolio-style diversification across the access-layer position.
-
-**L.6: Three falsifiers.** Risky predictions on observable timetables:
-
-The first runs on the early waves: by the end of 2027, the share of customer-support, sales-outreach, document-drafting, and code-completion *work-hours* served by AI scaffolding in autonomous-execution mode should exceed 25% across measured enterprise deployments. *Autonomous-execution mode* means the AI system executes the task without per-action human pre-approval, while preserving human escalation, sampled review, or post-hoc audit—distinguishing it from suggestion mode, where each output requires acceptance before it has effect. If the share remains below 10%—i.e. AI continues to be reviewed suggestion-only and does not transition to autonomous-execution mode at scale—the L.4 2026–2028 crossing window is empirically incorrect and the diffusion is materially slower than the framework predicts.
-
-The second runs on the mid-wave: by the end of 2029, the autonomous-merge rate on code-review benchmarks—PR review systems acting without human approval on flagged-low-risk changes—should exceed 30% on the production codebases of mid-sized engineering organisations. If the rate remains below 5%, the L.4 2028–2031 window is empirically incorrect and the multiplier model overstates achievable scaffolding gains.
-
-The third runs on multiplier mechanics directly: by the end of 2028, peer-reviewed work on multi-component scaffolding stacks (test loops, multi-agent verification, retrieval grounding, formal verification on covered surface) should report combined effective reliability of ≥99% on tasks where base-model one-shot reliability sits in the 80–90% range. If the published evidence converges on combined effective reliability that stays below ~95% on the same baseline, the L.3 multiplier identity is overstated and the L.4 timeline shifts later by two to four years.
-
-**The deeper point.** The headline is the long march. The economic substance is the wave. The essay's §VI argues that the deployable shape of intelligence is bounded learned judgement inside engineered scaffolding. This appendix quantifies the consequence: the *deployment timeline* under that architecture is wave-shaped across 2026–2040, governed by the reliability-bar lattice and the Stockfish multiplier. Each wave passes inference demand through to the access layer continuously. The "decade-plus to 99.99% everything" framing is correct on the terminal date, irrelevant to the economic story between now and that date, and structurally favourable to a multi-year lease-underwritten access-layer position. The slower the base-model curve, the more value migrates to whoever built the scaffolding around it, and the more durable the demand for the inference compute that hosts it.
-
 ### <span id="appendix-m" class="appendix-anchor"></span>M. The Q1 2026 Register
 
 The body carries only facts that cannot stop being true. These can. They are recorded here as reported at the time—a dated snapshot preserved as a falsifiable register, per reporting across Reuters, Bloomberg, and The Information.<sup><a href="#ref-11">[11]</a></sup>
@@ -1060,9 +968,6 @@ See also Atlanta Fed / Richmond Fed / Duke CFO Survey: <a href="https://www.atla
 
 <span id="ref-37">[37]</span> Acemoglu, D. (2024). <a href="https://www.nber.org/system/files/working_papers/w32487/w32487.pdf" target="_blank" rel="noopener noreferrer">"The Simple Macroeconomics of AI."</a> NBER Working Paper No. 32487. <a href="https://ideas.repec.org/p/nbr/nberwo/32487.html" target="_blank" rel="noopener noreferrer">RePEc record.</a>
 (Conservative macroeconomic estimate of generative AI's GDP and productivity effects.)
-
-<span id="ref-38">[38]</span> Anthropic (2026). <a href="https://www.anthropic.com/news/claude-opus-4-8" target="_blank" rel="noopener noreferrer">"Introducing Claude Opus 4.8."</a>
-(Product announcement, system-card material, dynamic workflows, subagents, and benchmark comparisons.)
 
 ### Background references
 

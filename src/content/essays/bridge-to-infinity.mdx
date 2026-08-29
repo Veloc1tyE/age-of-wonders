@@ -62,7 +62,7 @@ Rockets are the horse. The Bridge is the railroad.
 
 ## II. The Needle
 
-Previous attempts at assisted launch failed because they solved the wrong problem. Air launch (Virgin Orbit, Pegasus) carries a rocket to ~10 km at Mach 0.8, roughly 3% of orbital velocity. The rocket still does 97% of the work, still fires through dense atmosphere, still uses a sea-level-compromise engine. The assist changes nothing that matters.
+Previous attempts at assisted launch failed because they solved the wrong problem. Air launch (Virgin Orbit, Pegasus) carries a rocket to ~10 km at Mach 0.8, roughly 3% of orbital speed. The rocket supplies the rest, still fires through dense atmosphere, and still uses a sea-level-compromise engine. The assist changes nothing that matters.
 
 SpinLaunch and sea-level railguns provide more speed but exit into the densest possible air. Dynamic pressure at 2 km/s at sea level is 60× a rocket's Max Q. These systems add velocity at the wrong altitude. The opportunity is *higher exit*, above the atmosphere that forces every compromise.
 
@@ -121,7 +121,7 @@ Ground vehicles default to dense propellants that survive Max Q. Hydrogen offers
 | Hydrolox | 465 | 64% |
 | Nuclear thermal (H₂) | ~900 | 88% |
 
-*100 t cargo to LEO, 20 km exit altitude. Human-rated launch runs a few points lower. The full per-altitude table is in <a class="xref" href="#appendix-d">Appendix D</a>.*
+*Reference case: 100 t post-burn mass (vehicle + payload). Savings percentages are independent of the split between them. Human-rated launch runs a few points lower. The full per-altitude table is in <a class="xref" href="#appendix-d">Appendix D</a>.*
 
 Halcyon needs a large planform for the aerodynamic bank and runway landing. Hydrogen can fill that planform with useful propellant instead of dead structure. Hydrolox is the near-term workhorse. Nuclear thermal propulsion is the upgrade (<a class="xref" href="#appendix-m">Appendix M</a>).<sup><a href="#ref-7">[7]</a></sup>
 
@@ -140,7 +140,7 @@ The difference between a space programme and a space economy is cadence.
 
 Cadence requires infrastructure built like transport. So a mature orbital economy looks more like ports, rail, and container shipping.
 
-**The port.** Meridian is fixed infrastructure, used constantly, maintained on schedules, amortised over decades. It never moves. Its marginal cost per launch is electricity and upper-stage propellant.
+**The port.** Meridian is fixed infrastructure, used constantly, maintained on schedules, amortised over decades. It never moves. Electricity is Meridian's main variable input. Vehicle propellant, maintenance, and amortisation set the delivered price.
 
 **The locomotive.** Halcyon: a reusable lifting body, optionally crewed, that mates with Meridian, completes orbital insertion in near-vacuum, glides back to a runway, and turns around for the next flight.
 
@@ -154,11 +154,11 @@ The Moon is the natural source of bulk mass for space.
 
 The Moon's gravity well is 22 times shallower than Earth's.<sup><a href="#ref-9">[9]</a></sup> The energy to lift a kilogram of structural aluminium from the Moon to cis-lunar orbit is less than <a class="xref" href="#appendix-h">one-twentieth the energy to lift the same kilogram from Earth</a>.<sup><a href="#ref-10">[10]</a></sup> And the Moon has no atmosphere, no vacuum tube, no aerodynamic heating, no Max Q. A lunar mass driver is roughly 14 km of track at 20g under open sky, powered from crater rims where the Sun almost never sets.
 
-The marginal energy cost of material throughput from the Moon into cis-lunar orbit works out to roughly <a class="xref" href="#appendix-j">\$0.04/kg</a> at lunar solar power prices. Not \$40. Not \$4. Four cents.<sup><a href="#ref-11">[11]</a></sup>
+Launching processed material from the Moon into cis-lunar orbit costs roughly <a class="xref" href="#appendix-j">\$0.04/kg in electricity</a>. Processing the regolith costs far more. The gravity well is the part that disappears.<sup><a href="#ref-11">[11]</a></sup>
 
 The Moon's crust is exactly the inventory a space civilisation needs for bulk construction: oxygen, silicon, aluminium, iron, magnesium, calcium, titanium.<sup><a href="#ref-12">[12]</a></sup> Structural metals, glass, ceramics, radiation shielding, the heavy, voluminous things that dominate construction mass and are expensive to launch from Earth because there is so much of them.
 
-The round-trip light time to the Moon is about 2.6 seconds, fast enough for teleoperation of industrial robots, excavators, and fabrication systems.<sup><a href="#ref-13">[13]</a></sup> The first lunar industrial base runs on machines and a data link.
+The round-trip light time to the Moon is about 2.6 seconds: too slow for direct reflexes, fast enough for supervised teleoperation of industrial robots, excavators, and fabrication systems.<sup><a href="#ref-13">[13]</a></sup> The first lunar industrial base runs on machines and a data link.
 
 That pairing resolves into a single asymmetry.
 
@@ -184,13 +184,13 @@ It is why population migration lags industrial migration: cargo economics improv
 Earth exports the blueprint. The Moon exports the bricks. Cis-lunar space builds the city.
 
 
-## VI. The One-Light-Second Neighbourhood
+## VI. The Cis-Lunar Neighbourhood
 
 The cost of orbit is a solved problem. A space economy needs something more: coherence.
 
-An economy needs supply chains that close, transactions that settle, machines that take instructions. All of that requires communication that is fast enough to feel like one place. Within about 380,000 km of Earth, round-trip latency stays under a second.
+An economy needs supply chains that close, transactions that settle, and machines that take instructions. Across the Earth–Moon system, a signal returns in under three seconds.
 
-Beyond that shell, delay accumulates. Coordination degrades. The one-light-second neighbourhood is the radius within which cis-lunar space functions as a single economy rather than a collection of isolated outposts.<sup><a href="#ref-14">[14]</a></sup>
+That delay is slow enough to notice and fast enough to coordinate. Beyond the Moon, it grows quickly. Cis-lunar space can still function as one economy because its machines, markets, and people can answer one another.<sup><a href="#ref-14">[14]</a></sup>
 
 <PullQuote>
 
@@ -199,9 +199,9 @@ Meridian makes orbit cheap. Latency defines how far the economy stretches.
 </PullQuote>
 
 
-Inside that shell, industry migrates in a specific order.
+Inside that neighbourhood, industry migrates in a specific order.
 
-Heavy industry goes first: smelting, refining, chemical processing generate heat and waste that Earth's biosphere must absorb. In space, waste heat radiates to 2.7 K. Feedstock arrives from the Moon. Power follows industry, because industry consumes it. In high orbit, the Sun never sets. [Computation follows power](/essays/leviathan). Then workers. Then families. Then cities.
+Heavy industry goes first. Smelting, refining, and chemical processing generate heat and waste Earth's biosphere must absorb. In space, radiators discharge heat into the dark. Feedstock arrives from the Moon. Power follows industry. At the right high orbit, sunlight is nearly continuous. [Computation follows power](/essays/leviathan). Then workers. Then families. Then cities.
 
 Each arrival depends on the one before it. Population follows closed logistics, the same way every city in history was a port or a crossroads before it was a home.
 
@@ -221,7 +221,7 @@ Once heavy industry can operate in space, powered by continuous solar energy, fe
   wide
 />
 
-The atmosphere stops absorbing industrial waste heat. The oceans stop receiving runoff from extraction. Mines close because their products are better sourced from the Moon. Smelters, refineries, and chemical plants migrate to orbital platforms where their emissions harm nothing.
+The atmosphere stops absorbing industrial waste heat. The oceans stop receiving runoff from extraction. Mines close because their products are better sourced from the Moon. Smelters, refineries, and chemical plants migrate to orbital platforms where their emissions no longer enter a living biosphere.
 
 Space industry manufactures infrastructure for space residents: habitat shells, solar arrays, structural trusses, propellant tankage, radiator panels. The output stays in space because the customers are in space. At scale, the orbital economy consumes its own output to grow.
 
@@ -248,7 +248,7 @@ Industry migrates because the orbital alternative undercuts Earth on energy, mat
 
 This will be a programme of infrastructure built across generations, the way cathedrals were built, by people who knew they would never see the finished work, for communities that did not yet exist.
 
-Each phase depends on the one before it. Rockets bootstrap the lunar economy. The lunar economy justifies Meridian. Meridian feeds the orbital build-out. The build-out creates the demand that pulls industry, then populations, off-world. The chain ends with [the free starships](/essays/the-free-starship): vessels that depend on nothing before them.
+Each phase depends on the one before it. Rockets bootstrap the lunar economy. The lunar economy justifies Meridian. Meridian feeds the orbital build-out. The build-out creates the demand that pulls industry, then populations, off-world. The chain ends with [the free starships](/essays/the-free-starship): vessels that can leave the supply line behind.
 
 Once Meridian is built, the cost of orbit drops to electricity and process engineering. The Moon supplies the mass. Earth supplies only the complexity. Cis-lunar industry builds what cis-lunar residents need.
 
@@ -591,7 +591,7 @@ The Tsiolkovsky equation: $\Delta v = v_e \ln(m_0 / m_f)$, where $v_e = I_{sp} \
 
 Mass ratio $m_0/m_f = e^{\Delta v / v_e}$. Propellant fraction $= 1 - m_f/m_0 = 1 - e^{-\Delta v / v_e}$.
 
-For a 100 t post-burn (dry + payload) mass. **Normalisation note:** all propellant figures in this appendix and the body tables are normalised to 100 t *post-burn mass*—the vehicle at orbital insertion after all propellant is spent. At 10% dry fraction, this is 90 t net payload + 10 t vehicle structure. To convert to "per tonne of net payload," divide propellant by 0.9 (or by $1 - \varepsilon$). The distinction matters for logistics costing (<a class="xref" href="#appendix-k">Appendix K</a>) but not for the savings percentages, which are ratios.
+For a 100 t post-burn mass: dry vehicle plus payload. All propellant figures in this appendix and the body table use that normalisation. The absolute mass sets the tonne figures; the savings percentages are ratios. <a class="xref" href="#appendix-k">Appendix K</a> models payload economics separately, using dry mass as a fraction of gross launch mass.
 
 | Scenario | $\Delta v$ (km/s) | $I_{sp}$ (s) | $v_e$ (km/s) | Mass ratio | Propellant (t) | Savings |
 |---|---|---|---|---|---|---|
@@ -855,9 +855,9 @@ The electromagnetic launcher replaces the dirtiest part of ascent—first-stage 
 
 The comparative picture remains strongly in the launcher-assisted architecture's favour. Soot (black carbon) has an effective global warming potential roughly 500× CO₂ on a per-mass basis at injection altitude. And the propellant savings—63% for hydrolox with aerodynamic turn, 88% for NTP—mean total atmospheric injection mass is reduced by the same fractions even if launch frequency rises.
 
-At the throughput levels discussed in this essay (tens of megatonnes of Earth-export per year), the cumulative water vapour burden remains small relative to natural stratospheric sources. At industrial scale—millions of tonnes per year—it becomes a legitimate atmospheric chemistry monitoring question, treated the same way any large industrial process is: measured, modelled, and managed.
+At the throughputs discussed here—hundreds of thousands to millions of tonnes a year—water-vapour chemistry becomes a legitimate monitoring question. It must be measured, modelled, and managed.
 
-For industrial-scale orbital freight—$10^5$ to $10^6$ tonnes per year—the launcher-assisted architecture is not merely "greener." It is the only architecture compatible with high-cadence operations without large-scale stratospheric damage. The residual concern is water vapour chemistry, not carbon or ozone depletion. That is a tractable monitoring and management problem. Soot in the stratosphere is not.
+The launcher-assisted architecture removes soot and most propellant mass. Its residual atmospheric constraint is water vapour.
 
 
 ### <span id="appendix-j" class="appendix-anchor"></span>J. Lunar Mass Driver Economics
@@ -920,7 +920,7 @@ The lunar mass driver is roughly 50–100× cheaper per kilogram in energy cost 
 
 ### <span id="appendix-k" class="appendix-anchor"></span>K. Bridge Vehicle Economics and Cost per Kilogram
 
-*Energy is less than 10% of the total delivered cost. The physics floor is not the constraint.*
+*Energy is a minority of delivered cost. Vehicle reuse sets the price.*
 
 **Mass economics.** For a reusable hydrolox bridge vehicle doing ~7.7 km/s after launcher handoff, the rocket equation gives mass ratio $m_0/m_f = e^{7700/4560} \approx 5.4$. The ratio of total launched mass to delivered payload depends critically on the vehicle's dry-mass fraction $f_d$:
 
@@ -1239,7 +1239,7 @@ where $R = e^{\Delta v / v_e}$ is the mass ratio. If $f_{payload} \leq 0$, the v
 
 The combined effect: the exponent drops from $9.2/3.24 = 2.84$ (ground kerolox) to $7.2/4.56 = 1.58$ (Bridge hydrolox). A 44% reduction in the exponent produces a 72% reduction in mass ratio (17.1 → 4.85). The SSTO that was always 2% short has 10% margin.
 
-**Why previous assisted launch didn't solve this.** Air launch (Virgin Orbit, Pegasus) provides ~250 m/s at ~10 km. The rocket still does 97% of the work, still fires through dense atmosphere, still uses a sea-level engine. The assist is too small to shift the propulsion regime. The Isp stays the same, the losses stay the same, and the mass budget barely moves.
+**Why previous assisted launch didn't solve this.** Air launch (Virgin Orbit, Pegasus) provides ~250 m/s at ~10 km, roughly 3% of orbital speed. The rocket supplies the rest, still fires through dense atmosphere, and still uses a sea-level engine. The assist is too small to shift the propulsion regime. The Isp stays the same, the losses stay the same, and the mass budget barely moves.
 
 SpinLaunch and sea-level railguns provide more speed but at sea level, where dynamic pressure destroys the vehicle before it can bank or burn. These systems add velocity at the wrong altitude. The Bridge adds altitude at moderate velocity, which changes the engine, the propellant, the nozzle, and the structural envelope simultaneously. That is why the savings compound exponentially rather than adding linearly.
 
@@ -1359,10 +1359,9 @@ Total solar irradiance ≈ 1361 W/m²; global average incident solar input ≈ 3
 <span id="ref-39">[39]</span> NASA Kennedy Space Center. <a href="https://www.nasa.gov/centers-and-facilities/kennedy/nasa-kennedy-breathes-life-into-moon-soil-testing/" target="_blank" rel="noopener noreferrer">"NASA Kennedy Breathes Life into Moon Soil Testing."</a>
 Technology development for molten regolith electrolysis and oxygen extraction from simulated lunar regolith. See also: Kleinhenz, J.E. et al. (2021). <a href="https://arc.aiaa.org/doi/10.2514/6.2021-4019" target="_blank" rel="noopener noreferrer">"GaLORE: Gaseous Lunar Oxygen from Regolith Electrolysis."</a>
 
-<span id="ref-40">[40]</span> NASA Technical Reports Server. Herman, D.A. et al. (2022). <a href="https://ntrs.nasa.gov/citations/20220009251" target="_blank" rel="noopener noreferrer">"Development and Qualification Status of the Electric Propulsion Systems for the NASA PPE Mission and Gateway Program."</a> (Background reference, uncited.)
-NASA Gateway Power and Propulsion Element: 50 kW-class solar electric propulsion spacecraft for cis-lunar logistics.
-
 ### Background References
+
+NASA Technical Reports Server. Herman, D.A. et al. (2022). <a href="https://ntrs.nasa.gov/citations/20220009251" target="_blank" rel="noopener noreferrer">"Development and Qualification Status of the Electric Propulsion Systems for the NASA PPE Mission and Gateway Program."</a> NASA Gateway Power and Propulsion Element: 50 kW-class solar electric propulsion spacecraft for cis-lunar logistics.
 
 Landis, G.A. (2005). "Reactionless Orbital Propulsion Using Tether Deployment." *AIAA/ASME/SAE/ASEE Joint Propulsion Conference.* NASA Glenn Research Center. High-altitude launch analysis.
 

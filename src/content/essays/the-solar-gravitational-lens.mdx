@@ -17,7 +17,6 @@ import sglInfographic from '../../../public/images/sgl_infographic.png';
 import sglLensing from '../../../public/images/sun_gravitational_lensing_still.png';
 import sglExoplanet from '../../../public/images/sgl_exoplanet.png';
 import exoplanetsArt from '../../../public/images/exoplanets-artist-rendering.jpg';
-import kepler186f from '../../../public/images/1-kepler186f.webp';
 import solarSail from '../../../public/images/solar_sail.png';
 import CollapsibleAppendix from '../../components/CollapsibleAppendix.astro';
 
@@ -48,7 +47,7 @@ Light also traces the curvature of spacetime. Rays skimming the Sun are curved, 
 
 ### The Numbers
 
-At visible wavelengths, the Solar Gravitational Lens (SGL) can amplify light by a factor of ~10¹¹ near the optical axis<sup><a href="#ref-4">[4]</a></sup>. One metre of mirror. Fourteen times Pluto's distance. A coastline, resolved, on a world a hundred light-years away.<sup><a href="#ref-4">[4]</a></sup>
+At visible wavelengths, the Solar Gravitational Lens (SGL) can amplify light by a factor of ~10¹¹ near the optical axis<sup><a href="#ref-4">[4]</a></sup>. One metre of mirror. Fourteen times Pluto's distance. A continent, resolved, on a world a hundred light-years away.
 
 Matching this resolution with a conventional interferometer requires baselines hundreds of kilometres wide. The Sun already spans that.
 
@@ -60,6 +59,8 @@ Matching this resolution with a conventional interferometer requires baselines h
 />
 
 ## II. Cosmic Cartography
+
+[*Perceptual Abundance*](/essays/perceptual-abundance) named the shift from inference to retrieval. Exoplanets still sit on the old side of that line.
 
 We've confirmed thousands of exoplanets. We know their sizes, orbits, and something of their atmospheres. We can infer whether a world is temperate. We can detect carbon dioxide in its air.
 
@@ -79,15 +80,15 @@ It's closer to medical imaging than photography.
 
 The physics is the instrument. Computation is the camera.
 
-A 1-metre telescope at 550 AU could reconstruct a megapixel map of an Earth-like world at ~30 parsecs: surface features tens of kilometres across, built from months of integration<sup><a href="#ref-4">[4]</a> <a href="#ref-5">[5]</a></sup>.
+A one-metre telescope near 650 AU could reconstruct continental-scale structure on an Earth-like world at about 30 parsecs. Earlier idealised models reach tens-of-kilometres and megapixel-class maps. A 2026 end-to-end benchmark recovered roughly 200–230-kilometre broadband detail under its stated assumptions<sup><a href="#ref-4">[4]</a> <a href="#ref-5">[5]</a> <a href="#ref-6">[6]</a></sup>.
 
-You could see *geography*. A slow reveal: coastlines, cloud patterns, bright ice, assembled over months of light and computation. The marks of a world still changing, or one long frozen in place.
+You could see *geography*. A slow reveal: continents, cloud systems, bright ice, assembled over months of light and computation. The marks of a world still changing, or one long frozen in place.
 
 ## III. The Engineering Challenge
 
 ### Distance and Time
 
-547 AU is far. Pluto orbits at roughly 40 AU. Voyager 1, launched in 1977, is still short of 550 AU<sup><a href="#ref-6">[6]</a></sup>; at its pace, the focal line is more than a century away. Solar sails diving close to the Sun, or laser propulsion pushing faster still<sup><a href="#ref-7">[7]</a><a href="#ref-8">[8]</a><a href="#ref-9">[9]</a></sup>, close the journey to 15–25 years. Propulsion is not the hardest part.
+547 AU is far. Pluto orbits at roughly 40 AU. Voyager 1, launched in 1977, is still short of 550 AU<sup><a href="#ref-7">[7]</a></sup>; at its pace, the focal line is more than a century away. Solar sails diving close to the Sun, or laser propulsion pushing faster still<sup><a href="#ref-8">[8]</a><a href="#ref-9">[9]</a><a href="#ref-10">[10]</a></sup>, close the journey to 15–25 years. Propulsion is not the hardest part.
 
 <Figure
   src={solarSail}
@@ -97,15 +98,15 @@ You could see *geography*. A slow reveal: coastlines, cloud patterns, bright ice
 
 ### The Hard Parts
 
-Station-keeping is the hardest physical problem. Each metre of lateral drift blurs the reconstructed image, because every shift changes which part of the ring you sample. Holding that precision for years, 550 AU from home, is the real test. Ion thrusters are ideal: low thrust, high efficiency, flight-proven.
+Navigation is the central operating problem. At 30 parsecs, the projected Earth is only about 1.3 kilometres wide in the image plane. The craft must know where it is within that moving plane while the planet, its star, and the Sun all move. Ion thrusters provide control. Metrology provides the map.
 
-SGL imaging is computational astronomy. You sample the ring over time, then solve an inverse problem to recover the map. The deconvolution algorithms are established. The hardest computational problem is building a system that can solve its own reconstruction<sup><a href="#ref-4">[4]</a> <a href="#ref-5">[5]</a></sup>.
+SGL imaging is computational astronomy. The inverse methods exist. The open test is whether they recover stable geography through photon noise, corona light, cloud change, calibration error, and imperfect navigation<sup><a href="#ref-4">[4]</a> <a href="#ref-5">[5]</a> <a href="#ref-6">[6]</a></sup>.
 
 ### The Mission
 
-Mission studies favour a swarm: a handful of small probes, each dedicated to a single target, rather than one large flagship<sup><a href="#ref-10">[10]</a></sup>.
+Mission studies favour modular spacecraft launched in sequence and assembled in flight. Each target needs its own optical axis, so a catalogue requires a fleet of missions rather than one steerable flagship<sup><a href="#ref-11">[11]</a></sup>.
 
-Each carries a metre-class telescope, a coronagraph to block the Sun's glare<sup><a href="#ref-11">[11]</a></sup>, and ion propulsion for years of station-keeping. Power from RTGs. Communication via optical laser links, a thread of light across half the solar system.
+Each carries a metre-class telescope, a coronagraph to block the Sun's glare<sup><a href="#ref-12">[12]</a></sup>, and ion propulsion for years of station-keeping. Power from RTGs. Communication via optical laser links, a thread of light across half the solar system.
 
 We've already identified suitable worlds beyond our solar system. We already have viable SGL concepts. What remains is engineering, funding, and will.
 
@@ -113,7 +114,7 @@ We've already identified suitable worlds beyond our solar system. We already hav
 
 Over the coming decades, we could build a catalogue:
 
-Coastlines resolved. Ice caps tracked across seasons. And the same ring that carries the light carries its spectrum: biosignature concentrations pinpointed to hemispheres<sup><a href="#ref-4">[4]</a></sup>.
+Continents resolved. Ice caps tracked across seasons. And the same ring that carries the light carries its spectrum: biosignature concentrations pinpointed to hemispheres<sup><a href="#ref-4">[4]</a></sup>.
 
 Each probe, a dedicated observatory: one star, one world, one long stare. So we'd prioritise the nearest candidates, temperate worlds with atmospheric hints worth following up. Proxima b. TRAPPIST-1e. LHS 1140 b.
 
@@ -127,19 +128,15 @@ Each probe, a dedicated observatory: one star, one world, one long stare. So we'
 
 The Solar Gravitational Lens has existed since the Sun formed. Every star creates one. The optics follow from general relativity. The price is institutional: decades of patience, billions of dollars, and a mission that pays off only once it's farther than any spacecraft we've ever flown.
 
-It's a spacecraft, a telescope, a mission profile. Flagship-class in ambition. Buildable with today's physics and engineering.
+It's a spacecraft, a telescope, a mission profile. Flagship-class in ambition. It needs no new physics. The engineering is not yet demonstrated.
 
 For most of history, knowledge required presence. Then telescopes made distance visible. The SGL would do something stranger: turn a star into an instrument and make geography visible at interstellar range.
 
-And the maps have a vessel. [*The Free Starship*](/essays/the-free-starship) goes where the lens has looked, and sends a probe to the destination star's own focal line: the lens that mapped the world becomes the channel that carries what the ship learns home. Eshleman's title promised both: observations, and communications.<sup><a href="#ref-3">[3]</a></sup>
+And the maps have a vessel. [*The Free Starship*](/essays/the-free-starship) goes where the lens has looked.
 
-<Figure
-  src={kepler186f}
-  alt="Artist's conception of Kepler-186f, an Earth-sized exoplanet in the habitable zone"
-  caption="Kepler-186f: an Earth-sized planet in the habitable zone, about 500 light-years away."
-/>
+After planetfall, it sends a probe to the destination star's focal line. The station that mapped the world becomes one end of an interstellar link. Eshleman's title promised both: observations and communications.<sup><a href="#ref-3">[3]</a></sup>
 
-At 550 AU, a small spacecraft stares at a thread-thin ring of light around the Sun, an Einstein ring carrying light from another world. Over months, a coastline appears. Then the continents.
+At 650 AU, a small spacecraft stares at a thread-thin ring of light around the Sun, an Einstein ring carrying light from another world. Over months, a continent appears.
 
 **The Sun built the lens. We can build the mission.**
 
@@ -162,15 +159,15 @@ At 550 AU, a small spacecraft stares at a thread-thin ring of light around the S
 
 - **Optical gain:** ~10¹⁰–10¹¹ brightness amplification at optical/near-IR wavelengths [4]. This pushes the photon budget into a fundamentally different regime from conventional telescopes.
 
-- **Image formation:** The planet appears as an Einstein ring. Metre-scale motion in the image plane corresponds (order-of-magnitude) to tens-of-kilometres-class changes in the reconstructed surface footprint, depending on wavelength, coronagraph performance, and noise assumptions.
+- **Image formation:** The planet appears as an Einstein ring. At 30 parsecs and 650 AU, the projected Earth is about 1.3 kilometres wide. A ten-metre image-plane step corresponds to roughly a hundred kilometres on the source [6].
 
-- **Integration time:** Months to a year for megapixel-class maps of Earth analogues at tens of parsecs [4, 5]. Nearer targets (e.g., Proxima b at 1.3 pc) require less time.
+- **Integration time:** Months to a year. Earlier idealised models support megapixel-class maps [4, 5]. The 2026 end-to-end benchmark recovers 200–230-kilometre broadband structure under its stated assumptions [6]. Nearer targets require less time.
 
-- **Propulsion:** Solar sails with sundiver manoeuvres can achieve tens of AU/year exit velocities [7]. Laser propulsion could reduce times further [8].
+- **Propulsion:** Solar sails with sundiver manoeuvres can achieve tens of AU/year exit velocities [8]. Laser propulsion could reduce times further [9].
 
-- **Station-keeping:** Sub-kilometre accuracy maintained for years via ion thrusters. The Sun, telescope, and target must remain well aligned to sub-microradian precision—so well that tiny pointing errors distort what you measure.
+- **Navigation:** Metre-to-ten-metre transverse metrology and control maintained for years. The Sun, telescope, and target must remain aligned while all three move [6].
 
-- **Mission architecture:** Swarm concepts with multiple small probes provide redundancy and enable parallel observations [10]. Optical laser links return data at tractable rates even from 550+ AU.
+- **Mission architecture:** Modular spacecraft launched in sequence provide redundancy and assemble in flight [11]. Each target requires a separate mission along its own focal line. Optical laser links return data from 550+ AU.
 
 - **Why no alternative works:** Space interferometers need ~100 km baselines. Fast flybys spend only minutes at target with prohibitive communication challenges. Each non-SGL approach falls 2–5 orders of magnitude short [4].
 
@@ -178,13 +175,13 @@ At 550 AU, a small spacecraft stares at a thread-thin ring of light around the S
 
 *The essay's claims, and what would break them. The gates are physical rather than calendared: the lens waits on engineering, not on events with schedules.*
 
-**B.1 — The corona, at first mission-level study.** The claim: optical-wavelength imaging survives the Sun's glare behind a coronagraph, because corona noise that is severe at radio wavelengths is far weaker at optical ones [11]. This is the register's foundation stone. If mission-level modelling or a precursor coronagraph demonstration shows the ring's photon budget drowned at optical wavelengths for an Earth analogue at tens of parsecs, the imaging claim fails at its root, and the lens returns to what it was before 1979: a curiosity of general relativity. Every other entry assumes B.1 holds.
+**B.1 — The corona, at first mission-level study.** The claim: optical-wavelength imaging survives the Sun's glare behind a coronagraph, because corona noise that is severe at radio wavelengths is far weaker at optical ones [12]. This is the register's foundation stone. If mission-level modelling or a precursor coronagraph demonstration shows the ring's photon budget drowned at optical wavelengths for an Earth analogue at tens of parsecs, the imaging claim fails at its root. Every other entry assumes B.1 holds.
 
-**B.2 — Station-keeping, at first deep-space demonstration.** The claim: metre-class image-plane position held for years by ion thrusters. If precursor flights cannot hold that class, resolution coarsens from tens of kilometres toward continental scale. The map degrades. The mission survives: a continent is still geography.
+**B.2 — Navigation, at first deep-space demonstration.** The claim: metre-to-ten-metre image-plane metrology and control held for years. If precursor flights cannot hold that class, the 200–230-kilometre reconstruction coarsens beyond continental geography. The map degrades before the mission fails.
 
-**B.3 — The reconstruction, checkable now.** The megapixel claim rests on published inverse-problem modelling [4, 5]. It fails by recomputation: if end-to-end simulation with realistic corona noise and solar oblateness cannot recover tens-of-kilometre features at 30 parsecs, the coastline in §II overstates, and the essay falls back to the published sensitivity floor. A reader with the papers and a workstation can attack this entry today.
+**B.3 — The reconstruction, checkable now.** Earlier idealised models support megapixel maps [4, 5]. A 2026 benchmark adds photon noise, temporal variability, coronal residuals, detector calibration, optical-model error, and navigation error. It recovers 200–230-kilometre broadband structure, not tens-of-kilometre detail [6]. The body therefore claims continental geography. Fine coastlines remain the stretch case.
 
-**B.4 — The transit, at first sundiver.** The 15–25 year timeline requires sundiver solar sails reaching tens of AU per year [7], or laser propulsion faster still [8, 9]. If the first flown sundiver-class sail falls an order of magnitude short, the focal line recedes to Voyager timescales and the mission slips a generation. The lens does not move. It waits.
+**B.4 — The transit, at first sundiver.** The 15–25 year timeline requires sundiver solar sails reaching tens of AU per year [8], or laser propulsion faster still [9, 10]. If the first flown sundiver-class sail falls an order of magnitude short, the focal line recedes to Voyager timescales and the mission slips a generation. The lens does not move. It waits.
 
 </CollapsibleAppendix>
 
@@ -208,22 +205,25 @@ At 550 AU, a small spacecraft stares at a thread-thin ring of light around the S
 See also: <a href="https://arxiv.org/abs/2301.07495" target="_blank" rel="noopener noreferrer">open version, arXiv:2301.07495.</a>
 (Updated modelling of imaging faint sources, solar oblateness effects, and deconvolution feasibility.)
 
-<span id="ref-6">[6]</span> NASA Science / Jet Propulsion Laboratory. <a href="https://science.nasa.gov/mission/voyager/where-are-voyager-1-and-voyager-2-now/" target="_blank" rel="noopener noreferrer">"Where Are Voyager 1 and Voyager 2 Now?"</a>
+<span id="ref-6">[6]</span> Turyshev, S.G. (2026). <a href="https://arxiv.org/abs/2606.14899" target="_blank" rel="noopener noreferrer">"Direct High-Resolution Imaging of Earth-like Exoplanets with the Solar Gravitational Lens."</a> arXiv:2606.14899.
+(An end-to-end scalar benchmark including photon noise, temporal variability, coronal and calibration residuals, model mismatch, and navigation error; 200–230-kilometre recovered broadband structure for an Earth analogue at 30 pc with a one-metre telescope at 650 AU.)
+
+<span id="ref-7">[7]</span> NASA Science / Jet Propulsion Laboratory. <a href="https://science.nasa.gov/mission/voyager/where-are-voyager-1-and-voyager-2-now/" target="_blank" rel="noopener noreferrer">"Where Are Voyager 1 and Voyager 2 Now?"</a>
 (Current probe distances, for context on deep-space timelines.)
 
-<span id="ref-7">[7]</span> Landis, G.A. (2016). <a href="https://arxiv.org/abs/1604.06351" target="_blank" rel="noopener noreferrer">"Mission to the Gravitational Focus of the Sun: A Critical Analysis."</a> arXiv:1604.06351.
+<span id="ref-8">[8]</span> Landis, G.A. (2016). <a href="https://arxiv.org/abs/1604.06351" target="_blank" rel="noopener noreferrer">"Mission to the Gravitational Focus of the Sun: A Critical Analysis."</a> arXiv:1604.06351.
 (Critical analysis of SGL mission feasibility and propulsion, including solar-sail architectures.)
 
-<span id="ref-8">[8]</span> Manchester, Z. & Loeb, A. (2017). <a href="https://arxiv.org/abs/1609.09506" target="_blank" rel="noopener noreferrer">"Stability of a Light Sail Riding on a Laser Beam."</a> *Astrophysical Journal Letters* 837, L20.
+<span id="ref-9">[9]</span> Manchester, Z. & Loeb, A. (2017). <a href="https://arxiv.org/abs/1609.09506" target="_blank" rel="noopener noreferrer">"Stability of a Light Sail Riding on a Laser Beam."</a> *Astrophysical Journal Letters* 837, L20.
 (Laser-sail propulsion dynamics relevant to fast SGL delivery.)
 
-<span id="ref-9">[9]</span> Breakthrough Initiatives. <a href="https://breakthroughinitiatives.org/initiative/3" target="_blank" rel="noopener noreferrer">"Breakthrough Starshot."</a>
+<span id="ref-10">[10]</span> Breakthrough Initiatives. <a href="https://breakthroughinitiatives.org/initiative/3" target="_blank" rel="noopener noreferrer">"Breakthrough Starshot."</a>
 (Laser-sail mission concept relevant to SGL delivery architectures.)
 
-<span id="ref-10">[10]</span> NASA Innovative Advanced Concepts (NIAC) (2020). <a href="https://www.nasa.gov/general/direct-multipixel-imaging-and-spectroscopy-of-an-exoplanet-with-a-solar-gravitational-lens-mission/" target="_blank" rel="noopener noreferrer">"Direct Multipixel Imaging and Spectroscopy of an Exoplanet with a Solar Gravitational Lens Mission."</a>
+<span id="ref-11">[11]</span> NASA Innovative Advanced Concepts (NIAC) (2020). <a href="https://www.nasa.gov/general/direct-multipixel-imaging-and-spectroscopy-of-an-exoplanet-with-a-solar-gravitational-lens-mission/" target="_blank" rel="noopener noreferrer">"Direct Multipixel Imaging and Spectroscopy of an Exoplanet with a Solar Gravitational Lens Mission."</a>
 (NASA-funded mission concept development for the SGL observatory architecture.)
 
-<span id="ref-11">[11]</span> Turyshev, S.G. & Toth, V.T. (2018). <a href="https://arxiv.org/abs/1810.06627" target="_blank" rel="noopener noreferrer">"Diffraction of light by the gravitational field of the Sun and the solar corona."</a>
+<span id="ref-12">[12]</span> Turyshev, S.G. & Toth, V.T. (2018). <a href="https://arxiv.org/abs/1810.06627" target="_blank" rel="noopener noreferrer">"Diffraction of light by the gravitational field of the Sun and the solar corona."</a>
 (SGL modelling including solar-corona plasma effects: severe at radio wavelengths, far weaker at optical wavelengths, hence the coronagraph.)
 
 </CollapsibleAppendix>

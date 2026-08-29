@@ -28,14 +28,14 @@ The frontier, until now, has been spared the worst of it. The largest training r
 
 That exemption is ending. The exponential says when.
 
-The power a training run needs is its compute divided by the efficiency of the hardware that runs it. Frontier compute has grown four to five times a year for a decade.<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-2">[2]</a></sup> Efficiency, measured in operations per watt, improves about half as fast. The gap between the two rates is paid in power. It <a class="xref" href="#appendix-a">roughly triples each year</a>. The efficiency gains that once absorbed part of the climb are running out. The physics that produced them, shrinking transistors and falling voltages, has largely stopped.<sup><a href="#ref-3">[3]</a></sup><sup><a href="#ref-4">[4]</a></sup><sup><a href="#ref-5">[5]</a></sup>
+The power a training run needs is its compute divided by the efficiency of the hardware that runs it. Frontier compute has grown four to five times a year for a decade.<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-2">[2]</a></sup> Hardware efficiency has improved only 1.3 to 1.5 times. The difference is paid in power. It <a class="xref" href="#appendix-a">has roughly tripled each year</a>. The efficiency gains that once absorbed part of the climb are running out. The physics that produced them, shrinking transistors and falling voltages, has largely stopped.<sup><a href="#ref-3">[3]</a></sup><sup><a href="#ref-4">[4]</a></sup><sup><a href="#ref-5">[5]</a></sup>
 
 <DataInsight
   insight="A frontier run drew tens of megawatts in 2023 and hundreds in 2025."
-  context="Compute climbs about fourfold a year with efficiency only half as fast."
+  context="Compute climbs about fourfold a year. Efficiency improves by less than half."
 />
 
-Follow that curve and a single run outgrows the grid that would power it.<sup><a href="#ref-1">[1]</a></sup> Thirty gigawatts is more than two per cent of everything the United States can generate, drawn into one machine behind one fence.<sup><a href="#ref-6">[6]</a></sup> No ordinary site carries that load. The transmission is not built. The permitting runs to a decade. The cooling water is not there.<sup><a href="#ref-7">[7]</a></sup> The migration that pushed the rest of the industry from the model to the chip to the plug is now reaching the frontier. The frontier has nowhere on land to absorb it.
+Follow that curve and a single run outgrows the grid that would power it.<sup><a href="#ref-1">[1]</a></sup> Thirty gigawatts is more than two per cent of installed US generating capacity, drawn into one machine behind one fence.<sup><a href="#ref-6">[6]</a></sup> No ordinary site carries that load. The transmission is not built. The permitting runs to a decade. The cooling water is not there.<sup><a href="#ref-7">[7]</a></sup> The migration that pushed the rest of the industry from the model to the chip to the plug is now reaching the frontier. The frontier has nowhere on land to absorb it.
 
 <PullQuote>
 
@@ -63,7 +63,7 @@ Distance is latency. Light in fibre covers about one metre every five nanosecond
 
 ## IV. The Heat
 
-Every thinking machine is also a furnace. The heat is the hard part. A processor returns almost all the power it draws as waste heat. On land, removing that heat is most of what a datacentre does: chillers, cooling towers, banks of fans, water drawn through and evaporated away. The heat sink is the true bottleneck. The largest heat sink on Earth is the ocean.
+Every computing machine is also a furnace. The heat is the hard part. A processor returns almost all the power it draws as waste heat. On land, removing that heat is most of what a datacentre does: chillers, cooling towers, banks of fans, water drawn through and evaporated away. The heat sink is the true bottleneck. The largest heat sink on Earth is the ocean.
 
 Submerged in a fluid that conducts heat but not electricity, a pod hands its warmth to the water moving past its hull. The water scarcely registers it.<sup><a href="#ref-9">[9]</a></sup> No cooling towers, no evaporation, no consumption of fresh water in a region that has little to spare.<sup><a href="#ref-11">[11]</a></sup><sup><a href="#ref-12">[12]</a></sup> The ocean is a generous heat sink, but not always a cold one.
 
@@ -78,11 +78,11 @@ So the largest machines cannot gather at one point. They string along the coast 
   context="So the largest machine would string along the coast and join through fibre."
 />
 
-The ocean limits how large a single cell can be. The network how large the mind can grow.
+The ocean limits the cell. The network lets the system grow.
 
 ## V. The Power
 
-The power comes from the desert. Oman sits under one of the strongest solar resources on the planet, receiving far more energy on its inland sand each year than its grid will ever draw.<sup><a href="#ref-19">[19]</a></sup> A field of panels can send that power to the coast through buried cable, with little lost over a few kilometres.<sup><a href="#ref-20">[20]</a></sup> The desert generates. The sea cools. The two scarce favours of the site sit a short distance apart.
+The power comes from the desert. Oman sits under one of the strongest solar resources on the planet, receiving far more energy on its inland sand each year than its grid will ever draw.<sup><a href="#ref-19">[19]</a></sup> A field of panels can send that power to the coast through buried cable, with little lost over a few kilometres.<sup><a href="#ref-20">[20]</a></sup> The desert generates. The sea cools. The site joins them within a few kilometres.
 
 Solar has one obvious defect: it stops at night. A power grid cannot, but a training run can. A run can checkpoint its state, pause, and resume exactly where it left off.<sup><a href="#ref-21">[21]</a></sup><sup><a href="#ref-22">[22]</a></sup> Leviathan does not need to buy a night's worth of storage for every workload. The first machines can prove themselves by following the sun. But when the station carries frontier silicon for commercial workloads, night becomes expensive.
 
@@ -90,11 +90,11 @@ That changes the measure of the machine. It does not sell megawatts. It sells co
 
 ## VI. What It Unlocks
 
-A chip is still a chip. The sea does not make it faster. It cuts <a class="xref" href="#appendix-l">the cooling overhead to a tenth of what air-cooled land pays</a>.
+A chip is still a chip. The sea does not make it faster. It cuts <a class="xref" href="#appendix-l">cooling overhead from roughly twenty per cent to about five</a>.
 
-The point is what becomes possible when the machine does tens of times more work within the same span.
+The point is throughput.
 
-A hundred pods approach a hundred times the peak compute of a frontier cluster without scaling beyond its span. In the solar-following case, after sunlight hours and operating losses, that gigawatt does on the order of <a class="xref" href="#appendix-i">thirty times the daily training</a> of the best land machine running flat out.
+A hundred pods hold roughly a hundred times the peak compute of the 4,608-GPU reference cluster. Following the sun, that gigawatt delivers about <a class="xref" href="#appendix-i">thirty reference-cluster-days of work each day</a>.
 
 If the newest pods are firmed for round-the-clock operation, one gigawatt moves toward the full hundred-cluster-day regime. Ten gigawatts does hundreds of times more. A hundred gigawatts enters a range where precedent runs out.
 
@@ -113,7 +113,7 @@ The first is the limit already described. The frontier is outgrowing the land th
 
 The early frontier was one dense run, a single model trained end to end, every processor holding a slice of the same weights and trading them on every step. It is the most tightly synchronised computation the field has produced. It is the hardest case for any distributed machine. What binds it is <a class="xref" href="#appendix-c">the width of the network, not the length of its wires</a>.<sup><a href="#ref-23">[23]</a></sup><sup><a href="#ref-24">[24]</a></sup><sup><a href="#ref-25">[25]</a></sup> A subsea lattice has the least advantage here. Shortening the wires does nothing for a machine whose limit is bandwidth.
 
-That run is becoming a smaller part of what the frontier does. The newest models are sparse: a mixture of experts in which only a fraction of the network fires for any token. The total brain compounds while the active computation stays small.<sup><a href="#ref-26">[26]</a></sup><sup><a href="#ref-27">[27]</a></sup> Around that core a second economy has grown. Distillation from a master model is now standard practice. Reinforcement learning runs across millions of parallel rollouts. Synthetic data in bulk. Simulation and world models run as vast independent ensembles. Reasoning loops a small block through depth instead of stacking ever-larger layers.<sup><a href="#ref-28">[28]</a></sup><sup><a href="#ref-29">[29]</a></sup>
+That run is becoming a smaller part of what the frontier does. The newest models are sparse: a mixture of experts in which only a fraction of the network fires for any token. The total network expands while active computation stays small.<sup><a href="#ref-26">[26]</a></sup><sup><a href="#ref-27">[27]</a></sup> Around that core a second economy has grown. Distillation from a master model is now standard practice. Reinforcement learning runs across millions of parallel rollouts. Synthetic data in bulk. Simulation and world models run as vast independent ensembles. Reasoning loops a small block through depth instead of stacking ever-larger layers.<sup><a href="#ref-28">[28]</a></sup><sup><a href="#ref-29">[29]</a></sup>
 
 These workloads are parallel where the old run was synchronous, and tolerant of delay where it was not. Some scarcely communicate across the machine at all. The rest are bound by the length of their wires, not the width of their network. That is the one constraint a dense, short-path lattice was built to relieve.
 
@@ -147,7 +147,7 @@ It is where the frontier is made, the place that trains the largest models, gene
 
 Leviathan delivers gigawatts of cool power in a location the frontier can occupy.
 
-Computational Abundance argued that intelligence arrives faster than institutions can process it.<sup><a href="#ref-31">[31]</a></sup> A forge in the sea raises frontier potential and distillation by a hundredfold. Still, turning that capability into medicine, law, and industry moves at the speed of human institutions.
+Computational Abundance argued that intelligence arrives faster than institutions can process it.<sup><a href="#ref-31">[31]</a></sup> A gigawatt forge carries roughly a hundred times the peak compute of the reference cluster. Turning that capability into medicine, law, and industry still moves at the speed of human institutions.
 
 <PullQuote>
 
@@ -157,7 +157,7 @@ The forge trains the teacher. The plateau runs the students. The ocean supplies 
 
 ## IX. Where the Land Meets the Sea
 
-The sun floods the desert with more power than any grid delivers. The ocean waits a few kilometres offshore, a heat sink the size of a planet. Silicon already thinks. What is missing is the engineering that joins them.
+The sun floods the desert with more power than any grid delivers. The ocean waits a few kilometres offshore, a heat sink the size of a planet. Silicon already carries intelligence. What is missing is the engineering that joins them.
 
 It's hard engineering. A single pod must reject ten megawatts into warm water, survive pressure and salt and corrosion, <a class="xref" href="#appendix-j">mate its connectors beneath the sea, and come back up intact</a>. Ten pods show that power compounds. A hundred prove industrial scale. Each step must succeed before Leviathan comes to life.
 
@@ -190,7 +190,7 @@ So the growth rate of $P$ is the growth rate of frontier compute divided by the 
 |---|---|---|
 | Frontier training compute | ~4–5× | Epoch AI, decade trend |
 | Energy efficiency (FLOP/W) | ~1.3–1.5×, slowing | Hardware specs; Dennard scaling ended |
-| **Power per run** | **~1.5–3×** | Compute ÷ efficiency |
+| **Power per run** | **~2.7–3.8× at the historical compute trend; ~1.5× in the decelerating case** | Compute ÷ efficiency |
 
 Projecting a ~0.3 GW 2025 frontier cluster forward at the two ends of the compute range:
 
@@ -436,7 +436,9 @@ $$P = \rho g h = 1{,}025 \times 9.81 \times 200 \approx 2.01\times10^6\,\text{Pa
 
 Twenty bar is modest. A recreational scuba diver reaches ~6 bar at 50 m. Subsea oil-and-gas hardware routinely operates at 100–300 bar (1,000–3,000 m). The pod is best built **pressure-compensated**: the dielectric fluid is held at ambient pressure, so the hull sees almost no differential and merely contains the fluid. The nearly incompressible fluid then transmits 20 bar uniformly to the boards, which, with no air gaps, tolerate it.
 
-This is exactly the oil-filled-housing approach used for ROV electronics and proven by Microsoft's Project Natick, which sealed servers in an inert atmosphere on the seabed and recorded roughly one-eighth the failure rate of an identical land deployment.<sup><a href="#ref-53">[53]</a></sup><sup><a href="#ref-54">[54]</a></sup>
+Pressure-compensated oil-filled housings are standard in subsea electronics.
+
+Project Natick proved a different architecture: servers sealed in a dry inert atmosphere inside a pressure vessel on the seabed. After two years, Microsoft recorded roughly one-eighth the failure rate of its land control.<sup><a href="#ref-53">[53]</a></sup><sup><a href="#ref-54">[54]</a></sup>
 
 **2. Corrosion.** Seawater plus dissimilar metals drives galvanic attack. Mitigations are standard marine practice: copper-nickel or titanium for wetted heat-exchanger surfaces, cathodic protection by sacrificial anodes, dielectric isolation of dissimilar metals, and anti-fouling coatings on smooth exterior geometry.<sup><a href="#ref-55">[55]</a></sup><sup><a href="#ref-56">[56]</a></sup> The hull refit interval (~8–10 years) is set by corrosion and fouling, decoupled from the faster IT-refresh interval (<a class="xref" href="#appendix-k">§K</a>).
 
@@ -497,7 +499,7 @@ So the 1.03–1.05 target is achievable but sits at the optimistic edge. 1.05 is
 | 1.10 | 1.05 | ~4.8% |
 | 1.35 (legacy air) | 1.05 | ~29% |
 
-The honest baseline is land *immersion*, which already reaches ~1.05–1.10.<sup><a href="#ref-39">[39]</a></sup><sup><a href="#ref-64">[64]</a></sup> Against that, the efficiency edge is small. The durable wins are the ones efficiency tables do not show: zero water consumption and a heat sink of effectively unlimited capacity.<sup><a href="#ref-12">[12]</a></sup>
+The honest baseline is land *immersion*, which already reaches ~1.05–1.10.<sup><a href="#ref-39">[39]</a></sup><sup><a href="#ref-64">[64]</a></sup> Against that, the efficiency edge is small. The durable wins are zero water consumption and access to a heat sink that can scale along a coastline.<sup><a href="#ref-12">[12]</a></sup>
 
 ### <span id="appendix-m" class="appendix-anchor"></span>M. Silicon Still Dominates the Energy and Capital Floor
 
@@ -753,4 +755,3 @@ Recorded July 2026. Each entry names the observation that would break part of th
 </CollapsibleAppendix>
 
 ---
-
