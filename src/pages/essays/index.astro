@@ -15,13 +15,13 @@ const CANONICAL_ORDER = [
   'bridge-to-infinity',
   'the-solar-gravitational-lens',
   'the-free-starship',
-  'irreducible',
+  'symbolic-superintelligence',
   'love-is-the-foundation',
   'singularity',
 ];
 
 const allEssays = (await getCollection("essays"))
-  .filter(e => !e.data.draft)
+  .filter(e => !e.data.draft && !e.data.supersededBy)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 

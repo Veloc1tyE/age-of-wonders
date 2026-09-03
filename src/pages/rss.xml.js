@@ -5,7 +5,7 @@ export const prerender = true;
 
 export async function GET(context) {
   const essays = (await getCollection('essays'))
-    .filter((e) => !e.data.draft)
+    .filter((e) => !e.data.draft && !e.data.supersededBy)
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
   return rss({

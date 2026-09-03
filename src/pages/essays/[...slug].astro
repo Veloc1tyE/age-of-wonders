@@ -21,6 +21,14 @@ const entry = await getEntry("essays", slug!);
 if (!entry) return Astro.redirect("/essays");
 
 const { Content } = await entry.render();
+const supersedingSlug = entry.data.supersededBy;
+const supersedingEntry = supersedingSlug
+  ? await getEntry("essays", supersedingSlug)
+  : null;
+
+if (supersedingSlug && !supersedingEntry) {
+  throw new Error(`Superseding essay not found: ${supersedingSlug}`);
+}
 
 const ogImage = entry.data.ogImage || `https://ageofwonders.org/og-default.png`;
 const publishedTime = entry.data.date.toISOString();
@@ -64,13 +72,13 @@ const CANONICAL_ORDER = [
   'bridge-to-infinity',
   'the-solar-gravitational-lens',
   'the-free-starship',
-  'irreducible',
+  'symbolic-superintelligence',
   'love-is-the-foundation',
   'singularity',
 ];
 
 const allEssays = (await getCollection("essays"))
-  .filter(e => !e.data.draft)
+  .filter(e => !e.data.draft && !e.data.supersededBy && CANONICAL_ORDER.includes(e.slug))
   .sort((a, b) => {
     const ai = CANONICAL_ORDER.indexOf(a.slug);
     const bi = CANONICAL_ORDER.indexOf(b.slug);
@@ -112,6 +120,11 @@ if (!import.meta.env.PROD) {
   <p class="meta" style="margin-top: 12px; margin-bottom: 48px;">
     {entry.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
   </p>
+  {supersedingEntry && (
+    <aside class="supersession-note">
+      This essay is preserved as a historical predecessor. <a href={`/essays/${supersedingEntry.slug}/`}>{supersedingEntry.data.title}</a> now states the canon's position.
+    </aside>
+  )}
   
   <div class="essay-prose">
     <Content />
@@ -258,6 +271,20 @@ if (!import.meta.env.PROD) {
 </script>
 
 <style>
+  .supersession-note {
+    margin: -16px 0 48px;
+    padding: 16px 20px;
+    border-left: 2px solid #d0d0d0;
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(250, 250, 250, 0.3) 55%, transparent);
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .supersession-note a {
+    color: var(--text);
+  }
+
   .subscribe-btn {
     display: inline-block;
     padding: 10px 24px;
