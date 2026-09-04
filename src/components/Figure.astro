@@ -3,10 +3,12 @@ interface Props {
   src: ImageMetadata;
   alt: string;
   caption: string;
+  citationHref?: string;
+  citationLabel?: string;
   wide?: boolean;
 }
 
-const { src, alt, caption, wide = false } = Astro.props;
+const { src, alt, caption, citationHref, citationLabel, wide = false } = Astro.props;
 
 import { Image } from 'astro:assets';
 ---
@@ -15,7 +17,10 @@ import { Image } from 'astro:assets';
   <div class="image-wrapper">
     <Image src={src} alt={alt} loading="lazy" />
   </div>
-  <figcaption>{caption}</figcaption>
+  <figcaption>
+    {caption}
+    {citationHref && citationLabel && <> <sup><a href={citationHref}>{citationLabel}</a></sup></>}
+  </figcaption>
 </figure>
 
 <style>
