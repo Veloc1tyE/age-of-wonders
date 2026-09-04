@@ -166,7 +166,7 @@ $$
 \rightarrow
 \text{human concept}
 \rightarrow
-\text{machine-legible target}
+\text{machine-legible target or computational primitive}
 \rightarrow
 \text{optimisation}
 \rightarrow
@@ -174,7 +174,13 @@ $$
 }
 $$
 
-ARC-AGI-3 pushes the next boundary by withholding rules and stated goals. Agents must explore, infer what actions do, preserve state, and decide what progress means. Its early systems already divide between direct action and model-generated code.<sup><a href="#ref-14">[14]</a></sup> ARC-AGI-3 will fall. Its solution will belong to the model and to the human-built system that makes its world reachable.
+Human scaffolds need not remain visible. Training can compile them into shared cognition. AI learns from human data and thinks inside human-supplied ontologies of computation. Attention, scratchpads, tool calls, persistent state, and recurrence each make another region reachable.
+
+ARC-AGI-3 withheld rules and stated goals. Agents had to explore, infer what actions did, preserve state, and decide what progress meant. Within five months, GPT-6 Astra reached 62.7 per cent on its semi-private evaluation in ARC Prize's standard harness. At the same Max reasoning effort, a provider adapter that preserved opaque reasoning state across calls reached 98.6 per cent. The same model gained thirty-six points when people changed the machinery around it.<sup><a href="#ref-14">[14]</a></sup>
+
+Astra built compact algebraic models of unfamiliar games. In a separate code-enabled harness, it wrote parsers, state models, search algorithms, planners, and small game-specific libraries. The model itself became a program-synthesis machine. Persistence around the model still changed what it could reach. People supplied the perceptual interface, action grammar, score, and infrastructure through which experience accumulated.
+
+Astra's internal architecture remains undisclosed. The best architectural bet is recurrence: a latent state transformed repeatedly before language appears. Public recurrent-depth research already shows how a compact shared core can produce far greater executed depth. Training discovers the transformations. Human engineers supplied the computational map: iteration, state, and variable effort.<sup><a href="#ref-14">[14]</a></sup>
 
 METR's exponential task horizons describe longer journeys through well-specified software, machine-learning, and cybersecurity worlds people made executable.<sup><a href="#ref-15">[15]</a></sup> The slope measures an optimisation regime. Continuous individual mapmaking lies outside it.
 
@@ -434,14 +440,17 @@ ARC-AGI-2 then delivered the opposite warning. NVARC scored 24.03 per cent on th
 
 ARC remains a human-designed symbolic grid world. People supply its observations, actions, examples, output format, and exact verifier. Constructing a scientific ontology from raw causal reality remains a different test.
 
-ARC-AGI-3 removes more structure. Its rapid 2026 gains also resist a static thesis. At High reasoning effort, Opus 5 reached 30.16 per cent on twenty-five public demonstration environments by 24 July. An OpenAI GPT-5.6 Sol harness scored 13.3 per cent; retaining private reasoning across context compaction raised the same broad harness to 38.3 per cent days later.<sup><a href="#ref-14">[14]</a></sup>
+ARC-AGI-3 removed more structure. Its rapid 2026 gains resist a static thesis. At High reasoning effort, Opus 5 reached 30.16 per cent on twenty-five public demonstration environments by 24 July. On the public set, GPT-5.6 Sol scored 13.3 per cent in the official harness; the same model reached 38.3 per cent in OpenAI's Responses API harness after retained reasoning and compaction were enabled. On 2 September, Astra reached 62.71 per cent on the fifty-five-environment semi-private set under the standard harness. At the same Max effort, the provider adapter reached 98.55 per cent. Its best observed run reached 99.95 per cent at High effort. Across the 167 game–effort pairs solved by both harnesses, the adapter used 49 per cent fewer tokens and finished 3.66 times faster in aggregate.<sup><a href="#ref-14">[14]</a></sup>
 
-Two conclusions survive:
+Astra created compact symbolic world models and its own algebraic shorthand from interaction. In a separate sandboxed harness it generated parsers, planners, search algorithms, and game-specific software libraries. This is strong endogenous representation discovery inside a supplied world. ARC Prize makes the remaining boundary explicit: the environments have deterministic, closed-ended mechanics and goals. The perceptual interface, legal actions, score, and validation still come from the benchmark.
+
+Three conclusions survive:
 
 1. Base-model capability is a powerful causal input.
 2. The system surrounding the model materially determines what that capability can reach.
+3. A model can create powerful working representations inside a supplied world without originating the perceptual interface, action grammar, and criterion that constituted the task.
 
-If ARC-AGI-3 or its successors fall through one-shot model capability while memory, search, tools, and interaction scaffolds add negligible value, the essay's architectural reading weakens.
+If ARC-AGI successors fall through one-shot model capability while memory, search, tools, and interaction scaffolds add negligible value, the essay's architectural reading weakens.
 
 ### <span id="appendix-d" class="appendix-anchor"></span>D. Biological Computation Across Scales
 
@@ -501,7 +510,13 @@ Category F is awarded by causal achievement. A digital system that autonomously 
 
 The essay's wager concerns continuity. Mapmaking requires a causal history that belongs to the learner: previous action changes present observation, and present consequence changes the system that will act next.
 
-The commercially decisive unit of current AI is an invocation from shared weights. Context, retrieval, databases, and agent memory create rich persistence around that common engine. The turning point arrives when an instance's unique history changes its future way of seeing. Plasticity can live in weights, recurrent state, or memory. Its physical location matters less than its causal ownership.<sup><a href="#ref-11">[11]</a></sup>
+The commercially decisive unit of current AI is an invocation from shared weights. Context, retrieval, databases, and agent memory create rich persistence around that common engine.
+
+Recurrent depth separates internal computational time from continuous existence. Geiping and colleagues built a 3.5-billion-parameter model with eight distinct layers, then ran its four-layer core thirty-two times to produce 132 layers of executed depth. They call the architecture recurrent in depth rather than time and train it across random initial states and variable recurrence counts. Astra's provider adapter demonstrates a second layer: task history can persist across calls while the common weights remain unchanged and shared.<sup><a href="#ref-14">[14]</a></sup>
+
+Task state guides the next action while leaving the shared learning machinery intact. Developmental plasticity begins when consequence persists across encounters and changes the process that determines what a later encounter means. Wherever that change resides, different histories turn identical copies into individuals.<sup><a href="#ref-11">[11]</a></sup>
+
+The recurrent-depth result also clarifies the economics. Fewer unique weights reduce parameter storage and the communication required to keep copies in sync during training. Each recurrence still spends arithmetic. The architecture spends more time using less stored machinery. Shared symbolic cognition grows while the engine remains copyable.
 
 $$
 \boxed{
@@ -578,15 +593,15 @@ The economic prediction fails if durable model monopolies capture a large share 
 
 ### <span id="appendix-j" class="appendix-anchor"></span>J. Dated Prediction and Falsifier Register
 
-*Recorded 3 September 2026.*
+*Recorded 3 September 2026. Updated 4 September 2026 after the public Astra results.*
 
 **J.1 — Map completeness, through 2035.** Capability will remain strongest where ontology, actions, objective, and verification are mature. Open-world task formation scaling at the same rate after controlling for new human-made representations and scaffolds weakens the claim.
 
 **J.2 — Scientific mapmaking, through 2035.** Copyable, episodic AI systems will produce a flood of discoveries in categories A–E. Category-F acts will remain concentrated in continuous investigators embedded in experimental loops, chiefly human scientists. Repeated Category-F leadership by interchangeable, resettable instances counts against the continuity thesis.
 
-**J.3 — The hidden scaling vector, at each newly automated frontier.** Retrospective analysis will repeatedly identify a new benchmark, interface, dataset, simulator, reward, verifier, or task decomposition. Repeated automation across unchanged representations counts against the thesis.
+**J.3 — The hidden scaling vector, at each newly automated frontier.** Retrospective analysis will repeatedly identify a preceding or contemporaneous human-made benchmark, interface, dataset, simulator, reward, verifier, task decomposition, or computational primitive that made the missing capacity optimisable. Comparable jumps repeatedly arising across resistant domains without such a human formalisation event—or models themselves originating and validating the decisive new primitive—count against the thesis.
 
-**J.4 — ARC-AGI-3 and successors, immediate.** Search, persistent state, executable code, memory, and interaction design will continue to contribute material marginal performance. One-shot base-model capability absorbing them and making surrounding architecture negligible weakens the architectural reading.
+**J.4 — ARC-AGI-3 semi-private set, nearly saturated 2 September 2026; successors through 2028.** Astra reached near-saturation through a provider adapter that preserved opaque reasoning state and compacted long histories. State, memory, executable code, and interaction design will continue to add material marginal performance on its successors. Provider-neutral harnesses without retained opaque reasoning state and compaction matching stateful provider systems across successive benchmarks would weaken the architectural reading.
 
 **J.5 — Labour, 2026–2032.** Within matched occupations and firms with mature AI adoption, human work will repeatedly reconcentrate in problem constitution, new measurement, and representational change after controlling for baseline difficulty, physical presence, regulation, liability, reliability, and integration cost. Automation jumps will follow identifiable representational events. Smooth erosion across unchanged representations, or a residual fully explained by difficulty and institutional constraints, counts against the thesis.
 
@@ -656,7 +671,7 @@ The essay's contribution is the causal architecture, selection mechanism, and pr
 
 <span id="ref-13">[13]</span> ARC Prize Foundation (2025–2026). <a href="https://arcprize.org/blog/arc-prize-2025-results-analysis" target="_blank" rel="noopener noreferrer">“ARC Prize 2025 Results Analysis.”</a> See also <a href="https://arcprize.org/results/anthropic-claude-opus-5" target="_blank" rel="noopener noreferrer">“Claude Opus 5 on ARC-AGI.”</a> 24 July 2026.
 
-<span id="ref-14">[14]</span> ARC Prize Foundation (2026). <a href="https://arcprize.org/blog/arc-agi-3-launch" target="_blank" rel="noopener noreferrer">“ARC-AGI-3 Launch.”</a> See the <a href="https://arcprize.org/media/ARC_AGI_3_Technical_Report.pdf" target="_blank" rel="noopener noreferrer">technical report</a> and <a href="https://arcprize.org/blog/arc-prize-2026-milestone-1" target="_blank" rel="noopener noreferrer">Milestone 1</a>. OpenAI (2026), <a href="https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores/" target="_blank" rel="noopener noreferrer">“How two settings tripled our ARC-AGI-3 scores.”</a>
+<span id="ref-14">[14]</span> ARC Prize Foundation (2026). <a href="https://arcprize.org/blog/arc-agi-3-launch" target="_blank" rel="noopener noreferrer">“ARC-AGI-3 Launch.”</a> See the <a href="https://arcprize.org/media/ARC_AGI_3_Technical_Report.pdf" target="_blank" rel="noopener noreferrer">technical report</a>, <a href="https://arcprize.org/blog/arc-prize-2026-milestone-1" target="_blank" rel="noopener noreferrer">Milestone 1</a>, <a href="https://arcprize.org/results/openai-gpt-6-astra" target="_blank" rel="noopener noreferrer">verified GPT-6 Astra results</a>, and <a href="https://arcprize.org/blog/astra" target="_blank" rel="noopener noreferrer">“OpenAI's GPT-6 Astra on ARC-AGI-3.”</a> OpenAI (2026), <a href="https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores/" target="_blank" rel="noopener noreferrer">“How two settings tripled our ARC-AGI-3 scores.”</a> Geiping, J. et al. (2025). <a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/3b01972cf31e6fa0fe29e4b8b5c2a0a1-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">“Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach.”</a> *Advances in Neural Information Processing Systems* 38.
 
 <span id="ref-15">[15]</span> METR (2026). <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener noreferrer">“Measuring AI Ability to Complete Long Tasks.”</a> See <a href="https://metr.org/notes/2026-01-22-time-horizon-limitations/" target="_blank" rel="noopener noreferrer">“Time Horizon Limitations”</a> and <a href="https://metr.org/blog/2026-1-29-time-horizon-1-1/" target="_blank" rel="noopener noreferrer">Time Horizon 1.1</a>.
 
