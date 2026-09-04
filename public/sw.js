@@ -1,7 +1,7 @@
 // Service Worker for Age of Wonders
 // Stale-while-revalidate: instant from cache, fresh in background
 
-const CACHE_VERSION = 'age-of-wonders-v170';
+const CACHE_VERSION = 'age-of-wonders-v171';
 
 // Install event - take over immediately
 self.addEventListener('install', () => {
