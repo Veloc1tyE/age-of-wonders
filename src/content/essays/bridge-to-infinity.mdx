@@ -9,7 +9,6 @@ ogImage: "https://ageofwonders.org/og/bridge-to-infinity.png"
 import Callout from '../../components/Callout.astro';
 import PullQuote from '../../components/PullQuote.astro';
 import DataInsight from '../../components/DataInsight.astro';
-import SummaryBox from '../../components/SummaryBox.astro';
 import Share from '../../components/Share.astro';
 import CollapsibleAppendix from '../../components/CollapsibleAppendix.astro';
 import Figure from '../../components/Figure.astro';
@@ -17,6 +16,8 @@ import meridianLaunch from '../../../public/images/meridian-launch.png';
 import halcyonAngled from '../../../public/images/halcyon-angled.png';
 import lunarMassDriver from '../../../public/images/lunar-mass-driver.png';
 import earthset from '../../../public/images/Earthset.jpeg';
+
+Imagine the journey.
 
 Three g, sustained: a firm, even weight pressing you into the reclined seat. The cabin is small. Twelve people. Everyone breathing steadily against the load.
 
@@ -37,21 +38,21 @@ Finally. Cutoff.
 <Figure
   src={meridianLaunch}
   alt="Meridian electromagnetic launch system, vertical needle rising from a mountain summit into the stratosphere at night"
-  caption="Twenty kilometres above sea level, the air is less than a tenth of its surface density."
+  caption="Meridian concept. At twenty kilometres, the air is less than a tenth of its surface density."
   wide
 />
 
 ## I. The Atmosphere Tax
 
-The hardest part of reaching orbit is the atmosphere.
+To reach orbit, a spacecraft must gain speed while climbing through air.
 
 A spacecraft in low Earth orbit moves at roughly 7.8 km/s. Fast enough to circle the planet in ninety minutes. But reaching orbit from the ground costs <a class="xref" href="#appendix-b">closer to 9.2 km/s</a>.<sup><a href="#ref-1">[1]</a></sup> That extra 1.4 km/s is almost entirely wasted fighting gravity and air. These losses compound exponentially through the rocket equation.<sup><a href="#ref-2">[2]</a></sup>
 
-Without Max Q, we could throw things into orbit with cannons. Max Q shapes everything. Fairing geometry, structural mass, throttle schedules, abort modes: every design decision serves one window. Rockets are built around ninety seconds of dense air.
+Max Q—the moment of greatest aerodynamic pressure—shapes the vehicle's shell, structure, and engine schedule. Rockets are built around ninety seconds of dense air.
 
 <DataInsight
   insight="95% of Earth's atmospheric mass sits below 25 km."
-  context="Every rocket ever launched has done its hardest work in the densest part of the atmosphere."
+  context="An elevated launcher would give the orbital stage a thinner atmosphere to cross."
 />
 
 Reusable rockets will bootstrap the space economy, pushing costs toward \$50–200/kg and seeding the first lunar industry. But chemical rocketry through dense atmosphere faces a throughput ceiling that has nothing to do with cost. Every launch deposits combustion products, soot, aluminium oxide, water vapour, directly into the stratosphere, where they accumulate.
@@ -62,41 +63,24 @@ Rockets are the horse. The Bridge is the railroad.
 
 ## II. The Needle
 
-Previous attempts at assisted launch failed because they solved the wrong problem. Air launch (Virgin Orbit, Pegasus) carries a rocket to ~10 km at Mach 0.8, roughly 3% of orbital speed. The rocket supplies the rest, still fires through dense atmosphere, and still uses a sea-level-compromise engine. The assist changes nothing that matters.
-
-SpinLaunch and sea-level railguns provide more speed but exit into the densest possible air. Dynamic pressure at 2 km/s at sea level is 60× a rocket's Max Q. These systems add velocity at the wrong altitude. The opportunity is *higher exit*, above the atmosphere that forces every compromise.
-
-The answer is infrastructure: a vertical electromagnetic launcher, embedded in a mountain, reaching through the stratosphere.
+The proposal is infrastructure: a vertical electromagnetic launcher, embedded in a mountain, reaching through the stratosphere.
 
 **Meridian.**
 
 <Figure
   src={halcyonAngled}
   alt="Halcyon orbital vehicle banking through the upper atmosphere, angled view showing the lifting body geometry against a darkening sky"
-  caption="The aerodynamic bank. Halcyon harvests horizontal velocity from the thin air above Meridian's exit."
+  caption="Halcyon concept. The proposed bank turns part of the launcher's vertical throw towards the horizon."
   wide
 />
 
-Three elements.
-
-A tunnel bored through the mountain accelerates the vehicle through bedrock to exit speed.
-
-A pylon carries the exit from the summit into the stratosphere.
-
-At altitude, the lifting body banks: thin air trading for horizontal velocity before the engine has burned a gram of propellant (<a class="xref" href="#appendix-c2">Appendix C2</a>, <a class="xref" href="#appendix-e">E</a>).
-
-Meridian solves atmosphere.
+A tunnel accelerates the vehicle through bedrock. A pylon carries it from the summit into the stratosphere. At altitude, the lifting body banks, turning towards the horizon before the engine has burned a gram of propellant (<a class="xref" href="#appendix-c2">Appendix C2</a>, <a class="xref" href="#appendix-e">E</a>).
 
 Twenty kilometres is where three conditions coincide. Thick enough for a lifting body to bank: <a class="xref" href="#appendix-a">7% of sea-level density</a> gives real aerodynamic authority at even modest speeds. Sparse enough that the exit pulse is brief and structurally manageable, gentler than re-entry, which is already solved. And high enough that the aerodynamic bank carries the vehicle to <a class="xref" href="#appendix-c">~28–29 km before the engine lights</a>.
 
 At that altitude, atmospheric pressure is under 2% of sea level. The engine fires in effectively true vacuum from ignition, at 99%+ of its theoretical efficiency. No other exit altitude satisfies all three as cleanly.
 
-The bank itself is nearly free. Velocity components add in quadrature: convert a vertical vector into a horizontal one at speed, and the total barely changes. Call it the Pythagorean Dividend (<a class="xref" href="#appendix-c2">Appendix C2</a>). Gain a hundred metres per second sideways and the climb gives up seven. The exchange rate is one per cent. The thin air above becomes a harvestable resource. The stratosphere transforms into a gearbox. It turns the launcher's vertical throw into orbital velocity, and charges almost nothing for the exchange.
-
-<DataInsight
-  insight="At 20 km: enough air to bank, sparse enough to exit cleanly, high enough for vacuum ignition from the first second."
-  context="Below, density defeats the exit pulse. Above, aerodynamic authority disappears."
-/>
+The bank turns vertical speed towards the horizon. In the idealised geometry, gaining a hundred metres per second sideways costs about seven metres per second of climb speed. Call it the Pythagorean Dividend (<a class="xref" href="#appendix-c2">Appendix C2</a>). Drag still takes its share. The stratosphere becomes a gearbox, turning part of the launcher's vertical throw into speed the orbital stage can use.
 
 Electricity provides the throw. Thin air provides the turn. Vacuum provides the burn. Each layer does less work because the one before it did more. The rocket equation amplifies every saving exponentially.
 
@@ -104,28 +88,15 @@ Electricity provides the throw. Thin air provides the turn. Vacuum provides the 
 
 Once the atmosphere is someone else's problem, the orbital stage transforms.
 
-Call it Halcyon. It inherits none of a rocket's atmospheric compromises. It ignites in near-vacuum, already banked toward the horizon, already carrying aerodynamically earned horizontal velocity. Its nozzle can expand fully for space.
-
-Any lifting body rated for re-entry handles the exit pulse (<a class="xref" href="#appendix-c3">Appendix C3</a>). The hardest part is coming home. That problem is already solved.<sup><a href="#ref-5">[5]</a></sup>
-
-Halcyon is rugged, built for repeated use. Its structural mass earns its place: the same planform that handles the bank is the planform that lands on a runway.
+Call it Halcyon. It ignites in near-vacuum, already banked toward the horizon. Its nozzle can expand fully for space. The same lifting body that turns through the thin air comes home to a runway, using the re-entry techniques that reusable spacecraft have developed (<a class="xref" href="#appendix-c3">Appendix C3</a>).<sup><a href="#ref-5">[5]</a></sup>
 
 And it can use hydrogen.
 
 Ground vehicles default to dense propellants that survive Max Q. Hydrogen offers far higher exhaust velocity, but its bulk punishes sea-level flight. Meridian removes that constraint. The engine fires a pure vacuum nozzle at full expansion ratio. It is like the second stage of a two-stage rocket.<sup><a href="#ref-6">[6]</a></sup>
 
-| Propellant | Vacuum Isp (s) | Propellant saving vs all-rocket baseline |
-|---|---|---|
-| Kerolox | 348 | 33% |
-| Methalox | 363 | 39% |
-| Hydrolox | 465 | 64% |
-| Nuclear thermal (H₂) | ~900 | 88% |
+In the cargo model, hydrogen and oxygen cut propellant by 64% against the all-rocket kerosene baseline; the gentler crewed flight saves 58% (<a class="xref" href="#appendix-d">Appendix D</a>). Halcyon's broad body gives the bulky hydrogen somewhere to go. Nuclear thermal propulsion offers a later upgrade (<a class="xref" href="#appendix-m">Appendix M</a>).<sup><a href="#ref-7">[7]</a></sup>
 
-*Reference case: 100 t post-burn mass (vehicle + payload). Savings percentages are independent of the split between them. Human-rated launch runs a few points lower. The full per-altitude table is in <a class="xref" href="#appendix-d">Appendix D</a>.*
-
-Halcyon needs a large planform for the aerodynamic bank and runway landing. Hydrogen can fill that planform with useful propellant instead of dead structure. Hydrolox is the near-term workhorse. Nuclear thermal propulsion is the upgrade (<a class="xref" href="#appendix-m">Appendix M</a>).<sup><a href="#ref-7">[7]</a></sup>
-
-Engineers have chased the spaceplane since the 1960s. The mass budget never closed. Ground-launched SSTO fails for fundamental mass-budget reasons. The X-33 and VentureStar died here (<a class="xref" href="#appendix-q">Appendix Q</a>). Meridian moves the starting line to 20 km for vacuum engines. The same SSTO closes from altitude.
+Engineers have chased the spaceplane since the 1960s. A reusable single-stage-to-orbit vehicle must fit structure, propellant, and payload inside an unforgiving mass budget. The X-33 and VentureStar ran into that constraint (<a class="xref" href="#appendix-q">Appendix Q</a>). Meridian moves the starting line to 20 km. In the model, that leaves room for a reusable vehicle and useful cargo.
 
 <PullQuote>
 
@@ -136,9 +107,7 @@ The mountain carries what the vehicle never could.
 
 ## IV. The Port, the Locomotive, the Container
 
-The difference between a space programme and a space economy is cadence.
-
-Cadence requires infrastructure built like transport. So a mature orbital economy looks more like ports, rail, and container shipping.
+The difference between a space programme and a space economy is cadence. A mature orbital economy needs the regularity of ports, rail, and container shipping.
 
 **The port.** Meridian is fixed infrastructure, used constantly, maintained on schedules, amortised over decades. It never moves. Electricity is Meridian's main variable input. Vehicle propellant, maintenance, and amortisation set the delivered price.
 
@@ -160,37 +129,22 @@ The Moon's crust is exactly the inventory a space civilisation needs for bulk co
 
 The round-trip light time to the Moon is about 2.6 seconds: too slow for direct reflexes, fast enough for supervised teleoperation of industrial robots, excavators, and fabrication systems.<sup><a href="#ref-13">[13]</a></sup> The first lunar industrial base runs on machines and a data link.
 
-That pairing resolves into a single asymmetry.
-
 <PullQuote>
 
-The Moon exports mass at the cost of electricity.
+The Moon supplies the bricks. Electricity lifts them.
 
 </PullQuote>
 
 An O'Neill-scale rotating habitat for 10,000 people might mass 150,000 tonnes. If the Moon supplies 90% of that as structural bulk, Earth only needs to export roughly 15,000 tonnes per habitat, about 1.5 tonnes per person. As orbital fabs mature, the per-capita burden decays toward an irreducible floor of genuinely Earth-origin things: semiconductors, biological diversity, precision instruments, cultural capital. The full decay model is in <a class="xref" href="#appendix-l">Appendix L</a>.
 
-The Earth launcher supplies *complexity*, not *mass*. Once that distinction is clear, the constraint on how many people can live off-Earth shifts from launch capacity to lunar industrial throughput. Those are engineering and capital problems with known analogues in terrestrial heavy industry.
-
-One thing does not decay: *ferry overhead*, the vehicle mass, propellant, life support, and safety reserves required to physically transport a human being. That overhead compresses through reuse and scale. It asymptotes rather than vanishes.
-
-It is why population migration lags industrial migration: cargo economics improve faster than passenger economics. The crossover arrives only once ferry costs compress far enough that millions can choose to go.
-
-<DataInsight
-  insight="Earth exports roughly 1.5 tonnes per person to an O'Neill habitat. The Moon supplies the rest."
-  context="As orbital fabs mature, even that floor decays toward semiconductors, biology, and cultural capital."
-/>
+Housing is one task; carrying people there is another. A passenger needs a vehicle, propellant, life support, and reserves. Reuse makes the journey cheaper over time. Cargo goes first, until the fare falls far enough that millions can choose to follow.
 
 Earth exports the blueprint. The Moon exports the bricks. Cis-lunar space builds the city.
 
 
 ## VI. The Cis-Lunar Neighbourhood
 
-The cost of orbit is a solved problem. A space economy needs something more: coherence.
-
-An economy needs supply chains that close, transactions that settle, and machines that take instructions. Across the Earth–Moon system, a signal returns in under three seconds.
-
-That delay is slow enough to notice and fast enough to coordinate. Beyond the Moon, it grows quickly. Cis-lunar space can still function as one economy because its machines, markets, and people can answer one another.<sup><a href="#ref-14">[14]</a></sup>
+An economy needs supply chains that close, transactions that settle, and machines that take instructions. Across the Earth–Moon system, a signal returns in under three seconds: slow enough to notice, fast enough to coordinate. Beyond the Moon, the delay grows quickly. Cis-lunar space can still function as one economy because its machines, markets, and people can answer one another.<sup><a href="#ref-14">[14]</a></sup>
 
 <PullQuote>
 
@@ -217,7 +171,7 @@ Once heavy industry can operate in space, powered by continuous solar energy, fe
 <Figure
   src={earthset}
   alt="Earthset photographed by the Artemis II crew, Earth setting below the lunar horizon"
-  caption="Earthset, Artemis II, 2026. Give industry somewhere better to go. It will go."
+  caption="Earthset, Artemis II, 2026. The world an orbital economy would leave behind."
   wide
 />
 
@@ -228,21 +182,13 @@ Space industry manufactures infrastructure for space residents: habitat shells, 
 Earth becomes selective about what it hosts. Biology. Culture. Agriculture on land that was never strip-mined. Forests that were never cleared for industry. Rivers that run clean because no one is using them as coolant.
 
 <DataInsight
-  insight="The most ambitious conservation project in history is an infrastructure programme."
-  context="Give industry somewhere better to go, and it goes. It always has."
+  insight="The most ambitious conservation project in history could be an infrastructure programme."
+  context="Give industry somewhere better to go."
 />
-
-The Great De-Industrialisation asks no one to sacrifice. It waits for the orbital economy to undercut terrestrial production on bulk output. Energy, materials, and thermal management all favour space once the logistics exist. The economics will pull industry off Earth the same way they once pulled it out of cottage workshops and into factories.
 
 Earth needs civilisation to grow large enough to move its heaviest footprint somewhere else. Give it a larger canvas. The footprint shrinks.
 
 Meridian has its own costs: solar land use, electrolysis water demand, re-entry aerosols, orbital debris governance. Each demands serious engineering (<a class="xref" href="#appendix-n">Appendix N</a>).<sup><a href="#ref-15">[15]</a></sup><sup><a href="#ref-4">[4]</a></sup><sup><a href="#ref-16">[16]</a></sup><sup><a href="#ref-17">[17]</a></sup> But the sum of managed externalities at scale is categorically smaller than continuing to use Earth's biosphere as a process buffer.
-
-<SummaryBox>
-
-Industry migrates because the orbital alternative undercuts Earth on energy, materials, and thermal management. Earth stops being the default site of production, and begins to recover.
-
-</SummaryBox>
 
 ## VIII. The Cathedral
 
@@ -254,7 +200,7 @@ Once Meridian is built, the cost of orbit drops to electricity and process engin
 
 And Earth becomes what it always could have been.
 
-**The limit was only ever twenty kilometres.**
+**A way off Earth, built into it.**
 
 <Share
   title="Bridge to Infinity"
@@ -293,7 +239,7 @@ Dynamic pressure at launcher exit: $q = \tfrac{1}{2}\rho v^2$
 
 For comparison, a typical rocket experiences Max Q of 30–40 kPa at ~12 km altitude and ~500 m/s. A lower exit (20–25 km) exposes the vehicle to more air. More air means higher aerodynamic authority for the bank manoeuvre that converts surplus vertical velocity into horizontal momentum (<a class="xref" href="#appendix-c2">Appendix C2</a>).
 
-The optimum exit altitude is a trade between terminal pylon height (higher = shorter, cheaper pylon) and aerodynamic turn potential (lower = more free delta-v). A 20 km exit with a purpose-built lifting body can harvest ~500 m/s of horizontal velocity aerodynamically, and at the exponential rates of the rocket equation, that is not small. The high dynamic pressure is brief: the vehicle climbs at 3 km/s through rapidly thinning air, moving vertically rather than pitching over in the densest layer.
+The exit altitude trades pylon height against aerodynamic turn potential. A lower exit needs a shorter pylon and gives the lifting body more air to work with. A 20 km exit with a purpose-built lifting body can harvest ~500 m/s of horizontal velocity aerodynamically, and at the exponential rates of the rocket equation, that is not small. The high dynamic pressure is brief: the vehicle climbs at 3 km/s through rapidly thinning air, moving vertically rather than pitching over in the densest layer.
 
 
 ### <span id="appendix-b" class="appendix-anchor"></span>B. Launch Budget Decomposition
@@ -484,7 +430,7 @@ Meridian deliberately oversupplies vertical velocity so the bank can exploit thi
 
 ### <span id="appendix-c3" class="appendix-anchor"></span>C3. Cargo Structural and Thermal Survivability at Exit
 
-*The cargo reference design exits at 3 km/s, 20 km altitude, Mach ~10. Dynamic pressure is 401 kPa—roughly 10× a rocket's Max Q. The question is whether the structural and thermal load is survivable. The analysis below shows it is, and by a wider margin than intuition suggests.*
+*The cargo reference design exits at 3 km/s, 20 km altitude, Mach ~10. Dynamic pressure is 401 kPa—roughly 10× a rocket's Max Q. The calculations below estimate the brief thermal and structural loads that follow.*
 
 **Reference vehicle.** 50 t payload, 10% dry fraction, hydrolox propellant for 7.2 km/s engine duty. Total mass at exit $m_{\text{exit}} \approx 484$ t. Planform $S \approx 490$ m² (~31 m × 16 m) set by runway landing wing loading.
 
@@ -633,7 +579,7 @@ The 64% cargo propellant saving versus all-rocket kerolox has three distinct sou
 - *Numerator* (reduce $\Delta v$): loss elimination removes ~1.5 km/s; the aerodynamic turn harvests another 100–500 m/s. Both are free, paid for by electricity and thin air.
 - *Denominator* (increase $v_e$): the Isp switch from sea-level kerolox ($v_e$ = 3,728 m/s) to vacuum hydrolox ($v_e$ = 4,562 m/s) raises exhaust velocity by 22%.
 
-The baseline exponent is $9.2 / 3.73 = 2.47$. After all three layers: $7.2 / 4.56 = 1.58$. That is a 36% reduction in the exponent, but because it *is* an exponent, the mass ratio drops from 11.8 to 4.85, a 59% reduction in propellant. In a linear system, shrinking the budget by 22% and improving the engine by 22% would save roughly 40%. Through the exponential, the same improvements save 64%. Each layer amplifies the others because they all feed through the same nonlinearity. The rocket equation punishes brute force exponentially; it rewards layered optimisation just as exponentially.
+The baseline exponent is $9.2 / 3.73 = 2.47$. After all three layers: $7.2 / 4.56 = 1.58$. That is a 36% reduction in the exponent, but because it *is* an exponent, the mass ratio drops from 11.8 to 4.85, a 59% reduction. In a linear system, shrinking the budget by 22% and improving the engine by 22% would save roughly 40%. Through the exponential, the same improvements save 64% of the propellant. Each layer amplifies the others because they all feed through the same nonlinearity. The rocket equation punishes brute force exponentially; it rewards layered optimisation just as exponentially.
 
 **Comparison across propellants at the reference design (20 km exit, cargo):**
 
@@ -726,7 +672,7 @@ This is the same structural principle as a guyed radio mast, which routinely rea
 
 **Honest caveat.** Macro-scale CNT fibres demonstrating multi-gigapascal tensile strength exist, and the structural type (tension-stabilised mast) is directionally consistent with how those fibres perform best. But there is still a large gap between "strong fibres exist" and "a 10–20 km precision-aligned, vacuum-integrated terminal is a credible structure with known dynamic margins." The essay treats this as a centurial-project challenge, solved over decades of materials engineering and iterative construction, not as a near-term capability. If the terminal proves harder than expected, the architecture degrades to lower exit altitudes (a 5–8 km terminal still buys most of the atmospheric bypass) rather than failing entirely.
 
-Wind loading at stratospheric altitude is far lower than at sea level. Dynamic pressure scales with density, and at 20–30 km altitude, air density is 1–4% of surface values. The dominant concern shifts from wind to thermal cycling, alignment maintenance under differential solar heating, and vacuum seal integrity.
+Wind loading at stratospheric altitude is far lower than at sea level. Dynamic pressure scales with density, and at 20–30 km altitude, air density is about 1.5–7.3% of surface values. The dominant concern shifts from wind to thermal cycling, alignment maintenance under differential solar heating, and vacuum seal integrity.
 
 
 ### <span id="appendix-f2" class="appendix-anchor"></span>F2. Phase Zero: Angled Exit Without Pylon
@@ -983,9 +929,9 @@ The mature band (\$20–50/kg) requires the bridge vehicle to achieve locomotive
 
 ### <span id="appendix-l" class="appendix-anchor"></span>L. Population and Industrial Migration
 
-*Cross-checked migration model incorporating a declining Earth-complexity burden as off-world industry matures. All figures are internally consistent scenario arithmetic, not forecasts. Earth population is assumed to follow the UN medium variant, peaking at approximately 10.4 billion in the 2080s and declining thereafter.<sup><a href="#ref-31">[31]</a></sup> Physical constants verified against cited sources.*
+*A scenario in which off-world industry gradually needs less material from Earth. Population follows the cited UN medium variant, peaking at approximately 10.4 billion in the 2080s and declining thereafter.<sup><a href="#ref-31">[31]</a></sup> The tables explore what the assumed launch and industrial growth rates would permit.*
 
-**Verified constants.**
+**Inputs.**
 - Lunar escape velocity: 2,376 m/s; specific launch energy $\tfrac{1}{2}v_{esc}^2 = 2.82$ MJ/kg = 0.784 kWh/kg.<sup><a href="#ref-9">[9]</a></sup>
 - Earth solar intercept: ~173,000 TW continuously.
 - Hydrolox benchmark: RL10C-X at 460.9 s vacuum Isp, 5.5:1 O/F ratio.<sup><a href="#ref-19">[19]</a></sup>
@@ -1114,7 +1060,7 @@ At 20 megacomplexes, even the heavy case is ~3 tubes per site. The binding const
 
 ### <span id="appendix-m" class="appendix-anchor"></span>M. Dry Fraction Sensitivity and Energy Budget Decomposition
 
-*The bridge vehicle's dry fraction is the exponential sensitivity knob on the entire architecture. This appendix decomposes where the energy actually goes and shows why "choose locomotive, not swan" is a structural constraint rather than aesthetic advice.*
+*A heavier reusable vehicle needs more propellant, which adds weight of its own. This appendix follows that compounding cost through the energy budget.*
 
 **Where the energy goes.** For each kilogram of net payload delivered to LEO via the launcher-assisted hydrolox architecture, the energy budget breaks down into three terms:
 
@@ -1150,7 +1096,7 @@ The NTP table defines dry fraction stage-based (structure ÷ [structure + propel
 
 ### <span id="appendix-n" class="appendix-anchor"></span>N. Environmental Externalities at Scale
 
-*The bridge eliminates the worst atmospheric chemistry pathways. It does not eliminate all environmental cost. This appendix catalogues what shifts and what remains.*
+*Hydrogen replaces soot with water vapour. Higher throughput brings new demands on land, water, and orbital traffic. This appendix follows those costs.*
 
 **What the bridge removes.** Stratospheric black carbon (soot) from hydrocarbon rockets is the primary concern at scale. NOAA-hosted peer-reviewed work models non-linear climate and ozone impacts under growth scenarios.<sup><a href="#ref-3">[3]</a></sup> The launcher-assisted architecture eliminates lower-atmosphere combustion entirely and, when using hydrogen-oxygen upper stages, produces water vapour rather than soot above ~25 km. Montreal Protocol controls have stratospheric ozone on track to recover to pre-1980 levels globally by approximately 2066.<sup><a href="#ref-33">[33]</a></sup> The bridge's constraint is to cause no measurable regression to that trajectory. The environmental comparison in <a class="xref" href="#appendix-i">Appendix I</a> quantifies this.
 
@@ -1204,7 +1150,7 @@ NASA's ISRU requirements documents note prototype oxygen extraction systems oper
 Launch energy is negligible. Processing energy is the industrial constraint that determines whether the Moon is a quarry or merely a laboratory.
 
 
-### <span id="appendix-q" class="appendix-anchor"></span>Q. Why Ground SSTO Fails and Bridge SSTO Works
+### <span id="appendix-q" class="appendix-anchor"></span>Q. How the Bridge Changes the SSTO Mass Budget
 
 *The launcher is the first stage—made of bedrock and electricity instead of aluminium and kerosene, used thousands of times, never discarded.*
 
@@ -1227,7 +1173,7 @@ where $R = e^{\Delta v / v_e}$ is the mass ratio. If $f_{payload} \leq 0$, the v
 
 **Ground hydrolox SSTO is marginal.** At an aggressive 8% dry fraction—lighter than any crewed reusable vehicle ever built—payload is 2.7%. A 100 t vehicle delivers 2.7 t. And this uses a trajectory-averaged 420 s Isp because the engine must fire through dense atmosphere with a compromised nozzle. It never achieves full vacuum performance. NASA cancelled the X-33 programme because the composite hydrogen tanks required to reach this dry fraction could not be manufactured to spec.
 
-**Bridge-assisted SSTO is comfortable.** At 10% dry fraction—a realistic reusable lifting body—cargo payload is 10.6% and human payload is 8.1%. A 485 t vehicle delivers 50 t of cargo. The margin is wide enough for engineering growth, structural reserves, and operational reality.
+**Bridge-assisted SSTO has more margin in this model.** At the assumed 10% dry fraction, cargo payload is 10.6% and human payload is 8.1%. A 485 t vehicle delivers 50 t of cargo. Structure, thermal protection, and reserves must fit within that dry-mass allowance.
 
 **Three effects compound.** The Bridge changes the SSTO problem categorically:
 
@@ -1248,7 +1194,7 @@ SpinLaunch and sea-level railguns provide more speed but at sea level, where dyn
 
 ### <span id="appendix-r" class="appendix-anchor"></span>R. The Falsifier Register
 
-*A bridge you cannot falsify is a painting of a bridge.*
+*What would change the case for the bridge?*
 
 Recorded July 2026. The essay is a centurial project, so the register separates what can fail by a date, what can fail only by recomputation, and what is declared as modelling.
 
