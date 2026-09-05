@@ -226,7 +226,7 @@ Fresh frontiers repeatedly require new adaptation. An unexpected result changes 
 
 Weather offers a warning about the cost of holding a changing world in a model. Small errors grow until a forecast loses the storm. In high-resolution weather-model experiments, tenfold smaller initial errors bought only three to five more days of useful prediction.<sup><a href="#ref-22">[22]</a></sup> A longer horizon demanded a much more accurate starting picture.
 
-A brain carries experience through currents, rhythms, and changes in its own structure. My wager is that preserving their contribution to discovery across longer histories demands exponentially more digital work. Living tissue performs those dynamics directly. A simulation can be copied; every copy still has to be run. At the horizons mapmaking needs, that running cost becomes prohibitive.
+A brain carries experience through currents, rhythms, and changes in its own structure. My wager is that their contribution to discovery resists economical digital reduction. Preserving it across longer histories requires exponentially more digital work. Living tissue sustains that capacity where a digital reproduction becomes prohibitively costly. A simulation can be copied; every copy still has to be run.
 
 People learn to notice while earning a living, caring for one another, and making things. The preparation for a discovery can begin long before anyone knows the question. Biology turns this unplanned variety into a living capacity for new maps. Building that capacity economically draws artificial investigators towards the organisation of a life: persistent plasticity, individual history, and adaptation across timescales. The past remains at work in the machinery that meets the next moment.
 
@@ -437,7 +437,7 @@ $$
 }
 $$
 
-An equation can describe a developmental process without performing it. Living tissue performs its coupled electrical, chemical, and structural changes directly. The wager concerns the cost of reproducing their contribution to discovery: as an investigator carries experience further through a changing world, the digital approximation needs more of those interactions to remain useful. An exponential increase in that cost would bring simulation up against practical resource limits while the living process remained viable.
+An equation can describe a developmental process without performing it. The essay's wager is that mapmaking depends on adaptive physical dynamics whose discovery-relevant effects resist economical digital reduction. If preserving those effects across longer histories requires exponentially increasing computational work, biology retains a practical advantage even where digital reproduction remains possible. The comparison is between the costs of sustaining discovery in each implementation.
 
 Copying a mature state preserves a starting point. Every active copy still pays for the dynamics that sustain its capacity to discover. This continuing cost is the proposed barrier. Biological computationalism supplies reasons to investigate it; the scaling relationship is the essay's additional hypothesis. A digital investigator that sustains new mapmaking at competitive total cost would defeat this barrier. Every investigator receives credit for its discoveries, whatever its physical implementation.
 
@@ -482,7 +482,7 @@ Moore and Nordahl proved a narrower result for two lattice-gas models: their fin
 
 A useful shortcut can also change what it predicts. Israeli and Goldenfeld constructed predictable coarse descriptions of complex cellular automata, including a computationally universal rule.<sup><a href="#ref-41">[41]</a></sup> The reduction preserves a selected aspect of the behaviour. A simpler account can therefore succeed while leaving much of the underlying process behind.
 
-Mapmaking changes which aspect matters. Two histories can prepare the same answers today while allowing different discoveries tomorrow. The biological candidate is the coupling of fast activity with slower changes in memory and plasticity: experience changes both a representation and how later experience can revise it. My wager is that fresh frontiers repeatedly need some of this work to unfold. An economical substitute must preserve the capacity to find new distinctions as relevance changes. Adaptive compression is the strongest rival; it belongs in the test.
+Mapmaking changes which aspect matters. A small difference can leave today's answer unchanged while altering what tomorrow's experience teaches. The biological candidate is the coupling of fast activity, lingering traces, and slower changes in plasticity: an encounter changes both a representation and how it can later change. A reduction must preserve this capacity across questions that arise after it was built. It must retain the relevant differences, recover them, or learn replacements. My wager is that this adaptive work repeatedly resists a general cheap shortcut. Adaptive compression is the strongest rival; it belongs in the test.
 
 Irreducibility concerns work that must be done. The scaling wager concerns the cost of doing it. Digital systems can contain irreducible processes too; biology's proposed advantage is economical physical execution. Faster hardware can accelerate necessary steps, and linear sequential work alone yields no exponential cost law. The further claim below is that sustaining the discovery-relevant dynamics becomes increasingly expensive digitally as adaptive horizons lengthen.
 
@@ -499,9 +499,21 @@ $$
 
 Here $\lambda>0$ is the error-growth rate, $\varepsilon_*$ is the largest useful error, and $H$ is the forecast horizon in the same time units as $1/\lambda$. Extending the horizon by a fixed interval requires another fixed-factor reduction in initial error. In Zhang and colleagues' high-resolution model experiments, tenfold smaller initial perturbations extended useful deterministic midlatitude weather forecasts by roughly three to five days.<sup><a href="#ref-22">[22]</a></sup> This was a reduction in starting error, not a tenfold compute increase.
 
-Turning this accuracy requirement into an exponential compute requirement needs another premise. One sufficient assumption is that achievable error falls as a power law of computational expenditure. Chaos alone supplies no such cost law. The separate spatial-grid example—sixteen times the work for twice the resolution in a fixed three-dimensional, explicit, CFL-limited calculation—is a fourth-power cost.
+What would make that accuracy expensive? Consider a particular grid-based numerical method. Let $s$ be spatial refinement relative to a reference mesh, $q>0$ its error-convergence exponent, and $r>0$ its computational-cost exponent. Let $R$ count operations per simulated second, with reference rate $R_0$. Over a forecast lasting $\tau$ seconds, suppose the method's error and work scale over the range studied as
 
-The proposed parallel concerns the investigator's own dynamics. Its *adaptive horizon* is the span across which an experience can still change a later interpretation or discovery. Reproducing one particular brain trajectory is unnecessary; preserving the capacity to make new maps is the target. The wager is that this capacity draws on interactions across timescales whose useful effects become increasingly expensive to retain digitally.
+$$
+\begin{aligned}
+\varepsilon(s,\tau)&\approx A s^{-q}e^{\lambda\tau},\\[0.6em]
+R(s)&=R_0s^r,\\[0.6em]
+R_{\mathrm{req}}(\tau)&\propto e^{(r\lambda/q)\tau}.
+\end{aligned}
+$$
+
+Here $A$ sets the error scale. The third relation follows by holding the tolerated error at $\varepsilon_*$: longer forecasts require finer resolution, which raises the work rate. At real-time execution and fixed energy per operation, power rises in the same proportion. The cost comes from refining the simulation, rather than enumerating every value its numbers can represent. For a three-dimensional grid whose time step shrinks in proportion to mesh spacing, $r=4$: twice the spatial resolution means sixteen times the work per simulated second.
+
+This is an illustrative derivation for a specified method and error target. Applying it to mapmaking requires the further finding that economical, discovery-preserving approximations face a comparable accuracy–cost trade-off. The relevant fidelity is whatever lets the investigator keep discovering; its required cost must survive improvements in numerical methods, abstraction, and hardware.
+
+The proposed parallel concerns the investigator's own dynamics. Its *adaptive horizon* is the span across which an experience can still change a later interpretation or discovery. A different train of thought can still produce a valid discovery. The wager concerns losing the capacity: omitted interactions make a useful distinction harder to learn when later experience brings it into view. Biology's proposed advantage is sustaining and revising those sensitivities within a viable physical budget.
 
 Give that wager a simple mathematical form. Within a specified family of investigations, hold operating speed and reliability fixed. Let $h$ measure the temporal dependencies the investigator successfully integrates, and suppose the power required by competitive digital implementations grows as
 
