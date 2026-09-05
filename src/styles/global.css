@@ -43,6 +43,11 @@ a{
 }
 a:hover{ color:var(--accent); }
 
+/* Long source URLs should wrap within the essay column. */
+.essay-prose a[href^="http"] {
+  overflow-wrap: anywhere;
+}
+
 /* Internal cross-references (appendix sections and inter-essay links).
    One quiet visual language for every knowledge-graph edge: faint dotted
    underline by default, accent on hover. Keeps long woven links from reading
@@ -226,6 +231,8 @@ hr{
 
 /* Tables */
 .prose table {
+  /* Keep positioned KaTeX accessibility markup inside the scroll container. */
+  position: relative;
   width: 100%;
   border-collapse: collapse;
   margin: 36px 0;

@@ -1,0 +1,80 @@
+---
+interface Props {
+  steps: string[];
+}
+
+const { steps } = Astro.props;
+---
+
+<ol class="concept-flow" role="list" style={`--step-count: ${steps.length}`}>
+  {steps.map((step, index) => (
+    <li>
+      <span class="concept-label">{step}</span>
+      {index < steps.length - 1 && <span class="concept-arrow" aria-hidden="true">→</span>}
+    </li>
+  ))}
+</ol>
+
+<style>
+  ol.concept-flow {
+    display: grid;
+    grid-template-columns: repeat(var(--step-count), minmax(0, 1fr));
+    gap: 32px;
+    margin: 40px 0;
+    padding: 12px 0;
+    list-style: none;
+  }
+
+  .concept-flow > li {
+    display: grid;
+    place-items: center;
+    position: relative;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .concept-label {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+    color: var(--text);
+  }
+
+  .concept-arrow {
+    position: absolute;
+    top: 50%;
+    right: -26px;
+    transform: translateY(-50%);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1;
+    color: #b8b8b8;
+  }
+
+  @media (max-width: 640px) {
+    ol.concept-flow {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 36px;
+      margin: 32px 0;
+      padding: 8px 0;
+    }
+
+    .concept-label {
+      max-width: 28ch;
+      font-size: 22px;
+    }
+
+    .concept-arrow {
+      top: auto;
+      right: auto;
+      bottom: -29px;
+      left: 50%;
+      transform: translateX(-50%) rotate(90deg);
+    }
+  }
+</style>

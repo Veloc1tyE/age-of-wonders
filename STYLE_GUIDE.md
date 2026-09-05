@@ -36,6 +36,8 @@ Qualification should carry information. Keep an *if* that names the hinge of an 
 
 There are two responsibilities here. The source must say what we claim it says. The author's interpretation must be recognisable as their own. A forecast or philosophical claim can reach beyond consensus and remain open to refutation. Its force comes from the reasons offered and the willingness to answer for them.
 
+Beware the editor's representational gravity. A familiar framework can absorb a difficult thesis until the revision argues for something else. Reconstruct the author's mechanism before testing it. Strengthen or replace an unsupported premise openly; preserve a risky inference as a claim the author owns. Use the strongest rival to test that claim on its own terms. Check that the revised essay still asserts the same consequential idea.
+
 Ask of the revision: can a reader still say plainly what this writer believes? Is there something left to disagree with? Preserve the risk that makes the answer yes.
 
 ## Leave room for the reader
@@ -240,6 +242,8 @@ Short sentences do not require separate paragraphs. Keep premise, explanation, a
 
 Use appendices as a second depth of reading. Deal terms, quarterly results, price comparisons, alternative cases, and derivations belong where a curious reader can examine them without interrupting the argument. Link to the question the detail answers. Keep essential conditions beside the claim they govern.
 
+Give an opinionated essay one clear throughline. The body carries the examples, mechanism, and consequence that earn its wager. The appendices carry detailed comparisons, competing explanations, uncertainties, and tests that could overturn it. Moving analysis deeper should make the claim easier to follow and its grounds easier to inspect. Keep the author's leap visible where it begins; the reader then has a position to consider, rather than a debate to moderate.
+
 *Computational Abundance* illustrates the distinction. The body follows a chip from its missing power connection to the work it can do in someone's hands. The appendices hold the financing, project inventory, rental prices, and crossover model. The reader can finish the essay without opening them, then return with a question.
 
 Read the main body straight through, with every appendix closed. It should feel complete at that depth. Then read it with its visual pauses: some thoughts deserve to be encountered twice, once understood and once felt. Read the deeper material separately: it should reward curiosity with explanation. Length is earned by movement, not by the amount of research available.
@@ -344,9 +348,25 @@ Changing a title or frontmatter description also requires updating the generated
 
 ### Headings
 
-Headings give the reader bearings. “The Heat” works because the reader knows which machine is getting hot. An unfamiliar technical label requires explanation immediately below it. Prefer a heading that names the section's work to one that advertises its significance.
+The headings tell the story in miniature. A reader who skips the paragraphs should still grasp most of the argument: what holds us back, what changes it, and what opens beyond. Read the sequence on its own. Each heading should move the thought forward.
 
-Do not force every heading into poetry. Appendices especially benefit from literal names: assumptions, mass budget, transit times, sources.
+The best combine meaning with wonder. “Where the Sun Lives” makes the geography of energy human. “Turning the Sun into a Telescope” names the extraordinary mechanism. “Cataloguing the Galaxy” gives that mechanism a purpose. “Representational Gravity” makes an intellectual force memorable. In *Love is the Foundation*, “The Market Stands on What It Cannot Produce” carries an argument before the first paragraph begins.
+
+Name the discovery or consequence, not just its filing category. “The Geometry”, “The Power”, and “The Mechanism” ask the paragraph to do all the work. “The Sea Gives Another Dimension” lets the reader see what the geometry changes. “The Desert Powers the Deep” joins source and destination. The magic comes from the actual relationship, not an ornamental adjective.
+
+Vary the cadence. A direct claim, an image, a question, and a short name can belong to the same sequence. “A Delivery” leaves a revelation for the paragraph; “Where the Fire Burns” gives a technical constraint a physical presence. The sequence carries the argument. Each heading need not explain itself completely. Preserve anticipation, human scale, and room for discovery alongside the clear claims.
+
+The sequence also has an emotional direction. In *Singularity*, discovery opens doors, computation reaches black holes, black holes give birth to universes, and the scale expands to “A Universe Chooses Humanity”. “For The Smallest Thing” then brings the grandeur back to care. The return gives the expansion its purpose. In *Symbolic Superintelligence*, “Drawing a World” and “We Are Wanderers” let a reader feel the distinction between a map and the people who make it. Prefer the heading that brings an idea into human experience when the paragraph already supplies its technical account.
+
+Let events carry the sequence. *Leviathan* begins when a computer outgrows the grid. A supercomputer is lowered into the dark; the sea gives another dimension; the desert powers the deep. A “Tesseract of Supercomputers” waits for light and becomes a forge. The last heading returns to where land meets sea. These are turns in a story, each changing what the reader can imagine next. Read the headings aloud as a continuous passage. Listen for movement, scale, suspense and return.
+
+Small connecting words can carry the journey between sections. “From Worlds of Fuel” continues the ship's passage; “For a City Between Two Worlds” gives the preceding engineering a destination. “The Ship Becomes a Vessel” makes maintenance part of a transformation. “The Earth Breathes” lets the consequence happen. “Building Our Cathedral” makes a distant programme a shared undertaking, and “Our Pale Blue Dot” brings the voyage home. Let headings lean towards one another. They need not be self-contained summaries when together they make a living sentence.
+
+Let the sentence establish its own register. “Suppose a black hole could give birth to a universe” opens a conjecture clearly. A separate announcement that speculation follows interrupts the entrance. Preserve the exact condition that makes a claim honest; remove the editorial preamble that merely announces what the next sentence does.
+
+This standard covers the canon and both dossiers. In a dossier, bring the reader towards the machine, the measurement, the decision, or the life it could change. Keep precise gate names, numbered cross-references, evidence registers, and technical lookup labels where they help someone find or test a claim. A heading must preserve the distinction between a measured result, a proposal, and a possibility.
+
+Test the headings in the rendered page and navigation, at desktop and phone widths. Keep their hierarchy and existing link targets intact. A more beautiful name should make the document easier to follow and easier to find your way back through.
 
 ### Figures, captions, and alt text
 
@@ -370,7 +390,11 @@ Imagine the component detached from the essay. Give it enough context to remain 
 
 The body carries the argument and the author's commitment to it. The appendix gives readers the detail needed to examine its foundations. Keep a condition in the body when the reader needs it to understand a result; give fuller assumptions, rival explanations, and tests room in the appendix. The essay can move with conviction while making its reasoning available for scrutiny.
 
+The appendix keeps the same voice at greater depth. Begin with the question a reader has brought from the essay. Explain what the calculation, experiment, or comparison lets them see. Introduce technical terms beside the work they do; give dense comparisons a table when that makes them easier to follow. Each paragraph should make one intelligible movement. Precision belongs in clear nouns, units, and conditions. A change of depth should preserve the welcome.
+
 Begin a calculation with its question. Define symbols and units before using them. Label original modelling. Explain what the result means and what it does not settle. A memorable opening line is welcome if it helps; verification prose need not compete with the essay's ending.
+
+Give each quantity its boundary once, where it enters the argument: optical input or electricity delivered, emitting surface or panel area, an average or a peak. Carry that meaning through every table and comparison. A precise noun often does the work of several qualifications. Keep a model's expectation distinct from a physical ceiling, and a chosen design margin distinct from a law of nature. Let the appendix earn the body's freedom.
 
 Use the strongest fair comparison. Compare subsea cooling with modern land immersion as well as a conventional facility. Separate light-transit delay from the time a whole network exchange takes. Separate the cost of launching material from the cost of extracting and processing it.
 
