@@ -253,20 +253,20 @@ For a continuously loaded 100 MW campus (8,760 hours per year = 876,000 MWh), th
 | DOE Solstice + Equinox | 110,000 Blackwell<sup><a href="#ref-22">[22]</a></sup> | ~140 MW (heuristic) | Equinox planned H1 2026 |
 | Meta roadmap 2025–2027 | "Multi-million" Blackwell/Rubin<sup><a href="#ref-23">[23]</a></sup> | Multi-GW | Undisclosed |
 
-The heuristic of ~1.3 kW of all-in facility load per top-end accelerator<sup><a href="#ref-24">[24]</a></sup> is an order-of-magnitude estimate. Where projects have disclosed permitted facility design power (Colossus 1, Abilene), the table uses that figure instead. The point of the table is the gap between announced and energised, not the precise kW-per-chip multiplier.
+Use disclosed facility design power where available; elsewhere assume roughly 1.3 kW per accelerator. This heuristic estimates scale. The comparison concerns announced versus energised load.<sup><a href="#ref-24">[24]</a></sup>
 
 Summed across the three projects with disclosed status (Colossus ~1.3 GW + Abilene 1.2 GW + DOE 0.14 GW), the order book implies ~2.6 GW of facility load. The mid-2026 energised share, Colossus 1 (~290 MW) plus Abilene 2-of-8 (~300 MW), totals ~0.6 GW.
 
 ### <span id="appendix-d" class="appendix-anchor"></span>D. Energisation and Utilisation
 
-*The binding constraint is workflow design, not chip capability.*
+*Capacity must first receive power, then find useful work.*
 
-The body does *not* multiply the roughly one-fifth energised share and the Cast AI 5% utilisation share together. They describe different stages of the compute pipeline:
+The energisation and utilisation figures concern different samples and stages. They cannot be multiplied:
 
 - **Energisation share** describes ordered facility load that has been turned on. Source: public sample of named hyperscaler and sovereign projects in <a class="xref" href="#appendix-c">Appendix C</a>. Roughly a fifth of disclosed ordered load in the sample is plugged in.
 - **Utilisation share** describes the time-fraction of an active GPU spent on productive work. Source: Cast AI 2026 Kubernetes survey across AWS, Azure, and GCP enterprise clusters.<sup><a href="#ref-7">[7]</a></sup> Approximately 5% mean sustained.
 
-Frontier training clusters at the labs almost certainly run far higher utilisation than enterprise cloud fleets. The named hyperscaler projects also represent only a subset of total accelerator orders. Treat the two figures as bounding cases rather than a unified ratio. Together they describe a material gap between paid-for capacity and economically productive capacity.
+Frontier training clusters likely run at much higher utilisation. The named projects cover only part of accelerator orders. Each sample exposes a different gap between purchased capacity and productive work.
 
 The Cast AI 2026 State of Kubernetes Optimization Report shows the broader pattern: 8% average sustained CPU utilisation, 20% memory utilisation, 69% CPU overprovisioning headroom, 79% memory overprovisioning headroom, and fewer than 2% of GPU workloads on spot instances, primarily because spot capacity was effectively unavailable at hyperscaler scale. Specialised clusters using GPU time-slicing and MIG partitioning sustain up to 49% GPU utilisation.
 
@@ -278,19 +278,21 @@ Stanford HAI AI Index and Epoch AI compute-cost time series document a roughly 1
 
 GPT-3.5-equivalent capability cost ~\$20 per million tokens in late 2022 and ~\$0.07 per million tokens in late 2024, a roughly 280× reduction over two years. GPT-4 launched at \$30/\$60 per million input/output tokens. GPT-4o offered the same capability tier at \$3/\$10 per million eighteen months later. DeepSeek V3 entered at \$0.14 per million input tokens, undercutting GPT-4o by ~95%. Epoch AI reports a median annual decline of ~50× across the inference market.
 
-The decline is attributable to hardware improvement, algorithmic efficiency (quantisation, distillation, sparsity, speculative decoding, KV-cache optimisation, mixture-of-experts routing, FlashAttention, and compiler advances), competitive pricing from open-weights models, and software stack maturity. The hardware contribution is much smaller than the headline rate. The software-and-competition contribution is dominant.
+Hardware, better algorithms, competition from open weights, and a maturing software stack all reduce inference cost. Quantisation, distillation, sparsity, speculative decoding, KV-cache optimisation, MoE routing, FlashAttention, and compilers contribute. Software and competition account for much more of the headline decline than hardware alone.
 
-The training side carries the opposite economic profile. Trillion-parameter mixture-of-experts training requires synchronous gigawatt-class slots, multi-million-dollar coordination overhead across thousands of GPUs, and substantial risk of catastrophic instability. The inference side is memory-bandwidth-bound and runs cheaply on plateau-tier silicon: an MoE architecture reads only a fraction of the total parameter pool from memory per token, so the same silicon hosts a far larger model than its launch generation could deploy. That gap is the structural condition behind the diffusion shape this appendix measures.
+Large MoE training concentrates spending on synchronous power, interconnects, and coordination, with substantial instability risk. Memory-bound inference can use cheaper silicon, reading only the active experts per token. Appendix H examines where that advantage holds.
 
 ### <span id="appendix-f" class="appendix-anchor"></span>F. The Grid-Avoidance Tax
 
-The seven-year European grid interconnection queue<sup><a href="#ref-4">[4]</a></sup> and similar U.S. backlogs have driven hyperscalers and developers toward behind-the-meter generation: modular, on-site, gas-fired power deployed directly alongside datacentres. The canonical 2026 instance is the \$1 billion strategic investment by Blackstone Tactical Opportunities and Halliburton into VoltaGrid. The investment supports a 7.5 GW forward order book of modular natural-gas systems through 2030 and manufacturing capacity sized for up to 300 MW per month of reciprocating engines and turbines.<sup><a href="#ref-25">[25]</a></sup> The pitch: skip the queue, install power in months rather than years, operate under simplified minor-source air permits.
+Grid queues have encouraged on-site gas generation. In 2026, Blackstone Tactical Opportunities and Halliburton invested \$1 billion in VoltaGrid, supporting a 7.5 GW order book through 2030 and manufacturing capacity of up to 300 MW per month. Modular reciprocating engines and turbines promise power in months under simplified minor-source air permits.<sup><a href="#ref-4">[4]</a></sup> <sup><a href="#ref-25">[25]</a></sup>
 
-The pitch is real. So is the thermodynamic cost.
+Earlier power carries a recurring fuel cost.
 
 Thermal efficiency of a generator is the ratio of its electrical output to fuel input, conventionally expressed via the operating heat rate (Btu of fuel per kWh of electricity):
 
-$$\eta = \frac{3{,}412.142}{\mathrm{HR}}$$
+$$
+\eta = \frac{3{,}412.142}{\mathrm{HR}}
+$$
 
 Using the U.S. EIA's 2024 average tested heat rates by prime mover:<sup><a href="#ref-19">[19]</a></sup>
 
@@ -305,21 +307,17 @@ Gas consumption assumes approximately 1,027 Btu per cubic foot of pipeline natur
 
 The combined-cycle plant captures exhaust heat through a steam turbine. Modular simple-cycle and reciprocating units trade that recovery for speed and simpler installation. In the table above, the simple-cycle turbine consumes roughly 45.7% more natural gas per kWh than the combined-cycle plant, and emits CO₂ in direct proportion.
 
-That 45.7% markup is the grid-avoidance tax. The chip is the same. The slot is the same. The workload is the same. The difference is the thermodynamic penalty paid to install power in months rather than years.
+The 45.7% additional fuel is the grid-avoidance tax: a recurring premium for installing simple-cycle power sooner.
 
 The tax compounds the regional cost spreads of <a class="xref" href="#appendix-b">Appendix B</a>. Where imported gas already costs six or seven times the Henry Hub price, a simple-cycle installation can run at nine to ten times the fuel cost of a Henry Hub combined-cycle plant. Getting power sooner means burning more fuel for every computation.
 
 ### <span id="appendix-g" class="appendix-anchor"></span>G. Slot Density, the OpEx Paradox, and the Migration Path
 
-The body argues that compute migrates down a slot hierarchy: frontier → plateau → edge. A natural objection is that if energised power slots are universally scarce, next-generation silicon will displace even chips with zero remaining CapEx from every slot they could occupy. The migration would collapse before it started. Older hardware would become e-waste rather than redistributed asset.
+If every powered slot were equally scarce, its operator would choose the newest, most efficient chip. Even free older hardware would carry the opportunity cost of displacing that chip. This is the **OpEx versus slot paradox**.
 
-Call this the **OpEx vs slot paradox**: even at zero CapEx, an older chip still carries an opportunity cost equal to the next-generation chip that could occupy the same slot. If slots are uniformly bottlenecked, the opportunity cost is uniformly high, and the rational operator runs the most efficient chip available everywhere. Migration is irrational. The older hardware is shredded.
+**Contiguous power is scarce.** Synchronous training needs hundreds of megawatts or gigawatts at one permitted site, with cooling, deep networking, and experienced operators. Transformer queues, substation permits, and grid connections restrict the supply.
 
-The paradox resolves once you notice that slot scarcity is not uniform.
-
-**What is scarce is contiguous high-density power.** Single permitted sites delivering hundreds of megawatts to gigawatts behind a single substation, with the cooling, networking depth, and operator capability to absorb a synchronous training run. Those sites are bottlenecked by transformer queues, substation permits, multi-year grid-interconnect cycles, and the institutional capability to operate a hyperscale facility. There are few in the world. Each one is intensely contested.
-
-**What is not scarce is decentralised low-density energised capacity.** Tier-2 colocation facilities with hundreds of kilowatts of spare power. Sovereign and university clusters. Commercial buildings with industrial HVAC and stable kilowatt-class server rooms. Industrial sites with behind-the-meter generation. Office buildings, research labs, household nodes—millions of permitted, energised, underutilised electrical slots scattered through the built world. Using them requires no grid expansion. They already exist.
+**Smaller powered sites are widespread.** Colocation facilities, university and sovereign clusters, industrial sites, laboratories, offices, and homes have fragmented capacity. Some can host useful work without expanding the grid.
 
 | Slot tier | Power density | Site count (order of magnitude) | Workload type | Binding constraint |
 |---|---|---|---|---|
@@ -327,23 +325,19 @@ The paradox resolves once you notice that slot scarcity is not uniform.
 | Plateau | 1 MW – 100 MW distributed | thousands | Inference, fine-tuning, batch, simulation | Existing colocation, sovereign, and enterprise capacity |
 | Edge | 0.5 kW – 1 MW fragmented | millions | Local inference, agents, batch | Wall socket, room cooling, residential grid |
 
-These decentralised slots are currently empty of frontier compute not because they cannot host it, but because a new chip carrying a \$30,000–\$40,000 cost basis requires 90%+ utilisation at premium hyperscaler economics to justify the purchase. A brand-new accelerator running at 15% utilisation in a 50 kW office slot is a CapEx disaster.
+At a \$30,000–40,000 purchase price, an accelerator needs high utilisation and valuable work. Running a new chip at 15% utilisation in a 50 kW office slot can be uneconomic.
 
-Once the chip's CapEx is written down toward zero, that arithmetic flips. A depreciated chip running at 20% utilisation in a 50 kW slot pays back trivially. The hardware becomes economic at utilisations and densities that were impossible at full price. The migration is not chip-replaces-chip in the same scarce slot. It is *chip-discovers-new-slot in the previously-uneconomic decentralised tier*.
+Depreciation lowers the utilisation needed to repay the purchase. A written-down chip can earn its place at 20% utilisation in a smaller slot that could not justify new hardware. Migration can open previously uneconomic sites as well as replace chips in existing ones.
 
-A further mechanism aggregates these decentralised slots into useful continuous capacity. Intermittent compute distributed across time zones can be networked into a **follow-the-sun virtual cloud**: workloads route to whichever region is currently sitting on cheap energy. Inference, fine-tuning, batch processing, and simulation are latency-tolerant and do not require the synchronous gigawatt-class interconnects that frontier training requires.
+A **follow-the-sun virtual cloud** could route latency-tolerant inference, fine-tuning, batch processing, and simulation to regions with cheap energy. Such work can use distributed capacity without a synchronous gigawatt-scale interconnect.
 
-This is the architecture of plateau-tier intelligence: hyper-cheap silicon harvesting the latent energy margins of the built world, aggregated temporally to deliver continuous utility on the latency-tolerant workloads that constitute the bulk of economic compute demand.
-
-The deployment phase will have its own binding constraints—verification overhead in decentralised multi-tenant networks, WAN bandwidth for cross-region pipeline parallelism—but the thesis does not require these to be solved today. It requires only that the existence of hyper-capable, hyper-cheap silicon plus a vast tier of underutilised decentralised slots creates the economic incentive to solve them.
-
-The OpEx paradox is real. But it is a paradox only in the hyperscaler frame. Once the frame widens to include the entire built world's latent kilowatts, the paradox dissolves into a migration path.
+Verification in decentralised multi-tenant systems and WAN bandwidth remain constraints. Cheap hardware and available power create an incentive to solve them; the thesis does not assume they are already solved.
 
 ### <span id="appendix-h" class="appendix-anchor"></span>H. The Plateau Crossover
 
-When does an older chip deliver more useful work per dollar than a new one? First compare purchase prices and physical capability. Then bring in electricity, software compatibility, and the work the chip must do. The crossover occurs when depreciation makes up for the older chip's lower performance on the dimension that matters to its workload.
+The crossover occurs when depreciation compensates for lower performance on the dimension a workload needs. Begin with purchase cost, then add software compatibility, memory fit, and operation.
 
-**Definitions.** The core dynamics involve four rates of change—frontier hardware growth ($g_q$), software efficiency ($r_s$), capital cost decay ($\delta$), and workflow-discovery recursion ($\beta$)—plus one architectural correction factor ($\mu$):
+**Definitions.** Four rates describe hardware growth, software improvement, depreciation, and workflow discovery; $\mu$ corrects for architectural incompatibility:
 
 | Symbol | Quantity | Value or assumption | Source |
 |---|---|---|---|
@@ -353,25 +347,33 @@ When does an older chip deliver more useful work per dollar than a new one? Firs
 | $\mu(t,\tau) \geq 1$ | Architectural divergence penalty (software gains hard-coded to new silicon that does not backport cleanly) | Modest for FP16/FP8 inference; significant for FP4 and the latest attention/decoding kernels | ISA differences |
 | $\beta \geq 0$ | Workflow-discovery recursion rate (AI-assisted engineering productivity feedback) | Empirically positive; bounded above by deployment friction | This essay |
 
-The critical convention: $g_q$ is **physical capability per chip on the binding dimension**. It is not capability per dollar. Price enters separately through $P_0$ and $\delta$. Different workloads bind on different dimensions, so the relevant $g_q$ is workload-specific. For cross-reference, Epoch AI tracks long-run FLOP/s **per dollar** at ~1.37×/yr. That figure is the combined effect of per-chip growth ($g_q$) and launch-price growth ($p_F$), and the identity below does *not* use it as a per-chip value.
+Use **physical capability per chip** for $g_q$; prices enter separately. Epoch's roughly 1.37× annual FLOP/s-per-dollar improvement combines per-chip capability and launch prices. Substituting it for $g_q$ would count price twice. Each workload needs its own binding dimension.
 
 **The CapEx Crossover Identity.** Let $\tilde{C}(t, \tau)$ denote useful capability per dollar of a chip purchased used at time $t$, with age $\tau$:
 
-$$\tilde{C}(t, \tau) = \frac{Q_0 \cdot E(t)}{P_0 \cdot (1-\delta)^\tau}$$
+$$
+\tilde{C}(t, \tau) = \frac{Q_0 \cdot E(t)}{P_0 \cdot (1-\delta)^\tau}
+$$
 
 where $Q_0$ is the chip's physical capability on the binding dimension (fixed at manufacture) and $E(t)$ is the contemporary software multiplier. A new frontier chip at time $t$—assuming approximately stable launch prices across generations (the $p_F$ correction is treated below)—has capability $Q_0 \cdot g_q^\tau$ and price $P_0$:
 
-$$\tilde{C}_F(t) = \frac{Q_0 \cdot g_q^\tau \cdot E(t)}{P_0}$$
+$$
+\tilde{C}_F(t) = \frac{Q_0 \cdot g_q^\tau \cdot E(t)}{P_0}
+$$
 
 The software multiplier $E(t)$ benefits both equally and cancels in the ratio. The structural factor—the **CapEx Crossover Identity**—is:
 
-$$\boxed{\frac{\tilde{C}(t, \tau)}{\tilde{C}_F(t)} = \frac{1}{[g_q \cdot (1-\delta)]^\tau}}$$
+$$
+\boxed{\frac{\tilde{C}(t, \tau)}{\tilde{C}_F(t)} = \frac{1}{[g_q \cdot (1-\delta)]^\tau}}
+$$
 
 When $g_q(1-\delta) < 1$, plateau hardware delivers more useful capability per dollar than frontier hardware on the binding dimension, with an exponentially growing advantage in $\tau$. This is a CapEx-only object. Operating costs enter in §H.5 below.
 
 **The threshold condition.**
 
-$$g_q \cdot (1-\delta) < 1 \iff \delta > \frac{g_q - 1}{g_q}$$
+$$
+g_q \cdot (1-\delta) < 1 \iff \delta > \frac{g_q - 1}{g_q}
+$$
 
 The secondary market must reprice faster than per-chip frontier capability advances on the dimension at hand. The condition is dimension-specific:
 
@@ -383,15 +385,19 @@ The secondary market must reprice faster than per-chip frontier capability advan
 | FLOPS per Watt per chip | 1.47 | 0.32 | 0.25 | No |
 | FP8 throughput per chip | 1.65 | 0.39 | 0.25 | No |
 
-The identity fires marginally on three of the five per-chip dimensions—bandwidth, capacity, and FP16/BF16 throughput—and fails on the two dimensions where Blackwell made the largest architectural jump (FP8, FLOPS/W). This is the most conservative form of the identity. Two refinements strengthen the plateau case empirically.
+At the rounded reference values, the purchase-cost advantage is marginal on bandwidth, capacity, and FP16/BF16 throughput. FP8 and FLOPS/W favour newer silicon. Rising launch prices change those thresholds.
 
 **The launch-price correction.** Flagship retail prices have risen at $p_F \approx 1.05$/yr (H100 SXM5 ~\$30–35K in 2023, B200 SXM ~\$40K in 2025). Including this in the derivation: a plateau chip launched $\tau$ years ago had launch price $P_0/p_F^\tau$, and its used price today is $(P_0/p_F^\tau)(1-\delta)^\tau$. The full identity:
 
-$$\frac{\tilde{C}(t, \tau)}{\tilde{C}_F(t)} = \left[\frac{p_F}{g_q(1-\delta)}\right]^\tau$$
+$$
+\frac{\tilde{C}(t, \tau)}{\tilde{C}_F(t)} = \left[\frac{p_F}{g_q(1-\delta)}\right]^\tau
+$$
 
 with crossover condition:
 
-$$\delta > \frac{g_q - p_F}{g_q}$$
+$$
+\delta > \frac{g_q - p_F}{g_q}
+$$
 
 Rising launch prices lower the depreciation threshold:
 
@@ -403,15 +409,15 @@ Rising launch prices lower the depreciation threshold:
 | FLOPS per Watt per chip | 1.47 | 0.29 | 0.25 | No (marginal) |
 | FP8 throughput per chip | 1.65 | 0.36 | 0.25 | No |
 
-The identity fires cleanly on the three dimensions that govern most production inference, and fails on the two dimensions Blackwell optimised hardest for. The split matches the migration thesis exactly: plateau wins on the dimensions that govern plateau workloads, and frontier wins where it should.
+Rising launch prices strengthen the first three comparisons. FP8 and FLOPS/W still favour the frontier at these assumptions.
 
 **Numerical validation.** For mid-2026 used H100 (\$15K, 3.35 TB/s, age 3 yr) versus new B200 (\$40K, 8.0 TB/s, retail) on memory bandwidth, the full identity predicts:
 
-$$\frac{\tilde{C}_P}{\tilde{C}_F} = \left[\frac{p_F}{g_q(1-\delta)}\right]^\tau = \left[\frac{1.05}{1.34 \times 0.753}\right]^3 = \left[\frac{1.05}{1.009}\right]^3 = (1.041)^3 \approx 1.12$$
+$$
+\frac{\tilde{C}_P}{\tilde{C}_F} = \left[\frac{p_F}{g_q(1-\delta)}\right]^\tau = \left[\frac{1.05}{1.34 \times 0.753}\right]^3 = \left[\frac{1.05}{1.009}\right]^3 = (1.041)^3 \approx 1.12
+$$
 
-Predicted plateau advantage: ~12%. Direct calculation (Table H.2): used H100 at 0.223 GB/s/\$ versus new B200 at 0.200 GB/s/\$ gives an 11.5% advantage. The annualised calculation reproduces the price-to-bandwidth comparison to within one percentage point.
-
-The next question is how much capability the job needs.
+The annualised prediction is about 12%; Table H.2 gives 11.5% directly (0.223 versus 0.200 GB/s per dollar). These are two calculations of the same price-to-bandwidth comparison. The next question is how much capability the job needs.
 
 **H.1: Log capability scaling.** Inference benchmark scores scale approximately as $\beta_K \log_{10}(\text{compute})$. A 4× FLOPS deficit corresponds to a benchmark gap of roughly 3–5 percentage points on MMLU, GPQA, or HumanEval at current scale. Many useful workloads have a capability threshold: a customer-support router designed around 85% intent-classification accuracy can buy the cheapest model that clears it. As $E(t)$ grows, older hardware clears more of those thresholds.
 
@@ -425,65 +431,77 @@ The next question is how much capability the job needs.
 
 Used H100 delivers ~12% more memory bandwidth per dollar than a new B200 at retail. The B200's structural advantages—192 GB VRAM, 4× FP8 throughput, NVLink 5 at 1.8 TB/s—bind on training workloads with synchronous gradient sync and on models exceeding 80 GB. Most production inference exhibits neither. Plateau hardware does not beat frontier globally. It beats frontier on the dimensions that govern specific deployment workloads.
 
-**An emerging exception: latent recursion.** A research-stage class of architectures reasons by iterating a small weight-tied block through depth rather than stacking unique layers: latent-space reasoning and looped or recurrent-depth models (COCONUT, looped transformers, the HRM/TRM line). On the compounding side this is another entry in the $E(t)$ ledger alongside distillation, quantisation, and sparsity. It decouples reasoning depth from parameter count, lowering the model size and therefore the cost and hardware required to clear a given sufficiency threshold (H.1). That widens the workload surface a written-down chip can serve, and strengthens the plateau case.
+**Latent recursion.** Research architectures such as COCONUT, looped transformers, and HRM/TRM reuse a small block across reasoning steps. Greater depth without proportionally more weights could help older chips clear H.1's capability thresholds.
 
-**On the binding dimension, recursion bifurcates the market rather than shifting it uniformly.** Pure latent recursion loops a fixed state with a flat KV cache, so in isolation its inference tilts serial-latency and compute-bound rather than memory-bandwidth-bound, toward FP8 throughput and FLOPS-per-watt, where the crossover identity fails and newer silicon keeps its edge. But recursion will most plausibly arrive fused with sparse mixture-of-experts routing: dense looped blocks suffer representation collapse, and sparse routing is the known fix. That fusion splits the hardware market along tier lines.
+A fixed latent state with a flat KV cache shifts the constraint towards serial latency and compute efficiency. Sparse routing, proposed as a remedy for representation collapse in dense looped blocks, can instead require repeated HBM reads. These regimes favour different hardware.
 
-A frontier recursive core can be co-designed with the latest silicon to hold a compact working set resident near compute and cycle a latent state through it at speed (the Groq and Cerebras direction). Its binding dimension becomes sequential latency, on-chip memory, and FLOPS-per-watt, the axes newest hardware owns. A plateau looped-MoE is the distilled descendant: a sparse weight-streaming engine that still loads its relevant experts from HBM each step, so its binding dimension stays memory-bandwidth-per-dollar, exactly the axis on which written-down silicon already beats new (this section).
+The proposed frontier core keeps a compact working set near compute, following the Groq/Cerebras direction. A distilled, weight-streaming MoE descendant may remain limited by memory bandwidth per dollar. The first favours new hardware; the second can favour the plateau.
 
-So recursion does not make old hardware obsolete. It bifurcates the workload. The frontier discovers cognitive depth on resident cores tied to the newest process node. The plateau distributes the compressed descendants of that depth at the lowest memory-bandwidth cost. This is the shape the framework predicts rather than an observation—recursion is not a production scaling vector today—but it follows from the model's one rule: score every architectural break by asking which binding dimension it makes scarce, and for whom.
+This is a predicted architecture split, not an established production trend. Test each design by the resource its workload makes scarce.
 
-**H.3: Architectural Divergence Penalty.** The cancellation of $E(t)$ assumes today's software gains transfer cleanly to older silicon. Some optimisations depend on physical blocks in the newest chips: FP4 quantisation runs natively on Blackwell's 5th-gen Tensor Cores and incurs a severe emulation penalty on Hopper. The latest speculative-decoding heads assume newer memory hierarchies. Define $\mu(t, \tau) \geq 1$ as a multiplicative penalty for software gains that cannot be ported to older hardware. The corrected identity:
+**H.3: Architectural Divergence Penalty.** Software gains need not transfer equally. Blackwell's native FP4 and newer memory hierarchies can leave Hopper paying an emulation or compatibility cost. Let $\mu(t,\tau)\geq1$ represent that penalty:
 
-$$\frac{\tilde{C}(t, \tau)}{\tilde{C}_F(t)} = \frac{1}{\mu(t, \tau) \cdot [g_q \cdot (1-\delta)]^\tau}$$
+$$
+\frac{\tilde{C}(t, \tau)}{\tilde{C}_F(t)} = \frac{1}{\mu(t, \tau) \cdot [g_q \cdot (1-\delta)]^\tau}
+$$
 
-$\mu$ partially offsets the depreciation advantage. Empirically, $\mu$ is small for workloads dominated by FP16/BF16/FP8 transformer inference (most production deployment today) and substantial for workloads that lean on the newest precision formats. The migration thesis is robust to modest $\mu > 1$. It fails only if $\mu$ grows faster than $1/[g_q(1-\delta)]$, which would require a sustained pattern of new software locking out previous generations on most economically useful workloads. The empirical record shows the reverse: distillation, quantisation, and inference kernels keep finding ways to fit modern models onto older silicon.
+$\mu$ offsets the depreciation advantage. The penalty is expected to be modest for portable FP16/BF16/FP8 inference and larger for newer formats. Sustained lockout across useful workloads would defeat the migration thesis; distillation, quantisation, and portable kernels work against it.
 
 **H.4: VRAM step-function.** A 70B-parameter model at FP8 occupies ~70 GB before KV cache. On H100 (80 GB), it fits with little headroom and typically requires two-GPU tensor-parallel configurations, introducing all-reduce communication overhead of 9–23% of end-to-end decoding latency. On H200 (141 GB) or B200 (192 GB), the same model fits single-GPU with concurrent KV caches and no TP penalty. The CapEx identity assumes capability decays smoothly. In reality, model-fit thresholds create non-linear cliffs. Plateau hardware wins inside the cliff and loses outside it. The migration thesis holds because most production workloads fit inside the cliff for previous-generation hardware, even as frontier *training* requires the next cliff.
 
 **H.5: The Economic Crossover (OpEx-extended).** The first identity compares purchase costs. The full comparison also needs running costs. For a workload meeting a common quality threshold, define amortised capital cost per useful operation as $A(\tau, t, s, w)$ and operating cost per useful operation as $O(\tau, t, s, w)$, where $s$ indexes the slot and $w$ the workload. Economic capability per dollar:
 
-$$\tilde{C}_{\text{econ}}(\tau, t, s, w) = \frac{1}{A(\tau, t, s, w) + O(\tau, t, s, w)}$$
+$$
+\tilde{C}_{\text{econ}}(\tau, t, s, w) = \frac{1}{A(\tau, t, s, w) + O(\tau, t, s, w)}
+$$
 
 Both costs are in dollars per useful operation, so their reciprocal gives useful operations per dollar. Throughput, software efficiency, architectural penalties and utilisation already enter the allocation of those costs over useful work. The comparison includes only configurations where the model clears the capability threshold, fits in memory, and has software support.
 
 Electricity sets one operating floor. For a matched workload and accounting interval, revenue per token below the electricity cost per token cannot cover even that part of the running cost:
 
-$$R_{\text{token}} \;<\; \frac{\mathrm{PUE} \cdot P_{\mathrm{IT,kW}} \cdot P_{\text{elec,site}}}{3600 \cdot \mathrm{TPS}}$$
+$$
+R_{\text{token}} \;<\; \frac{\mathrm{PUE} \cdot P_{\mathrm{IT,kW}} \cdot P_{\text{elec,site}}}{3600 \cdot \mathrm{TPS}}
+$$
 
 Here $R_{\text{token}}$ is in \$/token, $P_{\mathrm{IT,kW}}$ is average IT power allocated to the workload in kilowatts, $\mathrm{PUE}$ allocates facility overhead, and $P_{\text{elec,site}}$ is the site's electricity cost in \$/kWh. Power and token throughput $\mathrm{TPS}$ must cover the same interval, including any idle energy charged to the workload. Thermal design power can serve as a planning proxy; measured operating draw closes the comparison. The factor of 3600 converts hours to seconds.
 
 *Sanity check.* A workload averaging 1 kW of IT power at $\mathrm{PUE} = 1.2$, \$0.10/kWh electricity, and 100 TPS yields:
 
-$$\frac{(1.2)(1)(0.10)}{3600 \cdot 100} \;\approx\; 3.3 \times 10^{-7} \; \text{\$/token}$$
+$$
+\frac{(1.2)(1)(0.10)}{3600 \cdot 100} \;\approx\; 3.3 \times 10^{-7} \; \text{\$/token}
+$$
 
 —or roughly \$0.33 per million tokens for electricity alone.
 
 The heat-rate penalty in <a class="xref" href="#appendix-f">Appendix F</a> raises the fuel needed per kilowatt-hour. It multiplies the fuel component of generation cost, not an entire utility tariff. Grid charges, fuel prices, plant costs and utilisation determine the actual site comparison. This is the link to plateau migration: written-down silicon still needs an affordable place to work. A university cluster, enterprise datacentre or regional cloud can offer one; its electricity bill and workload decide.
 
-**H.6: The workflow-discovery recursion.** The CapEx and OpEx framework above treats $E(t)$ as exogenous. The fourth structural rate is that $E(t)$ is itself accelerated by AI-assisted engineering labour. **The predictive claim is the weak one: $\beta > 0$.** AI-assisted engineering improves the rate at which the software layer adapts to whatever compute is cheapest and available. The CapEx Crossover Identity holds for any $E(t)$ trajectory satisfying this condition.
+**H.6: The workflow-discovery recursion.** AI-assisted engineering can accelerate $E(t)$ by adapting software to available hardware. The prediction is $\beta>0$. The purchase-cost identity itself depends on shared software gains cancelling, rather than on their growth rate.
 
 A stronger illustrative result follows if engineering throughput $L(t)$ scales with deployed plateau intelligence, $L(t) = L_0 \cdot E(t)$. Define the rate of software-efficiency improvement as:
 
-$$\frac{d \log E}{dt} = \alpha_0 + \beta \log L(t)$$
+$$
+\frac{d \log E}{dt} = \alpha_0 + \beta \log L(t)
+$$
 
 Substituting the recursion and solving the resulting linear ODE in $u = \log E$:
 
-$$E(t) = E_\infty \cdot \exp\!\big(A \, e^{\beta t}\big)$$
+$$
+E(t) = E_\infty \cdot \exp\!\big(A \, e^{\beta t}\big)
+$$
 
-A double exponential, bounded above by deployment friction (verification, testing, integration, organisational change-management). **The functional form is an intuition pump for why plateau-fill may run faster than prior infrastructure cycles, not a forecast.** The migration thesis fires on $\beta > 0$ alone.
+This illustrative double exponential suggests how software feedback might accelerate adoption. Verification, testing, integration, and organisational change constrain it. It is not a forecast; the weaker prediction is positive feedback.
 
 **H.7: Frontier slowdown.** The $g_q$ values above assume the frontier continues to compound at recent rates. Three constraints suggest the rate may not hold indefinitely.
 
 Moore's law has stalled at the device level. The frontier still compounds, but through capital intensity, packaging innovation, and system-scale engineering rather than transistor scaling. Hyperscaler AI spending exceeds \$700 billion in 2026.<sup><a href="#ref-1">[1]</a></sup> Frontier training compute has grown ~5×/year since 2020, but hardware FLOP/\$ has improved only ~1.37×/year. Capability appears to scale approximately logarithmically with compute on standard benchmarks, so each additional order of magnitude buys a roughly fixed absolute increment, not a proportional one.
 
-**The identity is monotonic in slowdown.** A frontier compounding at $g_q = 2.0$ per architectural release does not fire the CapEx identity. A frontier compounding at $g_q \approx 1.15$ annualised fires it strongly. If scaling continues, plateau hardware runs the compressed descendants of fresh capability. If scaling slows, plateau hardware runs durable capability for longer. The thesis is robust in both directions.
+**Slower frontier growth lowers the threshold.** The illustrative $g_q=2.0$ per-release case and $g_q\approx1.15$ annual case use different intervals; comparisons must match them to depreciation. Continuing progress supplies new capabilities to distil. Slower progress can extend the useful life of existing capabilities.
 
-**H.8: Boom-driven input-cost inflation.** The binding inputs to new-generation silicon—HBM, advanced packaging, substrate capacity, networking, power delivery—are in tight supply against the same demand curve driving the order book. The $p_F \approx 1.05$/yr launch-price drift is not a noise term. It is the cost-side channel through which the boom widens the plateau wedge.
+**H.8: Boom-driven input-cost inflation.** Scarce HBM, packaging, substrates, networking, and power delivery raise new-hardware costs. The launch-price factor $p_F$ carries that pressure into the crossover.
 
 Epoch AI's teardown places B200 module production cost at roughly \$5,700–7,300, with HBM and advanced packaging accounting for ~two-thirds of variable unit cost.<sup><a href="#ref-26">[26]</a></sup> SemiAnalysis estimates memory could rise to ~30% of hyperscaler AI data-centre capex in 2026, up from ~8% in 2023–2024, with HBM undersupplied through 2027.<sup><a href="#ref-27">[27]</a></sup> If boom-driven inflation pushes $p_F$ from 1.05 to 1.08 over the next two generations, the threshold on FLOPS/W (currently failing at 0.29 against observed $\delta = 0.25$) drops to ~0.26, on the cusp of firing. The wedge does not need the frontier to slow—only to keep getting more expensive.
 
-**The cycle modulates. The cascade persists.** The cost-side channel is cyclical, but the post-bust generation arrives later than naïve cyclical reasoning suggests: the production pipeline is committed years in advance. Hyperscaler order books already span Rubin and Rubin Ultra into 2027–2028 and Feynman into 2028–2029. What the bust changes is the *clearing price* of that pipeline as it lands, not the schedule. Committed chips arrive on the published cadence. Their secondary-market pricing collapses to plateau levels on a shorter clock than in prior cycles. The slot mechanism of §V handles pre-ordered and new-design generations identically.
+**Committed supply.** Order books extend through Rubin and Rubin Ultra in 2027–2028 and Feynman in 2028–2029. The thesis expects a bust to reprice that committed pipeline faster than it changes delivery schedules. New and pre-ordered generations face the same slot economics.
 
 **Three depreciation regimes.** The identity rests on distinguishing three depreciation rates that, in AI hardware, move at different speeds:
 
@@ -493,17 +511,15 @@ Epoch AI's teardown places B200 module production cost at roughly \$5,700–7,30
 | Capability obsolescence | Software stack abandonment, physical failure | 5–10 years | Chip cannot run any useful workload |
 | Economic obsolescence | OpEx vs revenue (slot $s$, workload $w$, site electricity cost) | Set by slot, workload, and electricity price | Output worth less than operating cost |
 
-These clocks move at different speeds. The frontier moves on two years; capability on five to ten. Electricity and workload determine when the chip stops earning its keep. Between those dates lie years when it can serve a buyer its first owner never considered.
+**Three empirical tests.** Keep the dates and observations distinct:
 
-**Three empirical tests.** The framework admits three cleanly falsifiable observables on different timetables.
+**Resale, end-2027.** B200 SXM should clear at \$22–28K, consistent with roughly 25–35% annual depreciation over two to three years. Prices above \$35K into 2028 would contradict the predicted repricing mechanism and its empirical crossover.
 
-The earliest and sharpest one: by end of 2027, secondary-market clearing prices for Blackwell B200 SXM should sit in the \$22–28K range—a $\delta$ of approximately 0.25–0.35 over two to three years from launch, reproducing the Hopper depreciation arc one generation later. If Blackwell holds near launch (above \$35K) into 2028, the eviction mechanism that powers the migration is not operating on the current generation. The framework is wrong in the specific way it claims to be falsifiable: the inequality $\delta > (g_q - p_F)/g_q$ fails empirically, not theoretically.
+**Deployment, end-2028.** Hopper and early Blackwell should carry the largest share of useful AI work, assessed through tokens, queries, decisions, and dollars saved. A majority remaining on contemporary frontier silicon would defeat the workload prediction.
 
-The second runs on the workload surface: by the end of 2028, the largest share of economically deployed AI—measured by tokens served, queries answered, decisions made, dollars saved—should be running on Hopper-class and early-Blackwell hardware rather than on whatever the contemporary frontier silicon is at that time. If frontier hardware still serves the majority of production workloads in late 2028, the framework is wrong in a way no amount of careful unit analysis can rescue.
+**Access pricing, end-2028.** The hyperscaler/specialist spread on identical H100/H200 hardware should remain wide or widen from a current maximum near 10×. Convergence below approximately 2× would defeat the predicted separation of premium access from the cheaper substrate, and the associated revenue/workload-share claim. Check public prices monthly. <a class="xref" href="#appendix-j"><a class="xref" href="#appendix-j">Appendix J</a></a>
 
-The third runs on the pricing surface itself: by the end of 2028, the spread between hyperscaler on-demand H100/H200 rentals and specialist-cloud or marketplace rentals for the same hardware should remain wide or widen—not converge. The spread today reaches up to 10× (<a class="xref" href="#appendix-j">Appendix J</a>). If hyperscaler pricing converges down toward specialist pricing—closing the spread below approximately 2×—the bifurcation between premium access layer and economic substrate has not occurred, and the workload-share / revenue-share decoupling (§V, <a class="xref" href="#appendix-j">Appendix J</a>) is falsified. The spread is checkable monthly from public price pages.
-
-**The deeper point.** Where the capital advantage survives architectural divergence $\mu$ and running costs, repricing opens a path to plateau hardware. The first capital cycle pays the frontier price. The second buyer inherits the asset. The algorithms make the asset compound.
+Where repricing survives compatibility penalties and running costs, the second buyer inherits useful capacity at a price the first buyer could not obtain.
 
 ### <span id="appendix-i" class="appendix-anchor"></span>I. The Cascade in Progress
 
@@ -519,11 +535,9 @@ Older generations already serve different kinds of work at different prices. A b
 | Hopper H200 | 2024 | ~\$30,000–40,000 (limited disclosed) | Limited secondary supply | Current production tier; increasingly inference-priced as Blackwell capacity ramps |
 | Blackwell B200 | 2024/2025 | ~\$40,000 | Negligible secondary supply | Current frontier tier; first observable depreciation cycle still 12–24 months ahead |
 
-Each generation in the table is *simultaneously* serving a different tier of the workload stack today. The slot hierarchy is already in motion.
-
 **Cloud SKU repricing as the dominant migration channel.** Public AWS pricing data shows g4dn (T4) on-demand prices have fallen roughly 60–65% relative to 2019 launch; p4d (A100) by roughly 40–55% relative to 2021 launch. The chips never left Amazon. The migration ran entirely inside the hyperscaler's balance sheet, visible only as falling unit prices on customer-facing SKUs—the quiet form of the cascade the body describes.
 
-The cascade is visible in a second pricing surface today: hyperscaler on-demand H100 SKUs list at approximately \$6.88–\$12.29 per hour, while specialist clouds and marketplace/spot networks deliver the same H100 capability at \$1.25–\$4.29 per hour—a spread of up to 10× on the same chip in the same year (full breakdown in <a class="xref" href="#appendix-j">Appendix J</a>). The hyperscaler price is the slot rent. The marketplace price is the underlying chip economics, repriced for a buyer who can tolerate intermittency.
+<a class="xref" href="#appendix-j">Appendix J</a> records the second price surface: hyperscaler versus specialist access to the same hardware. Its spread measures the service bundle as well as chip economics.
 
 **Hyperscaler depreciation extensions.** Microsoft (2022), Alphabet (2023), Meta (2023), Oracle (2024), and Amazon (2024) have each extended useful-life assumptions for server infrastructure from approximately four years to six years. Their audited accounts now assume a longer working life for the fleet. That expectation supports the distinction between leaving the frontier and ceasing to be useful.
 
@@ -537,11 +551,9 @@ Microsoft's FY2023 extension alone added ~\$3.7 billion to annual operating inco
 
 **Cost-per-token compression as observable substrate-level repricing.** Cost-per-token at GPT-3.5-equivalent capability fell ~280× over 2022–2024 (<a class="xref" href="#appendix-e">Appendix E</a>). The decline is software-dominant. But the hardware-side decay rate is independently visible in SKU prices on ageing silicon, tracking the $\delta \approx 0.25$ band the framework predicts.
 
-**The validation that has already resolved.** Per Table H.2, used H100 at \$15K delivers 0.223 GB/s per dollar of memory bandwidth. New B200 at \$40K delivers 0.200. The Plateau Crossover Identity is firing today, on the dominant production-inference dimension.
-
 ### <span id="appendix-j" class="appendix-anchor"></span>J. Hyperscaler Premium and the Plateau Substrate
 
-The second axis named in §V—premium access layer versus economic substrate—is observable on the pricing surface today. The same chip clears at different prices depending on the bundle wrapped around it.
+The same chip sells at different rental prices depending on the services bundled with it.
 
 **Snapshot, May 2026.** Public pricing for H100-class capacity, by access tier:
 
@@ -554,21 +566,21 @@ The second axis named in §V—premium access layer versus economic substrate—
 | Marketplace / spot network | vast.ai-class supply, GPUPerHour | ~\$1.25–\$2.75 |
 | Owned hardware, amortised | New H100 PCIe ~\$25K; SXM ~\$35–40K | under \$1.50 at high utilisation |
 
-The spread between hyperscaler on-demand and marketplace supply for the *same chip in the same year* reaches up to 10×. The structural delta is not depreciation. It is the cost of a bundle: trusted, energised, instantly available, supported, billed, and procured through enterprise channels. That bundle is durable for one class of customer and a tax for another.
+The maximum spread is roughly 10×. It prices availability, support, procurement, billing, and trust alongside hardware. Some customers need that bundle; others can trade it for lower cost.
 
 **What the spread implies.** A chip can leave the frontier while its cloud rental stays expensive. The H100 remained priced as scarce on hyperscaler clouds after Blackwell launched, while marketplace rates approached amortised ownership cost. AWS raised H200 Capacity Block prices by 15% in January 2026.<sup><a href="#ref-6">[6]</a></sup> The premium buys a ready-to-use slot as much as a chip.
 
 **The bifurcation, mapped.** The premium access layer captures: largest training runs, premium managed inference, latency-sensitive global APIs, regulated enterprise workloads, customers paying for procurement simplicity, organisations without internal MLOps depth. The economic substrate captures: batch inference, embeddings, fine-tuning, document processing, simulation, scientific computing, bounded agentic systems, retrieval and ranking pipelines, narrow-vertical Stockfish workflows. Both surfaces persist. They serve different customers.
 
-**Revenue share versus workload share.** The two metrics can decouple. Hyperscalers may continue to capture the majority of *AI infrastructure revenue*—because enterprise customers pay the bundle premium—while losing the majority of *AI inference workload* by token volume, query volume, or useful inference-hours. The workload migrates to wherever fully-burdened cost is lowest. The revenue follows wherever the trust premium is paid. The two surfaces measure different things and need not move together.
+**Revenue and workload can separate.** Hyperscalers could retain most revenue through the enterprise premium while lower-cost providers serve most tokens, queries, or useful inference-hours. The prediction concerns both shares, not revenue alone.
 
 **Multi-model routing volume as workload-share signal.** OpenRouter—the multi-model routing platform serving 8M+ developers—disclosed token throughput growing from ~5 trillion to ~25 trillion tokens per week over the six months ending May 2026, a 5× expansion across a heterogeneous plateau-tier model surface (Anthropic, OpenAI, Google, Meta, DeepSeek, and open-weights).<sup><a href="#ref-28">[28]</a></sup> CapitalG led its \$113M Series B with NVIDIA Ventures, Snowflake, Databricks, MongoDB, ServiceNow, a16z, and Menlo Ventures—the enterprise-data and silicon stacks underwriting the multi-model topology rather than a winner-take-all frontier outcome. The data confirms the *topology* the framework predicts. Whether the absolute level is durable depends on how the 2026–2027 procurement reset resolves.
 
-**Falsifier.** The premium access layer thesis fails if the hyperscaler/marketplace spread on the same hardware converges below approximately 2× by the end of 2028 (the third empirical test in <a class="xref" href="#appendix-h">Appendix H</a>): hyperscaler clouds would then be the natural home of plateau intelligence, and the revenue-share/workload-share decoupling would not materialise. As of May 2026, the spread is widening, not closing.
+**Falsifier.** The same-hardware spread falling below approximately 2× by end-2028 defeats this prediction; it is the third test in H. The May 2026 snapshot shows widening. See <a class="xref" href="#appendix-h">Appendix H</a>.
 
-**Caveat on snapshot volatility.** Pricing snapshots will move. AWS Capacity Blocks reprice dynamically. Specialist clouds run promotional rates. Marketplaces fluctuate with supply. The structural claim does not depend on the specific dollar figures in the table being correct on any given month. It depends on the *shape* of the price surface—a wide, durable spread between premium and economic-substrate tiers for the same hardware. If that shape collapses, the bifurcation has not occurred.
+**Moving prices.** Capacity Blocks, promotions, and spot markets reprice. The test concerns a durable spread on comparable hardware and service terms, not any single quoted rate.
 
-**The expected shape over the full cycle, recorded July 2026.** Approximately 10× at the boom peak, holding wide through the installation phase—the test window above—then compressing through the repricing event toward a durable premium in the 2–3× band: above, never below, the 2× bifurcation floor this falsifier sets. Post-reset compression toward that band confirms the cascade. Convergence below 2× refutes it.
+**Cycle prediction, recorded July 2026.** The spread stays near 10× through the installation window, then compresses after repricing towards 2–3×. Falling below the 2× floor refutes the proposed bifurcation.
 
 ### <span id="appendix-k" class="appendix-anchor"></span>K. Macroeconomic Absorption and the Deployment-Phase Drag
 
@@ -592,13 +604,13 @@ At the workflow level, the downstream verification burden compounds the friction
 
 Google's DORA 2024 report associated a 25% increase in AI adoption with a 7.2% *decrease* in production delivery stability. Google Cloud (2026) reports 45% higher burnout among frequent AI users, with approval fatigue identified as the primary mechanism. GitClear's analysis of 153 million changed code lines projected a doubling of code churn translating directly into delivery instability.
 
-The pattern is now replicated across multiple independent sources: individual-level speedups of 20–56% on isolated tasks fail to translate into firm-level velocity because architectural integration and verification absorb the gains—the *Productivity-Reliability Paradox*.
+The proposed mechanism is that verification and integration absorb some isolated-task speedups, reported at 20–56%. These studies measure different tasks and outcomes; they do not supply one common estimate.
 
 #### <span id="appendix-k-3" class="appendix-anchor"></span>K.3. The labour-market signal
 
-The Stanford AI Index 2026 reports that early-career software-developer employment (ages 22–25) in AI-exposed roles fell approximately 20% from 2024 to early 2026, against stable aggregate white-collar wages.<sup><a href="#ref-34">[34]</a></sup> The signal matches the plateau cascade mechanism from a different surface. As AI automates the work entry-level developers historically did, human labour migrates upstream to verification, integration, and high-abstraction architecture. This is the *Stockfish-bounded engine wrapping learned judgement* structure §VI predicts.
+The Stanford AI Index 2026 reports roughly 20% lower early-career software-developer employment (ages 22–25) in exposed roles from 2024 to early 2026, alongside stable aggregate white-collar wages. This is consistent with human work shifting towards verification, integration, and architecture.<sup><a href="#ref-34">[34]</a></sup>
 
-The pattern is consistent with routine work becoming easier to automate while verification and integration remain valuable. It does not identify that mechanism by itself. Hiring, demand, and organisational change can also alter the balance between junior and senior roles. The stronger test follows what work remains and what made the next task automatable, as [Symbolic Superintelligence](/essays/symbolic-superintelligence) argues.
+The employment pattern does not identify that mechanism. Hiring, demand, and organisational change also matter. [Symbolic Superintelligence](/essays/symbolic-superintelligence) proposes testing what work remains and what makes the next task automatable.
 
 #### <span id="appendix-k-4" class="appendix-anchor"></span>K.4. Aggregate productivity dispersion and the Perez modification
 
@@ -610,19 +622,19 @@ Penn Wharton Budget Model projects permanent annual potential-output gains of le
 
 The dispersion reflects genuine uncertainty about how fast the J-Curve resolves.
 
-The Carlota Perez framework—installation phase → financial crash → deployment phase—historically required a structural separation between speculative financial capital and operational production capital. Telecom equity holders went bankrupt while consolidator-platforms (Level 3, Equinix, Digital Realty predecessors) acquired the physical infrastructure at salvage and re-leased into the deployment-phase Golden Age.
+Perez's installation → crash → deployment sequence separates speculative finance from production capital. After the telecom crash, consolidators such as Level 3 and Equinix acquired infrastructure cheaply and leased it into the next phase.
 
-The AI cycle's most credible modification of that pattern is the convergence of these two capital types inside hyperscaler balance sheets. Trillion-dollar platforms fund their own builds from organic cash flows plus low-cost corporate debt (\$121B of hyperscaler bonds issued in 2025 per the Moody's / Bank of America aggregation referenced in §I; see Note [2]). They absorb depreciating silicon internally through frontier-to-inference cascades rather than clearing it through the secondary market. The deployment phase still arrives. The bankruptcy-driven clearing event runs through the mid-market specialist-cloud and integrated-developer layer rather than through the trillion-dollar platforms. The access layer—energised slot, plateau silicon, master lease—is captured at the slot level rather than at the equipment level.
+Hyperscalers combine those roles on one balance sheet. Cash flows and low-cost debt—\$121B of bonds in 2025, per Note [2]—can fund new equipment while older chips move internally to inference. In this scenario, clearing concentrates among specialist clouds and developers; access changes hands through powered slots and leases as well as equipment sales.
 
 #### <span id="appendix-k-5" class="appendix-anchor"></span>K.5. Implications for the cascade
 
-Three structural facts follow.
+The adoption timetable changes the route to the plateau:
 
-First, the deployment window is calibrated as a **5–10 year primary phase with continued macroeconomic absorption through 2035+**. The J-Curve's intangible accumulation takes years, not quarters, and the failure-rate evidence is overwhelming that this is structural rather than transient.
+**Timing.** My estimate remains a 5–10 year primary deployment phase with further absorption beyond 2035. The evidence motivates a long adjustment; it does not measure that forecast.
 
-Second, the cascade mechanism described across §III–§V is robust to which point in the macro projection band turns out right. In the Goldman optimistic case, workloads scale fast and plateau-tier capacity re-leases into a rising-demand environment as the deployment phase compresses. In the Penn Wharton / Acemoglu conservative case, plateau silicon remains uncontested by frontier displacement for materially longer. Aggregate demand never reaches the threshold that would justify the next-generation chip displacing the current one across the plateau workload base. Different mechanisms, both favourable to the cascade.
+**Demand.** In the optimistic Goldman case, rising workloads fill cheaper capacity sooner. In the Penn Wharton/Acemoglu case, slower adoption can extend the life of sufficient hardware. Both leave room for the plateau, provided useful demand covers its operating cost.
 
-Third, both forecasts leave a place for affordable access. The plateau is where the economy can afford to put intelligence to work while it learns how to use it.
+**Access.** Cheaper capacity lets firms experiment while they learn how to use the technology.
 
 #### <span id="appendix-k-6" class="appendix-anchor"></span>K.6. A note on method
 
