@@ -1,0 +1,60 @@
+name: Assure
+
+# Checks the site's HTTP response heads against Assure's http-observed-baseline profile. The heads are captured here,
+# in the runner, with one HEAD request per endpoint (the profile reads one HEAD response per selected endpoint), written
+# as an offline fixture in the layout the Action documents, and handed to the pinned Action. Nothing from this
+# repository's source is sent: the Action uploads the two response heads and the manifest only.
+
+on:
+  pull_request:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  assure:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Capture response heads
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p http-fixture
+          capture() {  # capture <n> <path>: one HEAD request over HTTP/1.1; the raw head, CRLF line ends, as received
+            curl -sS --http1.1 -I --max-time 20 --max-redirs 0 "https://www.ageofwonders.org$2" > "http-fixture/head-$1.txt" || true
+            test -s "http-fixture/head-$1.txt" || { echo "head-$1.txt is empty: the request for $2 got no head" >&2; exit 1; }
+          }
+          capture 001 /
+          capture 002 /rss.xml
+          cat > http-fixture/manifest.json <<'JSON'
+          {
+            "schema_version": "http-fixture-001",
+            "mode": "offline_fixture",
+            "endpoints": [
+              {"id": "endpoint-001", "scope_token": "home", "scheme": "https", "host": "www.ageofwonders.org", "port": 443,
+               "path": "/", "response_file": "head-001.txt", "complete": true},
+              {"id": "endpoint-002", "scope_token": "rss", "scheme": "https", "host": "www.ageofwonders.org", "port": 443,
+               "path": "/rss.xml", "response_file": "head-002.txt", "complete": true}
+            ],
+            "execution_authorized": false,
+            "hardware_authorized": false,
+            "industrial_release_authorized": false,
+            "release_allowed": false,
+            "physical_validation": false,
+            "simulation": true,
+            "self_approved": false
+          }
+          JSON
+          echo '["endpoint-001", "endpoint-002"]' > http-fixture/scope.json
+      - name: Assure check
+        uses: Symbolia-Assurance/assure-action@fda848204a63d9e469878cc7382671091c07378d
+        with:
+          api-key: ${{ secrets.ASSURE_API_KEY }}
+          profile: http-observed-baseline
+          artefacts: http-fixture
+          scope: http-fixture/scope.json
+          allow-partial: "true"
+          fail-on: fails
