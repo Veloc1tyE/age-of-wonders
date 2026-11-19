@@ -1,0 +1,166 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+export const prerender = true;
+
+// Release assets keep stable names, so /releases/latest/download/<name> always points at the newest build.
+const RELEASE = "https://github.com/Veloc1tyE/infinite-canvas/releases/latest/download";
+const downloads = [
+  { id: "macos", label: "macOS", file: "InfiniteCanvas-macos.zip" },
+  { id: "windows", label: "Windows", file: "InfiniteCanvas-windows-x64.zip" },
+  { id: "linux", label: "Linux", file: "InfiniteCanvas-linux-x86_64.tar.gz" },
+];
+---
+
+<SiteLayout
+  title="Infinite Canvas — Age of Wonders"
+  description="The essays as a game. You are one small light, carrying light from where it is abundant to where it has not yet reached."
+>
+  <div class="game-content">
+    <h1>Infinite Canvas</h1>
+
+    <p class="intro">
+      The essays as a game. You are one small light, carrying light from where it is abundant
+      to where it has not yet reached. Eleven movements, one for each essay.
+    </p>
+
+    <img
+      class="hero"
+      src="/images/game/infinite-canvas.jpg"
+      alt="The Solar Gravitational Lens movement: a bright ring of light around the Sun, and below it a small image of a distant world resolving from the glare."
+      width="1280"
+      height="720"
+      loading="eager"
+    />
+
+    <div class="downloads" id="downloads">
+      {downloads.map((d) => (
+        <a class="dl" data-os={d.id} href={`${RELEASE}/${d.file}`} download>{d.label}</a>
+      ))}
+    </div>
+    <p class="meta note">Free. About 35 MB. Needs a graphics driver with OpenGL 4.1.</p>
+
+    <p class="controls">
+      Move with the pointer, WASD or a stick. Hold with the mouse, space or A.
+      F for fullscreen, Esc to pause.
+    </p>
+
+    <details class="first-run">
+      <summary>The first time you open it</summary>
+      <p><strong>macOS.</strong> Unzip, then right-click the app and choose Open. This is needed once; the app is not yet signed with an Apple developer certificate.</p>
+      <p><strong>Windows.</strong> Unzip the folder and run InfiniteCanvas.exe. If Windows says it protected your PC, choose More info, then Run anyway.</p>
+      <p><strong>Linux.</strong> Extract the archive and run <code>./InfiniteCanvas.sh</code>.</p>
+    </details>
+  </div>
+
+  <style>
+    .game-content {
+      max-width: 640px;
+    }
+
+    .game-content h1 {
+      margin: 0 0 32px 0;
+    }
+
+    .intro {
+      font-size: 23px;
+      line-height: 1.7;
+      margin: 0 0 40px 0;
+    }
+
+    .hero {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin: 0 0 40px 0;
+      background: #05060a;
+    }
+
+    .downloads {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .dl {
+      display: inline-block;
+      padding: 14px 28px;
+      font-size: 17px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      color: #888;
+      background-color: #f8f8f8;
+      border: 1px solid #e2e2e2;
+      border-radius: 24px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .dl:hover,
+    .dl:focus-visible {
+      background-color: #eee;
+      border-color: #ccc;
+      color: #333;
+    }
+
+    .dl.suggested {
+      color: #666;
+      border-color: #ccc;
+    }
+
+    .note {
+      margin: 16px 0 0 0;
+      padding-left: 4px;
+    }
+
+    .controls {
+      font-size: 19px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 40px 0 0 0;
+    }
+
+    .first-run {
+      margin-top: 40px;
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .first-run summary {
+      cursor: pointer;
+      color: #888;
+      transition: color 0.25s ease;
+    }
+
+    .first-run summary:hover {
+      color: #333;
+    }
+
+    .first-run p {
+      margin: 14px 0 0 0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .intro {
+        font-size: 21px;
+      }
+
+      .dl {
+        flex: 1 1 100%;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <script>
+    // Mark the visitor's platform. The HTML ships with all three equal, so nothing shifts on load.
+    function markPlatform() {
+      const ua = navigator.userAgent;
+      const os = /Windows/i.test(ua) ? "windows" : /Mac/i.test(ua) && !/iPhone|iPad/i.test(ua) ? "macos" : /Linux/i.test(ua) && !/Android/i.test(ua) ? "linux" : "";
+      document.querySelectorAll<HTMLAnchorElement>(".dl").forEach((a) => a.classList.toggle("suggested", a.dataset.os === os));
+    }
+    document.addEventListener("astro:page-load", markPlatform);
+  </script>
+</SiteLayout>
